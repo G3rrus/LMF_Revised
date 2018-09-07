@@ -1,0 +1,24 @@
+// POSSIBLE ADDITIONS
+
+AI MORTAR (must be not op and reliable)
+AI JET CAS (same as mortar)
+BARRICADES (must be performance friendly [and best like ai scripts only executed on var_spawner])
+WRECKS (same as barricades [maybe even combinable with barricades])
+ANIMALS (same as barricades [maybe even combinable with barricades])
+WEAPON JAM (seems to work perfectly [but disable by default and make briefing less deceiving, because it doesn't accurately reflect what is/isn't turned on])
+LIMB CRIPPLING (with ace medical rewrite on the way I think this should stay mission based and not actually be added to the framework?)
+GARRISON (there is a garrison script from nkenny in the unused folder...I think it would be useful as a secondary more controlable garrison script if modified)
+
+
+// PERFORMANCE 
+
+EVERYTHING (ideally all sctipts should be looked through and "modernized" if possible)
+EVERYTHING (ideally all scripts should be looked through and redundant shit should be removed)
+IF POSSIBLE MAKE SCRIPTS "WORK BETTER" TOGETHER (use functions, eventhandlers and compile instead of execVM etc...)
+
+// OTHER THOUGHTS
+
+JIP (kullervo suggested that the jiping function should be overworked because it seems to suck?)
+CLEANING PT.1 (not sure how usefull some files are like the cfg_base and cfg_players for example)
+CLEANING PT.2 (if possible I'd like to get rid of some shit I always questioned why its even needed like the cfgNotifications example in description.ext)
+CLEANING PT.2 (there is a "debug" mode param that does nothing and seems to stemm from the /f folder. generally speaking the shit in the /f folder...well lets just say I'd prefer if it went away as its pretty much just some shit straight up ripped from the F3 framework and like...2/3 of it isn't even used.)
