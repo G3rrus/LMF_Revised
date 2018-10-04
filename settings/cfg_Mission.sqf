@@ -15,6 +15,7 @@ In this File all Mission related settings are defined.
 var_author = "Author"; // Your name, which shows up at the end of the warmup.
 var_debug = false; // For mission testing, will start without warmup and turn on debug options. (default: false)
 var_jipTP = false; // Allow players that JIP to teleport? (default: false)
+var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (default: EAST)
 
 //RESPAWN
 var_respawnType = "OFF"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
@@ -26,17 +27,25 @@ var_playerGear = true; // Should players get custom gear? (default: true)
 var_camoCoef = 1; // How easy should players be spotted by AI? Higher number = easier spotted (default: 1)
 var_personalArsenal = false; // Give players access to a limited arsenal during briefing stage. (default: false)
 
-// PLAYER GEAR (Only relevant if var_playerGear = true;)
+//VEHICLES AND CRATES
+var_vic1 = "B_MRAP_01_F"; // Ground Spawnpad Vehicle
+var_vic2 = "B_MRAP_01_hmg_F"; // Ground Spawnpad Vehicle
+var_vic3 = "B_Truck_01_covered_F"; // Ground Spawnpad Vehicle
+var_vic4 = "B_APC_Wheeled_01_cannon_F"; // Ground Spawnpad Vehicle
+
+var_air1 = "B_Heli_Light_01_F"; // Air Spawnpad Vehicle
+var_air2 = "B_Heli_Light_01_dynamicLoadout_F"; // Air Spawnpad Vehicle
+var_air3 = "B_Heli_Transport_01_F"; // Air Spawnpad Vehicle
+var_air4 = "B_Heli_Transport_03_F"; // Air Spawnpad Vehicle
+
+var_supSmall = "Box_NATO_Ammo_F"; // Supply Spawnpad small supplies
+var_supLarge = "B_supplyCrate_F"; // Supply Spawnpad large supplies
+
+//PLAYER GEAR (Only relevant if var_playerGear = true;)
 var_personalRadio = true; // Does everyone get a short range radio (AN/PRC 343)? (default: true)
 var_backpacksAll = false; // Give all players backpacks? (Certain roles will have backpacks regardless) (default: false)
 var_playerNVG = 2; // Who gets NVGs? (0=ALL, 1=PILOTS, 2=NONE) (default: 2)
 var_playerMaps = 0; // Who gets Maps? (0=ALL, 1=LEADERS, 2=NONE) (default: 0)
-
-// AI /////////////////////////////////////////////////////////////////////////////////////////////
-var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (default: EAST)
-var_enemySkill = 1; // What skill does the enemy have? (0=UNTRAINED, 1=REGULAR, 2=ELITE) (default: 1)
-var_enemyGear = true; // Should AI get custom gear? (default: true)
-var_enemyNVG = false; // Should AI get NVGs? (default: false)
 
 // MARKERS ////////////////////////////////////////////////////////////////////////////////////////
 var_markerSide = "ColorWEST"; // What colorsheme should markers on playerside use? ("ColorWEST", "ColorEAST", "ColorGUER") (default: "ColorWEST")
