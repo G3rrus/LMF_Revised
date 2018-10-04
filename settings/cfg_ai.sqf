@@ -13,7 +13,7 @@ In this file you can define most AI related definitions such as:
  - Their Infantry (Defined Classnames will become special roles such as Grenadiers and AR Gunners)
 
 Important Notes:
- 
+
  1) All placed AI soldiers that do not fall under the defined classnames below (as long as they are from var_enemySide) will
 	get a random Loadout (excluding AA).
  2) If you define several different weapons in the same category that use incompatible magazines, e.g.: _Rifle = ["Ak47", "M16"];

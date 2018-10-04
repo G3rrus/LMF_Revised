@@ -4,17 +4,17 @@
 ["ace_unconscious", {
     params [["_unit", objNull],["_state", false]];
     if (ace_medical_enableUnconsciousnessAI == 0 || {!_state || {!(local _unit) || {isPlayer _unit}}}) exitWith {};
-    
+
     [_unit] spawn {
         params [["_unit", objNull]];
         while {alive _unit && {_unit getVariable ["ACE_isUnconscious", false]}} do {
             sleep 5;
             if (12.5 > random 100) then {
-                [_unit, false] call ace_medical_fnc_setUnconscious;    
+                [_unit, false] call ace_medical_fnc_setUnconscious;
             };
             sleep 15;
         };
-    };    
+    };
 }] call CBA_fnc_addEventHandler;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,10 +30,10 @@ waitUntil {!isNull player};
 
 // PLAYER GEAR ////////////////////////////////////////////////////////////////////////////////////
 
-
-// GROUP MARKERS //////////////////////////////////////////////////////////////////////////////////
-if (var_groupMarkers) then {[] execVM "a2k\scripts\groupMarkers.sqf";};
 */
+// GROUP MARKERS //////////////////////////////////////////////////////////////////////////////////
+if (var_groupMarkers) then {[] execVM "framework\player\init\groupMarkers.sqf";};
+
 // UNIT TRACKER ///////////////////////////////////////////////////////////////////////////////////
 if (var_unitTracker) then {[] execVM "framework\player\init\unitTracker.sqf";};
 /*
@@ -71,7 +71,7 @@ a2k_hitBlur = {
                 _h2 = _h2 + 0.01;
                 _blink ppEffectAdjust [1,1,0,[0,0,0,1],[1,1,1,1],[0.33,0.33,0.33,0],[_h1,_h2,0,0,0,0,4]];
                 _blink ppEffectCommit 0;
-                sleep 0.01; 
+                sleep 0.01;
             };
         _blink ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.33,0.33,0.33,0],[0,0,0,0,0,0,4]];
         _blink ppEffectCommit 0;
@@ -138,7 +138,7 @@ if (!isNil "LAMBS_Hospital") then {
 			[player,player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
 			//systemChat format ["You've been fully treated %1, The LAMBS Hospital wishes you a good day!", name player];
 			waitUntil {sleep 1; typeOf vehicle player != "Land_Pod_Heli_Transport_04_medevac_F"};
-		}; 
+		};
 	};
 };
 

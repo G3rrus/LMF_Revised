@@ -14,6 +14,6 @@ private _timesFired = round (3 + random 6);
 private _modes = (getArray (configFile >> "CfgWeapons" >> currentWeapon _unit >> "modes"));
 private _auto = "FullAuto";
 if (_modes findif {"FullAuto" == _x} == -1) then {_auto = "close"};
-       
+
 // do the suppression task
 [[_unit],[_suppTarget],_timesFired,false,_auto] spawn lmf_ai_fnc_taskSuppress;

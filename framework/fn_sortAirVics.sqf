@@ -13,8 +13,8 @@ private _AirVics = [_heli_Transport, _heli_Attack, _plane];
 
 //AI DEFINED VEHICLES
 if (
-	(_AirVics select 0) findif {_type == _x} != -1 || 
-	{(_AirVics select 1) findif {_type == _x} != -1 || 
+	(_AirVics select 0) findif {_type == _x} != -1 ||
+	{(_AirVics select 1) findif {_type == _x} != -1 ||
 	{(_AirVics select 2) findif {_type == _x} != -1 }}
 ) then {[_var_air] call lmf_ai_fnc_initAir;};
 

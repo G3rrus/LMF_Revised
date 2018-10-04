@@ -50,7 +50,7 @@ if (_var_enemyNVG) then {
 	_var_unit linkItem "NVGoggles_OPFOR";
 };
 
-//EXIT IF NO CUSTOM GEAR 
+//EXIT IF NO CUSTOM GEAR
 if (!_var_enemyGear) exitwith {};
 
 //REMOVE OLD STUFF
