@@ -44,24 +44,6 @@ if (_var_enemySkill == 2) then {_var_unit setSkill _skill_elite;};
 
 
 
-// CHANCE TO WAKEUP AI ////////////////////////////////////////////////////////////////////////////
-// this will probably become an EH in the future (if I can ever bother)
-if (ace_medical_enableUnconsciousnessAI != 0) then {
-	[_var_unit] spawn {
-		_var_unit = _this select 0;
-
-		for "_i" from 0 to 1 step 0 do {
-			waitUntil {sleep 5; _var_unit getVariable ["ACE_isUnconscious", false];};
-			if (12.5 > random 100) then {
-				[_var_unit, false] call ace_medical_fnc_setUnconscious;
-			};
-		sleep 15;
-		};
-	};
-};
-
-
-
 // APPLY LOADOUT //////////////////////////////////////////////////////////////////////////////////
 //GIVE NVG
 if (_var_enemyNVG) then {
