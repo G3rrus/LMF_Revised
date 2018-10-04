@@ -11,4 +11,4 @@ private _type = typeof _var_supp;
 if (_type != var_supSmall && {_type != var_supLarge}) exitWith {};
 
 //CALL THE FUNCTION
-[_var_supp] call lmf_fnc_execPlayerSupp;
+[_var_supp] call lmf_player_fnc_initPlayerSupp;

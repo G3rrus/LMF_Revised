@@ -15,24 +15,24 @@ class Extended_PreInit_EventHandlers {
     };
 };
 
-class Extended_InitPost_EventHandlers {
-	class Air {
-		init = "_this call lmf_fnc_sortAirVics;";
-	};
-	class LandVehicle {
-		init = "_this call lmf_fnc_sortGroundVics;";
-	};
-	class CAManBase {
-		init = "_this call lmf_fnc_sortUnits;";
-	};
-	class ReammoBox_F {
-		init = "_this call lmf_fnc_sortSupplies;";
-	};
-};
-
 class Extended_PostInit_EventHandlers
 {
 	class lambs_postInit {
     	clientInit = "[] call compile preprocessFileLineNumbers 'framework\XEH_PostInit.sqf'";
+	};
+};
+
+class Extended_InitPost_EventHandlers {
+	class Air {
+		init = "_this call lmf_common_fnc_sortAirVics;";
+	};
+	class LandVehicle {
+		init = "_this call lmf_common_fnc_sortGroundVics;";
+	};
+	class CAManBase {
+		init = "_this call lmf_common_fnc_sortUnits;";
+	};
+	class ReammoBox_F {
+		init = "_this call lmf_common_fnc_sortSupplies;";
 	};
 };

@@ -16,9 +16,9 @@ if (
 	(_AirVics select 0) findif {_type == _x} != -1 || 
 	{(_AirVics select 1) findif {_type == _x} != -1 || 
 	{(_AirVics select 2) findif {_type == _x} != -1 }}
-) then {[_var_air] call lmf_fnc_execAir;};
+) then {[_var_air] call lmf_ai_fnc_initAir;};
 
 //PLAYER VEHICLES
 if (_type == var_air1 || {_type == var_air2 || {_type == var_air3 || {_type == var_air4}}}) then {
-	[_var_air] call lmf_fnc_execPlayerAir;
+	[_var_air] call lmf_player_fnc_initPlayerAir;
 };

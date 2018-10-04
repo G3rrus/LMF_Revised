@@ -18,9 +18,9 @@ if (
 	{(_groundVics select 2) findif {_type == _x} != -1 ||
 	{(_groundVics select 3) findif {_type == _x} != -1 ||
 	{(_groundVics select 4) findif {_type == _x} != -1 }}}}
-) then {[_var_vic] call lmf_fnc_execVic;};
+) then {[_var_vic] call lmf_ai_fnc_initVic;};
 
 //PLAYER DEFINED VEHICLES
 if (_type == var_vic1 || {_type == var_vic2 || {_type == var_vic3 || {_type == var_vic4}}}) then {
-	[_var_vic] call lmf_fnc_execPlayerVic;
+	[_var_vic] call lmf_player_fnc_initPlayerVic;
 };

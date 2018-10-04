@@ -16,4 +16,4 @@ private _auto = "FullAuto";
 if (_modes findif {"FullAuto" == _x} == -1) then {_auto = "close"};
        
 // do the suppression task
-[[_unit],[_suppTarget],_timesFired,false,_auto] spawn a2k_fnc_taskSuppress;
+[[_unit],[_suppTarget],_timesFired,false,_auto] spawn lmf_ai_fnc_taskSuppress;

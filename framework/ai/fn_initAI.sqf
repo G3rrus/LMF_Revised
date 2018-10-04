@@ -22,13 +22,13 @@ if (_allTypesAA findif {_type == _x} == -1) then {
 // APPLY EVENT HANDLERS ///////////////////////////////////////////////////////////////////////////
 //KILLED EH
 _var_unit addEventHandler ["Killed", {
-	_this call lmf_fnc_killedAI;
+	_this call lmf_ai_fnc_killedEH;
 }];
 
 //SUPPRESSION EH
 if (_type == _Autorifleman || {_type == _MMG_Gunner}) then {
 	_var_unit addEventHandler ["Fired", {
-		_this call lmf_fnc_suppressAI;
+		_this call lmf__ai_fnc_suppressEH;
 	}];
 };
 
