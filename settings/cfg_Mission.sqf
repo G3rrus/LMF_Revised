@@ -50,4 +50,4 @@ var_playerMaps = 0; // Who gets Maps? (0=ALL, 1=LEADERS, 2=NONE) (default: 0)
 // MARKERS ////////////////////////////////////////////////////////////////////////////////////////
 var_markerSide = "ColorWEST"; // What colorsheme should markers on playerside use? ("ColorWEST", "ColorEAST", "ColorGUER") (default: "ColorWEST")
 var_groupMarkers = true; // Use group-icons on map. (default: true)
-var_unitTracker = false; // Use unit-icons on map. (default: false)
+var_unitTracker = true; // Use unit-icons on map. (default: false)
