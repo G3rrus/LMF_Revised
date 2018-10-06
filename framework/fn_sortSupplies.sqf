@@ -1,14 +1,15 @@
 // SORTING FUNCTION FOR PLAYER SUPPLIES ///////////////////////////////////////////////////////////
 
 //SELECT UNIT
-private _var_supp = _this select 0;
+private _supp = _this select 0;
 
-//EXIT IF NOT LOCAL
-if !(local _var_supp) exitWith {};
+//EXIT IF NOT LOCAL OR PLAYER HASN'T DEFINED CUSTOM GEAR
+if !(local _supp) exitWith {};
+if !(var_playerGear) exitWith {};
 
 //WHICH SUPPLIES ARE AFFECTED?
-private _type = typeof _var_supp;
+private _type = typeof _supp;
 if (_type != var_supSmall && {_type != var_supLarge}) exitWith {};
 
 //CALL THE FUNCTION
-[_var_supp] call lmf_player_fnc_initPlayerSupp;
+[_supp] call lmf_player_fnc_initPlayerSupp;
