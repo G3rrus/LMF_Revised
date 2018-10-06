@@ -1,125 +1,134 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PLAYER EQUIPMENT DEFINITIONS ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+/*
 
-//RADIOS
-_ACRE_MMR = "ACRE_PRC117F";
-_ACRE_ITR = "ACRE_PRC148";
-_ACRE_PRR = "ACRE_PRC343";
+
+DESCRIPTION
+
+In this file you can define most Player related definitions such as:
+
+ - Their Equipment
+
+Important Notes:
+
+ 1) When it comes to Weapons, Magazines, Grenades, NVGs or Binoculars only 1 (always the first option defined) will be chosen.
+ 2) If you know what you're doing and you want to change things in 1) to be randomly chosen instead
+ 	you can do so in "framework\player\fn_initPlayerGear.sqf".
+ 3) These components are also important for the in "settings\cfg_Mission.sqf" defined player vehicles/supplies.
+
+
+*/
+// RADIOS /////////////////////////////////////////////////////////////////////////////////////////
+private _ACRE_MMR = "ACRE_PRC117F";
+private _ACRE_ITR = "ACRE_PRC148";
+private _ACRE_PRR = "ACRE_PRC343";
 
 //INFANTRY UNIFORM
-_Headgear = ["H_HelmetO_ocamo"];
-_Headgear_L = ["H_HelmetLeaderO_ocamo"];
-_Headgear_O = ["H_Beret_ocamo"];
-_Uniform = ["U_O_CombatUniform_ocamo"];
-_Uniform_O = ["U_O_OfficerUniform_ocamo"];
-_Vest = ["V_TacVest_khk", "V_HarnessOGL_brn", "V_Chestrig_khk", "V_HarnessO_brn"];
-_Vest_O = ["V_BandollierB_khk"];
-_Goggles = [""];
+private _Uniform = ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_vest"];
+private _Vest = ["V_PlateCarrier2_rgr"];
+private _Headgear = ["H_HelmetSpecB", "H_HelmetSpecB_blk", "H_HelmetSpecB_paint2", "H_HelmetSpecB_paint1", "H_HelmetSpecB_sand", "H_HelmetSpecB_snakeskin"];
+private _Goggles = ["G_Combat", "", "G_Tactical_Clear", "", "G_Tactical_Black", ""];
 
 //PILOT UNIFORM
-_Heli_Headgear = ["H_PilotHelmetHeli_O"];
-_Heli_Uniform = ["U_O_PilotCoveralls"];
-_Heli_Vest = [""];
-_Heli_Goggles = [""];
+private _Heli_Uniform = ["U_B_HeliPilotCoveralls"];
+private _Heli_Vest = ["V_TacVest_blk"];
+private _Heli_Headgear = ["H_PilotHelmetHeli_B"];
+private _Heli_Goggles = ["G_Aviator"];
 
-_Plane_Headgear = [""];
-_Plane_Uniform = [""];
-_Plane_Vest = [""];
-_Plane_Goggles = [""];
+private _Plane_Uniform = ["U_B_PilotCoveralls"];
+private _Plane_Vest = ["V_Rangemaster_belt"];
+private _Plane_Headgear = ["H_PilotHelmetFighter_B"];
+private _Plane_Goggles = [""];
 
 //VEHICLE CREW UNIFORM
-_Crew_Headgear = [""];
-_Crew_Uniform = [""];
-_Crew_Vest = [""];
-_Crew_Goggles = [""];
+private _Crew_Uniform = ["U_B_CombatUniform_mcam_tshirt"];
+private _Crew_Vest = ["V_BandollierB_rgr"];
+private	_Crew_Headgear = ["H_HelmetCrew_B"];
+private _Crew_Goggles = ["G_Lowprofile"];
 
 //BACKPACKS
-_Backpack_Leader = ["B_AssaultPack_ocamo"]; //PltLead, PltSgt, Squad Leader
-_Backpack_RTO = ["B_FieldPack_ocamo"]; //RTO, FAC
-_Backpack_Medic = ["B_FieldPack_ocamo"]; //Medic
-_Backpack_MAT = ["B_FieldPack_ocamo"]; //MAT, MAT Assistant
-_Backpack_AR_MMG = ["B_FieldPack_cbr" , "B_Carryall_ocamo"]; // AR/MMG, AR/MMG assistant
-_Backpack_Crew = ["B_TacticalPack_ocamo"]; //Vehicle crew
-_Backpack_Pilot = ["B_TacticalPack_ocamo"]; //Pilots
-_Backpack_Light = ["B_AssaultPack_ocamo"]; // Everyone else if given backpack
+private _Backpack_Leader = ["B_TacticalPack_mcamo"]; // PltLead, PltSgt, Squad Leader
+private _Backpack_RTO = ["B_Carryall_mcamo"]; // RTO, FAC
+private _Backpack_Medic = ["B_Kitbag_mcamo"]; // Medic
+private _Backpack_MAT = ["B_Carryall_mcamo"]; // MAT, MAT Assistant
+private _Backpack_AR_MMG = ["B_Carryall_mcamo"]; // AR/MMG, AR/MMG assistant
+private _Backpack_Crew = ["B_AssaultPack_mcamo"]; // Vehicle crew
+private _Backpack_Pilot = ["B_AssaultPack_mcamo"]; // Pilots
+private _Backpack_Light = ["B_AssaultPack_mcamo"]; // Everyone else if given backpack
 
 //FLARE GUN
-_FlareGun = ["hgun_Pistol_Signal_F"];
-_FlareGun_Ammo = ["6Rnd_RedSignal_F","6Rnd_GreenSignal_F"];
+private _FlareGun = ["hgun_Pistol_Signal_F"];
+private _FlareGun_Ammo = ["6Rnd_RedSignal_F"];
 
 //PISTOL
-_Pistol = ["hgun_Rook40_F"];
-_Pistol_Ammo = ["16Rnd_9x21_Mag"];
+private _Pistol = ["hgun_P07_F"];
+private _Pistol_Ammo = ["16Rnd_9x21_Mag"];
 
 //SMG (Used by: Vehicle Crew, Helicopter Pilot)
-_SMG = ["SMG_02_F"];
-_SMG_Ammo = ["30Rnd_9x21_Mag_SMG_02_Tracer_Green"];
-_SMG_Ammo_T = [""];
-_SMG_Optic = [""];
-_SMG_Attach1 = [""];
-_SMG_Attach2 = [""];
+private _SMG = ["hgun_PDW2000_F"];
+private _SMG_Ammo = ["30Rnd_9x21_Mag"];
+private _SMG_Optic = [""];
+private _SMG_Attach1 = [""];
+private _SMG_Attach2 = [""];
 
 //CARBINE (Used by: RTO, Medic, MMG Assistant, MAT Gunner & Assistant)
-_Carbine = ["arifle_Katiba_C_F"];
-_Carbine_Ammo = ["30Rnd_65x39_caseless_green"];
-_Carbine_Ammo_T = ["30Rnd_65x39_caseless_green_mag_Tracer"];
-_Carbine_Optic = ["optic_aco_grn"];
-_Carbine_Attach1 = ["acc_pointer_ir"];
-_Carbine_Attach2 = [""];
+private _Carbine = ["arifle_MXC_F"];
+private _Carbine_Ammo = ["30Rnd_65x39_caseless_mag"];
+private _Carbine_Ammo_T = ["30Rnd_65x39_caseless_mag_Tracer"];
+private _Carbine_Optic = ["optic_aco"];
+private _Carbine_Attach1 = ["acc_pointer_ir"];
+private _Carbine_Attach2 = ["muzzle_snds_h"];
 
 //RIFLE (Used by: Plt.Lead, Plt.Sgt, Rifleman)
-_Rifle = ["arifle_Katiba_F"];
-_Rifle_Ammo = ["30Rnd_65x39_caseless_green"];
-_Rifle_Ammo_T = ["30Rnd_65x39_caseless_green_mag_Tracer"];
-_Rifle_Optic = ["optic_aco_grn"];
-_Rifle_Attach1 = ["acc_pointer_ir"];
-_Rifle_Attach2 = [""];
+private _Rifle = ["arifle_MX_F"];
+private _Rifle_Ammo = ["30Rnd_65x39_caseless_mag"];
+private _Rifle_Ammo_T = ["30Rnd_65x39_caseless_mag_Tracer"];
+private _Rifle_Optic = ["optic_aco"];
+private _Rifle_Attach1 = ["acc_pointer_ir"];
+private _Rifle_Attach2 = ["muzzle_snds_h"];
 
 //RIFLE GL (Used by: Squad Leader, Squad 2iC, FAC, Grenadier)
-_Rifle_GL = ["arifle_Katiba_GL_F"];
-_Rifle_GL_Ammo = ["30Rnd_65x39_caseless_green"];
-_Rifle_GL_Ammo_T = ["30Rnd_65x39_caseless_green_mag_Tracer"];
-_Rifle_GL_HE = ["1Rnd_HE_Grenade_shell"];
-_Rifle_GL_Smoke = ["1Rnd_Smoke_Grenade_shell"];
-_Rifle_GL_Smoke_Grn = ["1Rnd_SmokeGreen_Grenade_shell"];
-_Rifle_GL_Flare = ["1Rnd_SmokeRed_Grenade_shell"];
-_Rifle_GL_Optic = ["optic_arco_blk_f"];
-_Rifle_GL_Attach1 = ["acc_pointer_ir"];
-_Rifle_GL_Attach2 = [""];
+private _Rifle_GL = ["arifle_MX_GL_F"];
+private _Rifle_GL_Ammo = ["30Rnd_65x39_caseless_mag"];
+private _Rifle_GL_Ammo_T = ["30Rnd_65x39_caseless_mag_Tracer"];
+private _Rifle_GL_HE = ["1Rnd_HE_Grenade_shell"];
+private _Rifle_GL_Flare = ["UGL_FlareRed_F"];
+private _Rifle_GL_Smoke_Grn = ["1Rnd_SmokeGreen_Grenade_shell"];
+private _Rifle_GL_Smoke_Red = ["1Rnd_SmokeRed_Grenade_shell"];
+private _Rifle_GL_Optic = ["optic_aco"];
+private _Rifle_GL_Attach1 = ["acc_pointer_ir"];
+private _Rifle_GL_Attach2 = ["muzzle_snds_h"];
 
 //LIGHT MACHINE GUN
-_LMG = [""];
-_LMG_Ammo = [""];
-_LMG_Ammo_T = [""];
-_LMG_Optic = [""];
-_LMG_Attach1 = [""];
-_LMG_Attach2 = [""];
+private _LMG = ["arifle_MX_SW_F"];
+private _LMG_Ammo = ["100Rnd_65x39_caseless_mag"];
+private _LMG_Ammo_T = ["100Rnd_65x39_caseless_mag_Tracer"];
+private _LMG_Optic = ["optic_aco"];
+private _LMG_Attach1 = ["acc_pointer_ir"];
+private _LMG_Attach2 = ["muzzle_snds_h"];
 
 //MEDIUM MACHINE GUN
-_MMG = ["MMG_01_hex_F"];
-_MMG_Ammo = ["150Rnd_93x64_Mag"];
-_MMG_Ammo_T = ["150Rnd_93x64_Mag"];
-_MMG_Optic = ["optic_arco_blk_f"];
-_MMG_Attach1 = ["acc_pointer_ir"];
-_MMG_Attach2 = ["bipod_02_f_hex"];
+private _MMG = ["MMG_02_sand_F"];
+private _MMG_Ammo = ["130Rnd_338_Mag"];
+private _MMG_Optic = ["optic_aco"];
+private _MMG_Attach1 = ["acc_pointer_ir"];
+private _MMG_Attach2 = ["muzzle_snds_338_black"];
 
 //LIGHT ANTI-TANK
-_LAT = ["launch_RPG32_F"];
-_LAT_Ammo = ["RPG32_HE_F"];
-_LAT_Ammo_HE = [""];
+private _LAT = ["launch_NLAW_F"];
+private _LAT_Ammo = [""];
 
 //MEDIUM ANTI-TANK
-_MAT = ["launch_O_Vorona_brown_F"];
-_MAT_Ammo = ["Vorona_HEAT"];
-_MAT_Ammo_HE = [""];
-_MAT_Optic = [""];
+private _MAT = ["launch_MRAWS_green_F"];
+private _MAT_Ammo = ["MRAWS_HEAT_F"];
+private _MAT_Optic = [""];
 
 //GRENADES
-_Grenade = ["MiniGrenade"];
-_Grenade_Smoke = ["SmokeShell", "SmokeShellGreen"];
+private _Grenade = ["MiniGrenade"];
+private _Grenade_Smoke = ["SmokeShell"];
 
 //MISC
-_Binocular = ["ACE_Vector"];
-_NVG = ["NVGoggles_OPFOR"];
-_NVG_Pilot = ["NVGoggles_OPFOR"];
+private _Binocular = ["Binocular"];
+private _NVG = ["NVGoggles"];
+private _NVG_Pilot = ["NVGoggles"];
