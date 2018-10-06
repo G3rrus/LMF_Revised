@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3632.084,14.278796,733.32745};
+		pos[]={3632.3542,10.105724,744.09332};
 		dir[]={0.024614366,-0.20413722,0.97863549};
 		up[]={0.0051328368,0.97894192,0.2040749};
 		aside[]={0.99968582,1.7753337e-009,-0.025143819};
@@ -28,13 +28,14 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Characters_F_Mark",
+	"ace_nouniformrestrictions",
 	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -57,6 +58,13 @@ class AddonsMetaData
 			url="https://www.arma3.com";
 		};
 		class Item3
+		{
+			className="ace_nouniformrestrictions";
+			name="ACE3 - No Uniform Restrictions";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item4
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
@@ -177,23 +185,110 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3632.0247,5.0014391,752.09058};
-						angles[]={0,6.2685828,0};
+						position[]={3632.0249,5.0014391,752.091};
+						angles[]={0,6.2685766,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Platoon Leader@FOX6";
 						isPlayer=1;
 					};
 					id=1;
 					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=3;
+					};
 				};
 			};
 			class Attributes
 			{
+				name="Grp_FOX_6";
+				init="call{[this,""FOX6""] call CBA_fnc_setCallsign;}";
 			};
 			id=0;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="acex_headless_blacklist";
+					expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item1
 		{
