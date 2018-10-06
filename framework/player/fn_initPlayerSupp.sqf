@@ -1,8 +1,8 @@
 // APPLY SETTINGS TO DEFINED GROUND VICS //////////////////////////////////////////////////////////
 
 // START THE FUNCTION /////////////////////////////////////////////////////////////////////////////
-params [["_var_supp",objNull,[objNull]]];
-if (isNull _var_supp) exitWith {};
+params [["_supp",objNull,[objNull]]];
+if (isNull _supp) exitWith {};
 
 #include "..\..\settings\cfg_Player.sqf"
 
@@ -10,7 +10,7 @@ if (isNull _var_supp) exitWith {};
 
 // APPLY LOADOUT //////////////////////////////////////////////////////////////////////////////////
 //CLEAR CARGO
-clearWeaponCargoGlobal _var_supp;
-clearMagazineCargoGlobal _var_supp;
-clearItemCargoGlobal _var_supp;
-clearBackpackCargoGlobal _var_supp;
+clearWeaponCargoGlobal _supp;
+clearMagazineCargoGlobal _supp;
+clearItemCargoGlobal _supp;
+clearBackpackCargoGlobal _supp;
