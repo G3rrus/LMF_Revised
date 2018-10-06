@@ -30,6 +30,7 @@ class player {
 	tag = "lmf_player";
 	class functions {
 		file = "framework\player";
+        class initPlayerGear {};
 		class initPlayerAir {};
 		class initPlayerVic {};
 		class initPlayerSupp {};
