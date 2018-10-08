@@ -12,7 +12,7 @@ class ai {
     tag = "lmf_ai";
     class functions {
         file = "framework\ai";
-        class initAI {};
+        class initMan {};
         class initVic {};
         class initAir {};
     };
