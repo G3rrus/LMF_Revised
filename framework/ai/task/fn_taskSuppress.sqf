@@ -5,27 +5,25 @@
 
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params [["_unit",objNull],["_target",objNull],["_timesFired",10],["_resetMagazine",false],["_mode","FullAuto"]];
-if !(local _unit) exitWith {};
-if (_unit == objNull) exitWith {
-	if (var_debug) exitWith {
+if (isNull _unit) exitWith {
+	if (var_debug) then {
 		systemChat "No Suppressing Unit!";
 	};
 };
-if (_target == objNull) exitWith {
-	if (var_debug) exitWith {
+if (isNull _target) exitWith {
+	if (var_debug) then {
 		systemChat "No Targets to Suppress!";
 	};
 };
+if !(local _unit) exitWith {};
 
 private _time = _timesFired + time;
 
 //POSITIONS (give _unit positions to watch and make suppression less deadly)
 private _positions = [];
-if !((getpos _target) isEqualTo [0,0,0]) then {
-    _positions pushback ((getPosATL _target) vectorAdd [0,0,random 0.5]);
-    _positions pushback ((_target getpos [random 6,random 360]) vectorAdd [0,0,random 0.5]);
-    _positions pushback ((_target getpos [random 6,random 360]) vectorAdd [0,0,random 0.5]);
-};
+_positions pushback ((getPosATL _target) vectorAdd [0,0,random 0.5]);
+_positions pushback ((_target getpos [random 6,random 360]) vectorAdd [0,0,random 0.5]);
+_positions pushback ((_target getpos [random 6,random 360]) vectorAdd [0,0,random 0.5]);
 
 //DEBUG
 if (var_debug) then {
