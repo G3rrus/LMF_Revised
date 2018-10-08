@@ -44,12 +44,10 @@ _unit disableAI "PATH";
 sleep 0.1;
 
 // MAKE IT HAPPEN /////////////////////////////////////////////////////////////////////////////////
-while {time < _time} do {
-	if (alive _unit) then {
-		if (_resetMagazine) then {_unit setAmmo [primaryWeapon _unit, 100]};
-		_unit doWatch (selectRandom _positions);
-		_unit forceWeaponFire [(primaryWeapon _unit), _mode];
-	} else {};
+while {time < _time && {alive _unit}} do {
+	if (_resetMagazine) then {_unit setAmmo [primaryWeapon _unit, 100]};
+	_unit doWatch (selectRandom _positions);
+	_unit forceWeaponFire [(primaryWeapon _unit), _mode];
 	sleep 0.1;
 };
 
