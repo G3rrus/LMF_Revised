@@ -1,6 +1,6 @@
 // AI SUPPRESSION FUNCTION ////////////////////////////////////////////////////////////////////////
 // originally by nkenny -- Heavily inspired by Big_Wilk
-// updated by Drgn V4karian with great help from Diwako 
+// updated by Drgn V4karian with great help from Diwako
 
 
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
@@ -30,8 +30,8 @@ if !((getpos _target) isEqualTo [0,0,0]) then {
 //DEBUG
 if (var_debug) then {
 	{
-		private _veh = "Sign_Arrow_Large_Blue_F" createVehicle _x; 
-		_veh enableSimulation false; 
+		private _veh = "Sign_Arrow_Large_Blue_F" createVehicle _x;
+		_veh enableSimulation false;
 		false
 	} count _positions;
 };
