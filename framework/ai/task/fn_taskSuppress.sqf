@@ -4,8 +4,8 @@
 
 
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params ["_unit",objNull],["_target",objNull],["_timesFired",10],["_resetMagazine",false],["_mode","FullAuto"]];
-if !(local _unit exitWith {};
+params [["_unit",objNull],["_target",objNull],["_timesFired",10],["_resetMagazine",false],["_mode","FullAuto"]];
+if !(local _unit) exitWith {};
 if (_unit == objNull) exitWith {
 	if (var_debug) exitWith {
 		systemChat "No Suppressing Unit!";
@@ -50,7 +50,7 @@ while {time < _time} do {
 	if (alive _unit) then {
 		if (_resetMagazine) then {_unit setAmmo [primaryWeapon _unit, 100]};
 		_unit doWatch (selectRandom _positions);
-		_unit forceWeaponFire [(primaryWeapon _unit), _fm];
+		_unit forceWeaponFire [(primaryWeapon _unit), _mode];
 	} else {};
 	sleep 0.1;
 };
