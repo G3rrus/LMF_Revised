@@ -10,16 +10,16 @@
 // MEN FOR SCALAR SPAWNING ////////////////////////////////////////////////////////////////////////
 _soldier = [
 	_Rifleman,
-    _Rifleman,
-    _Rifleman,
+	_Rifleman,
+	_Rifleman,
 	_Rifleman,
 	_Grenadier,
 	_Grenadier,
 	_MMG_Gunner,
 	_Marksman,
-    _Rifleman_AT,
+	_Rifleman_AT,
 	_Autorifleman,
-    _Squad_Leader
+	_Squad_Leader
 ];
 
 
