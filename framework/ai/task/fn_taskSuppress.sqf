@@ -29,7 +29,11 @@ if !((getpos _target) isEqualTo [0,0,0]) then {
 
 //DEBUG
 if (var_debug) then {
-	{private _veh = "Sign_Arrow_Large_Blue_F" createVehicle _x; _veh enableSimulation false; false} count _positions;
+	{
+		private _veh = "Sign_Arrow_Large_Blue_F" createVehicle _x; 
+		_veh enableSimulation false; 
+		false
+	} count _positions;
 };
 
 //GET UNIT READY
