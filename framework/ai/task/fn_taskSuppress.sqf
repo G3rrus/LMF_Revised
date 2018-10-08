@@ -1,22 +1,9 @@
-// Suppressive fire script
-// v1.0
-// by nkenny -- Heavily inspired by Big_Wilk
+// AI SUPPRESSION FUNCTION ////////////////////////////////////////////////////////////////////////
+// originally by nkenny -- Heavily inspired by Big_Wilk
+// updated by Drgn V4karian with great help from Diwako 
 
-/*
-  1. Sort units
-  2. Sort positions
-  3. Execute
-  4. end
 
-  Parameters
-  _u = Aray : Units doing the shooting
-  _p = Array : Targets being hit
-  _t = number : time being fired
-  _a = Boolean : Endless ammo true/false
-
-*/
-
-//INIT
+// INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params ["_unit",objNull],["_target",objNull],["_timesFired",10],["_resetMagazine",false],["_mode","FullAuto"]];
 if !(local _unit exitWith {};
 if (_unit == objNull) exitWith {
@@ -32,7 +19,7 @@ if (_target == objNull) exitWith {
 
 private _time = _timesFired + time;
 
-//TARGET
+//POSITIONS (give _unit positions to watch and make suppression less deadly)
 private _positions = [];
 if !((getpos _target) isEqualTo [0,0,0]) then {
     _positions pushback ((getPosATL _target) vectorAdd [0,0,random 0.5]);
@@ -54,7 +41,7 @@ doStop _unit;
 _unit disableAI "PATH";
 sleep 0.1;
 
-//MAKE IT HAPPEN
+// MAKE IT HAPPEN /////////////////////////////////////////////////////////////////////////////////
 while {time < _time} do {
 	if (alive _unit) then {
 		if (_resetMagazine) then {_unit setAmmo [primaryWeapon _unit, 100]};
@@ -64,7 +51,7 @@ while {time < _time} do {
 	sleep 0.1;
 };
 
-//RESET THE UNIT IF STILL ALIVE
+// RESET THE UNIT IF STILL ALIVE //////////////////////////////////////////////////////////////////
 if !(alive _unit) exitWith {};
 
 _unit setVariable ["var_isSuppressing",false];
