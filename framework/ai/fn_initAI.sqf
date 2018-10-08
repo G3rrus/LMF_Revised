@@ -28,7 +28,7 @@ _unit addEventHandler ["Killed", {
 //SUPPRESSION EH
 if (_type == _Autorifleman || {_type == _MMG_Gunner}) then {
 	_unit addEventHandler ["Fired", {
-		_this call lmf__ai_fnc_suppressEH;
+		_this call lmf_ai_fnc_suppressEH;
 	}];
 };
 
