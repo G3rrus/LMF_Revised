@@ -1,12 +1,13 @@
 // UNIT TRACKER SCRIPT ////////////////////////////////////////////////////////////////////////////
-// by nkenny (edited by g4rrus)
-
+/*
+	- by nkenny (edited by Drgn V4karian with help of Diwako).
+	- Function that handles markers to track individual player units.
+*/
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 if (!hasinterface) exitWith {};
 waitUntil {time > 0};
 
 lmf_player_tracklist = [];
-
 
 
 // ADD PLAYERS CYCLE //////////////////////////////////////////////////////////////////////////////
@@ -18,8 +19,6 @@ lmf_player_tracklist = [];
 		_marker setMarkerColorLocal var_markerSide;
   		_marker setMarkerTypeLocal "mil_dot_noshadow";
 		_marker setmarkerSizeLocal [0.4,0.4];
-
-  		// Add to list
   		lmf_player_tracklist pushbackunique _unit;
  	};
     while {true} do {
@@ -32,17 +31,12 @@ lmf_player_tracklist = [];
 };
 
 
-
 // TRACKING MAGIC /////////////////////////////////////////////////////////////////////////////////
-
 while {true} do {
     waitUntil {count lmf_player_tracklist > 0};
-
-//UPDATE VEHICLE LOCATIONS
 	{
 		private _marker = ("nk_m_"+ str(_x));
 		_marker setmarkerposlocal getposASL _x;
-		// delete if dead or missing
         if (isNull _x) then {
 			lmf_player_tracklist = lmf_player_tracklist - [_x];
 			deleteMarkerLocal _marker;

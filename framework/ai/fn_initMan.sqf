@@ -1,11 +1,12 @@
-// APPLY SETTINGS TO CAMANBASE OF VAR_ENEMYSIDE ///////////////////////////////////////////////////
-
-// START THE FUNCTION /////////////////////////////////////////////////////////////////////////////
+// INIT AI MAN ////////////////////////////////////////////////////////////////////////////////////
+/*
+	- File that handles what happens to all defined AI men on creation.
+*/
+// INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params [["_unit",objNull,[objNull]]];
 if (isNull _unit) exitWith {};
 
 #include "..\..\settings\cfg_AI.sqf"
-
 
 
 // CHECK WHO GETS WHAT GEAR ///////////////////////////////////////////////////////////////////////
@@ -16,7 +17,6 @@ private _someTypes = [_Autorifleman,_Grenadier, _Marksman, _Rifleman_AT];
 if (_allTypesAA findif {_type == _x} == -1) then {
 	_type = [_Rifleman, selectRandom _someTypes] select (40 > random 100); // select a random Loadout for people that aren't a defined _type
 };
-
 
 
 // APPLY EVENT HANDLERS ///////////////////////////////////////////////////////////////////////////
@@ -33,7 +33,6 @@ if (_type == _Autorifleman || {_type == _MMG_Gunner}) then {
 };
 
 
-
 // APPLY SKILL ////////////////////////////////////////////////////////////////////////////////////
 private _skill_untrained = skill _unit * selectRandom [0.01,0.03,0.05,0.10,0.15];
 private _skill_regular = skill _unit * selectRandom [0.35,0.45,0.50,0.55,0.60];
@@ -41,7 +40,6 @@ private _skill_elite = skill _unit * selectRandom [0.85,0.90,0.95,1.05,1.10];
 if (_var_enemySkill == 0) then {_unit setSkill _skill_untrained;};
 if (_var_enemySkill == 1) then {_unit setSkill _skill_regular;};
 if (_var_enemySkill == 2) then {_unit setSkill _skill_elite;};
-
 
 
 // APPLY LOADOUT //////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +96,6 @@ _unit addVest _s_Vest;
 _unit addHeadgear _s_Headgear;
 _unit addBackpack _s_Backpack; clearAllItemsFromBackpack _unit;
 if (10 > random 100) then {_unit addGoggles _s_Goggles};
-
 
 
 // WEAPONS ////////////////////////////////////////////////////////////////////////////////////////
@@ -172,6 +169,7 @@ if (_type == _Officer) then {
 	if (_Pistol_Ammo select 0 == "") then {_Pistol_Ammo = 0;} else {_Pistol_Ammo = selectRandom _Pistol_Ammo};
 	[_unit, selectRandom _Pistol, 10, _Pistol_Ammo] call BIS_fnc_addWeapon;
 };
+
 
 // MISC LOOT //////////////////////////////////////////////////////////////////////////////////////
 //ADD GRENADES

@@ -1,21 +1,11 @@
 // GROUP MARKER SCRIPT ////////////////////////////////////////////////////////////////////////////
 /*
-
-updated by: diwako
-
-Parameters:
-0. Group marker will be added to
-1. Color of marker
-2. Text added to marker
-3. Marker type
-4. Marker Size
-
-Example: _markers pushBack [Grp_A,"ColorEAST","A","b_inf",[1,1]]};
-
+    - Inspired by the F3 Framework component for group markers, since edited by Drgn V4karian
+      with great help of Diwako.
+    - File handles group markers + function that are ment to track player groups.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 if !(hasInterface) exitWith {};
-
 
 //FUNCTION
 private _fnc_group_markers = {
@@ -52,6 +42,7 @@ private _fnc_group_markers = {
 
 //COLLECT MARKERS
 private _markers = [];
+
 
 // WHICH GROUPS GET TRACKED ///////////////////////////////////////////////////////////////////////
 //FOX PLATOON
@@ -105,5 +96,5 @@ if !(isNil "Grp_EGL2") then {_markers pushBack [Grp_EGL2,var_markerSide,"","LAMB
 if !(isNil "Grp_EGL3") then {_markers pushBack [Grp_EGL3,var_markerSide,"","LAMBS_PLANE",[1,1]]};
 if !(isNil "Grp_EGL4") then {_markers pushBack [Grp_EGL4,var_markerSide,"","LAMBS_PLANE",[1,1]]};
 
-//EXECUTE FUNCTION
+// EXECUTE FUNCTION ///////////////////////////////////////////////////////////////////////////////
 _markers spawn _fnc_group_markers;

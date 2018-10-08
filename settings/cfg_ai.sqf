@@ -1,35 +1,23 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// AI DEFINITIONS /////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+// PLAYER EQUIPMENT DEFINITIONS ///////////////////////////////////////////////////////////////////
 /*
-
-
-DESCRIPTION
-
-In this file you can define most AI related definitions such as:
-
- - Their Equipment
- - Their Vehicles (These vehicles will be used for spawning, futhermore they will be affected by other script components.)
- - Their Infantry (Defined Classnames will become special roles such as Grenadiers and AR Gunners)
-
-Important Notes:
-
- 1) All placed AI soldiers that do not fall under the defined classnames below (as long as they are from var_enemySide) will
-	get a random Loadout (excluding AA).
- 2) If you define several different weapons in the same category that use incompatible magazines, e.g.: _Rifle = ["Ak47", "M16"];
-	leave the array for magazines empty!
- 3) The Ammo Blacklist affects all vehicles defined in this file.
- 4) The Camos can obviously only be applied if they exist for said vehicle, which means if you define multiple trucks and only
-	one of them has a black camouflage, then it will not work for the trucks that don't have it.
- 5) If you set var_enemyGear to false, you can skip ahead to the // VEHICLES section.
-
-
+	- In this file you can define most AI related definitions such as:
+		1) Their Equipment
+ 		2) Their Vehicles (These vehicles will be used for spawning, futhermore they will be affected by other script components.)
+		3) Their Infantry (Defined Classnames will become special roles such as Grenadiers and AR Gunners)
+	- All placed AI soldiers that do not fall under the defined classnames below (as long as they are from var_enemySide)
+	  will get a random Loadout (excluding AA).
+ 	- If you define several different weapons in the same category that use incompatible magazines, e.g.: _Rifle = ["Ak47", "M16"];
+	  leave the array for magazines empty as such: private _Rifle_Ammo = [""];
+	- The Ammo Blacklist affects all vehicles defined in this file.
+	- The Camos can obviously only be applied if they exist for said vehicle, which means if you define multiple trucks and only
+	  one of them has a black camouflage, then it will not work for the trucks that don't have it.
+	- If you set var_enemyGear to false, you can skip ahead to the // VEHICLES section.
 */
-// GENERAL SETTINGS ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//GENERAL SETTINGS
 private _var_enemySkill = 1; // What skill does the enemy have? (0=UNTRAINED, 1=REGULAR, 2=ELITE) (default: 1)
 private _var_enemyGear = true; // Should AI get custom gear? (default: true)
 private _var_enemyNVG = true; // Should AI get NVGs? (default: false)
-
 
 
 // CLOTHING ///////////////////////////////////////////////////////////////////////////////////////
@@ -49,7 +37,6 @@ private _Heli_Headgear = ["H_PilotHelmetHeli_O"]; // Same as Headgear(s) but for
 private _Crew_Uniform = ["U_O_CombatUniform_oucamo"]; // Same as Uniform(s) but for Pilots
 private _Crew_Vest = ["V_HarnessO_gry"]; // Same as Vest(s) but for Pilots
 private _Crew_Headgear = ["H_HelmetSpecO_blk"]; // Same as Headgear(s) but for Pilots
-
 
 
 // WEAPONS ////////////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +79,6 @@ private _Attach = ["acc_flashlight"]; // Weapon Attachement(s)
 private _Optic = ["optic_Arco", "optic_ACO_grn"]; // Weapon Optic(s)
 
 
-
 // VEHICLES ///////////////////////////////////////////////////////////////////////////////////////
 private _car =  ["O_MRAP_02_F"]; // Car(s)
 private _carArmed =  ["O_MRAP_02_hmg_F", "O_LSV_02_armed_F"]; // Armed Car(s)
@@ -103,7 +89,7 @@ private _heli_Transport =  ["O_Heli_Light_02_unarmed_F", "O_Heli_Transport_04_co
 private _heli_Attack =  ["O_Heli_Attack_02_dynamicLoadout_F"]; // Attack Helo(s)
 private _plane =  ["O_Plane_Fighter_02_F"]; // Plane(s)
 
-//CAMOS: Applied to all defined vehicles that are spawned. Leave empty if no camo.
+//CAMOS  (Applied to all defined vehicles that are spawned. Leave empty if no camo.)
 private _car_Camo =  [""]; // camo(s) for car(s)
 private _carArmed_Camo =  [""]; // camo(s) for armed car(s)
 private _truck_Camo =  [""]; // camo(s) for truck(s)
@@ -115,7 +101,6 @@ private _plane_Camo =  ["CamoBlue", "CamoGreyHex"]; // camo(s) for plane(s)
 
 //AMMO BLACKLIST
 private _ammoBlacklist = ["96Rnd_40mm_G_belt"];
-
 
 
 // DEFINE AI UNITS ////////////////////////////////////////////////////////////////////////////////

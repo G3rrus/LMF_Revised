@@ -1,16 +1,9 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// MISSION SETTINGS ///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+// MISSION RELEVANT SETTINGS //////////////////////////////////////////////////////////////////////
 /*
-
-
-DESCRIPTION
-
-In this File all Mission related settings are defined.
-
-
+	- In this file you define mission relevant settings. It is important these settings are
+	  configured properly.
 */
-// MISSION ////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 //VARIOUS
 var_author = "Author"; // Your name, which shows up at the end of the warmup.
 var_debug = false; // For mission testing, will start without warmup and turn on debug options. (default: false)
@@ -20,6 +13,7 @@ var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (defaul
 //RESPAWN
 var_respawnType = "OFF"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
 var_respawnTime = 1500; // Respawn countdown in seconds in case of "WAVE". (default: 1500)
+
 
 // PLAYERS ////////////////////////////////////////////////////////////////////////////////////////
 var_playerGear = true; // Should players get custom gear? (default: true)
@@ -47,6 +41,7 @@ var_pistolAll = false; // Give all players sidearms? (default: false)
 var_playerNVG = 2; // Who gets NVGs? (0=ALL, 1=PILOTS, 2=NONE) (default: 2)
 var_playerMaps = 0; // Who gets Maps? (0=ALL, 1=LEADERS, 2=NONE) (default: 0)
 var_keepRole = true; // Should players keep their role upon respawn? (default: true)
+
 
 // MARKERS ////////////////////////////////////////////////////////////////////////////////////////
 var_markerSide = "ColorWEST"; // What colorsheme should markers on playerside use? ("ColorWEST", "ColorEAST", "ColorGUER") (default: "ColorWEST")
