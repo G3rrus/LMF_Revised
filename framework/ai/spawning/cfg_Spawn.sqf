@@ -1,6 +1,6 @@
 // DEFINITIONS FOR SPAWN FUNCTIONS  ////////////////////////////////////////////////////////////////
 /*
-	- File ment for defining groups, also includes some functions related to the spawning proces
+	- File ment for defining groups, also includes some functions related to the spawning process
 	  such as picking the group and checking if players are far enough away.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
@@ -63,8 +63,8 @@ _mgTeam =	[
 	[_Squad_Leader,_MMG_Gunner,_Grenadier,_Rifleman]
 ];
 
-_vehicleCrew = [_Vehicle_Crew,_Vehicle_Crew,_Vehicle_Crew];
-_heliCrew = [_Heli_Pilot,_Heli_Pilot];
+_vehicleCrew = [_Crew,_Crew,_Crew];
+_heliCrew = [_Pilot,_Pilot];
 
 
 // FUNCTIONS ///////////////////////////////////////////////////////////////////////////////////////
