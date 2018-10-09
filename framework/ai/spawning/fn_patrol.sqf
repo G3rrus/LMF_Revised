@@ -23,15 +23,18 @@ private _patrolTarget = _spawnPos;
 //WAIT A RANDOM BIT OF TIME (In case multiple functions are called on 1 location it make spawning a bit smoother)
 sleep (random 10);
 
+
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
 private _type = [_grptype] call _typeMaker;
 private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 
+
 // GIVE THEM ORDERS ///////////////////////////////////////////////////////////////////////////////
 [_grp, _patrolTarget, _patrolRadius, 4, "MOVE", "AWARE", "RED", "NORMAL", "STAG COLUMN", "", [10,20,30]] call CBA_fnc_taskPatrol;
-_grp deleteGroupWhenEmpty true;
 
-//waitUntil {sleep 1; behaviour leader _grp == "COMBAT" OR {alive _x} count units _grp < 1};
-//0 = [_grp] spawn a2k_fnc_taskUpdateWP;
-//sleep 5;
-//0 = [_grp] spawn a2k_fnc_taskAssault;
+waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
+
+if ({alive _x} count units _grp < 1) exitWith {};
+0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+sleep 5;
+0 = [_grp] spawn lmf_ai_fnc_taskAssault;
