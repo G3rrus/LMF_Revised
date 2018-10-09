@@ -69,9 +69,9 @@ _heliCrew = [_Pilot,_Pilot];
 
 // FUNCTIONS ///////////////////////////////////////////////////////////////////////////////////////
 //PASS SELECTION OF TYPE OF GROUP
-_typeMaker = {
+private _typeMaker = {
 	params ["_type"];
-	_selection = [];
+	private _selection = [];
 	if (typeName _type == "SCALAR") then {
 		for "_i" from 1 to (floor (_type)) do {
 			_selection pushback (selectRandom _soldier);
@@ -92,10 +92,10 @@ _typeMaker = {
 };
 
 //CHECK IF PLAYERS FAR ENOUGH AWAY
-_proximityChecker = {
+private _proximityChecker = {
 	params [["_pos"],["_range",500]];
 	private _targetsToCheck = (switchableUnits + playableUnits - entities "HeadlessClient_F");
-	_close = false;
+	private _close = false;
 	{
 		private _dist = vehicle _x distance _pos;
 		if (isPlayer _x && {_dist < _range}) then {_close = true};
