@@ -25,6 +25,11 @@ class ai {
 		file = "framework\ai\task";
     	class taskSuppress {};
 	};
+    class spawning {
+        file = "framework\ai\spawning";
+        class returnSpawner {};
+        class patrol {};
+    };
 };
 class player {
 	tag = "lmf_player";
