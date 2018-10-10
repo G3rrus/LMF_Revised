@@ -23,7 +23,7 @@ class ai {
     };
 	class aitasks {
 		file = "framework\ai\task";
-    	class taskSuppress {};
+        class taskSuppress {};
         class taskAssault {};
         class taskUpdateWP {};
 	};
@@ -38,8 +38,8 @@ class player {
 	class functions {
 		file = "framework\player";
         class initPlayerGear {};
-		class initPlayerAir {};
-		class initPlayerVic {};
-		class initPlayerSupp {};
+        class initPlayerAir {};
+        class initPlayerVic {};
+        class initPlayerSupp {};
 	};
 };
