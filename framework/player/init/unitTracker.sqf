@@ -15,11 +15,11 @@ lmf_player_tracklist = [];
 	private _fnc_addUnitMarker =  {
 		private _unit = _this select 0;
 		private _marker = createMarkerLocal ["nk_m_"+str(_unit),getposASL _unit];
- 		_marker setMarkerShapeLocal "Icon";
+		_marker setMarkerShapeLocal "Icon";
 		_marker setMarkerColorLocal var_markerSide;
-  		_marker setMarkerTypeLocal "mil_dot_noshadow";
+		_marker setMarkerTypeLocal "mil_dot_noshadow";
 		_marker setmarkerSizeLocal [0.4,0.4];
-  		lmf_player_tracklist pushbackunique _unit;
+		lmf_player_tracklist pushbackunique _unit;
 	};
 	while {true} do {
 		{
