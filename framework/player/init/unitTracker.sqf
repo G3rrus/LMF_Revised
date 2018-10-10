@@ -20,14 +20,14 @@ lmf_player_tracklist = [];
   		_marker setMarkerTypeLocal "mil_dot_noshadow";
 		_marker setmarkerSizeLocal [0.4,0.4];
   		lmf_player_tracklist pushbackunique _unit;
- 	};
-    while {true} do {
-        {
-            if (_x in lmf_player_tracklist) then {} else {0 =[_x,""] call _fnc_addUnitMarker;};
-            false
-        } count (playableunits + switchableunits - entities "Headless_F");
-        sleep 20;
-    };
+	};
+	while {true} do {
+		{
+			if (_x in lmf_player_tracklist) then {} else {0 =[_x,""] call _fnc_addUnitMarker;};
+			false
+		} count (playableunits + switchableunits - entities "Headless_F");
+		sleep 20;
+	};
 };
 
 
