@@ -11,7 +11,7 @@ if !(local _unit) exitWith {};
 //SORT
 if  !(isPlayer _unit) then {
 	if (side group _unit != var_enemySide) exitWith {};
-    [_unit] call lmf_ai_fnc_initMan;
+	[_unit] call lmf_ai_fnc_initMan;
 	if(!(isGroupDeletedWhenEmpty group _unit)) then {
     	(group _unit) deleteGroupWhenEmpty true;
 	};
