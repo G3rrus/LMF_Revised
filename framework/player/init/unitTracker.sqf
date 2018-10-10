@@ -33,15 +33,15 @@ lmf_player_tracklist = [];
 
 // TRACKING MAGIC /////////////////////////////////////////////////////////////////////////////////
 while {true} do {
-    waitUntil {count lmf_player_tracklist > 0};
+	waitUntil {count lmf_player_tracklist > 0};
 	{
 		private _marker = ("nk_m_"+ str(_x));
 		_marker setmarkerposlocal getposASL _x;
-        if (isNull _x) then {
+		if (isNull _x) then {
 			lmf_player_tracklist = lmf_player_tracklist - [_x];
 			deleteMarkerLocal _marker;
 		};
-    false
-    } count lmf_player_tracklist;
-    sleep 5;
+	false
+	} count lmf_player_tracklist;
+	sleep 5;
 };
