@@ -78,15 +78,14 @@ private _typeMaker = {
 		};
 	}
 	else {
-		_selection = switch (toUpper _type) do {
-			case "SQUAD": {selectRandom _squad};
-			case "TEAM": {selectRandom _team};
-			case "SENTRY": {selectRandom _sentry};
-			case "ATTEAM": {selectRandom _atteam};
-			case "AATEAM": {selectRandom _aateam};
-			case "MGTEAM": {selectRandom _mgteam};
-			default {selectRandom _team};
-		};
+		toUpper _type;
+		_selection = selectRandom _team;
+		
+		if (_type == "SQUAD") then {_selection = selectRandom _squad};
+		if (_type == "SENTRY") then {_selection = selectRandom _sentry};
+		if (_type == "ATTEAM") then {_selection = selectRandom _atteam};;
+		if (_type == "AATEAM") then {_selection = selectRandom _aateam};
+		if (_type == "MGTEAM") then {_selection = selectRandom _mgteam};
 	};
 	_selection
 };
