@@ -2,8 +2,30 @@
 
 #include "..\gear\cfg_player.sqf";
 
+// SPAWN FUNCTION /////////////////////////////////////////////////////////////////////////////////
+private _spawnerCreateObject = {
+    params ["_vehType"];
+    private _vehicle = _vehType createVehicle getPosATL vehicleSpawner;
+    private _dir = getDir vehicleSpawner;
+    _vehicle setDir _dir;
+    
+    private _vehDelete = ["vehDelete","Remove from Pad","",{deleteVehicle _target},{_target distance vehicleSpawner < 10},{},[],[0,0,0],100] call ace_interact_menu_fnc_createAction;
+    [_vehicle,0,["ACE_MainActions"],_vehDelete] remoteExec ["ace_interact_menu_fnc_addActionToObject", -2, _vehicle];
+};
+
+// CONDITION //////////////////////////////////////////////////////////////////////////////////////
+private _condition = {
+    rank _player != "PRIVATE" && {rank _player != "CORPORAL" && {vehicleSpawner nearEntities [["Man", "Air", "Land", "Ship"], 10] < 1}}
+};
 
 // AMMOSPAWNER ////////////////////////////////////////////////////////////////////////////////////
+if !(isNil "vehSpawner") then {
+    private _ammolarge = ["ammolarge","\A3\ui_f\data\map\vehicleicons\iconCrateAmmo_ca.paa",{[var_supLarge] call _spawnerCreateObject;},_condition,{},[], [0,0,0], 100] call ace_interact_menu_fnc_createAction;
+    
+    [vehSpawner, 0, ["ACE_MainActions"], _ammolarge] call ace_interact_menu_fnc_addActionToObject;
+};
+
+
 if (!isNil "ammoSpawner") then {
 
 	a2k_g_ammolarge = ["ammolarge","Ammunition Large","\A3\ui_f\data\map\vehicleicons\iconCrateAmmo_ca.paa",{0 = [_this select 1, "ammolarge"] execVM "a2k\gear\inv\ammocrates.sqf"},{true},{},[], [0,0,0], 100] call ace_interact_menu_fnc_createAction;
