@@ -49,7 +49,7 @@ sleep 5 + random 10;
 	if (typeOf _x == _Autorifleman || {typeOf _x == _MMG_Gunner}) then {
 		_x setUnitPos "UP";
 	} else {
-		_x setUnitPos "AUTO";
+	_x setUnitPos "AUTO";
 	};
 	false
 } count units _grp;
