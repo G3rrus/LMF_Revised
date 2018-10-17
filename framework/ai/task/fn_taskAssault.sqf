@@ -18,7 +18,7 @@ while {count units _grp > 0} do {
 	//CHOOSE CLOSEST TARGET
 	{
 		private _dist = vehicle _x distance2D _tracker;
-		if ((_dist < _nearestdist) && {(side _x != civilian) && {((getposATL _x)#2 < 25) && isPlayer _x}}) then {
+		if ((_dist < _nearestdist) && {(side _x != civilian) && {((getposATL _x) select 2 < 25) && isPlayer _x}}) then {
 			_nearest = _x;
 			_nearestdist = _dist;
 		};
