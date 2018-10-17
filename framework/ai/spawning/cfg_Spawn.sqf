@@ -13,7 +13,7 @@ _soldier = [
 	_Rifleman,
 	_Rifleman,
 	_Rifleman,
-	_Grenadier,
+	_Rifleman,
 	_Grenadier,
 	_MMG_Gunner,
 	_Marksman,

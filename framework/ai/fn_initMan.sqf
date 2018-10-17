@@ -12,10 +12,10 @@ if (isNull _unit) exitWith {};
 // CHECK WHO GETS WHAT GEAR ///////////////////////////////////////////////////////////////////////
 private _type = typeOf _unit;
 private _allTypesAA = [_Autorifleman, _Crew, _Grenadier, _MMG_Gunner, _Marksman, _AA_Gunner, _MAT_Gunner, _Officer, _Pilot, _Rifleman, _Rifleman_AT, _Squad_Leader];
-private _someTypes = [_Autorifleman,_Grenadier, _Marksman, _Rifleman_AT];
+private _someTypes = [_Grenadier,_Marksman, _Rifleman_AT, _Autorifleman, _Squad_Leader];
 
 if (_allTypesAA findif {_type == _x} == -1) then {
-	_type = [_Rifleman, selectRandom _someTypes] select (40 > random 100); // select a random Loadout for people that aren't a defined _type
+	_type = [_Rifleman, selectRandom _someTypes] select (50 > random 100); // select a random Loadout for people that aren't a defined _type
 };
 
 
