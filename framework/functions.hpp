@@ -45,3 +45,14 @@ class player {
         class initPlayerSupp {};
 	};
 };
+class admin {
+	tag = "lmf_admin";
+	class functions {
+		file = "framework\player\admin";
+        class endWarmup {};
+        class initPerformance {};
+        class performanceCheck {};
+        class assignZeus {};
+        class respawnWave {};
+	};
+};
