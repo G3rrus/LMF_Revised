@@ -31,6 +31,7 @@ class ai {
         file = "framework\ai\spawning";
         class returnSpawner {};
         class patrol {};
+        class garrison {};
     };
 };
 class player {
