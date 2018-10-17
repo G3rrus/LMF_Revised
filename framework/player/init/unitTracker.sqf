@@ -4,7 +4,7 @@
 	- Function that handles markers to track individual player units.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-if (!hasinterface) exitWith {};
+if !(hasinterface) exitWith {};
 waitUntil {time > 0};
 
 lmf_player_tracklist = [];
