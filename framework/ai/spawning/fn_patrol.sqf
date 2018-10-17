@@ -3,11 +3,13 @@
 	- Redone by Drgn V4karian with help of Diwako.
 	- File to spawn a group of infantry that peforms a patrol task. Once it gets into combat,
 	  it will move in to attack threats.
+
 	- USAGE:
 		1) Spawn Position.
-		2) Group Type ("squad", "team", "sentry","atTeam","aaTeam") OR number of soldiers.
-		3) Patrol Radius.
-	- EXAMPLE: 0 = [this,"team",100] spawn lmf_ai_fnc_patrol;
+		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam" or number of soldiers) (default: "TEAM")
+		3) Patrol Radius. [OPTIONAL] (default: 200)
+
+	- EXAMPLE: 0 = [this,"team",200] spawn lmf_ai_fnc_patrol;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
