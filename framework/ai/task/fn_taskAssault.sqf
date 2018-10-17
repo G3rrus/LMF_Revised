@@ -18,7 +18,7 @@ while {count units _grp > 0} do {
 	//CHOOSE CLOSEST TARGET
 	{
 		private _dist = vehicle _x distance2D _tracker;
-		if ((_dist < _nearestdist) && {(side _x != civilian) && {((getposATL _x) select 2 < 25) && isPlayer _x}}) then {
+		if ((_dist < _nearestdist) && {(side _x != civilian) && {((getposATL _x) select 2 < 25) && {isPlayer _x}}}) then {
 			_nearest = _x;
 			_nearestdist = _dist;
 		};
@@ -78,7 +78,7 @@ while {count units _grp > 0} do {
 
 		_cycle = _nearestdist/8;
 
-    	// DEBUG
+    	//DEBUG
     	if (var_debug) then {systemChat format ["DEBUG: taskAssault: %1 targets %2 (%3) at %4 Meters",_grp,name _nearest,_grp knowsAbout _nearest,floor (leader _grp distance _nearest)]};
     } else {
 		_cycle = 90;
@@ -91,7 +91,7 @@ while {count units _grp > 0} do {
 		{_x setUnitPos "AUTO"; false} count units _grp;
 	};
 
-  	// WAIT FOR IT!
+  	//WAIT
   	if (_cycle < 30) then {_cycle = 30};
   	if (_cycle > 180) then {_cycle = 180};
   	sleep _cycle;
