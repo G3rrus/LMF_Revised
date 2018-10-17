@@ -15,5 +15,4 @@ while {count units _grp > 0} do {
 	[_grp, 0] setWaypointType "GUARD";
 
 	sleep 180;
-
 };
