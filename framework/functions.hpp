@@ -33,6 +33,7 @@ class ai {
         class returnSpawner {};
         class patrol {};
         class garrison {};
+        class infantryQRF {};
     };
 };
 class player {
