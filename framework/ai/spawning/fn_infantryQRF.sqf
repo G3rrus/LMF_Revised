@@ -44,14 +44,14 @@ if (_tickets == 0) exitWith {
 	sleep 5 + random 10;
 	_grp setCombatMode "YELLOW";
 
-	0 = [_grp] spawn a2k_fnc_taskAssault;
+	0 = [_grp] spawn lmf_ai_fnc_taskAssault;
 };
 
 //WITH RESPAWN
 while {_tickets > 0} do {
 
 	//CECK PROXIMITY
-	private _near = [_spawnPos,_range] call nk_Close;
+	private _near = [_spawnPos,_range] call _proximityChecker;
 
 	//IF PLAYER TO CLOSE SLEEP ELSE SPAWN
 	if (_near) then {
@@ -72,7 +72,7 @@ while {_tickets > 0} do {
 		sleep 5 + random 10;
 		_grp setCombatMode "YELLOW";
 
-		0 = [_grp] spawn a2k_fnc_taskAssault;
+		0 = [_grp] spawn lmf_ai_fnc_taskAssault;
 
 		//WAIT UNTIL EVERYONE DEAD THEN SUBTRACT TICKET
 		waitUntil {sleep 5; {alive _x} count units _grp < 1};
