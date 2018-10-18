@@ -6,14 +6,14 @@
 	  position magically
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params [["_grp",grpNull,[grpNull]],["_range",500,[0]]];
+params [["_grp",grpNull,[grpNull]],["_radius",500,[0]]];
 private _cycle = 30;
 _grp setBehaviour "SAFE";
 
 //DO THE HUNTING
 while {count units _grp > 0} do {
 	private _tracker = leader _grp;
-	private _nearestdist = _range;
+	private _nearestdist = _radius;
 	private _availabletargets = (switchableUnits + playableUnits - entities "HeadlessClient_F");
 	private _nearest = objNull;
 
