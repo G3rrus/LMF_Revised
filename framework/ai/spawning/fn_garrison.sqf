@@ -10,7 +10,7 @@
 		3) Garrison Radius. [OPTIONAL] (number) (default: 100)
 		4) Distribution [OPTIONAL] (0 = fill evenly, 1 = building by building) (default: 1)
 
-	- EXAMPLE: 0 = [this,"team",100] spawn lmf_ai_fnc_garrison;
+	- EXAMPLE: 0 = [this,"team",100,1] spawn lmf_ai_fnc_garrison;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
@@ -21,7 +21,6 @@ if !(_spawner) exitWith {};
 
 params [["_spawnPos", [0,0,0]],["_grpType", "TEAM"],["_garrisonRadius", 100],["_distribution", 1]];
 _spawnPos = _spawnPos call CBA_fnc_getPos;
-private _patrolTarget = _spawnPos;
 
 //WAIT A RANDOM BIT OF TIME (In case multiple functions are called on 1 location it make spawning a bit smoother)
 sleep (random 10);
