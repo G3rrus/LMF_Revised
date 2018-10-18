@@ -3,6 +3,8 @@
 	- Redone by Drgn V4karian with help of Diwako.
 	- File to spawn a group of infantry that functions as QRF. Will turn more aggressive if in
 	  combat mode.
+	- It is important to note that the player proximity check for spawning will only occur if spawn tickets
+	  are set to higher number than 0.
 
 	- USAGE:
 		1) Spawn Position.
@@ -31,12 +33,12 @@ sleep (random 10);
 if (_tickets == 0) exitWith {
 	private _type = [_grptype] call _typeMaker;
 	private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
-	
+
 	_wp = _grp addWaypoint [_spawnPos,0];
 	_wp setWaypointType "GUARD";
 	_grp setFormation "DIAMOND";
 	_grp allowFleeing 0.1;
-	
+
 	waitUntil {sleep 1; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
 
 	_grp setCombatMode "GREEN";
@@ -59,12 +61,12 @@ while {_tickets > 0} do {
 	} else {
 		private _type = [_grptype] call _typeMaker;
 		private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
-		
+
 		_wp = _grp addWaypoint [_spawnPos,0];
 		_wp setWaypointType "GUARD";
 		_grp setFormation "DIAMOND";
 		_grp allowFleeing 0.1;
-		
+
 		waitUntil {sleep 1; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
 
 		_grp setCombatMode "GREEN";
