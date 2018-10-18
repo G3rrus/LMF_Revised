@@ -92,7 +92,7 @@ private _typeMaker = {
 
 //CHECK IF PLAYERS FAR ENOUGH AWAY
 private _proximityChecker = {
-	params [["_pos"],["_range",500]];
+	params ["_pos",["_range",500]];
 	private _targetsToCheck = (switchableUnits + playableUnits - entities "HeadlessClient_F");
 	private _close = false;
 	{
