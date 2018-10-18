@@ -21,7 +21,7 @@ clearItemCargoGlobal _air;
 clearBackpackCargoGlobal _air;
 
 //REMOVE AMMO
-{_air removeMagazines _x;} forEach _ammoBlacklist;
+{_air removeMagazines _x;} count _ammoBlacklist;
 
 
 // APPLY VEHICLE SPECIFIC SETTINGS ////////////////////////////////////////////////////////////////

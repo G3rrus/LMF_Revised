@@ -35,13 +35,13 @@ private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 // GARRISON THEM //////////////////////////////////////////////////////////////////////////////////
 //APPLY GARRISON AND SELECT RANDOM STANCE
 [_spawnPos, nil, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], true] call ace_ai_fnc_garrison;
-{_x setUnitPos selectRandom ["UP","UP","MIDDLE"]; false} count units _grp;
+{_x setUnitPos selectRandom ["UP","UP","MIDDLE"];} count units _grp;
 
 //WAIT UNTIL THEY ARE IN COMBAT AND THEN CHANGE THEIR STANCE
 waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
 if ({alive _x} count units _grp < 1) exitWith {};
 
-{_x setUnitPos "UP"; false} count units _grp;
+{_x setUnitPos "UP";} count units _grp;
 
 sleep 5 + random 10;
 
@@ -51,7 +51,6 @@ sleep 5 + random 10;
 	} else {
 	_x setUnitPos "AUTO";
 	};
-	false
 } count units _grp;
 
 //MAKE THEM UNGARRISON AND REGARRISON DEPENDING ON PLAYER DISTANCE
@@ -64,14 +63,14 @@ while {count units _grp > 1} do {
 	sleep 30;
 
 	if (!isNull _nearEnemy && {_nearEnemy distance (leader _grp) < _range}) then {
-		{_x disableAI "AUTOCOMBAT"; false} count units _grp;
+		{_x disableAI "AUTOCOMBAT";} count units _grp;
 		_grp setBehaviour "AWARE";
 		[units _grp] call ace_ai_fnc_unGarrison;
 		sleep 5;
 		if ({alive _x} count units _grp > 1) then {
 			[_pos, nil, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], false] call ace_ai_fnc_garrison;
 			sleep 55;
-			{_x enableAI "AUTOCOMBAT"; false} count units _grp;
+			{_x enableAI "AUTOCOMBAT";} count units _grp;
 			_grp setBehaviour "AWARE";
 		};
 	};

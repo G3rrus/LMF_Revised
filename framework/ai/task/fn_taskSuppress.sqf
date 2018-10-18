@@ -32,7 +32,6 @@ if (var_debug) then {
 	{
 		private _veh = "Sign_Arrow_Large_Blue_F" createVehicle _x;
 		_veh enableSimulation false;
-		false
 	} count _positions;
 };
 

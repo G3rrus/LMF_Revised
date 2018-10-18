@@ -23,8 +23,7 @@ private _fnc_group_markers = {
         _mrk setMarkerAlphaLocal 0;
         if (count units _group > 0) then {_mrk setMarkerAlphaLocal 1;};
         _mrks pushBack [_group,_mrk];
-        false
-    } count _this;
+    } forEach _this;
 
     // update markers
     for "_i" from 0 to 1 step 0 do {
@@ -34,7 +33,6 @@ private _fnc_group_markers = {
                 _mrk setMarkerPosLocal (getPosASL leader _group);
                 _mrk setMarkerAlphaLocal 1;
             };
-            false
         } count _mrks;
         sleep 10;
     };

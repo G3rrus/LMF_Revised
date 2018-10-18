@@ -21,10 +21,9 @@ private _staticlist = [];
 if (count _glist > 0) then {
 	{
 		if ((_x emptyPositions "Gunner") > 0) then {
-			_staticlist = _staticlist + [_x];
-		};
-		false
-	} count _glist;
+			_staticlist = _staticlist append [_x];
+		}
+	} forEach _glist;
 };
 
 //MOVE UNITS INTO THE GUNNER SLOTS
@@ -37,6 +36,5 @@ private _men = units _grp;
 		[(_men select 0)] orderGetIn true;
 		_men = _men - [_men select 0];
 		if (count _men < 1) exitWith { if (var_debug) then {systemChat "DEBUG STATIC WEAPONS : No more troops"};};
-		false
 	};
-} count _staticlist;
+} forEach _staticlist;

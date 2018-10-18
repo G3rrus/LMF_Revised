@@ -41,7 +41,6 @@ while {true} do {
 			lmf_player_tracklist = lmf_player_tracklist - [_x];
 			deleteMarkerLocal _marker;
 		};
-	false
 	} count lmf_player_tracklist;
 	sleep 5;
 };

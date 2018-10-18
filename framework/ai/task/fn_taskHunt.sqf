@@ -24,8 +24,7 @@ while {count units _grp > 0} do {
 			_nearest = _x;
 			_nearestdist = _dist;
 		};
-		false
-	} count _availabletargets;
+	} forEach _availabletargets;
 
 	//ORDERS
 	if !(isNull _nearest) then {
@@ -36,7 +35,6 @@ while {count units _grp > 0} do {
 			private _rallypoint = [(_targetPos select 0) - (_number/2) + random _number, (_targetPos select 1) - (_number/2) + random _number, _targetPos select 2];
 			_x doMove _rallypoint;
 			_x disableAI "AUTOCOMBAT";
-			false
 		} count _units;
 
 		_grp setBehaviour "AWARE";

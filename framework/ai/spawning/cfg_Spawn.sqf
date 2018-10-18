@@ -72,7 +72,7 @@ _heliCrew = [_Pilot,_Pilot];
 private _typeMaker = {
 	params ["_type"];
 	private _selection = [];
-	if (typeName _type == "SCALAR") then {
+	if (_type isEqualType 0) then {
 		for "_i" from 1 to (floor (_type)) do {
 			_selection pushback (selectRandom _soldier);
 		};
@@ -98,7 +98,6 @@ private _proximityChecker = {
 	{
 		private _dist = vehicle _x distance _pos;
 		if (isPlayer _x && {_dist < _range}) then {_close = true};
-		false
-	} count _targetsToCheck;
+	} forEach _targetsToCheck;
 	_close
 };
