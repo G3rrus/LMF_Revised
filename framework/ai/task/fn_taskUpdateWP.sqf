@@ -9,10 +9,10 @@ params [["_grp",grpNull,[grpNull]]];
 while {count units _grp > 0} do {
 
 	if (count waypoints _grp > 0) then {
-		[_grp] call CBA_fnc_clearWaypoints;
+		{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 	};
 	private _wp =_grp addWaypoint [getpos leader _grp, 0];
-	[_grp, 0] setWaypointType "GUARD";
+	_wp setWaypointType "GUARD";
 
 	sleep 180;
 };

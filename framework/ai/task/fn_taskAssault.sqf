@@ -30,11 +30,11 @@ while {count units _grp > 0} do {
 		if (_nearestdist < 200) then {
 			//DISMOUNT VEHICLES
 			if !(isNull objectParent leader _grp) then {
-				[_grp] call CBA_fnc_clearWaypoints;
+				{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 				private _wp1 =_grp addWaypoint [getPos leader _grp, 0];
-				[_grp, 0] setWaypointType "GETOUT";
+				_wp1 setWaypointType "GETOUT";
 				private _wp2 =_grp addWaypoint [getPos leader _grp, 0];
-				[_grp, 1] setWaypointType "GUARD";
+				_wp2 setWaypointType "GUARD";
 			};
 			//CROUCH SOMETIMES
 			if (50 > random 100) then {
@@ -47,7 +47,7 @@ while {count units _grp > 0} do {
 
 			//MOVE IN
 			if (_tracker knowsAbout _nearest > 1) then {
-				[_grp] call CBA_fnc_clearWaypoints;
+				{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 				{_x doMove (getposATL _nearest);} count units _grp;
 				{_x enableAttack false;} count units _grp;
 			};
@@ -55,7 +55,7 @@ while {count units _grp > 0} do {
 
 		//AGGRESSIVE WHEN CLOSE
 		if (_nearestdist < 50) then {
-			[_grp] call CBA_fnc_clearWaypoints;
+			{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 			{_x doMove (getposATL _nearest);} count units _grp;
 			{_x disableAI "AUTOCOMBAT";} count units _grp;
 			_grp setBehaviour "AWARE";
@@ -71,7 +71,7 @@ while {count units _grp > 0} do {
 			{_x enableAttack true;} count units _grp;
 			if (waypoints _grp isEqualTo []) then {
 				private _wp =_grp addWaypoint [getPos leader _grp, 0];
-				[_grp, 0] setWaypointType "GUARD";
+				_wp setWaypointType "GUARD";
 			};
 		};
 
@@ -83,7 +83,7 @@ while {count units _grp > 0} do {
 		_cycle = 90;
 		if (waypoints _grp isEqualTo []) then {
 			private _wp =_grp addWaypoint [getPos leader _grp, 0];
-			[_grp, 0] setWaypointType "GUARD";
+			_wp setWaypointType "GUARD";
 		};
 		{_x enableAI "AUTOCOMBAT";} count units _grp;
 		_grp setBehaviour "AWARE";
