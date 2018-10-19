@@ -4,14 +4,14 @@
 	- File to spawn a group of infantry that functions as QRF. Will turn more aggressive if in
 	  combat mode.
 	- It is important to note that the player proximity check for spawning will only occur if spawn tickets
-	  are set to higher number than 0.
+	  are set to higher a number than 0.
 
 	- USAGE:
 		1) Spawn Position.
 		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam" or number of soldiers) (default: "TEAM")
 		3) Spawn Tickets [OPTIONAL] (default: 0)
 
-	- EXAMPLE: 0 = [this,"team",0] spawn lmf_ai_fnc_infantryQRF;
+	- EXAMPLE: 0 = [this,"TEAM",0] spawn lmf_ai_fnc_infantryQRF;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};

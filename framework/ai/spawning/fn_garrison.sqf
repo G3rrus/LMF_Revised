@@ -10,7 +10,7 @@
 		3) Garrison Radius. [OPTIONAL] (number) (default: 100)
 		4) Distribution [OPTIONAL] (0 = fill evenly, 1 = building by building) (default: 1)
 
-	- EXAMPLE: 0 = [this,"team",100,1] spawn lmf_ai_fnc_garrison;
+	- EXAMPLE: 0 = [this,"TEAM",100,1] spawn lmf_ai_fnc_garrison;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};

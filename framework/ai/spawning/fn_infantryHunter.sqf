@@ -4,7 +4,7 @@
 	- File to spawn a group of infantry that functions as hunter AI. Once in range of _radius they
 	  will start to move in on the closest target aggressively.
 	- It is important to note that the player proximity check for spawning will only occur if spawn tickets
-	  are set to higher number than 0.
+	  are set to a higher number than 0.
 
 	- USAGE:
 		1) Spawn Position.
@@ -12,7 +12,7 @@
 		3) Hunting Radius [OPTIONAL] (default: 500)
 		4) Spawn Tickets [OPTIONAL] (default: 0)
 
-	- EXAMPLE: 0 = [this,"team",500,0] spawn lmf_ai_fnc_infantryHunter;
+	- EXAMPLE: 0 = [this,"TEAM",500,0] spawn lmf_ai_fnc_infantryHunter;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};

@@ -9,7 +9,7 @@
 		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam" or number of soldiers) (default: "TEAM")
 		3) Patrol Radius. [OPTIONAL] (default: 200)
 
-	- EXAMPLE: 0 = [this,"team",200] spawn lmf_ai_fnc_patrol;
+	- EXAMPLE: 0 = [this,"TEAM",200] spawn lmf_ai_fnc_patrol;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
