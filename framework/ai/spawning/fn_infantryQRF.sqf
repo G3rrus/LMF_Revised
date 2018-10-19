@@ -51,7 +51,6 @@ if (_tickets == 0) exitWith {
 
 //WITH RESPAWN
 while {_tickets > 0} do {
-
 	//CECK PROXIMITY
 	private _near = [_spawnPos,_range] call _proximityChecker;
 
