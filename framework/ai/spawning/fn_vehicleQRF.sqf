@@ -106,7 +106,7 @@ if (_tickets == 0) exitWith {
         doStop driver _veh;
         doGetOut units _grp2;
         _grp2 leaveVehicle _veh;
-        waitUntil {sleep 2; speed _veh == 1  || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+        waitUntil {sleep 2; speed _veh > 0 || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
         sleep 15;
         driver _veh doFollow leader _grp;
@@ -258,7 +258,7 @@ while {_tickets > 0} do {
             doStop driver _veh;
             doGetOut units _grp2;
             _grp2 leaveVehicle _veh;
-            waitUntil {sleep 2; speed _veh == 1  || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+            waitUntil {sleep 2; speed _veh > 0 || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
             0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
             sleep 15;
             driver _veh doFollow leader _grp;
