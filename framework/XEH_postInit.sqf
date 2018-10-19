@@ -92,6 +92,9 @@ if !(var_playerGear) then {
     };
 };
 
+//BRIEFING
+[] execVM "framework\player\init\briefing.sqf";
+
 //SET PLAYER TRAITS
 player setVariable ["ACE_isEngineer", 1, true];
 player setVariable ["ACE_medical_medicClass", 1, true];
