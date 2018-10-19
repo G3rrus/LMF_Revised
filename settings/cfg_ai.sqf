@@ -87,7 +87,6 @@ private _apc =  ["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_v2_F"]; // 
 private _tank =  ["O_MBT_04_cannon_F", "O_MBT_04_command_F"]; // Tank(s)
 private _heli_Transport =  ["O_Heli_Light_02_unarmed_F", "O_Heli_Transport_04_covered_F"]; // Transport Helo(s)
 private _heli_Attack =  ["O_Heli_Attack_02_dynamicLoadout_F"]; // Attack Helo(s)
-private _plane =  ["O_Plane_Fighter_02_F"]; // Plane(s)
 
 //CAMOS  (Applied to all defined vehicles that are spawned. Leave empty if no camo.)
 private _car_Camo =  [""]; // camo(s) for car(s)
@@ -97,7 +96,6 @@ private _apc_Camo =  [""]; // camos(s) for apc(s)
 private _tank_Camo =  ["Grey"]; // camo(s) for tank(s)
 private _heli_Transport_Camo =  ["Opfor", "Black"]; // camo(s) for helo(s)
 private _heli_Attack_Camo =  [""]; // camo(s) for attack helo(s)
-private _plane_Camo =  ["CamoBlue", "CamoGreyHex"]; // camo(s) for plane(s)
 
 //AMMO BLACKLIST
 private _ammoBlacklist = ["96Rnd_40mm_G_belt"];
