@@ -40,11 +40,3 @@ if (_heli_Attack findIf {_type == _x} != -1) then {
 	};
 	_air setVehicleLock "LOCKEDPLAYER";
 };
-
-if (_plane findIf {_type == _x} != -1) then {
-	if !(_plane_Camo isEqualTo [""]) then {
-		_plane_Camo = selectRandom _plane_Camo;
-		[_air,[_plane_Camo,1]] call BIS_fnc_initVehicle;
-	};
-	_air setVehicleLock "LOCKEDPLAYER";
-};
