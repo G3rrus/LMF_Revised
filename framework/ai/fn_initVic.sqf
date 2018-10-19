@@ -14,9 +14,6 @@ private _type = typeOf _vic;
 
 
 // APPLY GENERAL SETTINGS /////////////////////////////////////////////////////////////////////////
-//MAKE CREW IMMOBILE
-if (80 > random 100) then {_vic allowCrewInImmobile true;};
-
 //CLEAR CARGO
 clearWeaponCargoGlobal _vic;
 clearMagazineCargoGlobal _vic;
@@ -40,6 +37,7 @@ if (_carArmed findIf {_type == _x} != -1) then {
 		_carArmed_Camo = selectRandom _carArmed_Camo;
 		[_vic,[_carArmed_Camo,1]] call BIS_fnc_initVehicle;
 	};
+	if (60 > random 100) then {_vic allowCrewInImmobile true;};
 };
 
 if (_truck findIf {_type == _x} != -1) then {
@@ -55,6 +53,7 @@ if (_apc findIf {_type == _x} != -1) then {
 		[_vic,[_apc_Camo,1]] call BIS_fnc_initVehicle;
 	};
 	_vic setVehicleLock "LOCKEDPLAYER";
+	if (70 > random 100) then {_vic allowCrewInImmobile true;};
 };
 
 if (_tank findIf {_type == _x} != -1) then {
@@ -63,4 +62,5 @@ if (_tank findIf {_type == _x} != -1) then {
 		[_vic,[_tank_Camo,1]] call BIS_fnc_initVehicle;
 	};
 	_vic setVehicleLock "LOCKEDPLAYER";
+	if (80 > random 100) then {_vic allowCrewInImmobile true;};
 };
