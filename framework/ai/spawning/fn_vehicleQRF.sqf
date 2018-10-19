@@ -107,6 +107,8 @@ if (_tickets == 0) exitWith {
         doGetOut units _grp2;
         _grp2 leaveVehicle _veh;
         waitUntil {sleep 2; speed _veh > 0 || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+        private _wp = _grp2 addWaypoint [getPos _veh,0];
+        _wp setWaypointType "GUARD";
         0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
         sleep 15;
         driver _veh doFollow leader _grp;
@@ -151,6 +153,8 @@ if (_tickets == 0) exitWith {
         doGetOut units _grp2;
         _grp2 leaveVehicle _veh;
         waitUntil {sleep 1; isTouchingGround _veh || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+        private _wp = _grp2 addWaypoint [getPos _veh,0];
+        _wp setWaypointType "GUARD";
         0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
     };
 
@@ -259,6 +263,8 @@ while {_tickets > 0} do {
             doGetOut units _grp2;
             _grp2 leaveVehicle _veh;
             waitUntil {sleep 2; speed _veh > 0 || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+            private _wp = _grp2 addWaypoint [getPos _veh,0];
+            _wp setWaypointType "GUARD";
             0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
             sleep 15;
             driver _veh doFollow leader _grp;
@@ -309,6 +315,8 @@ while {_tickets > 0} do {
             doGetOut units _grp2;
             _grp2 leaveVehicle _veh;
             waitUntil {sleep 1; isTouchingGround _veh || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+            private _wp = _grp2 addWaypoint [getPos _veh,0];
+            _wp setWaypointType "GUARD";
             0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
 
             //WAIT UNTIL RESPAWN
