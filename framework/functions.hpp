@@ -35,6 +35,7 @@ class ai {
         class garrison {};
         class infantryQRF {};
         class infantryHunter {};
+        class vehicleQRF {};
     };
 };
 class player {
