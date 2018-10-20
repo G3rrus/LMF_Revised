@@ -101,3 +101,6 @@ player setVariable ["ACE_medical_medicClass", 1, true];
 
 //PLAYER GEAR
 if (var_playerGear) then {[player] call lmf_player_fnc_initPlayerGear;};
+
+//ACE ACTIONS
+[] execVM "framework\player\init\aceActions.sqf";
