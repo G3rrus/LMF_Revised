@@ -46,6 +46,7 @@ class player {
         class initPlayerAir {};
         class initPlayerVic {};
         class initPlayerSupp {};
+        class vehicleService {};
 	};
 };
 class admin {
