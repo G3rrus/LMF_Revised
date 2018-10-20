@@ -428,7 +428,11 @@ if (_role find "Vehicle Platoon Commander" >= 0) then {
 	_unit addItemToBackpack _ACRE_ITR;
 	_unit addWeapon (_SMG select 0);
 	_unit addWeapon (_Binocular select 0);
-
+	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+		_unit linkItem "ItemMap";
+		_unit linkItem "ItemCompass";
+		_unit addItem "ACE_Flashlight_XL50";
+	};
 	removeAllPrimaryWeaponItems _unit;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
