@@ -15,8 +15,8 @@ if (getMarkerColor "respawn" != "") then {
 	"respawn" setMarkerAlpha 0;
 };
 
-if !(isNil "crate_gearPlthq") then {
-	_gearSelectMkr = createMarker ["mrk_gearSelect", getPosASL crate_gearPlthq];
+if !(isNil "crateGearPlt") then {
+	_gearSelectMkr = createMarker ["mrk_gearSelect", getPosASL crateGearPlt];
 	_gearSelectMkr setMarkerType "b_inf";
 	_gearSelectMkr setMarkerSize [0.75,0.75];
 	_gearSelectMkr setMarkerColor var_markerSide;
@@ -33,8 +33,8 @@ if !(isNil "ammoSpawner") then {
 	_crateSpawnMkr setMarkerAlpha 1;
 	};
 
-if !(isNil "vehSpawner") then {
-	_vehSpawnMkr = createMarker ["mrk_vehSpawn", getPosASL vehSpawner];
+if !(isNil "groundSpawner") then {
+	_vehSpawnMkr = createMarker ["mrk_vehSpawn", getPosASL groundSpawner];
 	_vehSpawnMkr setMarkerType "b_motor_inf";
 	_vehSpawnMkr setMarkerSize [0.75,0.75];
 	_vehSpawnMkr setMarkerColor var_markerSide;
