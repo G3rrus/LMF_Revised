@@ -33,6 +33,8 @@ var_air4 = "B_Heli_Transport_03_F"; // Air Spawnpad Vehicle
 
 var_supSmall = "Box_NATO_Ammo_F"; // Supply Spawnpad small supplies
 var_supLarge = "B_supplyCrate_F"; // Supply Spawnpad large supplies
+var_supSpecial = ""; // Supply Spawnpad special supplies
+var_supExplosives = ""; // Supply Spawnpad explosives supplies
 
 //PLAYER GEAR (Only relevant if var_playerGear = true;)
 var_personalRadio = true; // Does everyone get a short range radio (AN/PRC 343)? (default: true)
