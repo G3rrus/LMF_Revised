@@ -11,7 +11,8 @@ if !(var_playerGear) exitWith {};
 
 //WHICH SUPPLIES ARE AFFECTED?
 private _type = typeof _supp;
-if (_type != var_supSmall && {_type != var_supLarge}) exitWith {};
+private _allSupplies = [var_supSmall,var_supLarge,var_supSpecial,var_supExplosives];
+if (_allSupplies findIf {_type == _x} == -1) exitWith {};
 
 //CALL THE FUNCTION
 [_supp] call lmf_player_fnc_initPlayerSupp;
