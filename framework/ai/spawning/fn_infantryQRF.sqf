@@ -1,6 +1,7 @@
 // AI INFANTRY QRF ////////////////////////////////////////////////////////////////////////////////
 /*
-	- Redone by Drgn V4karian with help of Diwako.
+	- Originally by nkenny.
+	- Revised by Drgn V4karian.
 	- File to spawn a group of infantry that functions as QRF. Will turn more aggressive if in
 	  combat mode.
 	- It is important to note that the player proximity check for spawning will only occur if spawn tickets

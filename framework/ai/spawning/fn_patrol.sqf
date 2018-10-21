@@ -1,6 +1,7 @@
 // AI INFANTRY PATROL  ////////////////////////////////////////////////////////////////////////////
 /*
-	- Redone by Drgn V4karian with help of Diwako.
+	- Originally by nkenny.
+	- Revised by Drgn V4karian.
 	- File to spawn a group of infantry that peforms a patrol task. Once it gets into combat,
 	  it will move in to attack threats.
 

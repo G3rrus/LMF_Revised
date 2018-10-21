@@ -1,6 +1,7 @@
 // AI INFANTRY HUNTER /////////////////////////////////////////////////////////////////////////////
 /*
-	- Redone by Drgn V4karian with help of Diwako.
+	- Originally by nkenny.
+	- Revised by Drgn V4karian.
 	- File to spawn a group of infantry that functions as hunter AI. Once in range of _radius they
 	  will start to move in on the closest target aggressively.
 	- It is important to note that the player proximity check for spawning will only occur if spawn tickets

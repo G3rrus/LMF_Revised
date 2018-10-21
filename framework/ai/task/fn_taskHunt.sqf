@@ -1,7 +1,7 @@
-// AI INFANTRY GARRISON  //////////////////////////////////////////////////////////////////////////
+// AI TASK HUNT ///////////////////////////////////////////////////////////////////////////////////
 /*
-  - Originally by nkenny (first rewritten by Alex2k).
-	- Redone by Diwako and fintuned by Drgn V4karian.
+  - Originally by nkenny (first mangled with by Alex2k).
+	- Revised by Diwako and fine-tuned by Drgn V4karian.
 	- The function is ment to make AI aggressively hunt down players. They know the players
 	  position magically
 */

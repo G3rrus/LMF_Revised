@@ -80,7 +80,7 @@ private _typeMaker = {
 	else {
 		toUpper _type;
 		_selection = selectRandom _team;
-		
+
 		if (_type == "SQUAD") then {_selection = selectRandom _squad};
 		if (_type == "SENTRY") then {_selection = selectRandom _sentry};
 		if (_type == "ATTEAM") then {_selection = selectRandom _atteam};;

@@ -1,7 +1,7 @@
 // AI SUPPRESSION FUNCTION ////////////////////////////////////////////////////////////////////////
 /*
-	- originally by nkenny -- Heavily inspired by Big_Wilk.
- 	- edited by Drgn V4karian with great help of Diwako.
+	- Originally by nkenny (Heavily inspired by Big_Wilk).
+ 	- Revised by Drgn V4karian with great help from Diwako.
 	- This function called by the Suppression EH function handles the task of suppressing
 	  assigned to AR and MMG type AI.
 */

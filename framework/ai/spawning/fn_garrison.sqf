@@ -1,6 +1,7 @@
 // AI INFANTRY GARRISON  //////////////////////////////////////////////////////////////////////////
 /*
-	- Redone by Drgn V4karian with help of Diwako.
+	- Originally by nkenny.
+	- Revised by Drgn V4karian.
 	- File to spawn a group of infantry that garrisons. The group will ungarrison/regarrison
 	  depending on their combat status and their distance to the closest enemy.
 

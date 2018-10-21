@@ -1,6 +1,7 @@
 // AI TASK ASSAULT FUNCTION ///////////////////////////////////////////////////////////////////////
 /*
-	- originally by nkenny, altered by Drgn V4karian.
+	- Originally by nkenny with some changes by Alex2k. Revised by Drgn V4karian with some help
+	  from Diwako.
 	- This function assigns the AI with a task to assault targets rather aggressively if in range.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////

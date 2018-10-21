@@ -1,6 +1,7 @@
 // AI VEHICLE QRF /////////////////////////////////////////////////////////////////////////////////
 /*
-	- Redone by Drgn V4karian with help of Diwako.
+    - Originally by nkenny.
+	- Revised by Drgn V4karian.
 	- File to spawn a vehicle that functions as QRF. Some have additional infantry as passengers loaded,
       others like the tank will move in on players alone.
 	- It is important to note that the player proximity check for spawning will only occur if spawn tickets
