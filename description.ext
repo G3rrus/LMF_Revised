@@ -43,12 +43,14 @@ createShortcuts = 1;
 #include "framework\functions.hpp"
 };
 
+//PRE-INIT EHS
 class Extended_PreInit_EventHandlers {
     class lambs_preInit {
 		Init = "[] call compile preprocessFileLineNumbers 'framework\XEH_PreInit.sqf'";
     };
 };
 
+//POST-INIT EHS
 class Extended_PostInit_EventHandlers
 {
 	class lambs_postInit {
@@ -56,6 +58,7 @@ class Extended_PostInit_EventHandlers
 	};
 };
 
+//INIT-POST EHS
 class Extended_InitPost_EventHandlers {
 	class Air {
 		init = "_this call lmf_common_fnc_sortAirVics;";
@@ -68,5 +71,13 @@ class Extended_InitPost_EventHandlers {
 	};
 	class ReammoBox_F {
 		init = "_this call lmf_common_fnc_sortSupplies;";
+	};
+};
+
+//DEBRIEFING
+class CfgDebriefingSections {
+	class acex_killTracker {
+		title = "Acex Killed Events";
+		variable = "acex_killTracker_outputText";
 	};
 };
