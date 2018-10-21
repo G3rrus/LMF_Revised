@@ -11,7 +11,7 @@ var_jipTP = false; // Allow players that JIP to teleport? (default: false)
 var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (default: EAST)
 
 //RESPAWN
-var_respawnType = "OFF"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
+var_respawnType = "WAVE"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
 var_respawnTime = 1500; // Respawn countdown in seconds in case of "WAVE". (default: 1500)
 
 
