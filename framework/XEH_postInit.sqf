@@ -40,6 +40,11 @@ enableSaving [false,false];
 if (isServer) then {
     //CREATE VARIOUS MARKERS
     [] execVM "framework\server\init\markers.sqf";
+
+    //CREATE CUSTOM SPECTATOR CHANNEL
+    radio_channel_1 = radioChannelCreate [[1,0.6,0,1], "SPECTATOR", "%UNIT_NAME", []];
+
+
 };
 
 
@@ -84,6 +89,32 @@ if (var_groupMarkers) then {[] execVM "framework\player\init\groupMarkers.sqf";}
 //UNIT TRACKER
 if (var_unitTracker) then {[] execVM "framework\player\init\unitTracker.sqf";};
 
+//TEAM COLORS
+//[] execVM "a2k\scripts\teamColors.sqf";
+
+//PLAYER RATING
+player addEventHandler ["HandleRating", {0}];
+
+//EXPLOSION EFFECT
+player addEventHandler ["Explosion", {
+	_this spawn lmf_player_fnc_explosionEH;
+}];
+
+//HIT EFFECT
+player addEventHandler ["Hit", {
+	_this spawn lmf_player_fnc_hitEH;
+}];
+
+//KILLED EH
+player addEventHandler ["Killed", {
+	_this spawn lmf_player_fnc_killedEH;
+}];
+
+//RESPAWN EH
+player addEventHandler ["Respawn", {
+    _this spawn lmf_player_fnc_respawnEH;
+}];
+
 //DISABLE WAYPOINT MARKERS
 if !(var_playerGear) then {
     if ((roleDescription player) find "Helicopter Pilot" >= 0 || {(roleDescription player) find "Fighter Pilot" >= 0}) then {}
@@ -100,7 +131,30 @@ player setVariable ["ACE_isEngineer", 1, true];
 player setVariable ["ACE_medical_medicClass", 1, true];
 
 //PLAYER GEAR
-if (var_playerGear) then {[player] call lmf_player_fnc_initPlayerGear;};
+if (var_playerGear) then {
+    [player] call lmf_player_fnc_initPlayerGear;
+    player addEventHandler ["InventoryClosed", {
+	params ["_unit", "_container"];
+	[_unit,player_insignia] call bis_fnc_setUnitInsignia;
+}];
+};
+
+//ACRE CHANNELS
+//[] execVM "a2k\scripts\acreChannels.sqf";
+
+//ARSENAL
+//[] execVM "a2k\gear\arsenal.sqf";
+
+// JIP ////////////////////////////////////////////////////////////////////////////////////////////
+//[] execVM "a2k\scripts\jipTeleport.sqf";
 
 //ACE ACTIONS
 [] execVM "framework\player\init\aceActions.sqf";
+
+// CHANNEL SETUP //////////////////////////////////////////////////////////////////////////////////
+0 enableChannel false;
+1 enableChannel true;
+2 enableChannel false;
+3 enableChannel true;
+4 enableChannel false;
+5 enableChannel false;
