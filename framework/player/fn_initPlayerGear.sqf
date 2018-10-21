@@ -637,3 +637,4 @@ for "_i" from 1 to 4 do {_unit addItem "ACE_fieldDressing";};
 for "_i" from 1 to 1 do {_unit addItem "ACE_morphine";};
 for "_i" from 1 to 1 do {_unit addItem "ACE_tourniquet";};
 _unit linkItem "ItemWatch";
+[_unit,player_insignia] call bis_fnc_setUnitInsignia;
