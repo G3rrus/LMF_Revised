@@ -32,8 +32,6 @@ enableSaving [false,false];
 
 
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // SERVER /////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +108,12 @@ player addEventHandler ["Killed", {
 	_this spawn lmf_player_fnc_killedEH;
 }];
 
+//KILLED MESSAGES
+["acex_killtracker_death",{
+    params ["_killerName", "_killInfo"];
+    [{systemChat format ["Died: %1 %2", _this select 0, _this select 1];}, [_killerName,_killInfo], 3] call CBA_fnc_waitAndExecute;
+}] call CBA_fnc_addEventHandler;
+
 //RESPAWN EH
 player addEventHandler ["Respawn", {
     _this spawn lmf_player_fnc_respawnEH;
@@ -138,6 +142,9 @@ if (var_playerGear) then {
 	[_unit,player_insignia] call bis_fnc_setUnitInsignia;
 }];
 };
+
+//PLAYER CAMOCOEF
+[{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;
 
 //ACRE CHANNELS
 //[] execVM "a2k\scripts\acreChannels.sqf";
