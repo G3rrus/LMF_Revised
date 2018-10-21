@@ -1,6 +1,6 @@
-// PLAYER RESPAWN EH //////////////////////////////////////////////////////////////////////////////
+// PLAYER KILLED EH ///////////////////////////////////////////////////////////////////////////////
 /*
-	- This function spawned by the player respawn EH handles what happens on a players respawn.
+	- This function spawned by the player killed EH handles what happens on a players death.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params ["_unit","_killer"];
@@ -50,7 +50,7 @@ sleep 4;
 
 
 //ADD CUSTOM CHAT CHANNEL AND NOTIFY PLAYER
-[_unit,false] remoteExec ["lmf_server_fnc_spectatorChannel", 2];
+[_unit,true] remoteExec ["lmf_server_fnc_spectatorChannel", 2];
 
 sleep 1;
 
@@ -63,50 +63,43 @@ sleep 1;
 
 
 //FADE IN
-cutText  ["", "BLACK IN", 5, true];
+cutText  ["", "BLACK IN", 4, true];
 
 //RESPAWN COUNTER
-[] spawn 
-{
-nk_fnc_timemagic = {
-  private ["_n"];
-  _n = _this select 0; 
-  if (_n < 10) then {_n = format ["0%1",_n]};
-  _n
-};
+[] spawn {
+	private _nk_fnc_timemagic = {
+		params ["_number"];
+		if (_number < 10) then {_number = format ["0%1",_number]};
+		_number
+	};
 
-  waitUntil {playerRespawnTime < 4000};
+	waitUntil {playerRespawnTime < 4000};
 
-  while {playerRespawnTime > 0 and !alive player} do 
-  {
-  if (typename var_respawnType == "STRING") then {
-  if (var_respawnType == "WAVE") then {
-  _time_is = format ["%1:%2",[floor (playerRespawnTime/60)] call nk_fnc_timemagic,[(playerRespawnTime mod 60)] call nk_fnc_timemagic];
-  //_stitle = "<t size='1.4' align='Center'>Respawn</t><br/>";
-  _time = format ["<t font='PuristaBold' align='Center'>Time until redeployment: %1</t><br/>",_time_is];
-  hintSilent parsetext (_time);
-  uiSleep 1;
-  };
-
-  if (var_respawnType == "OFF") then {
-  _time_is = format ["%1:%2",[floor (playerRespawnTime/60)] call nk_fnc_timemagic,[(playerRespawnTime mod 60)] call nk_fnc_timemagic];
-  //_stitle = "<t size='1.4' align='Center'>Respawn</t><br/>";
-  _time = format ["<t font='PuristaBold' align='Center'>Time until redeployment: %1</t><br/>",_time_is];
-  hintSilent parsetext (_time);
-  uiSleep 1;
-  };
-};
-  if (typename var_respawnType == "SCALAR") then {
-  _time_is = format ["%1:%2",[floor (playerRespawnTime/60)] call nk_fnc_timemagic,[(playerRespawnTime mod 60)] call nk_fnc_timemagic];
-  //_stitle = "<t size='1.4' align='Center'>Respawn</t><br/>";
-  _time = format ["<t font='PuristaBold' align='Center'>Time until redeployment: %1</t><br/>",_time_is];
-  hintSilent parsetext (_time);
-  uiSleep 1;
-  };
-
-
-
-  };
-  // End it! 
-  hintSilent ""; 
+	while {playerRespawnTime > 0 && {!alive player}} do {
+		//IF WAVE
+		if (typename var_respawnType == "STRING") then {
+			if (var_respawnType == "WAVE") then {
+				private _time_is = format ["%1:%2",[floor (playerRespawnTime/60)] call _nk_fnc_timemagic,[(playerRespawnTime mod 60)] call _nk_fnc_timemagic];
+				private _time = format ["<t font='PuristaBold' align='Center'>Time until redeployment: %1</t><br/>",_time_is];
+				hintSilent parsetext (_time);
+				uiSleep 1;
+			};
+			//IF OFF
+			if (var_respawnType == "OFF") then {
+				private _time_is = format ["%1:%2",[floor (playerRespawnTime/60)] call _nk_fnc_timemagic,[(playerRespawnTime mod 60)] call _nk_fnc_timemagic];
+				private _time = format ["<t font='PuristaBold' align='Center'>Time until redeployment: %1</t><br/>",_time_is];
+				hintSilent parsetext (_time);
+				uiSleep 1;
+			};
+		};
+		//IF NUMBER
+		if (typename var_respawnType == "SCALAR") then {
+			private _time_is = format ["%1:%2",[floor (playerRespawnTime/60)] call _nk_fnc_timemagic,[(playerRespawnTime mod 60)] call _nk_fnc_timemagic];
+			private _time = format ["<t font='PuristaBold' align='Center'>Time until redeployment: %1</t><br/>",_time_is];
+			hintSilent parsetext (_time);
+			uiSleep 1;
+		};
+	};
+	//END IT WHEN RESPAWN
+	hintSilent "";
 };
