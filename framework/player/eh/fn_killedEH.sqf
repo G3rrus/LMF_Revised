@@ -3,22 +3,12 @@
 	- This function spawned by the player killed EH handles what happens on a players death.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params ["_unit","_killer"];
+params ["_unit"];
 
 
 //BLACK OUT ///////////////////////////////////////////////////////////////////////////////////////
 cutText  ["", "BLACK OUT", 4, true];
 [false] call ace_common_fnc_setVolume;
-
-//DISPLAY KILLER
-private _killerName = name _killer;
-private _distance = floor (_unit distance _killer);
-private _weaponName = getText (configFile >> "cfgWeapons" >> currentWeapon _killer >> "displayname");
-sleep 3;
-if (!isNull _killer && {_killer != _unit}) then {
-		systemChat format ["You were killed by %1 from %2m",_killerName,_distance,_weaponName];
-};
-
 
 //CALCULATE RESPAWNTIME
 if (typename var_respawnType == "STRING") then {
@@ -40,6 +30,7 @@ if (typename var_respawnType == "SCALAR") then {
 
 
 //SET ACRE SPECTATOR
+sleep 1;
 [true] call acre_api_fnc_setSpectator;
 sleep 4;
 
