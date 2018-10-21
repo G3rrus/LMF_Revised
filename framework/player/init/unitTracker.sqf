@@ -5,7 +5,7 @@
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 if !(hasinterface) exitWith {};
-waitUntil {CBA_missionTime > 0};
+waitUntil {time > 1};
 
 lmf_player_tracklist = [];
 
