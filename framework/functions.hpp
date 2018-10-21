@@ -38,6 +38,13 @@ class ai {
         class vehicleQRF {};
     };
 };
+class server {
+	tag = "lmf_server";
+	class functions {
+		file = "framework\server";
+        class spectatorChannel {};
+	};
+};
 class player {
 	tag = "lmf_player";
 	class functions {
@@ -47,6 +54,13 @@ class player {
         class initPlayerVic {};
         class initPlayerSupp {};
         class vehicleService {};
+	};
+    class eventhandlers {
+		file = "framework\player\eh";
+        class explosionEH {};
+        class hitEH {};
+        class killedEH {};
+        class respawnEH {};
 	};
 };
 class admin {
