@@ -29,6 +29,8 @@ enableSaving [false,false];
     }];
 }, false, [], true] call CBA_fnc_addClassEventHandler;
 
+//ACRE CHANNEL LABLES
+[] execVM "framework\shared\init\acreChannelLabels.sqf";
 
 
 
@@ -41,12 +43,7 @@ if (isServer) then {
 
     //CREATE CUSTOM SPECTATOR CHANNEL
     radio_channel_1 = radioChannelCreate [[1,0.6,0,1], "SPECTATOR", "%UNIT_NAME", []];
-
-
 };
-
-
-
 
 
 
@@ -72,8 +69,6 @@ if (isServer) then {
 
 
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PLAYER /////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +83,7 @@ if (var_groupMarkers) then {[] execVM "framework\player\init\groupMarkers.sqf";}
 if (var_unitTracker) then {[] execVM "framework\player\init\unitTracker.sqf";};
 
 //TEAM COLORS
-//[] execVM "a2k\scripts\teamColors.sqf";
+[] execVM "framework\player\init\teamColors.sqf";
 
 //PLAYER RATING
 player addEventHandler ["HandleRating", {0}];
@@ -138,27 +133,30 @@ player setVariable ["ACE_medical_medicClass", 1, true];
 if (var_playerGear) then {
     [player] call lmf_player_fnc_initPlayerGear;
     player addEventHandler ["InventoryClosed", {
-	params ["_unit", "_container"];
-	[_unit,player_insignia] call bis_fnc_setUnitInsignia;
-}];
+	    params ["_unit", "_container"];
+        [_unit,""] call bis_fnc_setUnitInsignia;
+	    [_unit,player_insignia] call bis_fnc_setUnitInsignia;
+    }];
 };
+
+//ACRE CHANNEL PRESET
+[] execVM "framework\player\init\acreChannelPreset.sqf";
 
 //PLAYER CAMOCOEF
 [{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;
 
-//ACRE CHANNELS
-//[] execVM "a2k\scripts\acreChannels.sqf";
-
-//ARSENAL
-//[] execVM "a2k\gear\arsenal.sqf";
-
-// JIP ////////////////////////////////////////////////////////////////////////////////////////////
+//JIP
 //[] execVM "a2k\scripts\jipTeleport.sqf";
 
 //ACE ACTIONS
 [] execVM "framework\player\init\aceActions.sqf";
 
-// CHANNEL SETUP //////////////////////////////////////////////////////////////////////////////////
+//ARSENAL
+if (var_personalArsenal) then {
+    [] execVM "framework\player\init\personalArsenal.sqf";
+};
+
+//CHANNEL SETUP
 0 enableChannel false;
 1 enableChannel true;
 2 enableChannel false;
