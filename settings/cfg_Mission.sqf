@@ -18,7 +18,6 @@ var_respawnTime = 1500; // Respawn countdown in seconds in case of "WAVE". (defa
 // PLAYERS ////////////////////////////////////////////////////////////////////////////////////////
 var_playerGear = true; // Should players get custom gear? (default: true)
 var_camoCoef = 1; // How easy should players be spotted by AI? Higher number = easier spotted (default: 1)
-var_personalArsenal = false; // Give players access to a limited arsenal during briefing stage. (default: false)
 
 //VEHICLES AND CRATES
 var_vic1 = "B_MRAP_01_F"; // Ground Spawnpad Vehicle
@@ -37,6 +36,7 @@ var_supSpecial = "Box_NATO_WpsSpecial_F"; // Supply Spawnpad special supplies
 var_supExplosives = "Box_NATO_AmmoOrd_F"; // Supply Spawnpad explosives supplies
 
 //PLAYER GEAR (Only relevant if var_playerGear = true;)
+var_personalArsenal = true; // Give players access to a limited arsenal during briefing stage. (default: false)
 var_personalRadio = true; // Does everyone get a short range radio (AN/PRC 343)? (default: true)
 var_backpacksAll = false; // Give all players backpacks? (Certain roles will have backpacks regardless) (default: false)
 var_pistolAll = false; // Give all players sidearms? (default: false)
