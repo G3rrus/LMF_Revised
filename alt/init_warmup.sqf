@@ -1,10 +1,29 @@
 // Warmup system
 // version 1.0
 // by nkenny (Messed up by Alex2k)
-
+// USED TO BE EXECUTED IN INIT FOR EVERYONE.
 
 if (!didJip) then {var_warmup = true;};
 if (isServer) then {publicVariable "var_warmup";};
+
+//REMAINING CODE FROM INTRO FILE 
+if (hasInterface) then 
+{
+    [] Spawn
+    {
+		player enableSimulation false;
+
+		cutText  ["", "BLACK FADED", 10, true];
+		sleep 12;
+		cutText ["", "BLACK IN", 10, true];
+
+		player enableSimulation true;
+
+
+	};
+};
+
+
 
 
 // No warmup phase
