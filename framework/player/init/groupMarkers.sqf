@@ -1,7 +1,7 @@
 // GROUP MARKER SCRIPT ////////////////////////////////////////////////////////////////////////////
 /*
     - Inspired by the F3 Framework component for group markers, since edited by Drgn V4karian
-      with great help of Diwako.
+      with great help from Diwako.
     - File handles group markers + function that are ment to track player groups.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////

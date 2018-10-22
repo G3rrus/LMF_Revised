@@ -1,6 +1,7 @@
 // VEHICLE SERVICE ////////////////////////////////////////////////////////////////////////////////
 /*
-	- Originally by nkenny (Heavily borrowed from Xeno), rewritten by diwako.
+	- Originally by nkenny (Heavily borrowed from Xeno), rewritten by Diwako and then revised by
+	  Drgn V4karian.
 	- This function rearms, repairs and refuels vehicles that call it.
 
 	- USAGE: This function is usually called via trigger like so:
@@ -10,6 +11,8 @@
 		4) On activation: [(thislist select 0)] spawn lmf_player_fnc_vehicleService;
 	- It is important to note that "Air" in step 3) can be replaced by other types to for example
 	  affect ground vehicles instead of air vehicles.
+	- Also important to note is that a second parameter in the form of number can be passed to the
+	  function to make the whole process slower or faster.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {time > 30};
