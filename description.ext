@@ -48,6 +48,9 @@ class Extended_PreInit_EventHandlers {
     class lambs_preInit {
 		Init = "[] call compile preprocessFileLineNumbers 'framework\XEH_PreInit.sqf'";
     };
+	class diw_unknownwp_settings {
+  		Init = "call compile preprocessFileLineNumbers 'framework\shared\diw_unknownwp\fn_addCbaSettings.sqf'";
+};
 };
 
 //POST-INIT EHS
