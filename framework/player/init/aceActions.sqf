@@ -104,7 +104,7 @@ if !(isNil "airSpawner") then {
 private _resetGear = ["resetGear","Reset Gear","",{[player] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
 
 //GEAR PLATOON COMMON
-if (!isNil "crateGearSquad") then {
+if !(isNil "crateGearSquad") then {
 	private _squadLeader = ["squadLeader","Squad Leader","\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa",{[player, "Squad Leader"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
 	private _squad2ic = ["squad2ic","Squad 2iC","\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa",{[player, "Squad 2iC"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
 	private _grenadier = ["genadier","Grenadier","\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa",{[player, "Grenadier"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
@@ -128,7 +128,7 @@ if (!isNil "crateGearSquad") then {
 };
 
 //GEAR PLATOON
-if (!isNil "crateGearPlt") then {
+if !(isNil "crateGearPlt") then {
 	private _pltLead = ["platoonLeader","Platoon Leader","\A3\ui_f\data\map\vehicleicons\iconManOfficer_ca.paa",{[player, "Platoon Leader"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
 	private _pltSgt = ["platoonSergeant","Platoon Sergeant","\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa",{[player, "Platoon Sergeant"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
 	private _medic = ["medic","Medic","\A3\ui_f\data\map\vehicleicons\iconManMedic_ca.paa",{[player, "Medic"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
@@ -150,7 +150,7 @@ if (!isNil "crateGearPlt") then {
 };
 
 //GEAR CREW
-if (!isNil "crateGearCrew") then {
+if !(isNil "crateGearCrew") then {
 	private _vehPltCmd = ["vehPlatoonLeader","Vehicle Platoon Commander","\A3\ui_f\data\map\vehicleicons\iconManOfficer_ca.paa",{[player, "Vehicle Platoon Commander"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
 	private _vehPltSgt = ["vehPlatoonSergeant","Vehicle Platoon 2iC","\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa",{[player, "Vehicle Platoon 2iC"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
 	private _vehCommander = ["vehCommander","Vehicle Commander","A3\ui_f\data\igui\cfg\commandbar\imageCommander_ca.paa",{[player, "Vehicle Commander"] call lmf_player_fnc_initPlayerGear},{true}] call ace_interact_menu_fnc_createAction;
