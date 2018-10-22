@@ -6,20 +6,26 @@
 if (!didJip) then {var_warmup = true;};
 if (isServer) then {publicVariable "var_warmup";};
 
-//REMAINING CODE FROM INTRO FILE 
-if (hasInterface) then 
-{
-    [] Spawn
-    {
+//REMAINING CODE FROM INTRO FILE
+
+if (hasInterface) then {
+	[] Spawn {
 		player enableSimulation false;
 
+		private _date = str (date select 1) + "/" + str (date select 2) + "/" + str (date select 0) + " " + str (date select 3) + ":" + str (date select 4);
+		private _location = "Location: " + worldname;
+
 		cutText  ["", "BLACK FADED", 10, true];
-		sleep 12;
-		cutText ["", "BLACK IN", 10, true];
+		sleep 3;
+		cutText  [format ["<t color='#FFBA26' size='5'>%1</t>",briefingName], "BLACK FADED", 10, true,true];
+		sleep 3;
+		cutText  [format ["<t color='#FFBA26' size='5'>%1</t><br/><t color='#D7DBD5' size='3'>%2</t>",briefingName,_date], "BLACK FADED", 10, true,true];
+		sleep 3;
+		cutText  [format ["<t color='#FFBA26' size='5'>%1</t><br/><t color='#D7DBD5' size='3'>%2</t><br/><t color='#D7DBD5' size='2'>%3</t>",briefingName,_date,_location], "BLACK FADED", 10, true,true];
+		sleep 3;
+		cutText  [format ["<t color='#FFBA26' size='5'>%1</t><br/><t color='#D7DBD5' size='3'>%2</t><br/><t color='#D7DBD5' size='2'>%3</t>",briefingName,_date,_location], "BLACK IN", 10, true,true];
 
 		player enableSimulation true;
-
-
 	};
 };
 
@@ -32,7 +38,7 @@ if (!var_warmup || var_debug) exitWith {};
 // Save date
 _date = date;
 
-// Display information + Add eventhandler 
+// Display information + Add eventhandler
 if (hasInterface) then
 {
   waitUntil {time > 12};
@@ -42,7 +48,7 @@ if (hasInterface) then
   a2k_noGuns = player addEventHandler ["Fired", {deleteVehicle (_this select 6);}];
   player allowDamage false;
 
-  // Info loop 
+  // Info loop
   while {var_warmup} do
     {
     _title = "<t font='PuristaBold' color='#ffba26' size='1.3' align='Center'>Mission Briefing Stage</t><br/>";
@@ -60,7 +66,7 @@ if (hasInterface) then
 		if (var_respawnType == "WAVE") then {_resp = "Wave";};
 		if (var_respawnType == "OFF") then {_resp = "Off";};
 	};
-	if (typename var_respawnType == "SCALAR") then {_resp = var_respawnType};	
+	if (typename var_respawnType == "SCALAR") then {_resp = var_respawnType};
 	_respawn = format ["<t color='#ffba26' size='1.0'align='left'>RESPAWN:  </t> <t color='#9DA698' size='1.0'align='right'>%1</t><br/>",_resp];
 
 	_radio = "";
@@ -115,7 +121,7 @@ if (hasInterface) then
 				[format ["%1", var_name],"align = 'center' shadow = '1' size = '1.3' font='PuristaBold'"],
 				["","<br/>"],
 				//[format ["• "],"align = 'center' shadow = '1' size = '0.65' font='PuristaMedium'","#D6D6D6"],
-				[format ["by: "],"align = 'center' shadow = '1' size = '0.55' font='PuristaBold'","#D6D6D6"], 
+				[format ["by: "],"align = 'center' shadow = '1' size = '0.55' font='PuristaBold'","#D6D6D6"],
 				[format ["%1", var_author],"align = 'center' shadow = '1' size = '0.55' font='PuristaBold'",var_randomColor],
 				//[format [" •"],"align = 'center' shadow = '1' size = '0.65' font='PuristaMedium'","#D6D6D6"],
 				["","<br/>"]
@@ -128,4 +134,4 @@ if (hasInterface) then
 if (isServer) then {publicVariable "var_warmup";};
 
 // End
-true 
+true
