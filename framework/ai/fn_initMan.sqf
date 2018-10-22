@@ -49,7 +49,7 @@ if (_var_enemyNVG) then {
 };
 
 //EXIT IF NO CUSTOM GEAR
-if (!_var_enemyGear) exitwith {};
+if !(_var_enemyGear) exitwith {};
 
 //REMOVE OLD STUFF
 removeAllWeapons _unit;
@@ -184,6 +184,13 @@ removeAllPrimaryWeaponItems _unit;
 if (_type != _Crew && {_type != _Pilot}) then {
 	if (30 > random 100) then {_unit addPrimaryWeaponItem selectRandom _Attach;};
 	if (50 > random 100) then {_unit addPrimaryWeaponItem selectRandom _Optic;};
+};
+
+//GIVE GOODIES
+if (_var_enemyGoodies && {30 > random 100}) then {
+	for "_i" from 1 to 4 do {_unit addItem "ACE_packingBandage";};
+	_unit addItem "ACE_morphine";
+	_unit addItem "ACE_bloodIV";
 };
 
 //MISC

@@ -11,13 +11,14 @@
 	- The Ammo Blacklist affects all vehicles defined in this file.
 	- The Camos can obviously only be applied if they exist for said vehicle, which means if you define multiple trucks and only
 	  one of them has a black camouflage, then it will not work for the trucks that don't have it.
-	- If you set var_enemyGear to false, you can skip ahead to the // VEHICLES section.
+	- If you set var_enemyGear to false, you can skip anything below it until the // VEHICLES section.
 */
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //GENERAL SETTINGS
 private _var_enemySkill = 1; // What skill does the enemy have? (0=UNTRAINED, 1=REGULAR, 2=ELITE) (default: 1)
-private _var_enemyGear = true; // Should AI get custom gear? (default: true)
 private _var_enemyNVG = true; // Should AI get NVGs? (default: false)
+private _var_enemyGear = true; // Should AI get custom gear? (default: true)
+private _var_enemyGoodies = true; // Give additional medical supplies? (default: false) (only taking effect if _var_enemyGear = true;)
 
 
 // CLOTHING ///////////////////////////////////////////////////////////////////////////////////////
