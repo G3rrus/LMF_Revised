@@ -78,8 +78,8 @@ if (hasInterface) then {
 				//WEAPON NOT IN WHITELIST
 				_weaponData = [_weapon] call ace_overheating_fnc_getWeaponData;
 				//0: DISPERSON <NUMER>, 1: SLOWDOWNFACTOR <NUMBER>, 2: JAMCHANCE <NUMBER>
-				_weaponData set [0,(_weaponData select 0 + diw_unknownwp_dispersion_add)];
-				_weaponData set [2,(_weaponData select 2 + (diw_unknownwp_jamchance_add / 100))];
+				_weaponData set [0,(_weaponData#0 + diw_unknownwp_dispersion_add)];
+				_weaponData set [2,(_weaponData#2 + (diw_unknownwp_jamchance_add / 100))];
 				ace_overheating_cacheWeaponData setVariable [_weapon, _weaponData];
 			};
 		};
