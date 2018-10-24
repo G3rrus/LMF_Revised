@@ -26,17 +26,32 @@ private _collect = {
 	<font face='PuristaBold' color='#FFBA26' size='16'>ADMIN FRAMEWORK</font><br/>
 	<font color='#D7DBD5'>This will only work if you are an admin or whitelisted as one.</font color><br/><br/>
 
-	<font color='#9DA698'>BRIEFING STAGE</font><br/>
+	<font color='#A34747'>END BRIEFING STAGE</font><br/>
 	- <execute expression='[player] remoteExec [""lmf_admin_fnc_endWarmup"",2]'>PRESS HERE TO END BRIEFING STAGE</execute><br/><br/>
 
-	<font color='#9DA698'>RESPAWN</font><br/>
+	<font color='#A3FFA3'>RESPAWN</font><br/>
 	- <execute expression='[player] remoteExec [""lmf_admin_fnc_respawnWave"",2]'>PRESS HERE TO CREATE RESPAWN WAVE</execute><br/><br/>
 
-	<font color='#9DA698'>ADD ZEUS</font><br/>
+	<font color='#A3FFA3'>TELEPORT PLAYERS</font><br/>
+	- <execute expression='[player] remoteExec [""lmf_admin_fnc_initAdminTP"",2]'>PRESS HERE TELEPORT PLAYERS TO YOU</execute><br/><br/>
+
+	<font color='#A3FFA3'>ADD ZEUS</font><br/>
 	- <execute expression='[player] remoteExec [""lmf_admin_fnc_assignZeus"",2]'>PRESS HERE TO ADD ZEUS</execute><br/><br/>
 
-	<font color='#9DA698'>CHECK SERVER/HEADLESS CLIENT PERFORMANCE</font><br/>
-	- <execute expression='[player] remoteExec [""lmf_admin_fnc_initPerformance"",2]'>PRESS HERE TO CHECK PERFORMANCE</execute>
+	<font color='#A3FFA3'>CHECK SERVER/HEADLESS CLIENT PERFORMANCE</font><br/>
+	- <execute expression='[player] remoteExec [""lmf_admin_fnc_initPerformance"",2]'>PRESS HERE TO CHECK PERFORMANCE</execute><br/><br/>
+
+	<font color='#A3E0FF'>ENTER SAFEMODE</font><br/>
+	- <execute expression='[player,true] remoteExec [""lmf_admin_fnc_initPlayerSafety"",2]'>PRESS HERE TO ENTER SAFEMODE</execute><br/><br/>
+
+	<font color='#A34747'>EXIT SAFEMODE</font><br/>
+	- <execute expression='[player,false] remoteExec [""lmf_admin_fnc_initPlayerSafety"",2]'>PRESS HERE TO EXIT SAFEMODE</execute><br/><br/>
+
+	<font color='#A3E0FF'>END MISSION COMPLETED</font><br/>
+	- <execute expression='[player,true] remoteExec [""lmf_admin_fnc_endMission"",2]'>PRESS HERE TO END MISSION</execute><br/><br/>
+
+	<font color='#A34747'>END MISSION FAILED</font><br/>
+	- <execute expression='[player,false] remoteExec [""lmf_admin_fnc_endMission"",2]'>PRESS HERE TO END MISSION</execute>
 	"]]];
 };
 
@@ -73,7 +88,7 @@ private _brf_platoon = "";
 	};
 
 	//ENTRY FOR SOLDIER
-	_brf_platoon = _brf_platoon + " <font color='#9DA698'>- " + _role + ": " +  name _x + "</font><br/>";
+	_brf_platoon = _brf_platoon + " <font color='#D7DBD5'>- " + _role + ": " +  name _x + "</font><br/>";
 
 	//UPDATE OLD
 	_grp2 = _grp;
@@ -95,21 +110,21 @@ player creatediaryrecord ["Diary",["  TO/E",format ["
 // SIGNALS ////////////////////////////////////////////////////////////////////////////////////////
 player createDiaryrecord ["Diary",["  Signals",format ["
 <font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
-<font color='#A34747'>Channel 01:		</font> <font color='#9DA698'>1PLT</font color><br/>
-<font color='#A34747'>Channel 02:		</font> <font color='#9DA698'>2PLT</font color><br/>
-<font color='#A34747'>Channel 03:		</font> <font color='#9DA698'>3PLT</font color><br/>
+<font color='#A34747'>Channel 01:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
+<font color='#A34747'>Channel 02:		</font> <font color='#D7DBD5'>2PLT</font color><br/>
+<font color='#A34747'>Channel 03:		</font> <font color='#D7DBD5'>3PLT</font color><br/>
 <br/>
-<font color='#A3FFA3'>Channel 06:		</font> <font color='#9DA698'>AIR</font color><br/>
-<font color='#A3FFA3'>Channel 07:		</font> <font color='#9DA698'>CAS</font color><br/>
+<font color='#A3FFA3'>Channel 06:		</font> <font color='#D7DBD5'>AIR</font color><br/>
+<font color='#A3FFA3'>Channel 07:		</font> <font color='#D7DBD5'>CAS</font color><br/>
 <br/>
 
 <font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
-<font color='#A3E0FF'>Channel 06:		</font color> <font color='#9DA698'>Platoon HQ</font color><br/>
+<font color='#A3E0FF'>Channel 06:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
 <br/>
-<font color='#A3E0FF'>Channel 01:		</font color> <font color='#9DA698'>1st Squad</font color><br/>
-<font color='#A3E0FF'>Channel 02:		</font color> <font color='#9DA698'>2nd Squad</font color><br/>
-<font color='#A3E0FF'>Channel 03:		</font color> <font color='#9DA698'>3rd Squad</font color><br/>
-<font color='#A3E0FF'>Channel 04:		</font color> <font color='#9DA698'>4th Squad</font color><br/>
+<font color='#A3E0FF'>Channel 01:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
+<font color='#A3E0FF'>Channel 02:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
+<font color='#A3E0FF'>Channel 03:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
+<font color='#A3E0FF'>Channel 04:		</font color> <font color='#D7DBD5'>4th Squad</font color><br/>
 "]]];
 
 

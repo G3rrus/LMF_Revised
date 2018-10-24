@@ -5,12 +5,14 @@
 	  their headgear and goggles.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
+if !(var_warmup) exitWith {};
 ["Preload"] call BIS_fnc_arsenal;
 
 #include "..\..\..\settings\cfg_Player.sqf"
 
 waitUntil {time > 10};
-if (isNil "var_warmup" || {!var_warmup}) exitWith {};
+waitUntil {!isNil "lmf_warmup"};
+if !(lmf_warmup) exitWith {};
 
 
 // ADD GEAR BASED ON ROLES ////////////////////////////////////////////////////////////////////////
@@ -84,5 +86,5 @@ if (!_heli && {!_veh && {!_fighter}}) then {
 
 
 // ADD ACTION /////////////////////////////////////////////////////////////////////////////////////
-private _personalArsenal = ["personalArsenal","Personal Arsenal","\A3\ui_f\data\igui\cfg\weaponicons\MG_ca.paa",{["Open",[false,player, player]] spawn bis_fnc_arsenal; player action ["SwitchWeapon", player, player, 100];},{var_warmup}] call ace_interact_menu_fnc_createAction;
+private _personalArsenal = ["personalArsenal","Personal Arsenal","\A3\ui_f\data\igui\cfg\weaponicons\MG_ca.paa",{["Open",[false,player, player]] spawn bis_fnc_arsenal; player action ["SwitchWeapon", player, player, 100];},{lmf_warmup}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","ACE_Equipment"], _personalArsenal] call ace_interact_menu_fnc_addActionToObject;
