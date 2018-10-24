@@ -6,23 +6,28 @@
 waitUntil {([] call acre_api_fnc_isInitialized)};
 
 private _id = groupID group player;
+private _personalRadio = ["ACRE_PRC343"] call acre_api_fnc_getRadioByType;
 
+//EXIT IF NO RADIO
+if (isNil "_personalRadio") exitWith {};
+
+//APPLY CHANNEL IF RADIO
 if (_id == "FOX6") exitWith {
-	[(["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 6] call acre_api_fnc_setRadioChannel;
+	[_personalRadio, 6] call acre_api_fnc_setRadioChannel;
 };
 
 if (_id == "FOX1") exitWith {
-	[(["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 1] call acre_api_fnc_setRadioChannel;
+	[_personalRadio, 1] call acre_api_fnc_setRadioChannel;
 };
 
 if (_id == "FOX2") exitWith {
-	[(["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 2] call acre_api_fnc_setRadioChannel;
+	[_personalRadio, 2] call acre_api_fnc_setRadioChannel;
 };
 
 if (_id == "FOX3") exitWith {
-	[(["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 3] call acre_api_fnc_setRadioChannel;
+	[_personalRadio, 3] call acre_api_fnc_setRadioChannel;
 };
 
 if (_id == "FOX4") exitWith {
-	[(["ACRE_PRC343"] call acre_api_fnc_getRadioByType), 4] call acre_api_fnc_setRadioChannel;
+	[_personalRadio, 4] call acre_api_fnc_setRadioChannel;
 };
