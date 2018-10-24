@@ -6,7 +6,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //VARIOUS
 var_author = "Author"; // Your name, which shows up at the end of the warmup.
-var_debug = false; // For mission testing, will start without warmup and turn on debug options. (default: false)
+var_debug = false; // For mission testing, will turn on some debug options. (default: false)
+var_warmup = true; // Start mission with warmup? (default: true)
 var_jipTP = false; // Allow players that JIP to teleport? (default: false)
 var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (default: EAST)
 
