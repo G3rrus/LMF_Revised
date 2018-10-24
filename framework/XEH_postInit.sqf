@@ -38,6 +38,16 @@ enableSaving [false,false];
 // SERVER /////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 if (isServer) then {
+    //BROADCAST WARMUP IF ENABLED
+    if (var_warmup) then {
+        lmf_warmup = true;
+        publicVariable "lmf_warmup";
+        [] execVM "framework\server\init\resetDate.sqf";
+    } else {
+        lmf_warmup = false;
+        publicVariable "lmf_warmup";
+    };
+
     //CREATE VARIOUS MARKERS
     [] execVM "framework\server\init\markers.sqf";
 
@@ -145,9 +155,6 @@ if (var_playerGear) then {
 //PLAYER CAMOCOEF
 [{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;
 
-//JIP
-//[] execVM "a2k\scripts\jipTeleport.sqf";
-
 //ACE ACTIONS
 [] execVM "framework\player\init\aceActions.sqf";
 
@@ -155,6 +162,14 @@ if (var_playerGear) then {
 if (var_personalArsenal) then {
     [] execVM "framework\player\init\personalArsenal.sqf";
 };
+
+//JIP
+if (CBA_missionTime > 5*60) then {
+    [] execVM "framework\player\init\jipTeleport.sqf";
+};
+
+//INTRO + WARMUP
+[] execVM "framework\player\init\warmup.sqf";
 
 //CHANNEL SETUP
 0 enableChannel false;
