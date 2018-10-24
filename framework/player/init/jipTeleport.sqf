@@ -40,9 +40,5 @@ private _jipActionCode = {
 private _jipTeleAction = ["tpToGroup","TELEPORT TO GROUP","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa",_jipActionCode,{player distance2D (getMarkerPos "respawn") < 200}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions"], _jipTeleAction] call ace_interact_menu_fnc_addActionToObject;
 
-//WAIT UNTIL 5 MINUTES PASSED
-private _time2 = time + 300;
-waitUntil {time > _time2};
-
-//REMOVE ACTION
-[player,1,["ACE_SelfActions","tpToGroup"]] call ace_interact_menu_fnc_removeActionFromObject;
+//REMOVE ACTION AFTER 300 SECONDS
+[{[player,1,["ACE_SelfActions","tpToGroup"]] call ace_interact_menu_fnc_removeActionFromObject;}, [], 300] call CBA_fnc_waitAndExecute;
