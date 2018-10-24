@@ -1,50 +1,41 @@
-// JIP TELEPORT TO GROUP
-// Gives a player that JIPs an ACE self-interaction to teleport themselves to their group
-// Checks if the groupleader is in a vehicle and tries to move the player into an available seat if it exists
+// JIP TELEPORT FOR JIPING PLAYERS ////////////////////////////////////////////////////////////////
+/*
+	- File that adds an ace action to the player for JIP-teleport. Ace condition requires respawn marker
+	  to work.
+*/
+// INIT ///////////////////////////////////////////////////////////////////////////////////////////
+waitUntil {speed player > 1};
 
-waitUntil {!isNull player};
-if (player == leader group player) exitWith {};
+//EXIT IF TOO CLOSE FOR JIP TP OR IF UNIT IS ALONE OR IF ALL HIS GROUP MEMBERS ARE DEAD
+if ([] call CBA_fnc_players findIf {_x distance2D player < 200} != -1) exitWith {};
+if !(count units group player > 1) exitWith {};
+if !({alive _x} count units group player > 1) exitWith {};
 
-if (didJIP) then {
-	[] spawn {
-	sleep 1;
-	
-	// Create ACE action and add to player self-interact
-	a2k_jipTeleAction = ["teletogroup","TELEPORT TO SQUAD","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa",{[] spawn a2k_teleportToGroup},{true},{},[], [0,0,0], 100] call ace_interact_menu_fnc_createAction;
-	[player, 1, ["ACE_SelfActions"], a2k_jipTeleAction] call ace_interact_menu_fnc_addActionToObject;
+//GIVE PLAYER JIP HINT
+private _response = [
+"Welcome to the mission!<br/><br/>
+You can use the 'TELEPORT TO GROUP' action in your ACE3 self interaction menu to teleport to your group.<br/>
+If you move too far away from the spawn area or after approx. 5 minutes the action will disappear.<br/><br/>
+Have fun!","JIP TELEPORT AVAILABLE",true,false
+] call BIS_fnc_guiMessage;
 
-	
-	a2k_teleportToGroup = {
+//ACE JIP ACTION
+private _jipActionCode = {
+	private _target = [] call lmf_player_fnc_jipChooseTarget;
+	private _vicSpot = [_target] call lmf_player_fnc_jipEmptySeat;
 
-		_leadGrp = leader group player;
-
-		// Move player to groups leader (into vehicle if it exists and has a free seat)
-		_avDriver = vehicle _leadGrp emptyPositions "driver";
-		_avCommander = vehicle _leadGrp emptyPositions "commander";
-		_avGunner = vehicle _leadGrp emptyPositions "gunner";
-		_avTurret = vehicle _leadGrp emptyPositions "turret";
-		_avCargo = vehicle _leadGrp emptyPositions "cargo";
-		_freeSeat = if (_avDriver > 0 OR _avCommander > 0 OR _avGunner > 0 OR _avTurret > 0 OR _avCargo > 0) then {true};
-
-		if (_freeSeat) then
-		{
-			cutText  ["", "BLACK OUT", 1, true];
-			player moveInAny vehicle _leadGrp;
-			cutText  ["", "BLACK IN", 1, true];
-		} else
-		{
-			cutText  ["", "BLACK OUT", 1, true];
-			player setVehiclePosition [getPos _leadGrp, [], 10];
-			cutText  ["", "BLACK IN", 1, true];
-		};
-
-		// Remove ACE action after use
-		[player, 1,["ACE_SelfActions","teletogroup"]] call ace_interact_menu_fnc_removeActionFromObject;
-
+	player allowDamage false;
+	cutText  ["", "BLACK OUT", 1, true];
+	if (_vicSpot) then {
+		player moveInAny vehicle _target;
+	} else {
+		player setPosATL (_target getPos [3, getDir _target - 180]);
 	};
+	cutText  ["", "BLACK IN", 1, true];
+	player allowDamage true;
 
-	// Wait 5min and then remove ACE action if it still exists/not used
-	sleep 300;
-	[player, 1,["ACE_SelfActions","teletogroup"]] call ace_interact_menu_fnc_removeActionFromObject;
-	};
 };
+
+//CREATE SELF INTERACTION
+private _jipTeleAction = ["tpToGroup","TELEPORT TO GROUP","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa",_jipActionCode,{time < 400 && {player distance2D (getMarkerPos "respawn") < 200}}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions"], _jipTeleAction] call ace_interact_menu_fnc_addActionToObject;

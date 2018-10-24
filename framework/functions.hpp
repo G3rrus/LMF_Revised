@@ -54,6 +54,8 @@ class player {
         class initPlayerVic {};
         class initPlayerSupp {};
         class vehicleService {};
+        class jipChooseTarget {};
+        class jipEmptySeat {};
 	};
     class eventhandlers {
 		file = "framework\player\eh";
