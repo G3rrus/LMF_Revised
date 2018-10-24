@@ -72,6 +72,11 @@ class admin {
         class performanceCheck {};
         class assignZeus {};
         class respawnWave {};
+        class playerSafety {};
+        class initPlayerSafety {};
+        class endMission {};
+        class adminTP {};
+        class initAdminTP {};
 	};
 };
 class diw_unknownwp {

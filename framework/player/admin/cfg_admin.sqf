@@ -21,6 +21,3 @@ if (admin owner _unit > 0 || {_adminList findIf {_x == _uid} != -1}) then {_admi
 
 //IF NOT
 if !(_admin) exitWith {"Only for certified members!!!" remoteExec ["systemChat",_unit]};
-
-//DO NOT PROCEED UNTIL MISSION IS STARTED
-waitUntil {CBA_missionTime > 0};
