@@ -27,6 +27,8 @@ removeGoggles _unit;
 
 onMapSingleClick "_shift";
 
+player_insignia = "";
+
 
 // APPLY NEW ROLE SPECIFIC STUFF //////////////////////////////////////////////////////////////////
 //PLT LEADER
