@@ -1,9 +1,7 @@
 # LMF_Revised
 ## Description
-This Framework is based on the original LAMBS Framework and as such contains portions of code from it.\
 This revise of the above mentioned Framework is intended to bring old code up to date, address previously unresolved issues,
 and add functionality all while making sure it stays simple and easy to understand for end users.\
-Big thanks to **Diwako**, **nkenny** and **Alex2k** for some of the code used in this Framework.
 
 ## Requirements:
 In order to use this Framework, you need to run these mods alongside it:
