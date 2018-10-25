@@ -1,6 +1,6 @@
 # LMF_Revised
 ## Description
-This revise of the above mentioned Framework is intended to bring old code up to date, address previously unresolved issues,
+This revise of the LMF Framework is intended to bring old code up to date, address previously unresolved issues,
 and add functionality all while making sure it stays simple and easy to understand for end users.\
 
 ## Requirements:
