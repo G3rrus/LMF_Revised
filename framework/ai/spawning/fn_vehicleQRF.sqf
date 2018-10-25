@@ -182,9 +182,9 @@ while {_initTickets > 0} do {
     };
 
 	//IF THE INITAL TICKETS WERE HIGHER THAN ONE
-	if (_tickets > 1) then {
-		//WAIT UNTIL EVERYONE DEAD
-		waitUntil {sleep 5; !alive _veh || {{alive _x} count units _grp < 1}};
+    if (_tickets > 1) then {
+        //WAIT UNTIL EVERYONE DEAD
+        waitUntil {sleep 5; !alive _veh || {{alive _x} count units _grp < 1}};
         sleep _respawnTime;
     };
 
