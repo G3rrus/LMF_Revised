@@ -181,7 +181,7 @@ while {_initTickets > 0} do {
         0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
     };
 
-	//IF THE INITAL TICKETS WERE HIGHER THAN ONE
+    //IF THE INITAL TICKETS WERE HIGHER THAN ONE
     if (_tickets > 1) then {
         //WAIT UNTIL EVERYONE DEAD
         waitUntil {sleep 5; !alive _veh || {{alive _x} count units _grp < 1}};
