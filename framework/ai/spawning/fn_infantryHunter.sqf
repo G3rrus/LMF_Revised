@@ -26,9 +26,6 @@ params [["_spawnPos", [0,0,0]],["_grpType", "TEAM"],["_radius", 500],["_tickets"
 _spawnPos = _spawnPos call CBA_fnc_getPos;
 private _range = 500;
 
-//WAIT A RANDOM BIT OF TIME (In case multiple functions are called on 1 location it make spawning a bit smoother)
-sleep (random 10);
-
 
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
 //NO RESPAWN

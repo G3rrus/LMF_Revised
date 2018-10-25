@@ -23,9 +23,6 @@ if !(_spawner) exitWith {};
 params [["_spawnPos", [0,0,0]],["_grpType", "TEAM"],["_garrisonRadius", 100],["_distribution", 1]];
 _spawnPos = _spawnPos call CBA_fnc_getPos;
 
-//WAIT A RANDOM BIT OF TIME (In case multiple functions are called on 1 location it make spawning a bit smoother)
-sleep (random 10);
-
 
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
 private _type = [_grptype] call _typeMaker;

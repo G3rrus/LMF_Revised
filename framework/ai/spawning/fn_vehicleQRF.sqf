@@ -29,9 +29,6 @@ if !(_spawnPos isEqualType []) then {_dir = getDir _spawnPos;};
 _spawnPos = _spawnPos call CBA_fnc_getPos;
 toUpper _vicType;
 
-//WAIT A RANDOM BIT OF TIME (In case multiple functions are called on 1 location it make spawning a bit smoother)
-sleep (random 10);
-
 
 // WITHOUT RESPAWN ////////////////////////////////////////////////////////////////////////////////
 if (_tickets == 0) exitWith {
