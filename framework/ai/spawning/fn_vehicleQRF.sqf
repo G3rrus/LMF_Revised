@@ -35,11 +35,11 @@ private _initTickets = _tickets;
 
 while {_initTickets > 0} do {
 
-	//IF THE INITAL TICKETS WERE HIGHER THAN ONE
-	if (_tickets > 1) then {
-		//WAIT UNTIL PROXIMTY IS FINE
-		waitUntil {sleep 5; [_spawnPos,_range] call _proximityChecker isEqualTo false};
-	};
+    //IF THE INITAL TICKETS WERE HIGHER THAN ONE
+    if (_tickets > 1) then {
+        //WAIT UNTIL PROXIMTY IS FINE
+        waitUntil {sleep 5; [_spawnPos,_range] call _proximityChecker isEqualTo false};
+    };
 
     //IF PROXIMITY IS FINE
     private _veh = objNull;
@@ -189,5 +189,5 @@ while {_initTickets > 0} do {
     };
 
     //SUBTRACT TICKET
-	_initTickets = _initTickets - 1;
+    _initTickets = _initTickets - 1;
 };
