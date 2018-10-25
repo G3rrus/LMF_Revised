@@ -16,9 +16,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //GENERAL SETTINGS
 private _var_enemySkill = 1; // What skill does the enemy have? (0=UNTRAINED, 1=REGULAR, 2=ELITE) (default: 1)
-private _var_enemyNVG = true; // Should AI get NVGs? (default: false)
+private _var_enemyNVG = false; // Should AI get NVGs? (default: false)
 private _var_enemyGear = true; // Should AI get custom gear? (default: true)
-private _var_enemyGoodies = true; // Give additional medical supplies? (default: false) (only taking effect if _var_enemyGear = true;)
+private _var_enemyGoodies = false; // Give additional medical supplies? (default: false) (only taking effect if _var_enemyGear = true;)
 
 
 // CLOTHING ///////////////////////////////////////////////////////////////////////////////////////

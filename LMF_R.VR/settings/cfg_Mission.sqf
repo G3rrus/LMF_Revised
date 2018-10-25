@@ -12,7 +12,7 @@ var_jipTP = false; // Allow players that JIP to teleport? (default: false)
 var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (default: EAST)
 
 //RESPAWN
-var_respawnType = "WAVE"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
+var_respawnType = "OFF"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
 var_respawnTime = 1500; // Respawn countdown in seconds in case of "WAVE". (default: 1500)
 
 
@@ -37,7 +37,7 @@ var_supSpecial = "Box_NATO_WpsSpecial_F"; // Supply Spawnpad special supplies
 var_supExplosives = "Box_NATO_AmmoOrd_F"; // Supply Spawnpad explosives supplies
 
 //PLAYER GEAR (Only relevant if var_playerGear = true;)
-var_personalArsenal = true; // Give players access to a limited arsenal during briefing stage. (default: false)
+var_personalArsenal = false; // Give players access to a limited arsenal during briefing stage. (default: false)
 var_personalRadio = true; // Does everyone get a short range radio (AN/PRC 343)? (default: true)
 var_backpacksAll = false; // Give all players backpacks? (Certain roles will have backpacks regardless) (default: false)
 var_pistolAll = false; // Give all players sidearms? (default: false)
@@ -49,4 +49,4 @@ var_keepRole = true; // Should players keep their role upon respawn? (default: t
 // MARKERS ////////////////////////////////////////////////////////////////////////////////////////
 var_markerSide = "ColorWEST"; // What colorsheme should markers on playerside use? ("ColorWEST", "ColorEAST", "ColorGUER") (default: "ColorWEST")
 var_groupMarkers = true; // Use group-icons on map. (default: true)
-var_unitTracker = true; // Use unit-icons on map. (default: false)
+var_unitTracker = false; // Use unit-icons on map. (default: false)
