@@ -53,6 +53,14 @@ if (isServer) then {
 
     //CREATE CUSTOM SPECTATOR CHANNEL
     radio_channel_1 = radioChannelCreate [[1,0.6,0,1], "SPECTATOR", "%UNIT_NAME", []];
+
+    //APPLY TEXTURES TO LAPTOPS
+    if !(isNil "ammoSpawner") then {ammoSpawner setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
+    if !(isNil "groundSpawner") then {groundSpawner setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
+    if !(isNil "airSpawner") then {airSpawner setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
+    if !(isNil "crateGearSquad") then {crateGearSquad setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
+    if !(isNil "crateGearPlt") then {crateGearPlt setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
+    if !(isNil "crateGearCrew") then {crateGearCrew setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
 };
 
 
