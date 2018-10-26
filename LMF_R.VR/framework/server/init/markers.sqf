@@ -56,7 +56,7 @@ if !(isNil "RRR") then {
 	_RRRMkr setMarkerType "b_maint";
 	_RRRMkr setMarkerSize [0.75,0.75];
 	_RRRMkr setMarkerColor var_markerSide;
-	_RRRMkr setMarkerText "RRR";
+	_RRRMkr setMarkerText "";
 	_RRRMkr setMarkerAlpha 1;
 };
 
