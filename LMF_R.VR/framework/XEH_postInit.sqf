@@ -86,7 +86,7 @@ if (isServer) then {
 }] call CBA_fnc_addEventHandler;
 
 //APPLY EVENT HANDLERS FOR AI TOO ALL POSSIBLE OWNERS TO AVOID LOCALITY PROBLEMS
-["lmf_ai_listener", {
+["lmf_ai_listener", { // broken
     if (isServer || {!hasinterface || {!isNull (getAssignedCuratorLogic player)}}) then {
         params ["_unit", ["_getSuppression", false]];
 
