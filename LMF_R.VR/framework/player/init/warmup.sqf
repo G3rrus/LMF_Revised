@@ -10,15 +10,11 @@ cutText  ["", "BLACK FADED", 10, true];
 player enableSimulation false;
 private _date = str (date select 1) + "/" + str (date select 2) + "/" + str (date select 0) + " " + str (date select 3) + ":" + str (date select 4);
 private _location = "Location: " + worldname;
-sleep 3;
-cutText  [format ["<t color='#FFBA26' size='5'>%1</t>",briefingName], "BLACK FADED", 10, true,true];
-sleep 3;
-cutText  [format ["<t color='#FFBA26' size='5'>%1</t><br/><t color='#D7DBD5' size='3'>%2</t>",briefingName,_date], "BLACK FADED", 10, true,true];
-sleep 3;
-cutText  [format ["<t color='#FFBA26' size='5'>%1</t><br/><t color='#D7DBD5' size='3'>%2</t><br/><t color='#D7DBD5' size='2'>%3</t>",briefingName,_date,_location], "BLACK FADED", 10, true,true];
-sleep 3;
+sleep 4;
+titleText [format ["<t color='#FFBA26' size='5'>%1</t><br/><t color='#D7DBD5' size='3'>%2</t><br/><t color='#D7DBD5' size='2'>%3</t>",briefingName,_date,_location], "PLAIN", 1.2, true,true];
+sleep 8;
 waitUntil {!isNil "lmf_warmup"};
-cutText  [format ["<t color='#FFBA26' size='5'>%1</t><br/><t color='#D7DBD5' size='3'>%2</t><br/><t color='#D7DBD5' size='2'>%3</t>",briefingName,_date,_location], "BLACK IN", 10, true,true];
+cutText  ["", "BLACK IN", 10, true];
 
 player enableSimulation true;
 
