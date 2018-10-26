@@ -20,17 +20,8 @@ if (_allTypesAA findif {_type == _x} == -1) then {
 
 
 // APPLY EVENT HANDLERS ///////////////////////////////////////////////////////////////////////////
-//KILLED EH
-_unit addEventHandler ["Killed", {
-	_this call lmf_ai_fnc_killedEH;
-}];
-
-//SUPPRESSION EH
-if (_type == _Autorifleman || {_type == _MMG_Gunner}) then {
-	_unit addEventHandler ["Fired", {
-		_this call lmf_ai_fnc_suppressEH;
-	}];
-};
+//IS ACTUALLY DONE IN XEH_POSTINIT TO AVOID LOCALITY PROBLEMS
+["lmf_ai_listener", [_unit, _type == _Autorifleman || {_type == _MMG_Gunner}]] call CBA_fnc_globalEvent;
 
 
 // APPLY SKILL ////////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +31,8 @@ private _skill_elite = skill _unit * selectRandom [0.85,0.90,0.95,1.05,1.10];
 if (_var_enemySkill == 0) then {_unit setSkill _skill_untrained;};
 if (_var_enemySkill == 1) then {_unit setSkill _skill_regular;};
 if (_var_enemySkill == 2) then {_unit setSkill _skill_elite;};
-
+_unit setSkill ["spotDistance", 1];
+_unit setSkill ["spotTime", 1];
 
 // APPLY LOADOUT //////////////////////////////////////////////////////////////////////////////////
 //GIVE NVG

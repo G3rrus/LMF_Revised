@@ -56,7 +56,7 @@ class Extended_PreInit_EventHandlers {
 class Extended_PostInit_EventHandlers
 {
 	class lambs_postInit {
-    	clientInit = "[] call compile preprocessFileLineNumbers 'framework\XEH_PostInit.sqf'";
+    	init = "[] call compile preprocessFileLineNumbers 'framework\XEH_PostInit.sqf'";
 	};
 };
 

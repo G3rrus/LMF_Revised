@@ -85,6 +85,25 @@ if (isServer) then {
     };
 }] call CBA_fnc_addEventHandler;
 
+//APPLY EVENT HANDLERS FOR AI TOO ALL POSSIBLE OWNERS TO AVOID LOCALITY PROBLEMS
+["lmf_ai_listener", {
+    if (isServer || {!hasinterface || {!isNull (getAssignedCuratorLogic player)}}) then {
+        params ["_unit", ["_getSuppression", false]];
+
+        //KILLED EH
+        _unit addEventHandler ["Killed", {
+            _this call lmf_ai_fnc_killedEH;
+        }];
+
+        //SUPPRESSION EH
+        if (_getSuppression) then {
+            _unit addEventHandler ["Fired", {
+                _this call lmf_ai_fnc_suppressEH;
+            }];
+        };
+    };
+}] call CBA_fnc_addEventHandler;
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
