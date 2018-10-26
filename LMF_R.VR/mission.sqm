@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=19;
+		nextID=29;
 	};
 	class Camera
 	{
@@ -9643,12 +9643,12 @@ class Mission
 					dataType="Marker";
 					position[]={448,5,512};
 					name="respawn";
-					markerType="RECTANGLE";
+					markerType="ELLIPSE";
 					type="rectangle";
 					colorName="ColorGUER";
 					fillName="SolidBorder";
-					a=48;
-					b=16;
+					a=10;
+					b=10;
 					drawBorder=1;
 					id=219;
 				};
@@ -9855,7 +9855,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={439.5,5.2840548,428.5};
-						angles[]={-0,1.5707964,0};
+						angles[]={0,1.5707964,0};
 					};
 					side="Empty";
 					flags=4;
@@ -9871,7 +9871,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={440.5,5.2840548,428.5};
-						angles[]={-0,1.5707964,0};
+						angles[]={0,1.5707964,0};
 					};
 					side="Empty";
 					flags=4;
@@ -10994,6 +10994,7 @@ class Mission
 					{
 					};
 					id=229;
+					atlOffset=-5;
 				};
 				class Item15
 				{
@@ -11022,6 +11023,7 @@ class Mission
 					{
 					};
 					id=231;
+					atlOffset=-5;
 				};
 				class Item16
 				{
@@ -11050,6 +11052,7 @@ class Mission
 					{
 					};
 					id=233;
+					atlOffset=-5;
 				};
 				class Item17
 				{
@@ -11078,6 +11081,7 @@ class Mission
 					{
 					};
 					id=235;
+					atlOffset=-5;
 				};
 				class Item18
 				{
@@ -11106,6 +11110,7 @@ class Mission
 					{
 					};
 					id=237;
+					atlOffset=-5;
 				};
 				class Item19
 				{
@@ -11134,6 +11139,7 @@ class Mission
 					{
 					};
 					id=241;
+					atlOffset=-5;
 				};
 				class Item20
 				{
@@ -11162,6 +11168,7 @@ class Mission
 					{
 					};
 					id=243;
+					atlOffset=-5;
 				};
 				class Item21
 				{
@@ -11190,6 +11197,7 @@ class Mission
 					{
 					};
 					id=245;
+					atlOffset=-5;
 				};
 				class Item22
 				{
@@ -11218,6 +11226,7 @@ class Mission
 					{
 					};
 					id=247;
+					atlOffset=-5;
 				};
 				class Item23
 				{
@@ -11246,6 +11255,7 @@ class Mission
 					{
 					};
 					id=249;
+					atlOffset=-5;
 				};
 				class Item24
 				{
@@ -11274,6 +11284,7 @@ class Mission
 					{
 					};
 					id=251;
+					atlOffset=-5;
 				};
 				class Item25
 				{
@@ -11302,6 +11313,7 @@ class Mission
 					{
 					};
 					id=253;
+					atlOffset=-5;
 				};
 				class Item26
 				{
@@ -11382,6 +11394,7 @@ class Mission
 				};
 			};
 			id=275;
+			atlOffset=-0.039052963;
 		};
 		class Item47
 		{
