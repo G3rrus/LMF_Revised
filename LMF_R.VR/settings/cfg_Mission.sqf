@@ -21,15 +21,15 @@ var_playerGear = true; // Should players get custom gear? (default: true)
 var_camoCoef = 1; // How easy should players be spotted by AI? Higher number = easier spotted (default: 1)
 
 //VEHICLES AND CRATES
-var_vic1 = "B_MRAP_01_F"; // Ground Spawnpad Vehicle
-var_vic2 = "B_MRAP_01_hmg_F"; // Ground Spawnpad Vehicle
-var_vic3 = "B_Truck_01_covered_F"; // Ground Spawnpad Vehicle
-var_vic4 = "B_APC_Wheeled_01_cannon_F"; // Ground Spawnpad Vehicle
+var_vic1 = "B_Truck_01_covered_F"; // Ground Spawnpad Vehicle
+var_vic2 = "B_APC_Wheeled_01_cannon_F"; // Ground Spawnpad Vehicle
+var_vic3 = "B_MBT_01_TUSK_F"; // Ground Spawnpad Vehicle
+var_vic4 = "B_AFV_Wheeled_01_up_cannon_F"; // Ground Spawnpad Vehicle
 
-var_air1 = "B_Heli_Light_01_F"; // Air Spawnpad Vehicle
+var_air1 = "B_Heli_Transport_01_F"; // Air Spawnpad Vehicle
 var_air2 = "B_Heli_Light_01_dynamicLoadout_F"; // Air Spawnpad Vehicle
-var_air3 = "B_Heli_Transport_01_F"; // Air Spawnpad Vehicle
-var_air4 = "B_Heli_Transport_03_F"; // Air Spawnpad Vehicle
+var_air3 = "B_Heli_Attack_01_dynamicLoadout_F"; // Air Spawnpad Vehicle
+var_air4 = "B_Plane_Fighter_01_F"; // Air Spawnpad Vehicle
 
 var_supSmall = "Box_NATO_Ammo_F"; // Supply Spawnpad small supplies
 var_supLarge = "B_supplyCrate_F"; // Supply Spawnpad large supplies
