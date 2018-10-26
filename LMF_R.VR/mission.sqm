@@ -247,7 +247,7 @@ class Mission
 					class Attributes
 					{
 						name="FOX6_PLTL_YELLOW";
-						description="Platoon Leader@FOX/6";
+						description="Platoon Leader@FOX6";
 						isPlayer=1;
 					};
 					id=1;
@@ -479,7 +479,7 @@ class Mission
 			class Attributes
 			{
 				name="Grp_FOX_6";
-				init="[this,""FOX/6""] call CBA_fnc_setCallsign;";
+				init="[this,""FOX6""] call CBA_fnc_setCallsign;";
 			};
 			id=0;
 		};
@@ -2482,7 +2482,7 @@ class Mission
 					class Attributes
 					{
 						name="WOLF6_PLTL_YELLOW";
-						description="Platoon Leader@WOLF/6";
+						description="Platoon Leader@WOLF6";
 						isPlayable=1;
 					};
 					id=42;
@@ -2714,7 +2714,7 @@ class Mission
 			class Attributes
 			{
 				name="Grp_WOLF_6";
-				init="[this,""WOLF/6""] call CBA_fnc_setCallsign;";
+				init="[this,""WOLF6""] call CBA_fnc_setCallsign;";
 			};
 			id=41;
 		};
@@ -11456,7 +11456,7 @@ class Mission
 						position[]={404,5,498};
 					};
 					title="FOX PLATOON";
-					description="This platoon made of elements FOX1-FOX4 and FOX/6 builds the FOX platoon.";
+					description="This platoon made of elements FOX1-FOX4 and FOX6 builds the FOX platoon.";
 					id=277;
 				};
 				class Item5
@@ -11511,7 +11511,7 @@ class Mission
 						position[]={416,5,498};
 					};
 					title="WOLF PLATOON";
-					description="This platoon made of elements WOLF1-WOLF4 and WOLF/6 builds the WOLF platoon.";
+					description="This platoon made of elements WOLF1-WOLF4 and WOLF6 builds the WOLF platoon.";
 					id=278;
 				};
 			};
