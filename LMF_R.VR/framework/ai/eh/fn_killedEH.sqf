@@ -5,6 +5,7 @@
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params ["_unit"];
+if !(local _unit) exitWith {};
 removeAllPrimaryWeaponItems _unit;
 _unit unlinkItem "NVGoggles_OPFOR";
 _unit removeWeapon "Binocular";

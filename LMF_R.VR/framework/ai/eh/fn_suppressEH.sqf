@@ -7,6 +7,7 @@
 params ["_unit"];
 
 //EXIT IF NOT READY
+if !(local _unit) exitWith {};
 if (_unit getVariable ["var_isSuppressing",false]) exitWith {};
 
 //EXIT IF WRONG RANGE

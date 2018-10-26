@@ -41,6 +41,7 @@ while {_initTickets > 0} do {
 	//ONCE THE PROXIMITY IS FINE
 	private _type = [_grptype] call _typeMaker;
 	private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
+	_grp deleteGroupWhenEmpty true;
 
 	0 = [_grp,_radius] spawn lmf_ai_fnc_taskHunt;
 

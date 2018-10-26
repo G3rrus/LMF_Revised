@@ -27,6 +27,7 @@ private _patrolTarget = _spawnPos;
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
 private _type = [_grptype] call _typeMaker;
 private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
+_grp deleteGroupWhenEmpty true;
 
 
 // GIVE THEM ORDERS ///////////////////////////////////////////////////////////////////////////////
