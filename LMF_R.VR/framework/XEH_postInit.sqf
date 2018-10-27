@@ -159,7 +159,7 @@ player addEventHandler ["Killed", {
 //KILLED MESSAGES
 ["acex_killtracker_death",{
     params ["_killerName", "_killInfo"];
-    [{systemChat format ["Died: %1 %2", _this select 0, _this select 1];}, [_killerName,_killInfo], 3] call CBA_fnc_waitAndExecute;
+    [{titleText [format ["Died: %1 %2", _this select 0, _this select 1], "PLAIN", 0.5, true,true];}, [_killerName,_killInfo], 3] call CBA_fnc_waitAndExecute;
 }] call CBA_fnc_addEventHandler;
 
 //RESPAWN EH
