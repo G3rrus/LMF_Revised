@@ -85,23 +85,39 @@ if (isServer) then {
     };
 }] call CBA_fnc_addEventHandler;
 
-//APPLY EVENT HANDLERS FOR AI TOO ALL POSSIBLE OWNERS TO AVOID LOCALITY PROBLEMS
-["lmf_ai_listener", { // broken
-    if (isServer || {!hasinterface || {!isNull (getAssignedCuratorLogic player)}}) then {
-        params ["_unit", ["_getSuppression", false]];
+//'APPLY EVENTHANDLERS' EVENT (To avoid problems with locality change. (thanks Diwako))
+["lmf_ai_listener", {
+    //PARAMS INITIALLY PASSED FROM LOCAL EVENT IN INITMAN.SQF
+    params ["_unit", ["_getSuppression", false]];
 
-        //KILLED EH
-        _unit addEventHandler ["Killed", {
-            _this call lmf_ai_fnc_killedEH;
+    //KILLED EH
+    private _id = _unit addEventHandler ["Killed", {
+        _this call lmf_ai_fnc_killedEH;
+    }];
+    _unit setvariable ["lmf_ai_killed_EH", _id];
+
+
+    //SUPPRESSION EH
+    if (_getSuppression) then {
+        private _id = _unit addEventHandler ["Fired", {
+            _this call lmf_ai_fnc_suppressEH;
         }];
-
-        //SUPPRESSION EH
-        if (_getSuppression) then {
-            _unit addEventHandler ["Fired", {
-                _this call lmf_ai_fnc_suppressEH;
-            }];
-        };
+        _unit setvariable ["lmf_ai_suppression_EH", _id];
     };
+    _unit setvariable ["lmf_ai_suppression",_getSuppression];
+
+    //LOKAL EH (To remove and reapply all EHs if locality changes.)
+    private _id = _unit addEventHandler ["Local", {
+        params ["_unit"];
+        _unit removeEventHandler ["killed", _unit getVariable ["lmf_ai_killed_EH", -1]];
+        if (_unit getVariable ["lmf_ai_suppression_EH" ,-1] >= 0) then {
+            _unit removeEventHandler ["Fired", _unit getVariable ["lmf_ai_suppression_EH" ,-1]];
+        };
+        _unit removeEventHandler ["Local", _unit getVariable ["lmf_ai_local_EH" ,-1]];
+        //REAPPLY EHS
+        ["lmf_ai_listener", [_unit, _unit getVariable ["lmf_ai_suppression" ,false]], _unit] call CBA_fnc_targetEvent;
+    }];
+    _unit setvariable ["lmf_ai_local_EH", _id];
 }] call CBA_fnc_addEventHandler;
 
 

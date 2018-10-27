@@ -20,8 +20,8 @@ if (_allTypesAA findif {_type == _x} == -1) then {
 
 
 // APPLY EVENT HANDLERS ///////////////////////////////////////////////////////////////////////////
-//IS ACTUALLY DONE IN XEH_POSTINIT TO AVOID LOCALITY PROBLEMS
-["lmf_ai_listener", [_unit, _type == _Autorifleman || {_type == _MMG_Gunner}]] call CBA_fnc_globalEvent; // broken
+//IS ACTUALLY DONE VIA AN EVENT IN XEH_POSTINIT TO AVOID ISSUES WITH LOCALITY CHANGE
+["lmf_ai_listener", [_unit, _type == _Autorifleman || {_type == _MMG_Gunner}]] call CBA_fnc_localEvent;
 
 
 // APPLY SKILL ////////////////////////////////////////////////////////////////////////////////////
