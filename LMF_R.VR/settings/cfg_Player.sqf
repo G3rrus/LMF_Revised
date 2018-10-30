@@ -35,7 +35,7 @@ private _Plane_Goggles = [""]; // Plane Goggle(s)
 //VEHICLE CREW UNIFORM
 private _Crew_Uniform = ["U_B_CombatUniform_mcam_tshirt"]; // Crew Uniform(s)
 private _Crew_Vest = ["V_BandollierB_rgr"]; // Crew Vest(s)
-private	_Crew_Headgear = ["H_HelmetCrew_B"]; // Crew Headgear(s)
+private _Crew_Headgear = ["H_HelmetCrew_B"]; // Crew Headgear(s)
 private _Crew_Goggles = ["G_Lowprofile"]; // Crew Goggle(s)
 
 //BACKPACKS
