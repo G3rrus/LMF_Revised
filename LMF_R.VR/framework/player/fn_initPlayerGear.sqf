@@ -565,6 +565,7 @@ if (_role find "Helicopter Pilot" >= 0) then {
 	onMapSingleClick "";
 };
 
+//HELI CREW
 if (_role find "Helicopter Crew" >= 0) then {
 	_unit forceAddUniform selectRandom _Heli_Uniform;
 	_unit addVest selectRandom _Heli_Vest;
