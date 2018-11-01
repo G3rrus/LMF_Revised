@@ -37,7 +37,8 @@ private _jipActionCode = {
 };
 
 //CREATE SELF INTERACTION
-private _jipTeleAction = ["tpToGroup","TELEPORT TO GROUP","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa",_jipActionCode,{player distance2D (getMarkerPos "respawn") < 200}] call ace_interact_menu_fnc_createAction;
+player setVariable ["_sPos" ,getPosASL player];
+private _jipTeleAction = ["tpToGroup","TELEPORT TO GROUP","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa",_jipActionCode,{player distance2D (player getvariable ["_sPos",[0,0,0]]) < 200}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions"], _jipTeleAction] call ace_interact_menu_fnc_addActionToObject;
 
 //REMOVE ACTION AFTER 300 SECONDS
