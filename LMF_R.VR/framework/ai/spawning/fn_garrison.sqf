@@ -66,7 +66,7 @@ while {count units _grp > 1} do {
 		[units _grp] call ace_ai_fnc_unGarrison;
 		sleep 5;
 		if ({alive _x} count units _grp > 1) then {
-			[_pos, nil, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], false] call ace_ai_fnc_garrison;
+			[_spawnPos, nil, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], false] call ace_ai_fnc_garrison;
 			sleep 55;
 			{_x enableAI "AUTOCOMBAT";} count units _grp;
 			_grp setBehaviour "AWARE";
