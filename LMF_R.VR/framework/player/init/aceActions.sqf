@@ -15,6 +15,19 @@
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 lmf_spawnerCreateObject = {
     params ["_vehType",["_spawnPad",objNull,[objNull]]];
+
+	if (count (_spawnPad nearEntities [["Man", "Air", "Land", "Ship"], 10]) > 0) exitWith {
+		private _title1 = "<t color='#FFBA26' size='1' >WARNING!</t><br/>";
+		private _title2 = "<t color='#FFFFFF' size='1' >Spawn pad occupied!</t><br/>";
+		[_title1 + _title2, 2, ace_player, 10] call ace_common_fnc_displayTextStructured;
+	};
+
+	if (rank ace_player == "PRIVATE" || {rank ace_player == "CORPORAL"}) exitWith {
+		private _title1 = "<t color='#FFBA26' size='1' >WARNING!</t><br/>";
+		private _title2 = "<t color='#FFFFFF' size='1' >Only NCOs and Officers may spawn supplies!</t><br/>";
+		[_title1 + _title2, 2, ace_player, 14] call ace_common_fnc_displayTextStructured;
+	};
+
     private _vehicle = _vehType createVehicle getPosATL _spawnPad;
     private _dir = getDir _spawnPad;
     _vehicle setDir _dir;
@@ -27,29 +40,16 @@ lmf_spawnerCreateObject = {
     [_vehicle,0,["ACE_MainActions"],_vehDelete] remoteExec ["ace_interact_menu_fnc_addActionToObject", 0, _vehicle];
 };
 
-//CONDITION
-private _conditionAmmo = {
-    rank _player != "PRIVATE" && {rank _player != "CORPORAL" && {count (ammoPad nearEntities [["Man", "Air", "Land", "Ship"], 10]) < 1}}
-};
-
-private _conditionGround = {
-    rank _player != "PRIVATE" && {rank _player != "CORPORAL" && {count (groundPad nearEntities [["Man", "Air", "Land", "Ship"], 10]) < 1}}
-};
-
-private _conditionAir = {
-    rank _player != "PRIVATE" && {rank _player != "CORPORAL" && {count (airPad nearEntities [["Man", "Air", "Land", "Ship"], 10]) < 1}}
-};
-
 
 // AMMOSPAWNER ////////////////////////////////////////////////////////////////////////////////////
 if !(isNil "ammoSpawner") then {
-    private _ammoLarge = ["ammoLarge","Supplies Large","",{[var_supLarge, ammoPad] call lmf_spawnerCreateObject;},_conditionAmmo] call ace_interact_menu_fnc_createAction;
-	private _ammoSmall = ["ammoSmall","Supplies Small","",{[var_supSmall, ammoPad] call lmf_spawnerCreateObject;},_conditionAmmo] call ace_interact_menu_fnc_createAction;
-	private _ammoSpecial = ["ammoSpecial","Supplies Special","",{[var_supSpecial, ammoPad] call lmf_spawnerCreateObject;},_conditionAmmo] call ace_interact_menu_fnc_createAction;
-	private _ammoExplosive = ["ammoExplosive","Explosives","",{[var_supExplosives, ammoPad] call lmf_spawnerCreateObject;},_conditionAmmo] call ace_interact_menu_fnc_createAction;
-	private _ammoMedic = ["ammoMedic","Supplies Medical","",{["ACE_medicalSupplyCrate_advanced", ammoPad] call lmf_spawnerCreateObject;},_conditionAmmo] call ace_interact_menu_fnc_createAction;
-	private _spareWheel = ["spareWheel","Spare Wheel","",{["ACE_Wheel", ammoPad] call lmf_spawnerCreateObject;},_conditionAmmo] call ace_interact_menu_fnc_createAction;
-	private _spareTrack = ["spareTrack","Spare Track","",{["ACE_Track", ammoPad] call lmf_spawnerCreateObject;},_conditionAmmo] call ace_interact_menu_fnc_createAction;
+    private _ammoLarge = ["ammoLarge","Supplies Large","",{[var_supLarge, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _ammoSmall = ["ammoSmall","Supplies Small","",{[var_supSmall, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _ammoSpecial = ["ammoSpecial","Supplies Special","",{[var_supSpecial, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _ammoExplosive = ["ammoExplosive","Explosives","",{[var_supExplosives, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _ammoMedic = ["ammoMedic","Supplies Medical","",{["ACE_medicalSupplyCrate_advanced", ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _spareWheel = ["spareWheel","Spare Wheel","",{["ACE_Wheel", ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _spareTrack = ["spareTrack","Spare Track","",{["ACE_Track", ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 
     if (var_supLarge != "") then {[ammoSpawner, 0, ["ACE_MainActions"], _ammolarge] call ace_interact_menu_fnc_addActionToObject;};
 	if (var_supSmall != "") then {[ammoSpawner, 0, ["ACE_MainActions"], _ammoSmall] call ace_interact_menu_fnc_addActionToObject;};
@@ -68,10 +68,10 @@ if !(isNil "groundSpawner") then {
 	private _vehType3 = getText (configFile >> "CfgVehicles" >> var_vic3 >> "displayName");
 	private _vehType4 = getText (configFile >> "CfgVehicles" >> var_vic4 >> "displayName");
 
-	private _groundVeh1 = ["veh1",_vehType1,"",{[var_vic1, groundPad] call lmf_spawnerCreateObject;},_conditionGround] call ace_interact_menu_fnc_createAction;
-	private _groundVeh2 = ["veh2",_vehType2,"",{[var_vic2, groundPad] call lmf_spawnerCreateObject;},_conditionGround] call ace_interact_menu_fnc_createAction;
-	private _groundVeh3 = ["veh3",_vehType3,"",{[var_vic3, groundPad] call lmf_spawnerCreateObject;},_conditionGround] call ace_interact_menu_fnc_createAction;
-	private _groundVeh4 = ["veh4",_vehType4,"",{[var_vic4, groundPad] call lmf_spawnerCreateObject;},_conditionGround] call ace_interact_menu_fnc_createAction;
+	private _groundVeh1 = ["veh1",_vehType1,"",{[var_vic1, groundPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _groundVeh2 = ["veh2",_vehType2,"",{[var_vic2, groundPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _groundVeh3 = ["veh3",_vehType3,"",{[var_vic3, groundPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _groundVeh4 = ["veh4",_vehType4,"",{[var_vic4, groundPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 
 	if (var_vic1 != "") then {[groundSpawner, 0, ["ACE_MainActions"], _groundVeh1] call ace_interact_menu_fnc_addActionToObject;};
 	if (var_vic2 != "") then {[groundSpawner, 0, ["ACE_MainActions"], _groundVeh2] call ace_interact_menu_fnc_addActionToObject;};
@@ -87,10 +87,10 @@ if !(isNil "airSpawner") then {
 	private _heliType3 = getText (configFile >> "CfgVehicles" >> var_air3 >> "displayName");
 	private _heliType4 = getText (configFile >> "CfgVehicles" >> var_air4 >> "displayName");
 
-	private _airVeh1 = ["heli1",_heliType1,"",{[var_air1, airPad] call lmf_spawnerCreateObject;},_conditionAir] call ace_interact_menu_fnc_createAction;
-	private _airVeh2 = ["heli2",_heliType2,"",{[var_air2, airPad] call lmf_spawnerCreateObject;},_conditionAir] call ace_interact_menu_fnc_createAction;
-	private _airVeh3 = ["heli3",_heliType3,"",{[var_air3, airPad] call lmf_spawnerCreateObject;},_conditionAir] call ace_interact_menu_fnc_createAction;
-	private _airVeh4 = ["heli4",_heliType4,"",{[var_air4, airPad] call lmf_spawnerCreateObject;},_conditionAir] call ace_interact_menu_fnc_createAction;
+	private _airVeh1 = ["heli1",_heliType1,"",{[var_air1, airPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _airVeh2 = ["heli2",_heliType2,"",{[var_air2, airPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _airVeh3 = ["heli3",_heliType3,"",{[var_air3, airPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _airVeh4 = ["heli4",_heliType4,"",{[var_air4, airPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 
 	if (var_air1 != "") then {[airSpawner, 0, ["ACE_MainActions"], _airVeh1] call ace_interact_menu_fnc_addActionToObject;};
 	if (var_air2 != "") then {[airSpawner, 0, ["ACE_MainActions"], _airVeh2] call ace_interact_menu_fnc_addActionToObject;};
