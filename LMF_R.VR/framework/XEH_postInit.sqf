@@ -130,7 +130,7 @@ if !(hasinterface) exitWith {};
 waitUntil {!isNull player};
 
 //GROUP MARKERS
-if (var_groupMarkers) then {[] execVM "framework\player\init\groupMarkers.sqf";};
+if (var_groupMarkers && !(missionNamespace getVariable ["ace_map_BFT_Enabled",false])) then {[] execVM "framework\player\init\groupMarkers.sqf";};
 
 //UNIT TRACKER
 if (var_unitTracker) then {[] execVM "framework\player\init\unitTracker.sqf";};
