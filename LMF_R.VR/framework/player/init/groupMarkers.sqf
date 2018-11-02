@@ -9,33 +9,33 @@ if !(hasInterface) exitWith {};
 
 //FUNCTION
 private _fnc_group_markers = {
-    private _mrks = [];
-    {
-        //PARAMS
-        _x params ["_group",["_color","ColorWEST"],["_txt",""],["_type","b_unknown"],["_size",[1,1]]];
+	private _mrks = [];
+	{
+		//PARAMS
+		_x params ["_group",["_color","ColorWEST"],["_txt",""],["_type","b_unknown"],["_size",[1,1]]];
 
-        //CREATE MARKERS
-        private _mrk = createMarkerLocal [format ["marker_%1",_group],getPosASL leader _group];
-        _mrk setMarkerTypeLocal _type;
-        _mrk setMarkerColorLocal _color;
-        _mrk setMarkerTextLocal _txt;
-        _mrk setmarkerSizeLocal _size;
-        _mrk setMarkerAlphaLocal 0;
-        if (count units _group > 0) then {_mrk setMarkerAlphaLocal 1;};
-        _mrks pushBack [_group,_mrk];
-    } forEach _this;
+		//CREATE MARKERS
+		private _mrk = createMarkerLocal [format ["marker_%1",_group],getPosASL leader _group];
+		_mrk setMarkerTypeLocal _type;
+		_mrk setMarkerColorLocal _color;
+		_mrk setMarkerTextLocal _txt;
+		_mrk setmarkerSizeLocal _size;
+		_mrk setMarkerAlphaLocal 0;
+		if (count units _group > 0) then {_mrk setMarkerAlphaLocal 1;};
+		_mrks pushBack [_group,_mrk];
+	} forEach _this;
 
-    //UPDATE MARKERS
-    for "_i" from 0 to 1 step 0 do {
-        {
-            _x params ["_group","_mrk"];
-            if (count units _group > 0) then {
-                _mrk setMarkerPosLocal (getPosASL leader _group);
-                _mrk setMarkerAlphaLocal 1;
-            };
-        } count _mrks;
-        sleep 10;
-    };
+	//UPDATE MARKERS
+	for "_i" from 0 to 1 step 0 do {
+		{
+			_x params ["_group","_mrk"];
+			if (count units _group > 0) then {
+				_mrk setMarkerPosLocal (getPosASL leader _group);
+				_mrk setMarkerAlphaLocal 1;
+			};
+		} count _mrks;
+		sleep 10;
+	};
 };
 
 private _chooseMarker = {
