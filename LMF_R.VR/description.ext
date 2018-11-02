@@ -16,6 +16,7 @@ author = "Some innocent lamb";
 #define MISSIONNAME "LMF Framework v1"
 #define MISSIONDESCRIPTION "Long mission description text seen in mission load and mission select screen"
 
+
 // LEAVE THESE ALONE //////////////////////////////////////////////////////////////////////////////
 OnLoadName = MISSIONNAME; // Mission name (short)
 briefingName = MISSIONNAME; // Mission name in mission select
@@ -46,6 +47,7 @@ wreckManagerMode = 3;
 wreckLimit = 10;
 wreckRemovalMinTime = 200;
 wreckRemovalMaxTime = 1200;
+
 
 // FUNCTIONS //////////////////////////////////////////////////////////////////////////////////////
 class CfgFunctions {
