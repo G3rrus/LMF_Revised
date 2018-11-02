@@ -3,12 +3,25 @@
 	- Description.ext handles all sorts of framework important settings.
 */
 // HEADER /////////////////////////////////////////////////////////////////////////////////////////
+
 class Header
 {
 	gameType = Coop;
 	minPlayers = 1;
 	maxPlayers = 99;
 };
+
+//MISSION PRESENTATION
+// set your mission name ehre
+author="Some innocent lamb";
+#define MISSIONNAME "LMF Framework"
+#define MISSIONDESCRIPTION "Long mission description text seen in mission load and mission select screen"
+
+// leave these alone
+OnLoadName = MISSIONNAME; // Mission name (short)
+briefingName = MISSIONNAME; // Mission name in mission select
+onLoadMission = MISSIONDESCRIPTION; // Text that appears while mission is loading
+overviewText = MISSIONDESCRIPTION; // Mission description in mission select
 
 //RESPAWN
 respawn = 3;
@@ -36,10 +49,9 @@ wreckRemovalMinTime = 200;
 wreckRemovalMaxTime = 1200;
 
 // FUNCTIONS //////////////////////////////////////////////////////////////////////////////////////
-class CfgFunctions
-{
-createShortcuts = 1;
-#include "framework\functions.hpp"
+class CfgFunctions {
+	createShortcuts = 1;
+	#include "framework\functions.hpp"
 };
 
 //PRE-INIT EHS
@@ -49,12 +61,11 @@ class Extended_PreInit_EventHandlers {
     };
 	class diw_unknownwp_settings {
   		Init = "call compile preprocessFileLineNumbers 'framework\shared\diw_unknownwp\fn_addCbaSettings.sqf'";
-};
+	};
 };
 
 //POST-INIT EHS
-class Extended_PostInit_EventHandlers
-{
+class Extended_PostInit_EventHandlers {
 	class lambs_postInit {
     	init = "[] call compile preprocessFileLineNumbers 'framework\XEH_PostInit.sqf'";
 	};
