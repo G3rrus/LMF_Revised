@@ -12,9 +12,9 @@ class Header
 };
 
 //MISSION PRESENTATION
-// set your mission name ehre
+// set your mission name here, it is also a good idea to add version numbers so you can differentiate between mission versions!
 author="Some innocent lamb";
-#define MISSIONNAME "LMF Framework"
+#define MISSIONNAME "LMF Framework v1"
 #define MISSIONDESCRIPTION "Long mission description text seen in mission load and mission select screen"
 
 // leave these alone
