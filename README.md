@@ -27,6 +27,10 @@ __Settings Folder:__\
 After you have properly placed all Framework relevant things in your mission and removed the ones you don't need,
 head over to the settings folder and configure all the setting files according to your preference.
 
+__Gear:__\
+How much items AI and Player units, vehicles and supplies get is already pre-configured by default. If you want to change anything
+about that you can do so in the files found in `framework\ai` and `framework\player`.
+
 __AI Spawning:__\
 The Framework also comes with some spawning functions for AI groups performing various tasks. One example would be:\
 `0 = [this,"TEAM",100,1] spawn lmf_ai_fnc_garrison;` which would spawn a team of AI soldiers that garrison a building together,
