@@ -39,8 +39,8 @@ private _fnc_group_markers = {
 };
 
 private _chooseMarker = {
-    private _exists = isClass (configFile >> "CfgMarkers" >> _this#1);
-    (_this select _exists)
+	private _exists = isClass (configFile >> "CfgMarkers" >> _this#1);
+	(_this select _exists)
 };
 
 //COLLECT MARKERS

@@ -10,11 +10,6 @@ In order to use this Framework, you need to run these mods alongside it:
 * ACEX
 * ACRE2
 
-Furthermore by default this Framework is configured to run with some LAMBS specific mods.\
-If you do not have these mods you will have to configure:\
--> All occurrences of player_insignia below line 30 in `framework\player\fn_initPlayerGear.sqf`.\
--> All LAMBS specific marker types below line 46 in `framework\player\init\groupMarkers.sqf`.
-
 ## Installation:
 Copy over the contents of the "LMF_R.VR" folder into your mpmission folder.\
 Installation is done.
