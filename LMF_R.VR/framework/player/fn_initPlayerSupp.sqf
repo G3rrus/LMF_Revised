@@ -60,7 +60,7 @@ if (typeOf _supp == var_supSpecial) exitWith {
 	_supp addMagazineCargoGlobal ["ACE_HandFlare_Red", 20];
 	_supp addMagazineCargoGlobal ["ACE_HandFlare_White", 20];
 	_supp addMagazineCargoGlobal ["ACE_HandFlare_Yellow", 20];
-	_supp addMagazineCargoGlobal ["rhs_mag_mk84", 10];
+	_supp addMagazineCargoGlobal ["ACE_M84", 10];
 
 	_supp addItemCargoGlobal ["ACE_RangeTable_82mm",2];
 	_supp addItemCargoGlobal ["ACE_RangeCard",5];
