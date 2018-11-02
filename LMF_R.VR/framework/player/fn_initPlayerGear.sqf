@@ -30,8 +30,8 @@ onMapSingleClick "_shift";
 player_insignia = "";
 
 private _chooseInsignia = {
-    private _exists = isClass (configFile >> "CfgUnitInsignia" >> _this);
-    (["",_this] select _exists)
+	private _exists = isClass (configFile >> "CfgUnitInsignia" >> _this);
+	(["",_this] select _exists)
 };
 
 // APPLY NEW ROLE SPECIFIC STUFF //////////////////////////////////////////////////////////////////

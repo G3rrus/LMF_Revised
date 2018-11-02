@@ -11,13 +11,12 @@ class Header
 	maxPlayers = 99;
 };
 
-//MISSION PRESENTATION
-// set your mission name here, it is also a good idea to add version numbers so you can differentiate between mission versions!
-author="Some innocent lamb";
+//MISSION PRESENTATION (set your mission name here, it is also a good idea to add version numbers so you can differentiate between mission versions!)
+author = "Some innocent lamb";
 #define MISSIONNAME "LMF Framework v1"
 #define MISSIONDESCRIPTION "Long mission description text seen in mission load and mission select screen"
 
-// leave these alone
+// LEAVE THESE ALONE //////////////////////////////////////////////////////////////////////////////
 OnLoadName = MISSIONNAME; // Mission name (short)
 briefingName = MISSIONNAME; // Mission name in mission select
 onLoadMission = MISSIONDESCRIPTION; // Text that appears while mission is loading
@@ -56,18 +55,18 @@ class CfgFunctions {
 
 //PRE-INIT EHS
 class Extended_PreInit_EventHandlers {
-    class lambs_preInit {
+	class lambs_preInit {
 		Init = "[] call compile preprocessFileLineNumbers 'framework\XEH_PreInit.sqf'";
-    };
+	};
 	class diw_unknownwp_settings {
-  		Init = "call compile preprocessFileLineNumbers 'framework\shared\diw_unknownwp\fn_addCbaSettings.sqf'";
+		Init = "call compile preprocessFileLineNumbers 'framework\shared\diw_unknownwp\fn_addCbaSettings.sqf'";
 	};
 };
 
 //POST-INIT EHS
 class Extended_PostInit_EventHandlers {
 	class lambs_postInit {
-    	init = "[] call compile preprocessFileLineNumbers 'framework\XEH_PostInit.sqf'";
+		init = "[] call compile preprocessFileLineNumbers 'framework\XEH_PostInit.sqf'";
 	};
 };
 

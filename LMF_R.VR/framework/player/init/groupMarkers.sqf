@@ -11,10 +11,10 @@ if !(hasInterface) exitWith {};
 private _fnc_group_markers = {
     private _mrks = [];
     {
-        // params
+        //PARAMS
         _x params ["_group",["_color","ColorWEST"],["_txt",""],["_type","b_unknown"],["_size",[1,1]]];
 
-        // create marker
+        //CREATE MARKERS
         private _mrk = createMarkerLocal [format ["marker_%1",_group],getPosASL leader _group];
         _mrk setMarkerTypeLocal _type;
         _mrk setMarkerColorLocal _color;
@@ -25,7 +25,7 @@ private _fnc_group_markers = {
         _mrks pushBack [_group,_mrk];
     } forEach _this;
 
-    // update markers
+    //UPDATE MARKERS
     for "_i" from 0 to 1 step 0 do {
         {
             _x params ["_group","_mrk"];
