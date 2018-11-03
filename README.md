@@ -1,7 +1,7 @@
 # LMF_Revised
 ## Description
 This revise of the LMF Framework is intended to bring old code up to date, address previously unresolved issues,
-and add functionality all while making sure it stays simple and easy to understand for end users.\
+and add functionality all while making sure it stays simple and easy to understand for end users.
 
 ## Requirements:
 In order to use this Framework, you need to run these mods alongside it:
