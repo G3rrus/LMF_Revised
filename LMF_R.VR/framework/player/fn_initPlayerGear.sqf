@@ -545,7 +545,7 @@ if (_role find "Vehicle Driver" >= 0) then {
 };
 
 //HELI
-if (_role find "Helicopter Pilot" >= 0) then {
+if (_role find "Helicopter Pilot" >= 0 || {_role find "Helicopter Co-Pilot" >= 0}) then {
 	_unit forceAddUniform selectRandom _Heli_Uniform;
 	_unit addVest selectRandom _Heli_Vest;
 	_unit addBackpack selectRandom _Backpack_Pilot; clearAllItemsFromBackpack _unit;
