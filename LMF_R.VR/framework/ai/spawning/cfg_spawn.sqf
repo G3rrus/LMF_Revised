@@ -1,4 +1,4 @@
-// DEFINITIONS FOR SPAWN FUNCTIONS  ////////////////////////////////////////////////////////////////
+// DEFINITIONS FOR SPAWN FUNCTIONS  ///////////////////////////////////////////////////////////////
 /*
 	- File ment for defining groups, also includes some functions related to the spawning process
 	  such as picking the group and checking if players are far enough away.
