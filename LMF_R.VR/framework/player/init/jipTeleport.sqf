@@ -46,5 +46,5 @@ player setVariable ["_sPos" ,getPosASL player];
 private _jipTeleAction = ["tpToGroup","TELEPORT TO GROUP","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa",_jipActionCode,{player distance2D (player getvariable ["_sPos",[0,0,0]]) < 200}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions"], _jipTeleAction] call ace_interact_menu_fnc_addActionToObject;
 
-//REMOVE ACTION AFTER 300 SECONDS
-[{[player,1,["ACE_SelfActions","tpToGroup"]] call ace_interact_menu_fnc_removeActionFromObject;}, [], 300] call CBA_fnc_waitAndExecute;
+//REMOVE ACTION AFTER 600 SECONDS
+[{[player,1,["ACE_SelfActions","tpToGroup"]] call ace_interact_menu_fnc_removeActionFromObject;}, [], 600] call CBA_fnc_waitAndExecute;
