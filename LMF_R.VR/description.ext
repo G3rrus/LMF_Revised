@@ -3,7 +3,6 @@
 	- Description.ext handles all sorts of framework important settings.
 */
 // HEADER /////////////////////////////////////////////////////////////////////////////////////////
-
 class Header
 {
 	gameType = Coop;

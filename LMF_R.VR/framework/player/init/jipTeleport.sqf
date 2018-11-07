@@ -24,6 +24,12 @@ private _jipActionCode = {
 	private _target = [] call lmf_player_fnc_jipChooseTarget;
 	private _vicSpot = [_target] call lmf_player_fnc_jipEmptySeat;
 
+	if (!_vicSpot && {speed _target > 19 || {(getPosATL _target) select 2 > 5}}) exitWith {
+		private _title1 = "<t color='#FFBA26' size='1' >CAN NOT TELEPORT!</t><br/>";
+		private _title2 = "<t color='#FFFFFF' size='1' >Teleport target moving too fast or currently in air. Try again in a bit!</t><br/>";
+		[_title1 + _title2, 2, player, 14] call ace_common_fnc_displayTextStructured;
+	};
+
 	player allowDamage false;
 	cutText  ["", "BLACK OUT", 1, true];
 	if (_vicSpot) then {
@@ -33,7 +39,6 @@ private _jipActionCode = {
 	};
 	cutText  ["", "BLACK IN", 1, true];
 	player allowDamage true;
-
 };
 
 //CREATE SELF INTERACTION
