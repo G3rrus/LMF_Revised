@@ -49,35 +49,35 @@ while {lmf_warmup} do {
 	private _br = format ["<br/>"];
 
 	//PERSONAL ARSENAL
-	private _personalArsenal = format ["<t color='#FFBA26' size='1.0'align='left'>PERSONAL ARSENAL:  </t> <t color='#ffffff' size='1.0'align='right'>%1</t><br/>",["Off", "On"] select var_personalArsenal];
+	private _personalArsenal = format ["<t color='#FFBA26' size='1.0'align='left'>PERSONAL ARSENAL:  </t> <t color='#FFFFFF' size='1.0'align='right'>%1</t><br/>",["Off", "On"] select var_personalArsenal];
 
 	//GET MAP
 	private _map = "";
 	if (var_playerMaps == 0) then {_map = "All";};
 	if (var_playerMaps == 1) then {_map = "Leaders";};
 	if (var_playerMaps == 2) then {_map = "None";};
-	private _maps = format ["<t color='#ffba26' size='1.0'align='left'>MAPS:  </t> <t color='#ffffff' size='1.0'align='right'>%1</t><br/>",_map];
+	private _maps = format ["<t color='#FFBA26' size='1.0'align='left'>MAPS:  </t> <t color='#FFFFFF' size='1.0'align='right'>%1</t><br/>",_map];
 
 	//PERSONAL RADIO
-	private _radios = format ["<t color='#ffba26' size='1.0'align='left'>SQUAD RADIOS:  </t> <t color='#ffffff' size='1.0'align='right'>%1</t><br/>",["None", "All"] select var_personalRadio];
+	private _radios = format ["<t color='#FFBA26' size='1.0'align='left'>SQUAD RADIOS:  </t> <t color='#FFFFFF' size='1.0'align='right'>%1</t><br/>",["None", "All"] select var_personalRadio];
 
 	//KEEP ROLE AFTER RESPAWN
-	private _keepRole = format ["<t color='#FFBA26' size='1.0'align='left'>KEEP ROLE:  </t> <t color='#ffffff' size='1.0'align='right'>-</t><br/>"];
+	private _keepRole = format ["<t color='#FFBA26' size='1.0'align='left'>KEEP ROLE:  </t> <t color='#FFFFFF' size='1.0'align='right'>-</t><br/>"];
 	if (typeName var_respawnType == "SCALAR" || {var_respawnType == "WAVE"}) then {
-		_keepRole = format ["<t color='#FFBA26' size='1.0'align='left'>KEEP ROLE:  </t> <t color='#ffffff' size='1.0'align='right'>%1</t><br/>",["No", "Yes"] select var_keepRole];
+		_keepRole = format ["<t color='#FFBA26' size='1.0'align='left'>KEEP ROLE:  </t> <t color='#FFFFFF' size='1.0'align='right'>%1</t><br/>",["No", "Yes"] select var_keepRole];
 	};
 
 	//RESPAWN TYPE
 	private _respawn = "";
 	if (typename var_respawnType == "SCALAR") then {
-		_respawn = format ["<t color='#ffba26' size='1.0'align='left'>RESPAWN:  </t> <t color='#ffffff' size='1.0'align='right'>Yes (%1s)</t><br/>",var_respawnType];
+		_respawn = format ["<t color='#FFBA26' size='1.0'align='left'>RESPAWN:  </t> <t color='#FFFFFF' size='1.0'align='right'>Yes (%1s)</t><br/>",var_respawnType];
 	} else {
 		if (var_respawnType == "OFF") then {
-			_respawn = format ["<t color='#ffba26' size='1.0'align='left'>RESPAWN:  </t> <t color='#ffffff' size='1.0'align='right'>None</t><br/>"];
+			_respawn = format ["<t color='#FFBA26' size='1.0'align='left'>RESPAWN:  </t> <t color='#FFFFFF' size='1.0'align='right'>None</t><br/>"];
 		};
 		if (var_respawnType == "WAVE") then {
-			private _respTime = format ["<t color='#ffffff'>%1",[var_respawnTime, "MM"] call BIS_fnc_secondsToString];
-			_respawn = format ["<t color='#ffba26' size='1.0'align='left'>RESPAWN:  </t> <t color='#ffffff' size='1.0'align='right'>Wave (%1m)</t><br/>",_respTime];
+			private _respTime = format ["<t color='#FFFFFF'>%1",[var_respawnTime, "MM"] call BIS_fnc_secondsToString];
+			_respawn = format ["<t color='#FFBA26' size='1.0'align='left'>RESPAWN:  </t> <t color='#FFFFFF' size='1.0'align='right'>Wave (%1m)</t><br/>",_respTime];
 		};
 	};
 
