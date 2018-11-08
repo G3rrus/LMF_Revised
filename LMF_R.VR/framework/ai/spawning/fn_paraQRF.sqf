@@ -31,6 +31,7 @@ private _grp = [_spawnPos,var_enemySide,_heliCrew] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
 _grp addVehicle _veh;
 {_x moveInAny _veh} forEach units _grp;
+{_x disableAI "AUTOCOMBAT"} count units _grp;
 
 //PASSENGERS
 private _type = selectRandom _squad;
