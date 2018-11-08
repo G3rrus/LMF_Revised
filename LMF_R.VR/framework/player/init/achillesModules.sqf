@@ -87,6 +87,15 @@
 	[_pos, _option, parseNumber _tickets] remoteExec ["lmf_ai_fnc_infantryQRF"];
 }] call Ares_fnc_RegisterCustomModule;
 
+//PARATROOPER QRF
+["Spawn", "LMF Spawn AI Para QRF", {
+	//SPAWNPOS
+	private _pos = _this select 0;
+
+	//CALL FUNCTION
+	[_pos] remoteExec ["lmf_ai_fnc_paraQRF"];
+}] call Ares_fnc_RegisterCustomModule;
+
 //PATROL
 ["Spawn", "LMF Spawn AI Patrol", {
 	//SPAWNPOS
