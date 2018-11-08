@@ -9671,7 +9671,7 @@ class Mission
 						position[]={496,5,512};
 					};
 					title="ZEUS MODULES";
-					description="These two  modules give zeus to logged in or voted admin. It is recommended to always have these two modules in your mission.";
+					description="These two modules give zeus to logged in or voted admin. It is recommended to always have these two modules in your mission.";
 					id=287;
 				};
 				class Item6
@@ -10765,7 +10765,7 @@ class Mission
 						position[]={480,5,528};
 					};
 					title="RRR";
-					description="These two triggers  call a function to start an automated repair, refuel and rearm process for any land or air vehicle passing through. A number (by default 4) can be passed to the function aswell, low means the process is faster while higher means slower.";
+					description="These two triggers call a function to start an automated repair, refuel and rearm process for any land or air vehicle passing through. A number (by default 4) can be passed to the function aswell, low means the process is faster while higher means slower.";
 					id=288;
 				};
 			};
