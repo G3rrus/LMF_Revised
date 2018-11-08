@@ -14,7 +14,7 @@
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 lmf_spawnerCreateObject = {
-    params ["_vehType",["_spawnPad",objNull,[objNull]]];
+	params ["_vehType",["_spawnPad",objNull,[objNull]]];
 
 	if (count (_spawnPad nearEntities [["Man", "Air", "Land", "Ship"], 10]) > 0) exitWith {
 		titleText ["<t color='#FFBA26' size='2'>WARNING!</t><br/><t color='#FFFFFF' size='1.5'>Spawn pad occupied!</t>", "PLAIN", 0.3, false, true];
@@ -24,22 +24,22 @@ lmf_spawnerCreateObject = {
 		titleText ["<t color='#FFBA26' size='2'>WARNING!</t><br/><t color='#FFFFFF' size='1.5'>Only for NCOs and Officers!</t>", "PLAIN", 0.3, false, true];
 	};
 
-    private _vehicle = _vehType createVehicle getPosATL _spawnPad;
-    private _dir = getDir _spawnPad;
-    _vehicle setDir _dir;
+	private _vehicle = _vehType createVehicle getPosATL _spawnPad;
+	private _dir = getDir _spawnPad;
+	_vehicle setDir _dir;
 	private _conditionRemove = {true};
 	if (_vehicle isKindOf "Thing") then {_conditionRemove = {_target distance2D ammoPad < 10}};
 	if (_vehicle isKindOf "Land") then {_conditionRemove = {_target distance2D groundPad < 10}};
 	if (_vehicle isKindOf "Air") then {_conditionRemove = {_target distance2D airPad < 10}};
 
-    private _vehDelete = ["vehDelete","Remove from Pad","\a3\ui_f_curator\data\cfgmarkers\kia_ca.paa",{deleteVehicle _target},_conditionRemove] call ace_interact_menu_fnc_createAction;
-    [_vehicle,0,["ACE_MainActions"],_vehDelete] remoteExec ["ace_interact_menu_fnc_addActionToObject", 0, _vehicle];
+	private _vehDelete = ["vehDelete","Remove from Pad","\a3\ui_f_curator\data\cfgmarkers\kia_ca.paa",{deleteVehicle _target},_conditionRemove] call ace_interact_menu_fnc_createAction;
+	[_vehicle,0,["ACE_MainActions"],_vehDelete] remoteExec ["ace_interact_menu_fnc_addActionToObject", 0, _vehicle];
 };
 
 
 // AMMOSPAWNER ////////////////////////////////////////////////////////////////////////////////////
 if !(isNil "ammoSpawner") then {
-    private _ammoLarge = ["ammoLarge","Supplies Large","\A3\ui_f\data\map\vehicleicons\iconCrateAmmo_ca.paa",{[var_supLarge, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
+	private _ammoLarge = ["ammoLarge","Supplies Large","\A3\ui_f\data\map\vehicleicons\iconCrateAmmo_ca.paa",{[var_supLarge, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 	private _ammoSmall = ["ammoSmall","Supplies Small","\A3\ui_f\data\map\vehicleicons\iconCrate_ca.paa",{[var_supSmall, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 	private _ammoSpecial = ["ammoSpecial","Supplies Special","\A3\modules_f\data\portraitModule_ca.paa",{[var_supSpecial, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 	private _ammoExplosive = ["ammoExplosive","Explosives","\A3\ui_f\data\map\vehicleicons\pictureExplosive_ca.paa",{[var_supExplosives, ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
@@ -47,7 +47,7 @@ if !(isNil "ammoSpawner") then {
 	private _spareWheel = ["spareWheel","Spare Wheel","",{["ACE_Wheel", ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 	private _spareTrack = ["spareTrack","Spare Track","",{["ACE_Track", ammoPad] call lmf_spawnerCreateObject;},{true}] call ace_interact_menu_fnc_createAction;
 
-    if (var_supLarge != "") then {[ammoSpawner, 0, ["ACE_MainActions"], _ammolarge] call ace_interact_menu_fnc_addActionToObject;};
+	if (var_supLarge != "") then {[ammoSpawner, 0, ["ACE_MainActions"], _ammolarge] call ace_interact_menu_fnc_addActionToObject;};
 	if (var_supSmall != "") then {[ammoSpawner, 0, ["ACE_MainActions"], _ammoSmall] call ace_interact_menu_fnc_addActionToObject;};
 	if (var_supSpecial != "") then {[ammoSpawner, 0, ["ACE_MainActions"], _ammoSpecial] call ace_interact_menu_fnc_addActionToObject;};
 	if (var_supExplosives != "") then {[ammoSpawner, 0, ["ACE_MainActions"], _ammoExplosive] call ace_interact_menu_fnc_addActionToObject;};
