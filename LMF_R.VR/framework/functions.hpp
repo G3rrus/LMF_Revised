@@ -94,12 +94,12 @@ class admin {
 	};
 };
 class diwako_unknownwp {
-  tag="diwako_unknownwp";
-  class functions {
-	file = "framework\shared\diw_unknownwp";
-	class init {postInit = 1;};
-	class firedEh {};
-	class jammedEh {};
-	class reloadedEh {};
-  };
+	tag="diwako_unknownwp";
+	class functions {
+		file = "framework\shared\diw_unknownwp";
+		class init {postInit = 1;};
+		class firedEh {};
+		class jammedEh {};
+		class reloadedEh {};
+	};
 };
