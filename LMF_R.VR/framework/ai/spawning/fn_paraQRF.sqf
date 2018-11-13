@@ -89,7 +89,7 @@ if (alive _veh && {count units _grp2 > 0}) then {
 	{deleteWaypoint ((waypoints _grp) select 0)} count waypoints _grp;
 	_veh doMove (_veh getPos [10000,_flyDir - 180]);
 	_veh flyInHeightASL [100, 100, 100];
-	waitUntil {allPlayers findIf {_x distance2D _veh > 5000} != -1 || {!alive _veh || {count units _grp < 1}}};
+	waitUntil {allPlayers findIf {_x distance2D _veh < 5000} == -1 || {!alive _veh || {count units _grp < 1}}};
 	if (alive _veh && {count units _grp > 0}) then {
 		{_veh deleteVehicleCrew _x} count crew _veh;
 		deleteVehicle _veh;
