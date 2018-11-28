@@ -53,14 +53,6 @@ if (isServer) then {
 
 	//CREATE CUSTOM SPECTATOR CHANNEL
 	radio_channel_1 = radioChannelCreate [[1,0.6,0,1], "SPECTATOR", "%UNIT_NAME", []];
-
-	//APPLY TEXTURES TO LAPTOPS
-	if !(isNil "ammoSpawner") then {ammoSpawner setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
-	if !(isNil "groundSpawner") then {groundSpawner setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
-	if !(isNil "airSpawner") then {airSpawner setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
-	if !(isNil "crateGearSquad") then {crateGearSquad setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
-	if !(isNil "crateGearPlt") then {crateGearPlt setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
-	if !(isNil "crateGearCrew") then {crateGearCrew setObjectTextureGlobal [0, "framework\fx\clan_flag_Nopryl.paa"];};
 };
 
 
@@ -71,7 +63,7 @@ if (isServer) then {
 //CHANCE FOR AI TO WAKE UP
 ["ace_unconscious", {
 	params [["_unit", objNull],["_state", false]];
-	if (ace_medical_enableUnconsciousnessAI == 0 || {!_state || {!(local _unit) || {isPlayer _unit}}}) exitWith {};
+	if (ace_medical_enableUnconsciousnessAI == 0 || {!_state || {!(local _unit) || {side _unit != var_enemySide}}}) exitWith {};
 
 	[_unit] spawn {
 		params [["_unit", objNull]];
@@ -98,6 +90,7 @@ if (isServer) then {
 
 	//SUPPRESSION EH
 	if (_getSuppression) then {
+		_unit setSkill ((skill _unit) * 1.4);
 		private _id = _unit addEventHandler ["Fired", {
 			_this call lmf_ai_fnc_suppressEH;
 		}];
@@ -231,3 +224,11 @@ if !(isnil "Ares_fnc_RegisterCustomModule") then {
 3 enableChannel true;
 4 enableChannel false;
 5 enableChannel false;
+
+//APPLY TEXTURES TO LAPTOPS
+if !(isNil "ammoSpawner") then {ammoSpawner setObjectTexture [0, "framework\fx\clan_flag_Nopryl.paa"];};
+if !(isNil "groundSpawner") then {groundSpawner setObjectTexture [0, "framework\fx\clan_flag_Nopryl.paa"];};
+if !(isNil "airSpawner") then {airSpawner setObjectTexture [0, "framework\fx\clan_flag_Nopryl.paa"];};
+if !(isNil "crateGearSquad") then {crateGearSquad setObjectTexture [0, "framework\fx\clan_flag_Nopryl.paa"];};
+if !(isNil "crateGearPlt") then {crateGearPlt setObjectTexture [0, "framework\fx\clan_flag_Nopryl.paa"];};
+if !(isNil "crateGearCrew") then {crateGearCrew setObjectTexture [0, "framework\fx\clan_flag_Nopryl.paa"];};
