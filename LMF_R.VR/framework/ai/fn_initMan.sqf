@@ -169,7 +169,7 @@ if (50 > random 100) then {_unit addItem selectRandom _Grenade;};
 if (50 > random 100) then {_unit addItem selectRandom _Grenade_Smoke;};
 
 //ADD FAK
-if (50 > random 100) then {for "_i" from 1 to 2 do {_unit addItem "FirstAidKit";};};
+if (20 > random 100) then {_unit addItem "FirstAidKit";};
 
 //WEAPON ATTACH
 removeAllPrimaryWeaponItems _unit;
