@@ -21,9 +21,15 @@ private _collect = {
 // ADMIN TOOLS (only added after map screen) //////////////////////////////////////////////////////
 [] spawn {
 	sleep 5;
-	player createDiarySubject ["Admin","Admin Tools"];
+	player createDiarySubject ["Admin","LMF"];
+
+	player creatediaryrecord ["Admin",["Info", format ["
+	<font face='PuristaBold' color='#FFBA26' size='16'>LAMBS MISSION FRAMEWORK</font><br/>
+	<font color='#D7DBD5'>Version: %1</font color><br/>
+	", var_version]]];
+
 	player creatediaryrecord ["Admin",["Admin", format ["
-	<font face='PuristaBold' color='#FFBA26' size='16'>ADMIN FRAMEWORK</font><br/>
+	<font face='PuristaBold' color='#FFBA26' size='16'>ADMIN TOOLS</font><br/>
 	<font color='#D7DBD5'>This will only work if you are an admin or whitelisted as one.</font color><br/><br/>
 
 	<font color='#A34747'>END BRIEFING STAGE</font><br/>
@@ -58,12 +64,9 @@ private _collect = {
 
 // TESTERS ////////////////////////////////////////////////////////////////////////////////////////
 if (_testers != "") then {
-
 player createDiaryrecord ["Diary",["  Credits",format ["
-<font face='PuristaBold' color='#FFBA26' size='16'>SPECIAL THANKS</font><br/>
-<font color='#D7DBD5'>%1</font color><br/>
+<font color='#D7DBD5'>%1</font color>
 ",_testers]]];
-
 };
 
 
@@ -92,7 +95,6 @@ private _brf_platoon = "";
 
 	//UPDATE OLD
 	_grp2 = _grp;
-
 } foreach (playableUnits + switchableUnits);
 
 //APPLY
@@ -110,17 +112,16 @@ player creatediaryrecord ["Diary",["  TO/E",format ["
 // SIGNALS ////////////////////////////////////////////////////////////////////////////////////////
 player createDiaryrecord ["Diary",["  Signals",format ["
 <font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
-<font color='#A34747'>Channel 01:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
-<font color='#A34747'>Channel 02:		</font> <font color='#D7DBD5'>2PLT</font color><br/>
-<font color='#A34747'>Channel 03:		</font> <font color='#D7DBD5'>3PLT</font color><br/>
-<br/>
+<font color='#db4343'>Channel 01:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
+<font color='#db4343'>Channel 02:		</font> <font color='#D7DBD5'>2PLT</font color><br/>
+<font color='#db4343'>Channel 03:		</font> <font color='#D7DBD5'>3PLT</font color><br/>
+<font color='#F0F095'>Channel 04:		</font> <font color='#D7DBD5'>CONVOY</font color><br/>
 <font color='#A3FFA3'>Channel 06:		</font> <font color='#D7DBD5'>AIR</font color><br/>
 <font color='#A3FFA3'>Channel 07:		</font> <font color='#D7DBD5'>CAS</font color><br/>
 <br/>
 
 <font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
 <font color='#A3E0FF'>Channel 06:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
-<br/>
 <font color='#A3E0FF'>Channel 01:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
 <font color='#A3E0FF'>Channel 02:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
 <font color='#A3E0FF'>Channel 03:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
