@@ -6,8 +6,7 @@
 params ["_unit"];
 
 
-//JOIN NEW GROUP
-[_unit] joinSilent grpNull;
+//CLEAR CHAT
 clearRadio;
 
 //BLACK FADE
