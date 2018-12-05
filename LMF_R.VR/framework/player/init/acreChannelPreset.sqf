@@ -12,22 +12,22 @@ private _personalRadio = ["ACRE_PRC343"] call acre_api_fnc_getRadioByType;
 if (isNil "_personalRadio") exitWith {};
 
 //APPLY CHANNEL IF RADIO
-if (_id == "FOX6") exitWith {
+if (_id == "PLT HQ") exitWith {
 	[_personalRadio, 6] call acre_api_fnc_setRadioChannel;
 };
 
-if (_id == "FOX1") exitWith {
+if (_id == "ALPHA") exitWith {
 	[_personalRadio, 1] call acre_api_fnc_setRadioChannel;
 };
 
-if (_id == "FOX2") exitWith {
+if (_id == "BRAVO") exitWith {
 	[_personalRadio, 2] call acre_api_fnc_setRadioChannel;
 };
 
-if (_id == "FOX3") exitWith {
+if (_id == "CHARLIE") exitWith {
 	[_personalRadio, 3] call acre_api_fnc_setRadioChannel;
 };
 
-if (_id == "FOX4") exitWith {
+if (_id == "DELTA") exitWith {
 	[_personalRadio, 4] call acre_api_fnc_setRadioChannel;
 };

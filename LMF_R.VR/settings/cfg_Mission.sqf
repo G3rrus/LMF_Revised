@@ -9,9 +9,9 @@ var_author = "Author"; // Your name, which shows up at the end of the warmup.
 var_location = "Virtual Reality"; // Location where scenario takes place, which can be seen in intro.
 var_debug = false; // For mission testing, will turn on some debug options. (default: false)
 var_warmup = true; // Start mission with warmup? (default: true)
-var_jipTP = false; // Allow players that JIP to teleport? (default: false)
+var_jipTP = true; // Allow players that JIP to teleport? (default: false)
 var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (default: EAST)
-var_civPanic = true; // Will civs panic when there is a firefight? (default: true)
+var_civPanic = false; // Will civs panic when there is a firefight? (default: true)
 
 //RESPAWN
 var_respawnType = "OFF"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
@@ -51,4 +51,4 @@ var_keepRole = true; // Should players keep their role upon respawn? (default: t
 // MARKERS ////////////////////////////////////////////////////////////////////////////////////////
 var_markerSide = "ColorWEST"; // What colorsheme should markers on playerside use? ("ColorWEST", "ColorEAST", "ColorGUER") (default: "ColorWEST")
 var_groupTracker = true; // Use group-icons on map. (default: true)
-var_unitTracker = false; // Use unit-icons on map. (default: false)
+var_unitTracker = true; // Use unit-icons on map. (default: false)

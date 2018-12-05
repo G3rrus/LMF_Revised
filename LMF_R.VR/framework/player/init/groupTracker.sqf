@@ -26,11 +26,11 @@ private _lmf_fnc_createIcon = {
 
 // WHICH GROUPS GET TRACKED ///////////////////////////////////////////////////////////////////////
 //FOX PLATOON
-if !(isNil "Grp_FOX_6") then {[Grp_FOX_6,"b_hq","FOX6"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_FOX_1") then {[Grp_FOX_1,"b_inf","FOX1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_FOX_2") then {[Grp_FOX_2,"b_inf","FOX2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_FOX_3") then {[Grp_FOX_3,"b_inf","FOX3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_FOX_4") then {[Grp_FOX_4,"b_inf","FOX4"] call _lmf_fnc_createIcon};
+if !(isNil "Grp_FOX_6") then {[Grp_FOX_6,"b_hq","PLT HQ"] call _lmf_fnc_createIcon};
+if !(isNil "Grp_FOX_1") then {[Grp_FOX_1,"b_inf","ALPHA"] call _lmf_fnc_createIcon};
+if !(isNil "Grp_FOX_2") then {[Grp_FOX_2,"b_inf","BRAVO"] call _lmf_fnc_createIcon};
+if !(isNil "Grp_FOX_3") then {[Grp_FOX_3,"b_inf","CHARLIE"] call _lmf_fnc_createIcon};
+if !(isNil "Grp_FOX_4") then {[Grp_FOX_4,"b_inf","DELTA"] call _lmf_fnc_createIcon};
 
 //WOLF PLATOON
 if !(isNil "Grp_WOLF_6") then {[Grp_WOLF_6,"b_hq","WOLF6"] call _lmf_fnc_createIcon};
