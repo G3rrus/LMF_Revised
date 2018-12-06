@@ -155,7 +155,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						name="FOX6_PLTL_YELLOW";
+						name="PLTHQ_PLTL_YELLOW";
 						description="Platoon Leader@PLT HQ";
 						isPlayer=1;
 					};
@@ -215,7 +215,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX6_PLTSGT_YELLOW";
+						name="PLTHQ_PLTSGT_YELLOW";
 						description="Platoon Sergeant";
 						isPlayable=1;
 					};
@@ -275,7 +275,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX6_RTO_YELLOW";
+						name="PLTHQ_RTO_YELLOW";
 						description="RTO";
 						isPlayable=1;
 					};
@@ -335,7 +335,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX6_FAC_YELLOW";
+						name="PLTHQ_FAC_YELLOW";
 						description="FAC";
 						isPlayable=1;
 					};
@@ -387,7 +387,7 @@ class Mission
 			};
 			class Attributes
 			{
-				name="Grp_FOX_6";
+				name="Grp_PLTHQ_1";
 				init="[this,""PLT HQ""] call CBA_fnc_setCallsign;";
 			};
 			id=0;
@@ -410,7 +410,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						name="FOX1_SQL_GREEN";
+						name="ALPHA_SQL_GREEN";
 						description="Squad Leader@ALPHA";
 						isPlayable=1;
 					};
@@ -470,7 +470,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX1_CLS_GREEN";
+						name="ALPHA_CLS_GREEN";
 						description="Medic";
 						isPlayable=1;
 					};
@@ -530,7 +530,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX1_MMG_GREEN";
+						name="ALPHA_MMG_GREEN";
 						description="Machine Gunner";
 						isPlayable=1;
 					};
@@ -590,7 +590,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX1_MGA_GREEN";
+						name="ALPHA_MGA_GREEN";
 						description="Assistant Machine Gunner";
 						isPlayable=1;
 					};
@@ -650,7 +650,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX1_2IC_RED";
+						name="ALPHA_2IC_RED";
 						description="Squad 2iC";
 						isPlayable=1;
 					};
@@ -710,7 +710,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX1_R1_RED";
+						name="ALPHA_R1_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -770,7 +770,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX1_R2_RED";
+						name="ALPHA_R2_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -830,7 +830,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX1_R3_RED";
+						name="ALPHA_R3_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -882,7 +882,7 @@ class Mission
 			};
 			class Attributes
 			{
-				name="Grp_FOX_1";
+				name="Grp_ALPHA_1";
 				init="[this,""ALPHA""] call CBA_fnc_setCallsign;";
 			};
 			id=5;
@@ -905,7 +905,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						name="FOX2_SQL_GREEN";
+						name="BRAVO_SQL_GREEN";
 						description="Squad Leader@BRAVO";
 						isPlayable=1;
 					};
@@ -965,7 +965,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX2_CLS_GREEN";
+						name="BRAVO_CLS_GREEN";
 						description="Medic";
 						isPlayable=1;
 					};
@@ -1025,7 +1025,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX2_MAT_GREEN";
+						name="BRAVO_MAT_GREEN";
 						description="AT Gunner";
 						isPlayable=1;
 					};
@@ -1085,7 +1085,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX2_MATA_GREEN";
+						name="BRAVO_MATA_GREEN";
 						description="AT Assistant";
 						isPlayable=1;
 					};
@@ -1145,7 +1145,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX2_2IC_RED";
+						name="BRAVO_2IC_RED";
 						description="Squad 2iC";
 						isPlayable=1;
 					};
@@ -1205,7 +1205,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX2_R1_RED";
+						name="BRAVO_R1_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -1265,7 +1265,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX2_R2_RED";
+						name="BRAVO_R2_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -1325,7 +1325,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX2_R3_RED";
+						name="BRAVO_R3_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -1377,7 +1377,7 @@ class Mission
 			};
 			class Attributes
 			{
-				name="Grp_FOX_2";
+				name="Grp_BRAVO_1";
 				init="[this,""BRAVO""] call CBA_fnc_setCallsign;";
 			};
 			id=14;
@@ -1400,7 +1400,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						name="FOX3_SQL_GREEN";
+						name="CHARLIE_SQL_GREEN";
 						description="Squad Leader@CHARLIE";
 						isPlayable=1;
 					};
@@ -1460,7 +1460,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX3_CLS_GREEN";
+						name="CHARLIE_CLS_GREEN";
 						description="Medic";
 						isPlayable=1;
 					};
@@ -1520,7 +1520,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX3_MMG_GREEN";
+						name="CHARLIE_MMG_GREEN";
 						description="Machine Gunner";
 						isPlayable=1;
 					};
@@ -1580,7 +1580,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX3_MGA_GREEN";
+						name="CHARLIE_MGA_GREEN";
 						description="Assistant Machine Gunner";
 						isPlayable=1;
 					};
@@ -1640,7 +1640,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX3_2IC_RED";
+						name="CHARLIE_2IC_RED";
 						description="Squad 2iC";
 						isPlayable=1;
 					};
@@ -1700,7 +1700,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX3_R1_RED";
+						name="CHARLIE_R1_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -1760,7 +1760,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX3_R2_RED";
+						name="CHARLIE_R2_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -1820,7 +1820,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX3_R3_RED";
+						name="CHARLIE_R3_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -1872,7 +1872,7 @@ class Mission
 			};
 			class Attributes
 			{
-				name="Grp_FOX_3";
+				name="Grp_CHARLIE_1";
 				init="[this,""CHARLIE""] call CBA_fnc_setCallsign;";
 			};
 			id=23;
@@ -1895,7 +1895,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						name="FOX4_SQL_GREEN";
+						name="DELTA_SQL_GREEN";
 						description="Squad Leader@DELTA";
 						isPlayable=1;
 					};
@@ -1955,7 +1955,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX4_CLS_GREEN";
+						name="DELTA_CLS_GREEN";
 						description="Medic";
 						isPlayable=1;
 					};
@@ -2015,7 +2015,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX4_MAT_GREEN";
+						name="DELTA_MAT_GREEN";
 						description="AT Gunner";
 						isPlayable=1;
 					};
@@ -2075,7 +2075,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX4_MATA_GREEN";
+						name="DELTA_MATA_GREEN";
 						description="AT Assistant";
 						isPlayable=1;
 					};
@@ -2135,7 +2135,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX4_2IC_RED";
+						name="DELTA_2IC_RED";
 						description="Squad 2iC";
 						isPlayable=1;
 					};
@@ -2195,7 +2195,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX4_R1_RED";
+						name="DELTA_R1_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -2255,7 +2255,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX4_R2_RED";
+						name="DELTA_R2_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -2315,7 +2315,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						name="FOX4_R3_RED";
+						name="DELTA_R3_RED";
 						description="Rifleman";
 						isPlayable=1;
 					};
@@ -2367,7 +2367,7 @@ class Mission
 			};
 			class Attributes
 			{
-				name="Grp_FOX_4";
+				name="Grp_DELTA_1";
 				init="[this,""DELTA""] call CBA_fnc_setCallsign;";
 			};
 			id=32;
@@ -10525,7 +10525,7 @@ class Mission
 						position[]={404,5,498};
 					};
 					title="1ST PLATOON";
-					description="This platoon made of elements FOX1-FOX4 and FOX6 builds the FOX platoon.";
+					description="This platoon made of elements ALPHA-DELTA and PLT HQ builds the 1ST platoon.";
 					id=277;
 				};
 				class Item5
@@ -10580,7 +10580,7 @@ class Mission
 						position[]={416,5,498};
 					};
 					title="2ND PLATOON";
-					description="This platoon made of elements WOLF1-WOLF4 and WOLF6 builds the WOLF platoon.";
+					description="This platoon made of elements WOLF1-WOLF4 and WOLF6 builds the 2ND platoon.";
 					id=278;
 				};
 			};
