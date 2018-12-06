@@ -25,14 +25,6 @@ removeUniform _unit;
 removeVest _unit;
 removeGoggles _unit;
 
-onMapSingleClick "_shift";
-
-player_insignia = "";
-
-private _chooseInsignia = {
-	private _exists = isClass (configFile >> "CfgUnitInsignia" >> _this);
-	(["",_this] select _exists)
-};
 
 // APPLY NEW ROLE SPECIFIC STUFF //////////////////////////////////////////////////////////////////
 //PLT LEADER
@@ -60,8 +52,6 @@ if (_role find "Platoon Leader" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach2;
 	_unit setRank "LIEUTENANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_of1" call _chooseInsignia;
 };
 
 //PLT SGT
@@ -89,8 +79,6 @@ if (_role find "Platoon Sergeant" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach2;
 	_unit setRank "SERGEANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or6" call _chooseInsignia;
 };
 
 //RTO
@@ -116,8 +104,6 @@ if (_role find "RTO" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or2" call _chooseInsignia;
 };
 
 //FAC
@@ -147,8 +133,6 @@ if (_role find "FAC" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "CORPORAL";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or4" call _chooseInsignia;
 };
 
 //SQL
@@ -177,8 +161,6 @@ if (_role find "Squad Leader" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "SERGEANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or5" call _chooseInsignia;
 };
 
 //SQD 2IC
@@ -206,8 +188,6 @@ if (_role find "Squad 2iC" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "CORPORAL";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or4" call _chooseInsignia;
 };
 
 //RIFLEMAN
@@ -232,8 +212,6 @@ if (_role find "Rifleman" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "";
 };
 
 //GL
@@ -257,8 +235,6 @@ if (_role find "Grenadier" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "";
 };
 
 //AR
@@ -283,8 +259,6 @@ if (_role find "Autorifleman" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _LMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _LMG_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or2" call _chooseInsignia;
 };
 
 //MEDIC
@@ -312,8 +286,6 @@ if (_role find "Medic" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "CORPORAL";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_medic" call _chooseInsignia;
 };
 
 //MG
@@ -338,8 +310,6 @@ if (_role find "Machine Gunner" >= 0 && {_role find "Assistant" == -1}) then {
 	_unit addPrimaryWeaponitem selectRandom _MMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _MMG_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or2" call _chooseInsignia;
 };
 
 //MGA
@@ -365,8 +335,6 @@ if (_role find "Assistant Machine Gunner" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "";
 };
 
 //MAT
@@ -392,8 +360,6 @@ if (_role find "AT Gunner" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit addSecondaryWeaponitem selectRandom _MAT_Optic;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or2" call _chooseInsignia;
 };
 
 //MATA
@@ -419,8 +385,6 @@ if (_role find "AT Assistant" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "";
 };
 
 //VIC PLAT LEAD
@@ -444,8 +408,6 @@ if (_role find "Vehicle Platoon Commander" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "LIEUTENANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_of1" call _chooseInsignia;
 };
 
 //VIC PLAT SGT
@@ -469,8 +431,6 @@ if (_role find "Vehicle Platoon 2iC" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "SERGEANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or6" call _chooseInsignia;
 };
 
 //VIC CMD
@@ -494,8 +454,6 @@ if (_role find "Vehicle Commander" >= 0 && {_role find "Platoon" == -1}) then {
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "SERGEANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or5" call _chooseInsignia;
 };
 
 //VIC GUNNER
@@ -517,8 +475,6 @@ if (_role find "Vehicle Gunner" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or2" call _chooseInsignia;
 };
 
 //VIC DRIVER
@@ -540,8 +496,6 @@ if (_role find "Vehicle Driver" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "PRIVATE";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "";
 };
 
 //HELI
@@ -564,9 +518,6 @@ if (_role find "Helicopter Pilot" >= 0 || {_role find "Helicopter Co-Pilot" >= 0
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "LIEUTENANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_of1" call _chooseInsignia;
-	onMapSingleClick "";
 };
 
 //HELI CREW
@@ -591,8 +542,6 @@ if (_role find "Helicopter Crew" >= 0) then {
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
 	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "SERGEANT";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_or5" call _chooseInsignia;
 };
 
 //PLANE
@@ -611,9 +560,6 @@ if (_role find "Fighter Pilot" >= 0) then {
 	if (var_playerNVG == 0 || {var_playerNVG == 1}) then {_unit addWeapon (_NVG_Pilot select 0)};
 	_unit linkItem "ItemMap";
 	_unit setRank "CAPTAIN";
-	[_unit,""] call bis_fnc_setUnitInsignia;
-	player_insignia = "lambs_of1" call _chooseInsignia;
-	onMapSingleClick "";
 };
 
 
@@ -644,4 +590,3 @@ for "_i" from 1 to 4 do {_unit addItem "ACE_fieldDressing";};
 for "_i" from 1 to 1 do {_unit addItem "ACE_morphine";};
 for "_i" from 1 to 1 do {_unit addItem "ACE_tourniquet";};
 _unit linkItem "ItemWatch";
-[_unit,player_insignia] call bis_fnc_setUnitInsignia;

@@ -79,7 +79,6 @@ if (!_heli && {!_veh && {!_fighter}}) then {
 
 // ON ARSENAL CLOSED //////////////////////////////////////////////////////////////////////////////
 [missionNamespace, "arsenalClosed", {
-	[player,player_insignia] call bis_fnc_setUnitInsignia;
 	deleteVehicle lmf_arsenalLight1;
 	deleteVehicle lmf_arsenalLight2;
 }] call BIS_fnc_addScriptedEventHandler;

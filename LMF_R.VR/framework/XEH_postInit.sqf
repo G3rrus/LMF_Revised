@@ -167,14 +167,6 @@ player addEventHandler ["Respawn", {
 	_this spawn lmf_player_fnc_respawnEH;
 }];
 
-//DISABLE WAYPOINT MARKERS
-if !(var_playerGear) then {
-	if ((roleDescription player) find "Helicopter Pilot" >= 0 || {(roleDescription player) find "Fighter Pilot" >= 0}) then {}
-	else {
-		onMapSingleClick "_shift";
-	};
-};
-
 //BRIEFING
 [] execVM "framework\player\init\briefing.sqf";
 
