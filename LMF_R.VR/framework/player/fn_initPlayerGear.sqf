@@ -29,536 +29,481 @@ removeGoggles _unit;
 // APPLY NEW ROLE SPECIFIC STUFF //////////////////////////////////////////////////////////////////
 //PLT LEADER
 if (_role find "Platoon Leader" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_Leader; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 2 do {_unit addItem (_Pistol_Ammo select 0)};
-	for "_i" from 1 to 5 do {_unit addItemToVest (_Rifle_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_Rifle select 0);
-	_unit addWeapon (_Pistol select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_Rifle,_Rifle_Attach1,_Rifle_Attach2,_Rifle_Optic,[],[],_Rifle_Bipod],
+			[],
+			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[],[],""],
+			[(selectRandom _Uniform_L),[]],
+			[(selectRandom _Vest),[[_Rifle_Ammo,5,999],[_Rifle_Ammo_T,3,999],[_Pistol_Ammo,3,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
+			[(selectRandom _Backpack_Leader),[[_ACRE_ITR,1]]],(selectRandom _Headgear_L),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach2;
 	_unit setRank "LIEUTENANT";
 };
 
 //PLT SGT
 if (_role find "Platoon Sergeant" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_Leader; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 2 do {_unit addItem (_Pistol_Ammo select 0)};
-	for "_i" from 1 to 5 do {_unit addItemToVest (_Rifle_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_Rifle select 0);
-	_unit addWeapon (_Pistol select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_Rifle,_Rifle_Attach1,_Rifle_Attach2,_Rifle_Optic,[],[],_Rifle_Bipod],
+			[],
+			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[],[],""],
+			[(selectRandom _Uniform_L),[]],
+			[(selectRandom _Vest),[[_Rifle_Ammo,5,999],[_Rifle_Ammo_T,3,999],[_Pistol_Ammo,3,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
+			[(selectRandom _Backpack_Leader),[[_ACRE_ITR,1]]],(selectRandom _Headgear_L),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach2;
 	_unit setRank "SERGEANT";
 };
 
 //RTO
 if (_role find "RTO" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_RTO; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_Carbine_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Carbine_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	_unit addItemToBackpack _ACRE_MMR;
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_Carbine select 0);
+	_unit setUnitLoadout [
+		[
+			[_Carbine,_Carbine_Attach1,_Carbine_Attach2,_Carbine_Optic,[],[],_Carbine_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_Carbine_Ammo,5,999],[_Carbine_Ammo_T,3,999],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Backpack_RTO),[[_ACRE_ITR,1],[_ACRE_MMR,1]]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //FAC
 if (_role find "FAC" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_RTO; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_Rifle_GL_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_GL_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_GL_Smoke_Grn select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_GL_Smoke_Red select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_GL_Flare select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	_unit addItemToBackpack _ACRE_MMR;
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_Rifle_GL select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_Rifle_GL,_Rifle_GL_Attach1,_Rifle_GL_Attach2,_Rifle_GL_Optic,[],[],_Rifle_GL_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[selectRandom _Vest,[[_Rifle_GL_Ammo,5,999],[_Rifle_GL_Ammo_T,3,999],[_Rifle_GL_Smoke_Grn,2,99],[_Rifle_GL_Smoke_Red,4,99],[_Rifle_GL_Flare,2,99],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Backpack_RTO),[[_ACRE_ITR,1],[_ACRE_MMR,1]]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "CORPORAL";
 };
 
 //SQL
 if (_role find "Squad Leader" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_Leader; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 5 do {_unit addItemToVest (_Rifle_GL_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_GL_Ammo_T select 0)};
-	for "_i" from 1 to 5 do {_unit addItemToVest (_Rifle_GL_HE select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade_Smoke select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	for "_i" from 1 to 5 do {_unit addItemToBackpack (_Rifle_GL_Flare select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_Rifle_GL select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_Rifle_GL,_Rifle_GL_Attach1,_Rifle_GL_Attach2,_Rifle_GL_Optic,[],[],_Rifle_GL_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform_L),[]],
+			[selectRandom _Vest,[[_Rifle_GL_Ammo,5,999],[_Rifle_GL_Ammo_T,3,999],[_Rifle_GL_HE,5,99],[_Rifle_GL_Flare,5,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
+			[(selectRandom _Backpack_Leader),[[_ACRE_ITR,1]]],(selectRandom _Headgear_L),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "SERGEANT";
 };
 
 //SQD 2IC
 if (_role find "Squad 2iC" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_Light; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 5 do {_unit addItemToVest (_Rifle_GL_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_GL_Ammo_T select 0)};
-	for "_i" from 1 to 5 do {_unit addItemToVest (_Rifle_GL_HE select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade_Smoke select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	for "_i" from 1 to 5 do {_unit addItemToBackpack (_Rifle_GL_Flare select 0)};
-	_unit addWeapon (_Rifle_GL select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_Rifle_GL,_Rifle_GL_Attach1,_Rifle_GL_Attach2,_Rifle_GL_Optic,[],[],_Rifle_GL_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[selectRandom _Vest,[[_Rifle_GL_Ammo,5,999],[_Rifle_GL_Ammo_T,3,999],[_Rifle_GL_HE,5,99],[_Rifle_GL_Flare,5,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
+			[(selectRandom _Backpack_Light),[]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "CORPORAL";
 };
 
 //RIFLEMAN
 if (_role find "Rifleman" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	_unit addItem (_LAT_Ammo select 0);
-	for "_i" from 1 to 5 do {_unit addItemToVest (_Rifle_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	_unit addWeapon (_Rifle select 0);
-	_unit addWeapon (_LAT select 0);
+	_unit setUnitLoadout [
+		[
+			[_Rifle,_Rifle_Attach1,_Rifle_Attach2,_Rifle_Optic,[],[],_Rifle_Bipod],
+			[_LAT,"","","",[_LAT_Ammo,99],[],""],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_Rifle_Ammo,5,999],[_Rifle_Ammo_T,3,999],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[],(selectRandom _Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //GL
 if (_role find "Grenadier" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_Rifle_GL_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Rifle_GL_Ammo_T select 0)};
-	for "_i" from 1 to 8 do {_unit addItemToVest (_Rifle_GL_HE select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	_unit addWeapon (_Rifle_GL select 0);
+	_unit setUnitLoadout [
+		[
+			[_Rifle_GL,_Rifle_GL_Attach1,_Rifle_GL_Attach2,_Rifle_GL_Optic,[],[],_Rifle_GL_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_Rifle_GL_Ammo,5,999],[_Rifle_GL_Ammo_T,3,999],[_Rifle_GL_HE,8,99],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[],(selectRandom _Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Rifle_GL_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //AR
 if (_role find "Autorifleman" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_AR_MMG; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 3 do {_unit addItemToVest (_LMG_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	_unit addItemToBackpack (_LMG_Ammo select 0);
-	for "_i" from 1 to 2 do {_unit addItemToBackpack (_LMG_Ammo_T select 0)};
-	_unit addWeapon (_LMG select 0);
+	_unit setUnitLoadout [
+		[
+			[_LMG,_LMG_Attach1,_LMG_Attach2,_LMG_Optic,[],[],_LMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_LMG_Ammo,2,999],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Backpack_AR_MMG),[[_LMG_Ammo,2,999],[_LMG_Ammo_T,2,999]]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _LMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _LMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _LMG_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //MEDIC
 if (_role find "Medic" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_Medic; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_Carbine_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Carbine_Ammo_T select 0)};
-	for "_i" from 1 to 6 do {_unit addItemToVest (_Grenade_Smoke select 0)};
-	_unit addItemToBackpack "ACE_personalAidKit";
-	for "_i" from 1 to 5 do {_unit addItemToBackpack "ACE_Tourniquet";};
-	for "_i" from 1 to 30 do {_unit addItemToBackpack "ACE_fieldDressing";};
-	for "_i" from 1 to 30 do {_unit addItemToBackpack "ACE_packingBandage";};
-	_unit addWeapon (_Carbine select 0);
+	private _bContentMedic = [(selectRandom _Backpack_Medic),[["ACE_elasticBandage",30],["ACE_packingBandage",30],["ACE_salineIV",10],["ACE_epinephrine",10],["ACE_morphine",10],["ACE_personalAidKit",1]]];
+	if (ace_medical_level == 1) then {
+		_bContentMedic = [(selectRandom _Backpack_Medic),[["ACE_fieldDressing",60],["ACE_bloodIV",15],["ACE_epinephrine",10],["ACE_morphine",20]]];
+	};
+	_unit setUnitLoadout [
+		[
+			[_Carbine,_Carbine_Attach1,_Carbine_Attach2,_Carbine_Optic,[],[],_Carbine_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_Carbine_Ammo,5,999],[_Carbine_Ammo_T,3,999],[_Grenade,2,1],[_Grenade_Smoke,6,1]]],
+			_bContentMedic,(selectRandom _Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "CORPORAL";
 };
 
 //MG
 if (_role find "Machine Gunner" >= 0 && {_role find "Assistant" == -1}) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_AR_MMG; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 2 do {_unit addItem (_Pistol_Ammo select 0)};
-	for "_i" from 1 to 3 do {_unit addItemToVest (_MMG_Ammo select 0)};
-	for "_i" from 1 to 3 do {_unit addItemToBackpack (_MMG_Ammo select 0)};
-	_unit addWeapon (_MMG select 0);
-	_unit addWeapon (_Pistol select 0);
+	_unit setUnitLoadout [
+		[
+			[_MMG,_MMG_Attach1,_MMG_Attach2,_MMG_Optic,[],[],_MMG_Bipod],
+			[],
+			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[],[],""],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_MMG_Ammo,2,999],[_Pistol_Ammo,3,99],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Backpack_AR_MMG),[[_MMG_Ammo,4,999]]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _MMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _MMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _MMG_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //MGA
 if (_role find "Assistant Machine Gunner" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_AR_MMG; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_Carbine_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Carbine_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	for "_i" from 1 to 3 do {_unit addItemToBackpack (_MMG_Ammo select 0)};
-	_unit addWeapon (_Carbine select 0);
-	_unit addWeapon (_Binocular select 0);
+	_unit setUnitLoadout [
+		[
+			[_Carbine,_Carbine_Attach1,_Carbine_Attach2,_Carbine_Optic,[],[],_Carbine_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_Carbine_Ammo,5,999],[_Carbine_Ammo_T,3,999],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Backpack_AR_MMG),[[_MMG_Ammo,3,999],["ACE_SpareBarrel",1,1]]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //MAT
 if (_role find "AT Gunner" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_MAT; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_Carbine_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Carbine_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToBackpack (_MAT_Ammo select 0)};
-	_unit addWeapon (_Carbine select 0);
-	_unit addWeapon (_MAT select 0);
+	_unit setUnitLoadout [
+		[
+			[_Carbine,_Carbine_Attach1,_Carbine_Attach2,_Carbine_Optic,[],[],_Carbine_Bipod],
+			[_MAT,"","",_MAT_Optic,[_MAT_Ammo,99],[],""],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_Carbine_Ammo,5,999],[_Carbine_Ammo_T,3,999],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Backpack_MAT),[[_MAT_Ammo,2,99]]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
-	_unit addSecondaryWeaponitem selectRandom _MAT_Optic;
 	_unit setRank "PRIVATE";
 };
 
 //MATA
 if (_role find "AT Assistant" >= 0) then {
-	_unit forceAddUniform selectRandom _Uniform;
-	_unit addVest selectRandom _Vest;
-	_unit addBackpack selectRandom _Backpack_MAT; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Headgear;
-	_unit addGoggles selectRandom _Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_Carbine_Ammo select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Carbine_Ammo_T select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToVest (_Grenade select 0)};
-	for "_i" from 1 to 2 do {_unit addItemToBackpack (_MAT_Ammo select 0)};
-	_unit addWeapon (_Carbine select 0);
-	_unit addWeapon (_Binocular select 0);
+	_unit setUnitLoadout [
+		[
+			[_Carbine,_Carbine_Attach1,_Carbine_Attach2,_Carbine_Optic,[],[],_Carbine_Bipod],
+			[],
+			[],
+			[(selectRandom _Uniform),[]],
+			[(selectRandom _Vest),[[_Carbine_Ammo,5,999],[_Carbine_Ammo_T,3,999],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Backpack_MAT),[[_MAT_Ammo,2,99]]],(selectRandom _Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Optic;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _Carbine_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //VIC PLAT LEAD
 if (_role find "Vehicle Platoon Commander" >= 0) then {
-	_unit forceAddUniform selectRandom _Crew_Uniform;
-	_unit addVest selectRandom _Crew_Vest;
-	_unit addBackpack selectRandom _Backpack_Crew; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Crew_Headgear;
-	_unit addGoggles selectRandom _Crew_Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_SMG_Ammo select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_SMG select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Crew_Uniform),[]],
+			[(selectRandom _Crew_Vest),[[_SMG_Ammo,5,999]]],
+			[(selectRandom _Backpack_Crew),[[_ACRE_ITR,1]]],(selectRandom _Crew_Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "LIEUTENANT";
 };
 
 //VIC PLAT SGT
 if (_role find "Vehicle Platoon 2iC" >= 0) then {
-	_unit forceAddUniform selectRandom _Crew_Uniform;
-	_unit addVest selectRandom _Crew_Vest;
-	_unit addBackpack selectRandom _Backpack_Crew; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Crew_Headgear;
-	_unit addGoggles selectRandom _Crew_Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_SMG_Ammo select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_SMG select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Crew_Uniform),[]],
+			[(selectRandom _Crew_Vest),[[_SMG_Ammo,5,999]]],
+			[(selectRandom _Backpack_Crew),[[_ACRE_ITR,1]]],(selectRandom _Crew_Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "SERGEANT";
 };
 
 //VIC CMD
 if (_role find "Vehicle Commander" >= 0 && {_role find "Platoon" == -1}) then {
-	_unit forceAddUniform selectRandom _Crew_Uniform;
-	_unit addVest selectRandom _Crew_Vest;
-	_unit addBackpack selectRandom _Backpack_Crew; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Crew_Headgear;
-	_unit addGoggles selectRandom _Crew_Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_SMG_Ammo select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	_unit addWeapon (_SMG select 0);
-	_unit addWeapon (_Binocular select 0);
-	if (var_playerMaps == 0 || {var_playerMaps == 1}) then {
+	_unit setUnitLoadout [
+		[
+			[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Crew_Uniform),[]],
+			[(selectRandom _Crew_Vest),[[_SMG_Ammo,5,999]]],
+			[(selectRandom _Backpack_Crew),[[_ACRE_ITR,1]]],(selectRandom _Crew_Headgear),(selectRandom _Goggles),
+			[_Binocular,"","","",[],[],""],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
+	if (var_playerMaps != 2) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "SERGEANT";
 };
 
 //VIC GUNNER
 if (_role find "Vehicle Gunner" >= 0) then {
-	_unit forceAddUniform selectRandom _Crew_Uniform;
-	_unit addVest selectRandom _Crew_Vest;
-	_unit addBackpack selectRandom _Backpack_Crew; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Crew_Headgear;
-	_unit addGoggles selectRandom _Crew_Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_SMG_Ammo select 0)};
-	_unit addWeapon (_SMG select 0);
+	_unit setUnitLoadout [
+		[
+			[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Crew_Uniform),[]],
+			[(selectRandom _Crew_Vest),[[_SMG_Ammo,5,999]]],
+			[(selectRandom _Backpack_Crew),[[_ACRE_ITR,1]]],(selectRandom _Crew_Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //VIC DRIVER
 if (_role find "Vehicle Driver" >= 0) then {
-	_unit forceAddUniform selectRandom _Crew_Uniform;
-	_unit addVest selectRandom _Crew_Vest;
-	_unit addBackpack selectRandom _Backpack_Crew; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Crew_Headgear;
-	_unit addGoggles selectRandom _Crew_Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_SMG_Ammo select 0)};
-	_unit addWeapon (_SMG select 0);
+	_unit setUnitLoadout [
+		[
+			[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Crew_Uniform),[]],
+			[(selectRandom _Crew_Vest),[[_SMG_Ammo,5,999]]],
+			[(selectRandom _Backpack_Crew),[[_ACRE_ITR,1]]],(selectRandom _Crew_Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "PRIVATE";
 };
 
 //HELI
 if (_role find "Helicopter Pilot" >= 0 || {_role find "Helicopter Co-Pilot" >= 0}) then {
-	_unit forceAddUniform selectRandom _Heli_Uniform;
-	_unit addVest selectRandom _Heli_Vest;
-	_unit addBackpack selectRandom _Backpack_Pilot; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Heli_Headgear;
-	_unit addGoggles selectRandom _Heli_Goggles;
-	_unit addItem "ACE_Flashlight_XL50";
-	for "_i" from 1 to 4 do {_unit addItemToVest (_SMG_Ammo select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	for "_i" from 1 to 2 do {_unit addItemToBackpack (_FlareGun_Ammo select 0)};
-	_unit addWeapon (_SMG select 0);
-	_unit addItemToBackpack (_FlareGun select 0);
-	if (var_playerNVG == 0 || {var_playerNVG == 1}) then {_unit addWeapon (_NVG_Pilot select 0)};
-	_unit linkItem "ItemMap";
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
+	_unit setUnitLoadout [
+		[
+			[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Heli_Uniform),[["ACE_Flashlight_XL50",1]]],
+			[(selectRandom _Heli_Vest),[[_SMG_Ammo,5,999],[_FlareGun_Ammo,4,99]]],
+			[(selectRandom _Backpack_Pilot),[[_ACRE_ITR,1],[[_FlareGun,"","","",[],[],""],1]]],(selectRandom _Heli_Headgear),(selectRandom _Goggles),
+			[],
+			["ItemMap","","ItemRadioAcreFlagged","ItemCompass","ItemWatch",""]
+		],true
+	];
+	if (var_playerNVG != 2) then {_unit linkItem _NVG_Pilot};
 	_unit setRank "LIEUTENANT";
 };
 
 //HELI CREW
 if (_role find "Helicopter Crew" >= 0) then {
-	_unit forceAddUniform selectRandom _Heli_Uniform;
-	_unit addVest selectRandom _Heli_Vest;
-	_unit addBackpack selectRandom _Backpack_Pilot; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Heli_Headgear;
-	_unit addGoggles selectRandom _Heli_Goggles;
-	for "_i" from 1 to 4 do {_unit addItemToVest (_SMG_Ammo select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	for "_i" from 1 to 2 do {_unit addItemToBackpack (_FlareGun_Ammo select 0)};
-	_unit addWeapon (_SMG select 0);
-	_unit addItemToBackpack (_FlareGun select 0);
+	_unit setUnitLoadout [
+		[
+			[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+			[],
+			[],
+			[(selectRandom _Heli_Uniform),[]],
+			[(selectRandom _Heli_Vest),[[_SMG_Ammo,5,999],[_FlareGun_Ammo,4,99]]],
+			[(selectRandom _Backpack_Pilot),[[_ACRE_ITR,1],[[_FlareGun,"","","",[],[],""],1]]],(selectRandom _Heli_Headgear),(selectRandom _Goggles),
+			[],
+			["","","ItemRadioAcreFlagged","","ItemWatch",""]
+		],true
+	];
 	if (var_playerMaps == 0) then {
 		_unit linkItem "ItemMap";
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
-	removeAllPrimaryWeaponItems _unit;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Optic;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach1;
-	_unit addPrimaryWeaponitem selectRandom _SMG_Attach2;
 	_unit setRank "SERGEANT";
 };
 
 //PLANE
 if (_role find "Fighter Pilot" >= 0) then {
-	_unit forceAddUniform selectRandom _Plane_Uniform;
-	_unit addVest selectRandom _Plane_Vest;
-	_unit addBackpack selectRandom _Backpack_Pilot; clearAllItemsFromBackpack _unit;
-	_unit addHeadgear selectRandom _Plane_Headgear;
-	_unit addGoggles selectRandom _Plane_Goggles;
-	_unit addItem "ACE_Flashlight_XL50";
-	for "_i" from 1 to 2 do {_unit addItem (_Pistol_Ammo select 0)};
-	_unit addItemToBackpack _ACRE_ITR;
-	for "_i" from 1 to 2 do {_unit addItemToBackpack (_FlareGun_Ammo select 0)};
-	_unit addWeapon (_Pistol select 0);
-	_unit addItemToBackpack (_FlareGun select 0);
-	if (var_playerNVG == 0 || {var_playerNVG == 1}) then {_unit addWeapon (_NVG_Pilot select 0)};
-	_unit linkItem "ItemMap";
+	_unit setUnitLoadout [
+		[
+			[],
+			[],
+			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[],[],""],
+			[(selectRandom _Plane_Uniform),[["ACE_Flashlight_XL50",1]]],
+			[(selectRandom _Plane_Vest),[[_Pistol_Ammo,3,999],[_FlareGun_Ammo,4,99]]],
+			[(selectRandom _Backpack_Pilot),[[_ACRE_ITR,1],[[_FlareGun,"","","",[],[],""],1]]],(selectRandom _Plane_Headgear),(selectRandom _Goggles),
+			[],
+			["ItemMap","","ItemRadioAcreFlagged","ItemCompass","ItemWatch",""]
+		],true
+	];
+	if (var_playerNVG != 2) then {_unit linkItem _NVG_Pilot};
 	_unit setRank "CAPTAIN";
 };
 
@@ -572,21 +517,19 @@ if (var_backpacksAll) then {
 };
 
 //NVG
-if (var_playerNVG == 0) then {_unit addWeapon (_NVG select 0)};
+if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
 //RADIOS
-if (var_personalRadio) then {_unit addItemToUniform _ACRE_PRR;};
+if (var_personalRadio) then {_unit addItem _ACRE_PRR;};
 
 // PISTOLS
 if (var_pistolAll) then {
 	if (handgunWeapon _unit == "") then {
-		for "_i" from 1 to 2 do {_unit addItem (_Pistol_Ammo select 0)};
-		_unit addWeapon (_Pistol select 0);
+		for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
+		_unit addWeapon _Pistol;
 	};
 };
 
 //REST
-for "_i" from 1 to 4 do {_unit addItem "ACE_fieldDressing";};
-for "_i" from 1 to 1 do {_unit addItem "ACE_morphine";};
-for "_i" from 1 to 1 do {_unit addItem "ACE_tourniquet";};
+for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
 _unit linkItem "ItemWatch";

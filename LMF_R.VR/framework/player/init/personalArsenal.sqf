@@ -23,22 +23,22 @@ private _fighter = _role find "Fighter" >= 0;
 
 
 if (!_heli && {!_veh && {!_fighter}}) then {
-	[player, _Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
-	[player, _Goggles, false, false] call BIS_fnc_addVirtualItemCargo;
+	[player, _Headgear_A, false, false] call BIS_fnc_addVirtualItemCargo;
+	[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 } else {
 	if (_veh) then {
 		[player, _Crew_Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
-		[player, _Crew_Goggles, false, false] call BIS_fnc_addVirtualItemCargo;
+		[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	};
 
 	if (_heli) then {
 		[player, _Heli_Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
-		[player, _Heli_Goggles, false, false] call BIS_fnc_addVirtualItemCargo;
+		[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	};
 
 	if (_fighter) then {
 		[player, _Plane_Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
-		[player, _Plane_Goggles, false, false] call BIS_fnc_addVirtualItemCargo;
+		[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	};
 };
 
