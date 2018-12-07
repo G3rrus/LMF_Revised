@@ -8,7 +8,7 @@ class EditorData
 	toggles=1029;
 	class ItemIDProvider
 	{
-		nextID=309;
+		nextID=312;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=39;
+		nextID=63;
 	};
 	class Camera
 	{
@@ -33,17 +33,18 @@ addons[]=
 	"A3_Characters_F_Mark",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Ui_F",
-	"A3_Structures_F_EPA_Mil_Scrapyard",
-	"A3_Structures_F_EPC_Items_Electronics",
+	"A3_Structures_F_Heli_Items_Luggage",
 	"A3_Structures_F_Civ_Camping",
 	"A3_Structures_F_Mil_Helipads",
-	"A3_Structures_F_Orange_Humanitarian_Camps"
+	"A3_Structures_F_EPC_Items_Electronics",
+	"A3_Structures_F_Orange_Humanitarian_Camps",
+	"A3_Props_F_Orange_Humanitarian_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=9;
+		items=10;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -74,29 +75,29 @@ class AddonsMetaData
 		};
 		class Item4
 		{
-			className="A3_Structures_F_EPA";
-			name="Arma 3 Survive Episode - Buildings and Structures";
+			className="A3_Structures_F_Heli";
+			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
 		class Item5
-		{
-			className="A3_Structures_F_EPC";
-			name="Arma 3 Win Episode - Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item6
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item6
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="A3_Structures_F_EPC";
+			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -104,6 +105,13 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_Orange";
 			name="Arma 3 Orange - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item9
+		{
+			className="A3_Props_F_Orange";
+			name="Arma 3 Orange - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -136,7 +144,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=47;
+		items=48;
 		class Item0
 		{
 			dataType="Group";
@@ -9602,283 +9610,62 @@ class Mission
 			name="Gear Selection";
 			class Entities
 			{
-				items=9;
+				items=2;
 				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={403,5.4501095,529};
-					};
-					side="Empty";
-					flags=4;
-					class Attributes
-					{
-						disableSimulation=1;
-					};
-					id=199;
-					type="Land_Pallet_MilBoxes_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={407,5.4501095,529};
-					};
-					side="Empty";
-					flags=4;
-					class Attributes
-					{
-						disableSimulation=1;
-					};
-					id=200;
-					type="Land_Pallet_MilBoxes_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={411,5.4501095,529};
-					};
-					side="Empty";
-					flags=4;
-					class Attributes
-					{
-						disableSimulation=1;
-					};
-					id=201;
-					type="Land_Pallet_MilBoxes_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={403.64999,5.9310722,528.5};
-						angles[]={0,3.1415927,0};
-					};
-					side="Empty";
-					class Attributes
-					{
-						name="crateGearPlt";
-						disableSimulation=1;
-					};
-					id=202;
-					type="Land_Laptop_device_F";
-					atlOffset=0.23500013;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={407.64999,5.9310722,528.5};
-						angles[]={0,3.1415927,0};
-					};
-					side="Empty";
-					class Attributes
-					{
-						name="crateGearSquad";
-						disableSimulation=1;
-					};
-					id=204;
-					type="Land_Laptop_device_F";
-					atlOffset=0.23500013;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={411.64999,5.9310722,528.5};
-						angles[]={0,3.1415927,0};
-					};
-					side="Empty";
-					class Attributes
-					{
-						name="crateGearCrew";
-						disableSimulation=1;
-					};
-					id=205;
-					type="Land_Laptop_device_F";
-					atlOffset=0.23500013;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
-				};
-				class Item6
-				{
-					dataType="Comment";
-					class PositionInfo
-					{
-						position[]={411,5,528};
-					};
-					title="GEAR SELECT CREW";
-					description="This laptop will get ace interactions for the players to choose various loadouts in relation to crew roles. Only the laptop is needed for this component to work.";
-					id=296;
-				};
-				class Item7
-				{
-					dataType="Comment";
-					class PositionInfo
-					{
-						position[]={407,5,528};
-					};
-					title="GEAR SELECT PLATOON";
-					description="This laptop will get ace interactions for the players to choose various loadouts in relation to platoon roles. Only the laptop is needed for this component to work.";
-					id=295;
-				};
-				class Item8
 				{
 					dataType="Comment";
 					class PositionInfo
 					{
 						position[]={403,5,528};
 					};
-					title="GEAR SELECT SQUAD";
-					description="This laptop will get ace interactions for the players to choose various loadouts in relation to squad roles. Only the laptop is needed for this component to work.";
+					title="GEAR SELECT";
+					description="This box will get ace interactions for the players to choose various loadouts in relation to their roles. Only the upper box is needed for this component to work.";
 					id=294;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={403,5.9696579,530};
+						angles[]={-0,1.5707964,0};
+					};
+					side="Empty";
+					class Attributes
+					{
+						init="[this, -1] call ace_cargo_fnc_setSize; [this, false] call ace_dragging_fnc_setDraggable; [this, false] call ace_dragging_fnc_setCarryable;";
+						name="crateRoles";
+					};
+					id=310;
+					type="Land_MetalCase_01_small_F";
+					atlOffset=0.8130002;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="allowDamage";
+							expression="_this allowdamage _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 			};
 			id=269;
-			atlOffset=0.084765434;
+			atlOffset=0.40649986;
 		};
 		class Item40
 		{
@@ -10596,6 +10383,22 @@ class Mission
 			title="PUT YOUR CURSOR ON ME";
 			description="Welcome to the LMF revised. If you do not know how to use this framework yet, don't worry as it is pretty self-explanatory. To get started just unhide the various components this framework has to offer by selecting their folders in the Entities list on the left and clicking on the Toggle Layer Visiblity icon on the bottom left (looks like a folder with an eye). Alternatively you can also double click a folder and toggle it there. Some more hints will become available explaining the basics of most framework components if you hover your cursor over them. If you encounter problems and you don't know what you're doing, it is best consult someone that already has experience with this framework.";
 			id=308;
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={403,5.4052014,530};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				createAsSimpleObject=1;
+			};
+			id=311;
+			type="Land_CampingTable_small_white_F";
 		};
 	};
 };

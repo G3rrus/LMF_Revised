@@ -220,9 +220,6 @@ if !(isnil "Ares_fnc_RegisterCustomModule") then {
 5 enableChannel false;
 
 //APPLY TEXTURES TO LAPTOPS
-if !(isNil "ammoSpawner") then {ammoSpawner setObjectTexture [0, "framework\fx\screen.paa"];};
-if !(isNil "groundSpawner") then {groundSpawner setObjectTexture [0, "framework\fx\screen.paa"];};
-if !(isNil "airSpawner") then {airSpawner setObjectTexture [0, "framework\fx\screen.paa"];};
-if !(isNil "crateGearSquad") then {crateGearSquad setObjectTexture [0, "framework\fx\screen.paa"];};
-if !(isNil "crateGearPlt") then {crateGearPlt setObjectTexture [0, "framework\fx\screen.paa"];};
-if !(isNil "crateGearCrew") then {crateGearCrew setObjectTexture [0, "framework\fx\screen.paa"];};
+if !(isNil "ammoSpawner") then {ammoSpawner setObjectTexture [0, "framework\fx\ammunition.paa"];};
+if !(isNil "groundSpawner") then {groundSpawner setObjectTexture [0, "framework\fx\groundVics.paa"];};
+if !(isNil "airSpawner") then {airSpawner setObjectTexture [0, "framework\fx\airVics.paa"];};
