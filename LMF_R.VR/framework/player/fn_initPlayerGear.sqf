@@ -33,9 +33,9 @@ if (_role find "Platoon Leader" >= 0) then {
 		[
 			[_Rifle,_Rifle_Attach1,_Rifle_Attach2,_Rifle_Optic,[],[],_Rifle_Bipod],
 			[],
-			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[],[],""],
+			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[_Pistol_Ammo,99],[],""],
 			[(selectRandom _Uniform_L),[]],
-			[(selectRandom _Vest),[[_Rifle_Ammo,5,999],[_Rifle_Ammo_T,3,999],[_Pistol_Ammo,3,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
+			[(selectRandom _Vest),[[_Rifle_Ammo,5,999],[_Rifle_Ammo_T,3,999],[_Pistol_Ammo,2,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
 			[(selectRandom _Backpack_Leader),[[_ACRE_ITR,1]]],(selectRandom _Headgear_L),(selectRandom _Goggles),
 			[_Binocular,"","","",[],[],""],
 			["","","ItemRadioAcreFlagged","","ItemWatch",""]
@@ -46,6 +46,7 @@ if (_role find "Platoon Leader" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "LIEUTENANT";
 };
 
@@ -55,9 +56,9 @@ if (_role find "Platoon Sergeant" >= 0) then {
 		[
 			[_Rifle,_Rifle_Attach1,_Rifle_Attach2,_Rifle_Optic,[],[],_Rifle_Bipod],
 			[],
-			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[],[],""],
+			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[_Pistol_Ammo,99],[],""],
 			[(selectRandom _Uniform_L),[]],
-			[(selectRandom _Vest),[[_Rifle_Ammo,5,999],[_Rifle_Ammo_T,3,999],[_Pistol_Ammo,3,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
+			[(selectRandom _Vest),[[_Rifle_Ammo,5,999],[_Rifle_Ammo_T,3,999],[_Pistol_Ammo,2,99],[_Grenade,2,1],[_Grenade_Smoke,1,1],[_Grenade_Smoke_Grn,2,1]]],
 			[(selectRandom _Backpack_Leader),[[_ACRE_ITR,1]]],(selectRandom _Headgear_L),(selectRandom _Goggles),
 			[_Binocular,"","","",[],[],""],
 			["","","ItemRadioAcreFlagged","","ItemWatch",""]
@@ -68,6 +69,7 @@ if (_role find "Platoon Sergeant" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "SERGEANT";
 };
 
@@ -90,6 +92,7 @@ if (_role find "RTO" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -112,6 +115,7 @@ if (_role find "FAC" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "CORPORAL";
 };
 
@@ -134,6 +138,7 @@ if (_role find "Squad Leader" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "SERGEANT";
 };
 
@@ -156,6 +161,7 @@ if (_role find "Squad 2iC" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "CORPORAL";
 };
 
@@ -178,6 +184,7 @@ if (_role find "Rifleman" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -200,6 +207,7 @@ if (_role find "Grenadier" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -222,6 +230,7 @@ if (_role find "Autorifleman" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -248,6 +257,7 @@ if (_role find "Medic" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "CORPORAL";
 };
 
@@ -257,9 +267,9 @@ if (_role find "Machine Gunner" >= 0 && {_role find "Assistant" == -1}) then {
 		[
 			[_MMG,_MMG_Attach1,_MMG_Attach2,_MMG_Optic,[],[],_MMG_Bipod],
 			[],
-			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[],[],""],
+			[_Pistol,_Pistol_Attach1,_Pistol_Attach2,"",[_Pistol_Ammo,99],[],""],
 			[(selectRandom _Uniform),[]],
-			[(selectRandom _Vest),[[_MMG_Ammo,2,999],[_Pistol_Ammo,3,99],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
+			[(selectRandom _Vest),[[_MMG_Ammo,2,999],[_Pistol_Ammo,2,99],[_Grenade,2,1],[_Grenade_Smoke,1,1]]],
 			[(selectRandom _Backpack_AR_MMG),[[_MMG_Ammo,4,999]]],(selectRandom _Headgear),(selectRandom _Goggles),
 			[],
 			["","","ItemRadioAcreFlagged","","ItemWatch",""]
@@ -270,6 +280,7 @@ if (_role find "Machine Gunner" >= 0 && {_role find "Assistant" == -1}) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -292,6 +303,7 @@ if (_role find "Assistant Machine Gunner" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -314,6 +326,7 @@ if (_role find "AT Gunner" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -336,6 +349,7 @@ if (_role find "AT Assistant" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -358,6 +372,7 @@ if (_role find "Vehicle Platoon Commander" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "LIEUTENANT";
 };
 
@@ -380,6 +395,7 @@ if (_role find "Vehicle Platoon 2iC" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "SERGEANT";
 };
 
@@ -402,6 +418,7 @@ if (_role find "Vehicle Commander" >= 0 && {_role find "Platoon" == -1}) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "SERGEANT";
 };
 
@@ -424,6 +441,7 @@ if (_role find "Vehicle Gunner" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -446,6 +464,7 @@ if (_role find "Vehicle Driver" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "PRIVATE";
 };
 
@@ -486,6 +505,7 @@ if (_role find "Helicopter Crew" >= 0) then {
 		_unit linkItem "ItemCompass";
 		_unit addItem "ACE_Flashlight_XL50";
 	};
+	if (var_playerNVG == 0) then {_unit linkItem _NVG};
 	_unit setRank "SERGEANT";
 };
 
@@ -516,9 +536,6 @@ if (var_backpacksAll) then {
 	};
 };
 
-//NVG
-if (var_playerNVG == 0) then {_unit linkItem _NVG};
-
 //RADIOS
 if (var_personalRadio) then {_unit addItem _ACRE_PRR;};
 
@@ -527,6 +544,8 @@ if (var_pistolAll) then {
 	if (handgunWeapon _unit == "") then {
 		for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
 		_unit addWeapon _Pistol;
+		_unit addHandgunItem _Pistol_Attach1;
+		_unit addHandgunItem _Pistol_Attach2;
 	};
 };
 
