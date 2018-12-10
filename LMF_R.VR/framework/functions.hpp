@@ -50,13 +50,6 @@ class ai_civ {
 		class firedNear {};
 	};
 };
-class server {
-	tag = "lmf_server";
-	class functions {
-		file = "framework\server";
-		class spectatorChannel {};
-	};
-};
 class player {
 	tag = "lmf_player";
 	class functions {
@@ -101,5 +94,29 @@ class diwako_unknownwp {
 		class firedEh {};
 		class jammedEh {};
 		class reloadedEh {};
+	};
+};
+class loadouts {
+	tag = "lmf_loadout";
+	class functions {
+		file = "framework\player\loadouts";
+		class platoonLeader {};
+		class platoonSergeant {};
+		class rto {};
+		class fac {};
+		class squadLeader {};
+		class teamLeader {};
+		class rifleman {};
+		class grenadier {};
+		class autorifleman {};
+		class medic {};
+		class machineGunner {};
+		class machineGunnerAssistant {};
+		class atGunner {};
+		class atAssistant {};
+		class crew {};
+		class heloPilot {};
+		class heloCrew {};
+		class pilot {};
 	};
 };

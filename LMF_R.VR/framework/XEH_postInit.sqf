@@ -174,11 +174,6 @@ player setVariable ["ACE_medical_medicClass", 1, true];
 //PLAYER GEAR
 if (var_playerGear) then {
 	[player] call lmf_player_fnc_initPlayerGear;
-	player addEventHandler ["InventoryClosed", {
-		params ["_unit", "_container"];
-		[_unit,""] call bis_fnc_setUnitInsignia;
-		[_unit,player_insignia] call bis_fnc_setUnitInsignia;
-	}];
 };
 
 //ACRE CHANNEL PRESET

@@ -16,27 +16,23 @@ if !(lmf_warmup) exitWith {};
 
 
 // ADD GEAR BASED ON ROLES ////////////////////////////////////////////////////////////////////////
-private _role = roleDescription player;
-private _veh = _role find "Vehicle" >= 0;
-private _heli = _role find "Heli" >= 0;
-private _fighter = _role find "Fighter" >= 0;
+private _role = typeOf player;
 
-
-if (!_heli && {!_veh && {!_fighter}}) then {
+if (_role != _Crew && {_role != _HeloPilot && {_role != _HeloCrew && {_role != _Pilot}}}) then {
 	[player, _Headgear_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 } else {
-	if (_veh) then {
+	if (_role == _Crew) then {
 		[player, _Crew_Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
 		[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	};
 
-	if (_heli) then {
+	if (_role == _HeloPilot || {_role == _HeloCrew}) then {
 		[player, _Heli_Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
 		[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	};
 
-	if (_fighter) then {
+	if (_role == _Pilot) then {
 		[player, _Plane_Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
 		[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	};

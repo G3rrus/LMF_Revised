@@ -212,7 +212,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=2;
-					type="B_Soldier_SL_F";
+					type="B_Soldier_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -272,7 +272,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3;
-					type="B_Soldier_TL_F";
+					type="B_Soldier_A_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -332,7 +332,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=4;
-					type="B_Soldier_TL_F";
+					type="B_Soldier_unarmed_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -587,7 +587,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=9;
-					type="B_Soldier_F";
+					type="B_soldier_AAR_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -707,7 +707,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=11;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -767,7 +767,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=12;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -827,7 +827,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=13;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1202,7 +1202,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=20;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1262,7 +1262,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=21;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1322,7 +1322,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=22;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1577,7 +1577,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=27;
-					type="B_Soldier_F";
+					type="B_soldier_AAR_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1697,7 +1697,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=29;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1757,7 +1757,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=30;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1817,7 +1817,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=31;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2192,7 +2192,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=38;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2252,7 +2252,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=39;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2312,7 +2312,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=40;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2447,7 +2447,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=43;
-					type="B_Soldier_SL_F";
+					type="B_Soldier_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2507,7 +2507,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=44;
-					type="B_Soldier_TL_F";
+					type="B_Soldier_A_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2567,7 +2567,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=45;
-					type="B_Soldier_TL_F";
+					type="B_Soldier_unarmed_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2822,7 +2822,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=50;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3002,7 +3002,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=53;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3062,7 +3062,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=54;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3317,7 +3317,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=60;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3497,7 +3497,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=63;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3557,7 +3557,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=64;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3812,7 +3812,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=69;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3992,7 +3992,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=72;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4052,7 +4052,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=73;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4307,7 +4307,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=78;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4487,7 +4487,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=81;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4547,7 +4547,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=82;
-					type="B_Soldier_F";
+					type="B_soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -10345,7 +10345,7 @@ class Mission
 						position[]={400,5,498};
 					};
 					title="PLAYER GROUPS";
-					description="Here are some premade player groups. For various components of the framework to properly function it is important that if you want to make your own groups you do so in a similar fashion. The group variable names are tied to the group marker system and the acre channel preset system. The role descriptions of units is tied to the custom gear system and the unit variable names are tied to the assign team colors system, which means altering from these is going to make the respective components malfunction. However if you follow proper naming, making groups with more or less players or even making something like a group with all grenadiers is no problem.";
+					description="Here are some premade player groups. For various components of the framework to properly function it is important that if you want to make your own groups you do so in a similar fashion. The group variable names are tied to the group marker system and the acre channel preset system. The variable names are tied to the assign team colors system, which means altering from these is going to make the respective components malfunction.";
 					id=299;
 				};
 				class Item8

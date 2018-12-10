@@ -16,6 +16,7 @@ private _ACRE_PRR = "ACRE_PRC343"; // Short Range Radio
 private _Uniform = ["U_B_CombatUniform_mcam_vest"]; // Uniform(s) (Rest)
 private _Uniform_L = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest"]; // Uniform(s) (PLT CMD, PLT SGT, SQL)
 private _Vest = ["V_PlateCarrier2_rgr"]; // Vest(s)
+private _Vest_L = ["V_PlateCarrier2_rgr"]; // Vest(s) (PLT CMD, PLT SGT, SQL)
 private _Headgear = ["H_HelmetSpecB","H_HelmetSpecB_blk","H_HelmetSpecB_paint2","H_HelmetSpecB_paint1","H_HelmetSpecB_sand","H_HelmetSpecB_snakeskin"]; // Headgear(s) (Rest)
 private _Headgear_L = ["H_HelmetSpecB_blk"]; // Headgear(s) (PLT CMD, PLT SGT, SQL)
 private _Headgear_A = ["H_HelmetSpecB_paint2","H_HelmetSpecB_paint1"]; // Headgear(s) (Available in Personal Arsenal)
@@ -130,3 +131,31 @@ private _Grenade_Smoke_Grn = "SmokeShellGreen";
 private _Binocular = "Binocular"; // Binocular Item
 private _NVG = "NVGoggles"; // NVG Item
 private _NVG_Pilot = "NVGoggles"; // NVG Item for Pilots
+
+
+//ROLE DEFINITIONS (DO NOT USE THE SAME CLASSNAME TWICE)
+//PLATOON
+private _PlatoonLeader = "B_officer_F"; // Platoon Leader
+private _PlatoonSgt = "B_Soldier_F"; // Platoon Sergeant
+private _RTO = "B_Soldier_A_F"; // RTO
+private _FAC = "B_Soldier_unarmed_F"; // FAC
+
+//SQUAD
+private _SquadLeader = "B_Soldier_SL_F"; // Squad Leader
+private _TeamLeader = "B_Soldier_TL_F"; // Team Leader
+private _Rifleman = "B_soldier_LAT2_F"; // Rifleman
+private _Grenadier = "B_Soldier_GL_F"; // Grenadier
+private _Autorifleman = "B_soldier_AR_F"; // Autorifleman
+private _Medic = "B_medic_F"; // Medic
+private _MachineGunner = "B_HeavyGunner_F"; // Machine Gunner
+private _MgAssistant = "B_soldier_AAR_F"; // Machine Gunner Assistant
+private _AntiTankGunner = "B_soldier_AT_F"; // Anti Tank Gunner
+private _AtAssistant = "B_soldier_AAT_F"; // Anti Tank Gunner Assistant
+
+//VEHICLE
+private _Crew = "B_crew_F"; // Vehicle Crew
+
+//AIR
+private _HeloPilot = "B_Helipilot_F"; // Helicopter Pilot
+private _HeloCrew = "B_helicrew_F"; // Helicopter Crew
+private _Pilot = "B_Pilot_F"; // Pilot
