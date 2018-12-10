@@ -50,9 +50,6 @@ if (isServer) then {
 
 	//CREATE VARIOUS MARKERS
 	[] execVM "framework\server\init\markers.sqf";
-
-	//CREATE CUSTOM SPECTATOR CHANNEL
-	radio_channel_1 = radioChannelCreate [[1,0.6,0,1], "SPECTATOR", "%UNIT_NAME", []];
 };
 
 
@@ -220,6 +217,7 @@ if !(isnil "Ares_fnc_RegisterCustomModule") then {
 5 enableChannel false;
 
 //APPLY TEXTURES TO LAPTOPS
-if !(isNil "ammoSpawner") then {ammoSpawner setObjectTexture [0, "framework\fx\ammunition.paa"];};
-if !(isNil "groundSpawner") then {groundSpawner setObjectTexture [0, "framework\fx\groundVics.paa"];};
-if !(isNil "airSpawner") then {airSpawner setObjectTexture [0, "framework\fx\airVics.paa"];};
+if !(isNil "ammoSpawner") then {ammoSpawner setObjectTexture [0, "framework\fx\supplies.jpg"];};
+if !(isNil "airSpawner") then {airSpawner setObjectTexture [0, "framework\fx\airVehicles.jpg"];};
+if !(isNil "crateRoles") then {crateRoles setObjectTexture [0, "framework\fx\roles.jpg"];};
+if !(isNil "groundSpawner") then {groundSpawner setObjectTexture [0, "framework\fx\groundVehicles.jpg"];};

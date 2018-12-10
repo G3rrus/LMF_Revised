@@ -8,7 +8,7 @@ class EditorData
 	toggles=1029;
 	class ItemIDProvider
 	{
-		nextID=312;
+		nextID=314;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=63;
+		nextID=71;
 	};
 	class Camera
 	{
@@ -33,18 +33,16 @@ addons[]=
 	"A3_Characters_F_Mark",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Ui_F",
-	"A3_Structures_F_Heli_Items_Luggage",
+	"A3_Structures_F_EPC_Items_Electronics",
 	"A3_Structures_F_Civ_Camping",
 	"A3_Structures_F_Mil_Helipads",
-	"A3_Structures_F_EPC_Items_Electronics",
-	"A3_Structures_F_Orange_Humanitarian_Camps",
-	"A3_Props_F_Orange_Humanitarian_Camps"
+	"A3_Structures_F_Orange_Humanitarian_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=10;
+		items=8;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -75,8 +73,8 @@ class AddonsMetaData
 		};
 		class Item4
 		{
-			className="A3_Structures_F_Heli";
-			name="Arma 3 Helicopters - Buildings and Structures";
+			className="A3_Structures_F_EPC";
+			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -96,22 +94,8 @@ class AddonsMetaData
 		};
 		class Item7
 		{
-			className="A3_Structures_F_EPC";
-			name="Arma 3 Win Episode - Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item8
-		{
 			className="A3_Structures_F_Orange";
 			name="Arma 3 Orange - Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item9
-		{
-			className="A3_Props_F_Orange";
-			name="Arma 3 Orange - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -144,7 +128,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=48;
+		items=47;
 		class Item0
 		{
 			dataType="Group";
@@ -9610,7 +9594,7 @@ class Mission
 			name="Gear Selection";
 			class Entities
 			{
-				items=2;
+				items=3;
 				class Item0
 				{
 					dataType="Comment";
@@ -9627,17 +9611,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={403,5.9696579,530};
-						angles[]={-0,1.5707964,0};
+						position[]={403,5.9690723,529};
+						angles[]={-0,3.1415927,0};
 					};
 					side="Empty";
 					class Attributes
 					{
-						init="[this, -1] call ace_cargo_fnc_setSize; [this, false] call ace_dragging_fnc_setDraggable; [this, false] call ace_dragging_fnc_setCarryable;";
 						name="crateRoles";
+						disableSimulation=1;
 					};
-					id=310;
-					type="Land_MetalCase_01_small_F";
+					id=313;
+					type="Land_Laptop_device_F";
 					atlOffset=0.8130002;
 					class CustomAttributes
 					{
@@ -9663,9 +9647,25 @@ class Mission
 						nAttributes=1;
 					};
 				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={403,5.4052014,529};
+					};
+					side="Empty";
+					flags=4;
+					class Attributes
+					{
+						createAsSimpleObject=1;
+					};
+					id=312;
+					type="Land_CampingTable_small_F";
+				};
 			};
 			id=269;
-			atlOffset=0.40649986;
+			atlOffset=0.3048749;
 		};
 		class Item40
 		{
@@ -10383,22 +10383,6 @@ class Mission
 			title="PUT YOUR CURSOR ON ME";
 			description="Welcome to the LMF revised. If you do not know how to use this framework yet, don't worry as it is pretty self-explanatory. To get started just unhide the various components this framework has to offer by selecting their folders in the Entities list on the left and clicking on the Toggle Layer Visiblity icon on the bottom left (looks like a folder with an eye). Alternatively you can also double click a folder and toggle it there. Some more hints will become available explaining the basics of most framework components if you hover your cursor over them. If you encounter problems and you don't know what you're doing, it is best consult someone that already has experience with this framework.";
 			id=308;
-		};
-		class Item47
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={403,5.4052014,530};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				createAsSimpleObject=1;
-			};
-			id=311;
-			type="Land_CampingTable_small_white_F";
 		};
 	};
 };

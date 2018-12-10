@@ -5,20 +5,8 @@
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params ["_unit"];
 
-
-//CLEAR CHAT
-clearRadio;
-
 //BLACK FADE
 cutText  ["", "BLACK FADED", 10, true];
-
-//TERMINATE SPECTATOR
-["Terminate"] call BIS_fnc_EGSpectator;
-[false] call acre_api_fnc_setSpectator;
-
-//REMOVE CUSTOM CHAT CHANNEL
-[_unit,false] remoteExec ["lmf_server_fnc_spectatorChannel", 2];
-
 
 //PLAYER GEAR
 if (var_playerGear) then {
