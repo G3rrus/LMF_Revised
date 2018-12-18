@@ -12,12 +12,12 @@ if !(local _unit) exitWith {};
 // APPLY NEW ROLE SPECIFIC LOADOUT ////////////////////////////////////////////////////////////////
 _unit setUnitLoadout [
 	[
-		[_SMG,_SMG_Attach1,_SMG_Attach2,_SMG_Optic,[],[],_SMG_Bipod],
+		[_Carbine,_Carbine_Attach1,_Carbine_Attach2,_Carbine_Optic,[],[],_Carbine_Bipod],
 		[],
 		[],
 		[(selectRandom _Heli_Uniform),[]],
-		[(selectRandom _Heli_Vest),[[_SMG_Ammo,5,999],[_FlareGun_Ammo,4,99]]],
-		[(selectRandom _Backpack_Pilot),[[_ACRE_ITR,1],[[_FlareGun,"","","",[],[],""],1]]],(selectRandom _Heli_Headgear),(selectRandom _Goggles),
+		[(selectRandom _Heli_Vest),[[_Carbine_Ammo,5,999]]],
+		[(selectRandom _Backpack_Pilot),[]],(selectRandom _Heli_Headgear),(selectRandom _Goggles),
 		[],
 		["","","ItemRadioAcreFlagged","","ItemWatch",""]
 	],true
