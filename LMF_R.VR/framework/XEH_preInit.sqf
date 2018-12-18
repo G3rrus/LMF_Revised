@@ -6,4 +6,4 @@
 #include "..\settings\cfg_Mission.sqf"
 
 //FRAMEWORK VERSION
-var_version = 1.00;
+var_version = 1.02;
