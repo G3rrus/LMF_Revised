@@ -88,7 +88,7 @@ if (typeOf _supp == var_supSpecial) exitWith {
 	_supp addItemCargoGlobal ["ACE_VectorDay",5];
 	_supp addItemCargoGlobal ["ItemGPS",5];
 
-	if ((_Backpack_Light select 0) != "") then {_supp addBackpackCargoGlobal [(selectRandom _Backpack_Light), 5];};
+	if ((_Backpack_Light#0) != "") then {_supp addBackpackCargoGlobal [(selectRandom _Backpack_Light), 5];};
 };
 
 if (typeOf _supp == var_supExplosives) exitWith {
@@ -96,5 +96,5 @@ if (typeOf _supp == var_supExplosives) exitWith {
 	_supp addItemCargoGlobal ["SatchelCharge_Remote_Mag", 2];
 	_supp addItemCargoGlobal ["ACE_M26_Clacker",2];
 
-	if ((_Backpack_Light select 0) != "") then {_supp addBackpackCargoGlobal [(selectRandom _Backpack_Light), 2];};
+	if ((_Backpack_Light#0) != "") then {_supp addBackpackCargoGlobal [(selectRandom _Backpack_Light), 2];};
 };

@@ -29,4 +29,4 @@ if (_LAT != "") then {_vic addWeaponCargoGlobal [_LAT, 2];};
 
 _vic addItemCargoGlobal ["Toolkit",1];
 
-if ((_Backpack_Light select 0) != "") then {_vic addBackpackCargoGlobal [(selectRandom _Backpack_Light),1];};
+if ((_Backpack_Light#0) != "") then {_vic addBackpackCargoGlobal [(selectRandom _Backpack_Light),1];};
