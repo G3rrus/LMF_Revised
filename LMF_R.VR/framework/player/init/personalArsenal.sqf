@@ -29,6 +29,7 @@ if (_role != _Crew && {_role != _HeloPilot && {_role != _HeloCrew && {_role != _
 
 	if (_role == _HeloPilot || {_role == _HeloCrew}) then {
 		[player, _Heli_Headgear, false, false] call BIS_fnc_addVirtualItemCargo;
+		[player, _Heli_Headgear_C, false, false] call BIS_fnc_addVirtualItemCargo;
 		[player, _Goggles_A, false, false] call BIS_fnc_addVirtualItemCargo;
 	};
 

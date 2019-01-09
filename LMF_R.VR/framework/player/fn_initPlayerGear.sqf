@@ -22,6 +22,7 @@ if (_role isEqualTo _TeamLeader) exitWith {_unit call lmf_loadout_fnc_teamLeader
 if (_role isEqualTo _Rifleman) exitWith {_unit call lmf_loadout_fnc_rifleman};
 if (_role isEqualTo _Grenadier) exitWith {_unit call lmf_loadout_fnc_grenadier};
 if (_role isEqualTo _Autorifleman) exitWith {_unit call lmf_loadout_fnc_autorifleman};
+if (_role isEqualTo _Marksman) exitWith {_unit call lmf_loadout_fnc_marksman};
 if (_role isEqualTo _Medic) exitWith {_unit call lmf_loadout_fnc_medic};
 if (_role isEqualTo _MachineGunner) exitWith {_unit call lmf_loadout_fnc_machineGunner};
 if (_role isEqualTo _MgAssistant) exitWith {_unit call lmf_loadout_fnc_machineGunnerAssistant};

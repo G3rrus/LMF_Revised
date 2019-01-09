@@ -129,6 +129,7 @@ if !(isNil "crateRoles") then {
 	private _squadLeader = ["squadLeader","Squad Leader","\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa",{[player] call lmf_loadout_fnc_squadLeader;[] spawn lmf_player_fnc_acreChannelPreset},{true}] call ace_interact_menu_fnc_createAction;
 	private _squad2ic = ["squad2ic","Squad 2iC","\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa",{[player] call lmf_loadout_fnc_teamLeader;[] spawn lmf_player_fnc_acreChannelPreset},{true}] call ace_interact_menu_fnc_createAction;
 	private _medic = ["medic","Medic","\A3\ui_f\data\map\vehicleicons\iconManMedic_ca.paa",{[player] call lmf_loadout_fnc_medic;[] spawn lmf_player_fnc_acreChannelPreset},{true}] call ace_interact_menu_fnc_createAction;
+	private _marksman = ["marksman","Marksman","\A3\ui_f\data\map\vehicleicons\iconMan_ca.paa",{[player] call lmf_loadout_fnc_marksman;[] spawn lmf_player_fnc_acreChannelPreset},{true}] call ace_interact_menu_fnc_createAction;
 	private _grenadier = ["genadier","Grenadier","\A3\ui_f\data\map\vehicleicons\iconMan_ca.paa",{[player] call lmf_loadout_fnc_grenadier;[] spawn lmf_player_fnc_acreChannelPreset},{true}] call ace_interact_menu_fnc_createAction;
 	private _autorifleman = ["autorifleman","Autorifleman","\A3\ui_f\data\map\vehicleicons\iconManMG_ca.paa",{[player] call lmf_loadout_fnc_autorifleman;[] spawn lmf_player_fnc_acreChannelPreset},{true}] call ace_interact_menu_fnc_createAction;
 	private _rifleman = ["rifleman","Rifleman","\A3\ui_f\data\map\vehicleicons\iconMan_ca.paa",{[player] call lmf_loadout_fnc_rifleman;[] spawn lmf_player_fnc_acreChannelPreset},{true}] call ace_interact_menu_fnc_createAction;
@@ -140,6 +141,7 @@ if !(isNil "crateRoles") then {
 	[crateRoles, 0, ["ACE_MainActions","parentInfantry","parentSquad"], _squadLeader] call ace_interact_menu_fnc_addActionToObject;
 	[crateRoles, 0, ["ACE_MainActions","parentInfantry","parentSquad"], _squad2ic] call ace_interact_menu_fnc_addActionToObject;
 	[crateRoles, 0, ["ACE_MainActions","parentInfantry","parentSquad"], _medic] call ace_interact_menu_fnc_addActionToObject;
+	[crateRoles, 0, ["ACE_MainActions","parentInfantry","parentSquad"], _marksman] call ace_interact_menu_fnc_addActionToObject;
 	[crateRoles, 0, ["ACE_MainActions","parentInfantry","parentSquad"], _grenadier] call ace_interact_menu_fnc_addActionToObject;
 	[crateRoles, 0, ["ACE_MainActions","parentInfantry","parentSquad"], _autorifleman] call ace_interact_menu_fnc_addActionToObject;
 	[crateRoles, 0, ["ACE_MainActions","parentInfantry","parentSquad"], _rifleman] call ace_interact_menu_fnc_addActionToObject;

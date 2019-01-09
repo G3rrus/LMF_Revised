@@ -19,31 +19,26 @@ removeBackpack _unit;
 removeHeadgear _unit;
 removeGoggles _unit;
 
-_unit addWeapon _Rifle_GL;
-_unit addPrimaryWeaponItem _Rifle_GL_Attach1;
-_unit addPrimaryWeaponItem _Rifle_GL_Attach2;
-_unit addPrimaryWeaponItem _Rifle_GL_Optic;
-_unit addPrimaryWeaponItem _Rifle_GL_Bipod;
+_unit addWeapon _DMR;
+_unit addPrimaryWeaponItem _DMR_Attach1;
+_unit addPrimaryWeaponItem _DMR_Attach2;
+_unit addPrimaryWeaponItem _DMR_Optic;
+_unit addPrimaryWeaponItem _DMR_Bipod;
 
 _unit forceAddUniform selectRandom _Uniform;
 
-_unit addVest selectRandom _Vest_G;
-for "_i" from 1 to 2 do {_unit addItemToVest _Rifle_GL_Ammo;};
-for "_i" from 1 to 2 do {_unit addItemToVest _Rifle_GL_Ammo_T;};
-for "_i" from 1 to 5 do {_unit addItemToVest _Rifle_GL_HE;};
+_unit addVest selectRandom _Vest;
+for "_i" from 1 to 8 do {_unit addItemToVest _DMR_Ammo;};
+for "_i" from 1 to 3 do {_unit addItemToVest _Pistol_Ammo;};
 for "_i" from 1 to 2 do {_unit addItemToVest _Grenade;};
 _unit addItemToVest _Grenade_Smoke;
-for "_i" from 1 to 2 do {_unit addItemToVest _Grenade_Smoke_Grn;};
-
-_unit addBackpack selectRandom _Backpack_Leader;
-_unit addItemToBackpack _ACRE_ITR;
-for "_i" from 1 to 3 do {_unit addItemToBackpack _Rifle_GL_Ammo;};
-_unit addItemToBackpack _Rifle_GL_Ammo_T;
-for "_i" from 1 to 5 do {_unit addItemToBackpack _Rifle_GL_Flare;};
 
 _unit addHeadgear selectRandom _Headgear;
 _unit addGoggles selectRandom _Goggles;
 
+_unit addWeapon _Pistol;
+_unit addHandgunItem _Pistol_Attach1;
+_unit addHandgunItem _Pistol_Attach2;
 _unit addWeapon _Binocular;
 
 _unit linkItem "ItemWatch";
@@ -52,8 +47,13 @@ _unit linkItem "ItemRadioAcreFlagged";
 //RADIO
 if (var_personalRadio) then {_unit addItem _ACRE_PRR};
 
+//BACKPACKS
+if (var_backpacksAll) then {
+	_unit addBackpack selectRandom _Backpack_Light; clearAllItemsFromBackpack _unit;
+};
+
 //MAP
-if (var_playerMaps != 2) then {
+if (var_playerMaps == 0) then {
 	_unit linkItem "ItemMap";
 	_unit linkItem "ItemCompass";
 	_unit addItem "ACE_Flashlight_XL50";
@@ -78,4 +78,4 @@ _unit setUnitTrait ["medic",false];
 _unit setUnitTrait ["engineer",false];
 
 //RANK
-_unit setRank "SERGEANT";
+_unit setRank "PRIVATE";

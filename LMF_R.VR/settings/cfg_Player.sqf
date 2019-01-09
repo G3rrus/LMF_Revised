@@ -13,20 +13,22 @@ private _ACRE_ITR = "ACRE_PRC148"; // Long Range Radio
 private _ACRE_PRR = "ACRE_PRC343"; // Short Range Radio
 
 //INFANTRY UNIFORM
-private _Uniform = ["U_B_CombatUniform_mcam_vest"]; // Uniform(s) (Rest)
-private _Uniform_L = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest"]; // Uniform(s) (PLT CMD, PLT SGT, SQL)
-private _Vest = ["V_PlateCarrier2_rgr"]; // Vest(s)
-private _Vest_L = ["V_PlateCarrier2_rgr"]; // Vest(s) (PLT CMD, PLT SGT, SQL)
+private _Uniform = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest"]; // Uniform(s)
+private _Vest = ["V_PlateCarrier1_rgr"]; // Vest(s)
+private _Vest_G = ["V_PlateCarrierGL_rgr"]; // Vest(s) GL (FAC, SQL, TL, Grenadier)
+private _Vest_M = ["V_PlateCarrierSpec_rgr"]; // Vest(s) CLS (Medic)
+private _Vest_MG = ["V_PlateCarrier2_rgr"]; // Vest(s) MG (AR, MMG)
 private _Headgear = ["H_HelmetSpecB","H_HelmetSpecB_blk","H_HelmetSpecB_paint2","H_HelmetSpecB_paint1","H_HelmetSpecB_sand","H_HelmetSpecB_snakeskin"]; // Headgear(s) (Rest)
-private _Headgear_L = ["H_HelmetSpecB_blk"]; // Headgear(s) (PLT CMD, PLT SGT, SQL)
-private _Headgear_A = ["H_HelmetSpecB_paint2","H_HelmetSpecB_paint1"]; // Headgear(s) (Available in Personal Arsenal)
-private _Goggles = [""]; // Goggle(s)
-private _Goggles_A = [""]; // Goggle(s) (Available in Perosnal Arsenal)
+private _Headgear_L = ["H_Beret_02"]; // Headgear(s) (PLT CMD, PLT SGT)
+private _Headgear_A = ["H_HelmetSpecB","H_HelmetSpecB_blk","H_HelmetSpecB_paint2","H_HelmetSpecB_paint1","H_HelmetSpecB_sand","H_HelmetSpecB_snakeskin","H_Beret_02"]; // Headgear(s) (Available in Personal Arsenal)
+private _Goggles = ["","G_Shades_Black",""]; // Goggle(s)
+private _Goggles_A = ["G_Aviator","G_Combat","G_Tactical_Black","G_Shades_Black"]; // Goggle(s) (Available in Perosnal Arsenal)
 
 //PILOT UNIFORM
 private _Heli_Uniform = ["U_B_HeliPilotCoveralls"]; // Pilot Uniform(s)
 private _Heli_Vest = ["V_TacVest_blk"]; // Pilot Vest(s)
 private _Heli_Headgear = ["H_PilotHelmetHeli_B"]; // Pilot Headgear(s)
+private _Heli_Headgear_C = ["H_CrewHelmetHeli_B"]; // Crew Headgear(s)
 
 private _Plane_Uniform = ["U_B_PilotCoveralls"]; // Plane Uniform(s)
 private _Plane_Vest = ["V_Rangemaster_belt"]; // Plane Vest(s)
@@ -52,17 +54,17 @@ private _FlareGun = "hgun_Pistol_Signal_F"; // Flaregun
 private _FlareGun_Ammo = "6Rnd_RedSignal_F"; // Flaregun Ammo
 
 //PISTOL
-private _Pistol = "hgun_P07_F"; // Pistol
-private _Pistol_Ammo = "16Rnd_9x21_Mag"; // Pistol Ammo
-private _Pistol_Attach1 = ""; // Pistol Attachement #1
-private _Pistol_Attach2 = ""; // Pistol Attachement #2
+private _Pistol = "hgun_Pistol_heavy_01_F"; // Pistol
+private _Pistol_Ammo = "11Rnd_45ACP_Mag"; // Pistol Ammo
+private _Pistol_Attach1 = "acc_flashlight_pistol"; // Pistol Attachement #1
+private _Pistol_Attach2 = "muzzle_snds_acp"; // Pistol Attachement #2
 
 //SMG (Used by: Vehicle Crew, Helicopter Pilot)
 private _SMG = "hgun_PDW2000_F"; // SMG
 private _SMG_Ammo = "30Rnd_9x21_Mag"; // SMG Ammo
-private _SMG_Optic = ""; // SMG Scope
+private _SMG_Optic = "optic_yorris"; // SMG Scope
 private _SMG_Attach1 = ""; // SMG Attachement #1
-private _SMG_Attach2 = ""; // SMG Attachement #2
+private _SMG_Attach2 = "muzzle_snds_l"; // SMG Attachement #2
 private _SMG_Bipod = ""; // SMG Bipod
 
 //CARBINE (Used by: RTO, Medic, MMG Assistant, MAT Gunner & Assistant)
@@ -96,6 +98,14 @@ private _Rifle_GL_Attach1 = "acc_pointer_ir"; // GL Rifle Attachement #1
 private _Rifle_GL_Attach2 = "muzzle_snds_h"; // GL Rifle Attachement #2
 private _Rifle_GL_Bipod = ""; // GL Rifle Bipod
 
+//DMR (Used by: Marksman)
+private _DMR = "srifle_DMR_06_olive_F"; // DMR
+private _DMR_Ammo = "20Rnd_762x51_Mag"; // DMR Ammo
+private _DMR_Optic = "optic_dms"; // DMR Optic
+private _DMR_Attach1 = ""; // DMR Attachement #1
+private _DMR_Attach2 = "muzzle_snds_b"; // DMR Attachement #2
+private _DMR_Bipod = ""; // DMR Bipod
+
 //LIGHT MACHINE GUN
 private _LMG = "arifle_MX_SW_F"; // LMG
 private _LMG_Ammo = "100Rnd_65x39_caseless_mag"; // LMG Ammo
@@ -103,7 +113,7 @@ private _LMG_Ammo_T = "100Rnd_65x39_caseless_mag_Tracer"; // LMG Tracer Ammo
 private _LMG_Optic = "optic_aco"; // LMG Optic
 private _LMG_Attach1 = "acc_pointer_ir"; // LMG Attachement #1
 private _LMG_Attach2 = "muzzle_snds_h"; // LMG Attachement #2
-private _LMG_Bipod = ""; // LMG Bipod
+private _LMG_Bipod = "bipod_01_f_mtp"; // LMG Bipod
 
 //MEDIUM MACHINE GUN
 private _MMG = "MMG_02_sand_F"; // MMG
@@ -115,7 +125,7 @@ private _MMG_Bipod = ""; // MMG Bipod
 
 //LIGHT ANTI-TANK
 private _LAT = "launch_NLAW_F"; // LAT
-private _LAT_Ammo = ""; // LAT Ammo
+private _LAT_Ammo = "NLAW_F"; // LAT Ammo
 
 //MEDIUM ANTI-TANK
 private _MAT = "launch_MRAWS_green_F"; // MAT
@@ -146,6 +156,7 @@ private _TeamLeader = "B_Soldier_TL_F"; // Team Leader
 private _Rifleman = "B_soldier_LAT2_F"; // Rifleman
 private _Grenadier = "B_Soldier_GL_F"; // Grenadier
 private _Autorifleman = "B_soldier_AR_F"; // Autorifleman
+private _Marksman = "B_soldier_M_F"; // Marksman
 private _Medic = "B_medic_F"; // Medic
 private _MachineGunner = "B_HeavyGunner_F"; // Machine Gunner
 private _MgAssistant = "B_soldier_AAR_F"; // Machine Gunner Assistant

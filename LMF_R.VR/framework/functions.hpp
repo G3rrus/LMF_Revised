@@ -110,6 +110,7 @@ class loadouts {
 		class rifleman {};
 		class grenadier {};
 		class autorifleman {};
+		class marksman {};
 		class medic {};
 		class machineGunner {};
 		class machineGunnerAssistant {};
