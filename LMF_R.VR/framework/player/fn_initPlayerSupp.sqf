@@ -34,6 +34,7 @@ if (typeOf _supp == var_supLarge) exitWith {
 	if (_Carbine_Ammo != "") then {_supp addMagazineCargoGlobal [_Carbine_Ammo, 40];};
 	if (_Rifle_Ammo != "") then {_supp addMagazineCargoGlobal [_Rifle_Ammo, 40];};
 	if (_Rifle_GL_Ammo != "") then {_supp addMagazineCargoGlobal [_Rifle_GL_Ammo, 40];};
+	if (_DMR_Ammo != "") then {_supp addMagazineCargoGlobal [_DMR_Ammo, 10];};
 	if (_LMG_Ammo != "") then {_supp addMagazineCargoGlobal [_LMG_Ammo, 10];};
 	if (_MMG_Ammo != "") then {_supp addMagazineCargoGlobal [_MMG_Ammo, 10];};
 	if (_MAT_Ammo != "") then {_supp addMagazineCargoGlobal [_MAT_Ammo, 10];};

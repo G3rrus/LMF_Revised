@@ -29,16 +29,12 @@ _unit forceAddUniform selectRandom _Uniform;
 
 _unit addVest selectRandom _Vest;
 for "_i" from 1 to 8 do {_unit addItemToVest _DMR_Ammo;};
-for "_i" from 1 to 3 do {_unit addItemToVest _Pistol_Ammo;};
 for "_i" from 1 to 2 do {_unit addItemToVest _Grenade;};
 _unit addItemToVest _Grenade_Smoke;
 
 _unit addHeadgear selectRandom _Headgear;
 _unit addGoggles selectRandom _Goggles;
 
-_unit addWeapon _Pistol;
-_unit addHandgunItem _Pistol_Attach1;
-_unit addHandgunItem _Pistol_Attach2;
 _unit addWeapon _Binocular;
 
 _unit linkItem "ItemWatch";
@@ -66,12 +62,10 @@ for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
 if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
 //PISTOL
-if (var_pistolAll) then {
-	_unit addWeapon _Pistol;
-	_unit addHandgunItem _Pistol_Attach1;
-	_unit addHandgunItem _Pistol_Attach2;
-	for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
-};
+_unit addWeapon _Pistol;
+_unit addHandgunItem _Pistol_Attach1;
+_unit addHandgunItem _Pistol_Attach2;
+for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
 
 //TRAITS
 _unit setUnitTrait ["medic",false];

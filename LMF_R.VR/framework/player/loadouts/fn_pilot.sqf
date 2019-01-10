@@ -22,16 +22,11 @@ removeGoggles _unit;
 _unit forceAddUniform selectRandom _Plane_Uniform;
 
 _unit addVest selectRandom _Plane_Vest;
-for "_i" from 1 to 3 do {_unit addItemToVest _Pistol_Ammo;};
 for "_i" from 1 to 4 do {_unit addItemToVest _FlareGun_Ammo;};
 
 _unit addBackpack selectRandom _Backpack_Pilot;
 _unit addItemToBackpack _ACRE_ITR;
 _unit addItemToBackpack _FlareGun;
-
-_unit addWeapon _Pistol;
-_unit addHandgunItem _Pistol_Attach1;
-_unit addHandgunItem _Pistol_Attach2;
 
 _unit addHeadgear selectRandom _Plane_Headgear;
 _unit addGoggles selectRandom _Goggles;
@@ -52,6 +47,12 @@ for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
 
 //NVG
 if (var_playerNVG != 2) then {_unit linkItem _NVG_Pilot};
+
+//PISTOL
+_unit addWeapon _Pistol;
+_unit addHandgunItem _Pistol_Attach1;
+_unit addHandgunItem _Pistol_Attach2;
+for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
 
 //TRAITS
 _unit setUnitTrait ["medic",false];
