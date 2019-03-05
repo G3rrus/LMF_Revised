@@ -6,6 +6,7 @@
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 //GENERAL GROUP ICON SETTINGS
 if !(hasInterface) exitWith {};
+waitUntil {time > 1};
 setGroupIconsVisible [true,false];
 setGroupIconsSelectable true;
 var_iconColor = [0,0,0,1];
