@@ -3,7 +3,6 @@
 	- This file handles which loadout players get.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-if !(hasinterface) exitWith {};
 params [["_unit",objNull]];
 if !(local _unit) exitWith {};
 

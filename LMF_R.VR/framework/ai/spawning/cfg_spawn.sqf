@@ -14,7 +14,6 @@ _soldier = [
 	_Rifleman,
 	_Rifleman,
 	_Rifleman,
-	_Grenadier,
 	_MMG_Gunner,
 	_Marksman,
 	_Rifleman_AT,
@@ -25,42 +24,45 @@ _soldier = [
 
 // GROUPS //////////////////////////////////////////////////////////////////////////////////////////
 _squad = [
-    [_Squad_Leader,_MAT_Gunner,_Grenadier,_Rifleman,_Rifleman,_Rifleman,_Marksman],
-	[_Squad_Leader,_MMG_Gunner,_Rifleman_AT,_Grenadier,_Rifleman,_Rifleman,_Rifleman,_Marksman],
-	[_Squad_Leader,_Autorifleman,_Rifleman_AT,_Grenadier,_Rifleman,_Rifleman,_Rifleman,_Marksman],
-	[_Squad_Leader,_Autorifleman,_Grenadier,_Rifleman_AT,_Rifleman,_Rifleman,_Rifleman,_Marksman]
+	[_Squad_Leader,_Autorifleman,_MMG_Gunner,_Rifleman,_Marksman,_Marksman,_Rifleman,_Rifleman_AT],
+	[_Squad_Leader,_Marksman,_Rifleman,_Rifleman,_Rifleman_AT,_Grenadier,_Autorifleman,_Rifleman_AT],
+	[_Squad_Leader,_Rifleman,_Rifleman_AT,_Marksman,_Grenadier,_Autorifleman,_Rifleman,_Rifleman],
+	[_Squad_Leader,_Autorifleman,_Grenadier,_Marksman,_Rifleman_AT,_Rifleman_AT,_Rifleman,_Autorifleman]
 	];
 
 _team =	[
-	[_Squad_Leader,_Rifleman,_Rifleman_AT,_Rifleman],
-	[_Squad_Leader,_Rifleman,_Marksman,_Marksman],
-	[_Squad_Leader,_Autorifleman,_Grenadier,_Rifleman],
-	[_Squad_Leader,_Rifleman,_Rifleman_AT,_Rifleman_AT],
-	[_Squad_Leader,_Autorifleman,_Grenadier,_Rifleman]
+	[_Squad_Leader,_Rifleman,_Rifleman,_Rifleman_AT],
+	[_Squad_Leader,_Rifleman,_Rifleman,_Marksman],
+	[_Squad_Leader,_Rifleman,_Rifleman,_Autorifleman],
+	[_Squad_Leader,_Rifleman,_Rifleman,_Grenadier],
+	[_Squad_Leader,_Autorifleman,_Marksman,_Rifleman_AT]
 ];
 
 _sentry =	[
 	[_Rifleman,_Rifleman_AT],
+	[_Rifleman,_Autorifleman],
 	[_Rifleman,_Grenadier],
-	[_Rifleman,_Rifleman]
+	[_Rifleman,_Marksman]
 ];
 
 _atTeam =	[
-	[_Squad_Leader,_Rifleman,_MAT_Gunner,_MAT_Gunner],
-	[_Squad_Leader,_Rifleman,_Grenadier,_MAT_Gunner],
-	[_Squad_Leader,_Rifleman,_Rifleman_AT,_MAT_Gunner]
+	[_Squad_Leader,_Grenadier,_MAT_Gunner,_MAT_Gunner],
+	[_Squad_Leader,_Rifleman_AT,_Rifleman_AT,_Rifleman_AT],
+	[_Squad_Leader,_Grenadier,_Rifleman_AT,_Rifleman_AT],
+	[_Squad_Leader,_MAT_Gunner,_MAT_Gunner,_MAT_Gunner]
 ];
 
 _aaTeam =	[
-	[_Squad_Leader,_Autorifleman,_Grenadier,_AA_Gunner],
-	[_Squad_Leader,_Autorifleman,_Rifleman_AT,_AA_Gunner],
-	[_Squad_Leader,_Autorifleman,_Rifleman,_AA_Gunner]
+	[_Squad_Leader,_Autorifleman,_AA_Gunner,_AA_Gunner],
+	[_Squad_Leader,_Rifleman_AT,_AA_Gunner,_AA_Gunner],
+	[_Squad_Leader,_AA_Gunner,_AA_Gunner,_AA_Gunner],
+	[_Squad_Leader,_Rifleman,_AA_Gunner,_AA_Gunner]
 ];
 
 _mgTeam =	[
-	[_Squad_Leader,_Rifleman,_MMG_Gunner,_MMG_Gunner],
-	[_Squad_Leader,_MMG_Gunner,_Rifleman,_Rifleman],
-	[_Squad_Leader,_MMG_Gunner,_Grenadier,_Rifleman]
+	[_Squad_Leader,_Autorifleman,_MMG_Gunner,_MMG_Gunner],
+	[_Squad_Leader,_Autorifleman,_Autorifleman,_Autorifleman],
+	[_Squad_Leader,_MMG_Gunner,_MMG_Gunner,_MMG_Gunner]
 ];
 
 _vehicleCrew = [_Crew,_Crew,_Crew];
