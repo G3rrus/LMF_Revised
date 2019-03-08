@@ -114,8 +114,8 @@ if (_type == _Rifleman_AT) then {
 //GL
 if (_type == _Grenadier) then {
 	if (_Rifle_GL_Ammo select 0 == "") then {_Rifle_GL_Ammo = 0;} else {_Rifle_GL_Ammo = selectRandom _Rifle_GL_Ammo};
-	private _random40 = selectRandom [selectRandom _Rifle_GL_Flare, selectRandom _Rifle_GL_Smoke];
-	for "_i" from 1 to 4 do {_unit addItem _random40;};
+	for "_i" from 1 to 4 do {_unit addItem selectRandom _Rifle_GL_Flare;};
+	for "_i" from 1 to 4 do {_unit addItem selectRandom _Rifle_GL_Smoke;};
 	[_unit, selectRandom _Rifle_GL, 10, _Rifle_GL_Ammo] call BIS_fnc_addWeapon;
 };
 
@@ -132,6 +132,7 @@ if (_type == _MAT_Gunner) then {
 	if (_MAT_Ammo select 0 == "") then {_MAT_Ammo = 0;} else {_MAT_Ammo = selectRandom _MAT_Ammo};
 	[_unit, selectRandom _Rifle, 1, _Rifle_Ammo] call BIS_fnc_addWeapon;
 	[_unit, selectRandom _MAT, 4, _MAT_Ammo] call BIS_fnc_addWeapon;
+	_unit setAmmo [primaryWeapon _unit, random 6];
 };
 
 //MARK
@@ -165,11 +166,11 @@ if (_type == _Officer) then {
 
 // MISC LOOT //////////////////////////////////////////////////////////////////////////////////////
 //ADD GRENADES
-if (50 > random 100) then {_unit addItem selectRandom _Grenade;};
-if (50 > random 100) then {_unit addItem selectRandom _Grenade_Smoke;};
+_unit addItem selectRandom _Grenade;
+_unit addItem selectRandom _Grenade_Smoke;
 
 //ADD FAK
-if (20 > random 100) then {_unit addItem "FirstAidKit";};
+for "_i" from 1 to 3 do {_unit addItem "FirstAidKit";};
 
 //WEAPON ATTACH
 removeAllPrimaryWeaponItems _unit;
