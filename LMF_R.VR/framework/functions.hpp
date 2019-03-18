@@ -70,6 +70,7 @@ class player {
 		class hitEH {};
 		class killedEH {};
 		class respawnEH {};
+		class viewDistanceEH {};
 	};
 };
 class admin {
