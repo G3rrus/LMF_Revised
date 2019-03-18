@@ -35,4 +35,4 @@
 ] call CBA_Settings_fnc_init;
 
 //FRAMEWORK VERSION
-var_version = 1.04;
+var_version = 1.05;

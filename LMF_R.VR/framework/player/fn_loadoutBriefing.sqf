@@ -154,7 +154,7 @@ _textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3FF
 		_textToDisplay = _textToDisplay + ([_name, [32,32], _cfgType] call _getPicture) + format ["<execute expression='systemChat ""%2""'>x%1</execute>  ", _itemCount, _displayName];
 		_items = _items - [_name];
 	};
-} forEach [[_radios, "CfgWeapons"], [_allMags, "CfgMagazines"], [_allItems, "CfgWeapons"], [assignedItems player, "CfgWeapons"]];
+} forEach [[_radios, "CfgWeapons"], [_allMags, "CfgMagazines"], [_allItems, "CfgWeapons"], [(assignedItems player) - ["ItemRadioAcreFlagged"], "CfgWeapons"]];
 
 //FINISH IT OFF WITH WARNING ABOUT ACCURACY
 _textToDisplay = _textToDisplay + "<br/><br/></font><font color='#D7DBD5'>This page is only accurate at mission start.</font>";
