@@ -164,13 +164,13 @@ player addEventHandler ["Respawn", {
 	_this spawn lmf_player_fnc_respawnEH;
 }];
 
-//BRIEFING
-[] execVM "framework\player\init\briefing.sqf";
-
 //PLAYER GEAR
 if (var_playerGear) then {
 	[player] call lmf_player_fnc_initPlayerGear;
 };
+
+//BRIEFING
+[] execVM "framework\player\init\briefing.sqf";
 
 //ACRE CHANNEL PRESET
 [] spawn lmf_player_fnc_acreChannelPreset;
