@@ -29,8 +29,8 @@ if (_heli_Transport findIf {_type == _x} != -1) then {
 	if !(_heli_Transport_Camo isEqualTo [""]) then {
 		_heli_Transport_Camo = selectRandom _heli_Transport_Camo;
 		[_air,[_heli_Transport_Camo,1]] call BIS_fnc_initVehicle;
-		_air setVehicleLock "LOCKEDPLAYER";
 	};
+	_air setVehicleLock "LOCKEDPLAYER";
 };
 
 if (_heli_Attack findIf {_type == _x} != -1) then {
