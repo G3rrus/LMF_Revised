@@ -36,6 +36,7 @@ _unit addItemToVest _Grenade_Smoke;
 for "_i" from 1 to 2 do {_unit addItemToVest _Grenade_Smoke_Grn;};
 
 _unit addBackpack selectRandom _Backpack_Leader;
+_unit addItemToBackpack _ACRE_ITR;
 for "_i" from 1 to 3 do {_unit addItemToBackpack _Rifle_GL_Ammo;};
 _unit addItemToBackpack _Rifle_GL_Ammo_T;
 for "_i" from 1 to 5 do {_unit addItemToBackpack _Rifle_GL_Flare;};
