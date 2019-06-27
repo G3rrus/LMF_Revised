@@ -199,9 +199,13 @@ if (var_jipTP && {CBA_missionTime > 5*60}) then {
 //INTRO + WARMUP
 [] execVM "framework\player\init\warmup.sqf";
 
-//ARES MODULES
-if !(isnil "Ares_fnc_RegisterCustomModule") then {
-	[] execVM "framework\player\init\achillesModules.sqf";
+//ZEUS MODULES
+if !(isNil "zen_custom_modules_fnc_register") then {
+	[] execVM "framework\player\init\zenModules.sqf";
+} else {
+	if !(isnil "Ares_fnc_RegisterCustomModule") then {
+		[] execVM "framework\player\init\achillesModules.sqf";
+	};
 };
 
 //CHANNEL SETUP
