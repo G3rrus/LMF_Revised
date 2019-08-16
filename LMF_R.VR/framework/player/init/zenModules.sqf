@@ -33,7 +33,6 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		_dialog params ["_type","_amount","_radius","_distrib"];
 
 		_pos = ASLToATL _pos;
-		_type = _type#0;
 		_radius = parseNumber _radius;
 		_distrib = [0,1] select !_distrib;
 		if (_type == "CUSTOM AMOUNT") then {
@@ -59,7 +58,6 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		_dialog params ["_type","_amount","_radius"];
 
 		_pos = ASLToATL _pos;
-		_type = _type#0;
 		_radius = parseNumber _radius;
 		if (_type == "CUSTOM AMOUNT") then {
 			_type = round _amount;
@@ -83,7 +81,6 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		_dialog params ["_type","_amount"];
 
 		_pos = ASLToATL _pos;
-		_type = _type#0;
 		if (_type == "CUSTOM AMOUNT") then {
 			_type = round _amount;
 		};
@@ -107,7 +104,6 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		_dialog params ["_type","_amount","_radius"];
 
 		_pos = ASLToATL _pos;
-		_type = _type#0;
 		_radius = parseNumber _radius;
 		if (_type == "CUSTOM AMOUNT") then {
 			_type = round _amount;
@@ -131,7 +127,6 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		_dialog params ["_type"];
 
 		_pos = ASLToATL _pos;
-		_type = _type#0;
 
 		// CALL FUNCTION
 		[_pos,_type] remoteExec ["lmf_ai_fnc_vehicleQRF"];
