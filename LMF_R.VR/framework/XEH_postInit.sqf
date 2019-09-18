@@ -50,6 +50,9 @@ if (isServer) then {
 
 	//CREATE VARIOUS MARKERS
 	[] execVM "framework\server\init\markers.sqf";
+
+    //VARIABLE FOR INITPLAYERSAFETY
+	lmf_isSafe = false;	
 };
 
 
