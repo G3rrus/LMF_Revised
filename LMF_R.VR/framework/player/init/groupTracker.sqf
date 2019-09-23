@@ -27,7 +27,7 @@ if (toUpper var_markerSide isEqualTo "COLORGUER") then {var_iconColor = [0,0.5,0
 	};
 
 	//SPECIAL GROUPS
-	if !(isNil "Grp_PLTHQ_1") then {[Grp_PLTHQ_1,"b_hq","PLT HQ"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_PLTHQ") then {[Grp_PLTHQ_1,"b_hq","PLT HQ"] call _lmf_fnc_createIcon};
 
 	if !(isNil "Grp_DGR1") then {[Grp_DGR1,"b_motor_inf","DAGGER1"] call _lmf_fnc_createIcon};
 	if !(isNil "Grp_DGR2") then {[Grp_DGR2,"b_motor_inf","DAGGER2"] call _lmf_fnc_createIcon};
