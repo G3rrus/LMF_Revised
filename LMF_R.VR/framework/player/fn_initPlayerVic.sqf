@@ -24,6 +24,7 @@ if (_LMG_Ammo != "") then {_vic addMagazineCargoGlobal [_LMG_Ammo, 2 + (random 4
 if (_MMG_Ammo != "") then {_vic addMagazineCargoGlobal [_MMG_Ammo, 2 + (random 4)];};
 if (_Grenade != "") then {_vic addMagazineCargoGlobal [_Grenade, 1 + (random 2)];};
 if (_Grenade_Smoke != "") then {_vic addMagazineCargoGlobal [_Grenade_Smoke, 1 + (random 2)];};
+if (_LAT_Ammo != "") then {_vic addMagazineCargoGlobal [_LAT_Ammo, 2];};
 
 if (_LAT != "") then {_vic addWeaponCargoGlobal [_LAT, 2];};
 

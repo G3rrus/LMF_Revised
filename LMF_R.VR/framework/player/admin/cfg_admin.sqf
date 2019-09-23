@@ -7,12 +7,13 @@
 private _admin = false;
 private _uid = getPlayerUID _unit;
 private _adminList =  [
-"76561197962792796", // nkenny
-"76561197972953971", // MoonDawg
-"76561197972498138", // Liquid Tracer
-"76561197968829665", // Alex2k
-"76561198202783595", // Aizen
+"76561197970604257", // Cuel
+"76561197997030424", // Terry
+"76561197980328722", // Diwako
+"76561198009543420", // Croguy
+"76561198023751916", // Exabit
 "76561197997590271", // G4rrus
+var_creatorUID,
 "_SP_PLAYER_"
 ];
 

@@ -199,6 +199,11 @@ if (var_jipTP && {CBA_missionTime > 5*60}) then {
 	[] execVM "framework\player\init\jipTeleport.sqf";
 };
 
+//JRM RESPAWN
+if (!isNil "fpa_jrm_fnc_init" && {var_useJRM}) then {
+	[var_livesJRM] call fpa_jrm_fnc_init;
+};
+
 //INTRO + WARMUP
 [] execVM "framework\player\init\warmup.sqf";
 

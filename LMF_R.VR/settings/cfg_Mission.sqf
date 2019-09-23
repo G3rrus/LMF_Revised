@@ -7,6 +7,7 @@
 //VARIOUS
 var_author = "Author"; // Your name, which shows up at the end of the warmup.
 var_location = "Virtual Reality"; // Location where scenario takes place, which can be seen in intro.
+var_creatorUID = "76561197997590271"; // Player UID that is being added to cfg_admin list for admin tool access.
 var_debug = false; // For mission testing, will turn on some debug options. (default: false)
 var_warmup = true; // Start mission with warmup? (default: true)
 var_jipTP = true; // Allow players that JIP to teleport? (default: false)
@@ -17,6 +18,9 @@ var_civPanic = false; // Will civs panic when there is a firefight? (default: tr
 var_respawnType = "OFF"; // What type of Respawn? ("WAVE", "OFF" or number in seconds) (default: "OFF")
 var_respawnTime = 1500; // Respawn countdown in seconds in case of "WAVE". (default: 1500)
 
+//JRM RESPAWN
+var_useJRM = false; // Use FP internal JRM respawn system instead of custom LMF one? (default: false)
+var_livesJRM = 0; // Amount of JRM respawn lives (default: 0)
 
 // PLAYERS ////////////////////////////////////////////////////////////////////////////////////////
 var_playerGear = true; // Should players get custom gear? (default: true)
