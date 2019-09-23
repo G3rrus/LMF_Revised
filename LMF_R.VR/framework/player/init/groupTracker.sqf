@@ -16,72 +16,66 @@ if (toUpper var_markerSide isEqualTo "COLORGUER") then {var_iconColor = [0,0.5,0
 
 
 // FUNCTION CREATE THE GROUP ICON /////////////////////////////////////////////////////////////////
-private _lmf_fnc_createIcon = {
-	params [["_grp",grpNull],["_type","b_inf"],["_txt",""]];
+[] spawn {
+	private _lmf_fnc_createIcon = {
+		params [["_grp",grpNull],["_type","b_inf"],["_txt",""]];
 
-	clearGroupIcons _grp;
-	_grp addGroupIcon [_type,[0,0]];
-	_grp setgroupIconParams [var_iconColor,_txt,1,true];
+		_grp setVariable ["lmf_bft", true];
+		clearGroupIcons _grp;
+		_grp addGroupIcon [_type,[0,0]];
+		_grp setgroupIconParams [var_iconColor,_txt,1,true];
+	};
+
+	//SPECIAL GROUPS
+	if !(isNil "Grp_PLTHQ_1") then {[Grp_PLTHQ_1,"b_hq","PLT HQ"] call _lmf_fnc_createIcon};
+
+	if !(isNil "Grp_DGR1") then {[Grp_DGR1,"b_motor_inf","DAGGER1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_DGR2") then {[Grp_DGR2,"b_motor_inf","DAGGER2"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_DGR3") then {[Grp_DGR3,"b_motor_inf","DAGGER3"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_DGR4") then {[Grp_DGR4,"b_motor_inf","DAGGER4"] call _lmf_fnc_createIcon};
+
+	if !(isNil "Grp_SWD1") then {[Grp_SWD1,"b_mech_inf","SWORD1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_SWD2") then {[Grp_SWD2,"b_mech_inf","SWORD2"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_SWD3") then {[Grp_SWD3,"b_mech_inf","SWORD3"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_SWD4") then {[Grp_SWD4,"b_mech_inf","SWORD4"] call _lmf_fnc_createIcon};
+
+	if !(isNil "Grp_HMR1") then {[Grp_HMR1,"b_armor","HAMMER1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_HMR2") then {[Grp_HMR2,"b_armor","HAMMER2"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_HMR3") then {[Grp_HMR3,"b_armor","HAMMER3"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_HMR4") then {[Grp_HMR4,"b_armor","HAMMER4"] call _lmf_fnc_createIcon};
+
+	if !(isNil "Grp_FLC1") then {[Grp_FLC1,"b_air","FALCON1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_FLC2") then {[Grp_FLC2,"b_air","FALCON2"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_FLC3") then {[Grp_FLC3,"b_air","FALCON3"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_FLC4") then {[Grp_FLC4,"b_air","FALCON4"] call _lmf_fnc_createIcon};
+
+	if !(isNil "Grp_CDR1") then {[Grp_CDR1,"b_air","CONDOR1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_CDR2") then {[Grp_CDR2,"b_air","CONDOR2"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_CDR3") then {[Grp_CDR3,"b_air","CONDOR3"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_CDR4") then {[Grp_CDR4,"b_air","CONDOR4"] call _lmf_fnc_createIcon};
+
+	if !(isNil "Grp_HWK1") then {[Grp_HWK1,"b_air","HAWK1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_HWK2") then {[Grp_HWK2,"b_air","HAWK2"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_HWK3") then {[Grp_HWK3,"b_air","HAWK3"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_HWK4") then {[Grp_HWK4,"b_air","HAWK4"] call _lmf_fnc_createIcon};
+
+	if !(isNil "Grp_EGL1") then {[Grp_EGL1,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_EGL2") then {[Grp_EGL2,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_EGL3") then {[Grp_EGL3,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
+	if !(isNil "Grp_EGL4") then {[Grp_EGL4,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
+
+	while {true} do {
+		{
+			if !(_x getVariable ["lmf_bft",false]) then {
+				[_x,"b_inf",toUpper (groupid _x)] call _lmf_fnc_createIcon;
+			};
+		} forEach (allGroups select {side _x == side player});
+		sleep 300;
+	};
 };
 
 
-// WHICH GROUPS GET TRACKED ///////////////////////////////////////////////////////////////////////
-//1ST PLATOON
-if !(isNil "Grp_PLTHQ_1") then {[Grp_PLTHQ_1,"b_hq","PLT HQ"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_ALPHA_1") then {[Grp_ALPHA_1,"b_inf","ALPHA"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_BRAVO_1") then {[Grp_BRAVO_1,"b_inf","BRAVO"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_CHARLIE_1") then {[Grp_CHARLIE_1,"b_inf","CHARLIE"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_DELTA_1") then {[Grp_DELTA_1,"b_inf","DELTA"] call _lmf_fnc_createIcon};
-
-//2ND PLATOON
-if !(isNil "Grp_WOLF_6") then {[Grp_WOLF_6,"b_hq","WOLF6"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_WOLF_1") then {[Grp_WOLF_1,"b_inf","WOLF1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_WOLF_2") then {[Grp_WOLF_2,"b_inf","WOLF2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_WOLF_3") then {[Grp_WOLF_3,"b_inf","WOLF3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_WOLF_4") then {[Grp_WOLF_4,"b_inf","WOLF4"] call _lmf_fnc_createIcon};
-
-//ARMOR
-if !(isNil "Grp_DGR1") then {[Grp_DGR1,"b_motor_inf","DAGGER1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_DGR2") then {[Grp_DGR2,"b_motor_inf","DAGGER2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_DGR3") then {[Grp_DGR3,"b_motor_inf","DAGGER3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_DGR4") then {[Grp_DGR4,"b_motor_inf","DAGGER4"] call _lmf_fnc_createIcon};
-
-if !(isNil "Grp_SWD1") then {[Grp_SWD1,"b_mech_inf","SWORD1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_SWD2") then {[Grp_SWD2,"b_mech_inf","SWORD2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_SWD3") then {[Grp_SWD3,"b_mech_inf","SWORD3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_SWD4") then {[Grp_SWD4,"b_mech_inf","SWORD4"] call _lmf_fnc_createIcon};
-
-if !(isNil "Grp_HMR1") then {[Grp_HMR1,"b_armor","HAMMER1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_HMR2") then {[Grp_HMR2,"b_armor","HAMMER2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_HMR3") then {[Grp_HMR3,"b_armor","HAMMER3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_HMR4") then {[Grp_HMR4,"b_armor","HAMMER4"] call _lmf_fnc_createIcon};
-
-//AIR
-if !(isNil "Grp_FLC1") then {[Grp_FLC1,"b_air","FALCON1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_FLC2") then {[Grp_FLC2,"b_air","FALCON2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_FLC3") then {[Grp_FLC3,"b_air","FALCON3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_FLC4") then {[Grp_FLC4,"b_air","FALCON4"] call _lmf_fnc_createIcon};
-
-if !(isNil "Grp_CDR1") then {[Grp_CDR1,"b_air","CONDOR1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_CDR2") then {[Grp_CDR2,"b_air","CONDOR2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_CDR3") then {[Grp_CDR3,"b_air","CONDOR3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_CDR4") then {[Grp_CDR4,"b_air","CONDOR4"] call _lmf_fnc_createIcon};
-
-if !(isNil "Grp_HWK1") then {[Grp_HWK1,"b_air","HAWK1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_HWK2") then {[Grp_HWK2,"b_air","HAWK2"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_HWK3") then {[Grp_HWK3,"b_air","HAWK3"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_HWK4") then {[Grp_HWK4,"b_air","HAWK4"] call _lmf_fnc_createIcon};
-
-if !(isNil "Grp_EGL1") then {[Grp_EGL1,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_EGL2") then {[Grp_EGL2,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_EGL3") then {[Grp_EGL3,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
-if !(isNil "Grp_EGL4") then {[Grp_EGL4,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
-
-
 //EVEN HANDLERS ///////////////////////////////////////////////////////////////////////////////////
-//WAIT UNTIL TIME IS BIGGER THAN 1 (to avoid intro glitches)
-waitUntil {time > 1};
-
 //MOUSE HOVER OVER ICON EH
 private _hoverEH = addMissionEventHandler ["GroupIconOverEnter",{
 	params ["_is3D","_group"];
