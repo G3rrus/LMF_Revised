@@ -45,7 +45,7 @@ if (typeOf _supp == var_supLarge) exitWith {
 	if (_Grenade != "") then {_supp addMagazineCargoGlobal [_Grenade, 10];};
 	if (_Grenade_Smoke != "") then {_supp addMagazineCargoGlobal [_Grenade_Smoke, 10];};
 	if (_Grenade_Smoke_Grn != "") then {_supp addMagazineCargoGlobal [_Grenade_Smoke_Grn, 10];};
-	if (_LAT_Ammo != "") then {_vic addMagazineCargoGlobal [_LAT_Ammo, 6];};
+	if (_LAT_Ammo != "") then {_supp addMagazineCargoGlobal [_LAT_Ammo, 6];};
 
 
 	if (_LAT != "") then {_supp addWeaponCargoGlobal [_LAT, 6];};
