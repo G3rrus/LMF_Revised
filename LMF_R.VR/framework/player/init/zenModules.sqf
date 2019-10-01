@@ -142,3 +142,33 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 	//CALL FUNCTION
 	[_pos] remoteExec ["lmf_ai_fnc_paraQRF"];
 }] call zen_custom_modules_fnc_register;
+
+//AI MORTAR ATTACK
+["LMF", "Mortar Attack",{
+	private _players = [] call CBA_fnc_players;
+	if (count _players == 0) exitWith {["ERROR: No Targets"] call zen_common_fnc_showMessage};
+	private _names = _players apply {name _x};
+	private _ammo = getArtilleryAmmo [_this#1];
+	private _names_ammo = _ammo apply {getText(configFile >> "CfgMagazines" >> _x >> "displayName")};
+	["Mortar Attack",[
+		//PARAMS
+		["COMBO", "Target", [_players, _names]],
+		["COMBO","Type of Round",[_ammo,_names_ammo,0]],
+		["SLIDER","Rounds",[1,5,2,0]],
+		["SLIDER","Accuracy",[60,600,200,0]]
+	],{
+		//PARSE PARAMS
+		params ["_dialog","_mortar"];
+		_dialog params ["_target","_type","_amount","_accuracy"];
+
+		if (isNull _target) exitWith {["ERROR: Unable To Find Target"] call zen_common_fnc_showMessage};
+		if (isNull _mortar) exitWith {["ERROR: Unable To Find Mortar"] call zen_common_fnc_showMessage};
+
+		_amount = round _amount;
+		_accuracy = round _accuracy;
+
+		// CALL FUNCTION
+		[_target,_mortar,_type,_amount,_accuracy] remoteExec ["lmf_ai_fnc_mortarattack"];
+
+	},{},_this#1] call zen_dialog_fnc_create;
+}] call zen_custom_modules_fnc_register;

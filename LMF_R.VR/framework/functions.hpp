@@ -27,6 +27,7 @@ class ai {
 		class taskAssault {};
 		class taskUpdateWP {};
 		class taskHunt {};
+		class mortarAttack {};
 	};
 	class spawning {
 		file = "framework\ai\spawning";
