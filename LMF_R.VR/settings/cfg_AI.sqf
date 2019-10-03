@@ -102,7 +102,7 @@ private _heli_Attack_Camo =  [""]; // camo(s) for attack helo(s)
 private _ammoBlacklist = ["96Rnd_40mm_G_belt"];
 
 
-// DEFINE AI UNITS (DO NOT USE SAME CLASSNAME TWICE)////////////////////////////////////////&&&&&&&
+// DEFINE AI UNITS (DO NOT USE SAME CLASSNAME TWICE)///////////////////////////////////////////////
 // BLUFOR (configure if var_enemySide = WEST;)
 private _Autorifleman = "B_Soldier_AR_F";
 private _Crew = "B_crew_F";

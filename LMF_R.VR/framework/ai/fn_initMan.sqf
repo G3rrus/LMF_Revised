@@ -91,7 +91,7 @@ if (10 > random 100) then {_unit addGoggles _s_Goggles};
 
 
 // WEAPONS ////////////////////////////////////////////////////////////////////////////////////////
-//RIFL AND SQL
+//RIFL
 if (_type == _Rifleman) then {
 	if (_Rifle_Ammo select 0 == "") then {_Rifle_Ammo = 0;} else {_Rifle_Ammo = selectRandom _Rifle_Ammo};
 	[_unit, selectRandom _Rifle, 12, _Rifle_Ammo] call BIS_fnc_addWeapon;
@@ -111,7 +111,7 @@ if (_type == _Rifleman_AT) then {
 	[_unit, selectRandom _LAT, 1, _LAT_Ammo] call BIS_fnc_addWeapon;
 };
 
-//GL
+//GL AND SQL
 if (_type == _Grenadier || {_type == _Squad_Leader}) then {
 	if (_Rifle_GL_Ammo select 0 == "") then {_Rifle_GL_Ammo = 0;} else {_Rifle_GL_Ammo = selectRandom _Rifle_GL_Ammo};
 	for "_i" from 1 to 4 do {_unit addItem selectRandom _Rifle_GL_Flare;};
