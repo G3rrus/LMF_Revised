@@ -20,6 +20,7 @@ class ai {
 		file = "framework\ai\eh";
 		class killedEH {};
 		class suppressEH {};
+		class firedNearEH {};
 	};
 	class aitasks {
 		file = "framework\ai\task";
@@ -28,6 +29,7 @@ class ai {
 		class taskUpdateWP {};
 		class taskHunt {};
 		class mortarAttack {};
+		class findCover {};
 	};
 	class spawning {
 		file = "framework\ai\spawning";

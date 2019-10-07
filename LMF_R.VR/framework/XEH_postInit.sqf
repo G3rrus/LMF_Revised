@@ -53,7 +53,7 @@ if (isServer) then {
 	[] execVM "framework\server\init\markers.sqf";
 
     //VARIABLE FOR INITPLAYERSAFETY
-	lmf_isSafe = false;	
+	lmf_isSafe = false;
 };
 
 
@@ -99,10 +99,17 @@ if (isServer) then {
 	};
 	_unit setvariable ["lmf_ai_suppression",_getSuppression];
 
+	//FIRED NEAR EH
+	_id = _unit addEventHandler ["FiredNear", {
+		_this call lmf_ai_fnc_firedNearEH;
+	}];
+	_unit setvariable ["lmf_ai_firedNear_EH", _id];
+
 	//LOKAL EH (To remove and reapply all EHs if locality changes.)
 	private _id = _unit addEventHandler ["Local", {
 		params ["_unit"];
 		_unit removeEventHandler ["killed", _unit getVariable ["lmf_ai_killed_EH", -1]];
+		_unit removeEventHandler ["FiredNear", _unit getVariable ["lmf_ai_firedNear_EH" ,-1]];
 		if (_unit getVariable ["lmf_ai_suppression_EH" ,-1] >= 0) then {
 			_unit removeEventHandler ["Fired", _unit getVariable ["lmf_ai_suppression_EH" ,-1]];
 		};

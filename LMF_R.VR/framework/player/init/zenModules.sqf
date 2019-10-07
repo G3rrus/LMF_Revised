@@ -145,6 +145,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 
 //AI MORTAR ATTACK
 ["LMF", "Mortar Attack",{
+	if (ace_mk6mortar_useAmmoHandling) exitWith {["ERROR: Ammo handling must be turned off"] call zen_common_fnc_showMessage};
 	private _players = [] call CBA_fnc_players;
 	if (count _players == 0) exitWith {["ERROR: No Targets"] call zen_common_fnc_showMessage};
 	private _names = _players apply {name _x};
