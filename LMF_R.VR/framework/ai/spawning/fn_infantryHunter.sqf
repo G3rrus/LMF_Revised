@@ -13,7 +13,7 @@
 		3) Hunting Radius [OPTIONAL] (default: 500)
 		4) Spawn Tickets [OPTIONAL] (default: 1)
 
-	- EXAMPLE: 0 = [this,"TEAM",500,1] spawn lmf_ai_fnc_infantryHunter;
+	- EXAMPLE: [this,"TEAM",500,1] spawn lmf_ai_fnc_infantryHunter;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};

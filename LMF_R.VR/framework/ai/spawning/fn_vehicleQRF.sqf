@@ -13,7 +13,7 @@
 		3) Spawn Tickets [OPTIONAL] (default: 1)
         4) Respawn Timer [OPTIONAL] (default: 300)
 
-	- EXAMPLE: 0 = [this,"TRUCK",1,300] spawn lmf_ai_fnc_vehicleQRF;
+	- EXAMPLE: [this,"TRUCK",1,300] spawn lmf_ai_fnc_vehicleQRF;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};

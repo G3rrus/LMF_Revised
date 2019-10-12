@@ -7,7 +7,7 @@
 	- USAGE:
 		1) Spawn Position.
 
-	- EXAMPLE: 0 = [this] spawn lmf_ai_fnc_paraQRF;
+	- EXAMPLE: [this] spawn lmf_ai_fnc_paraQRF;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};

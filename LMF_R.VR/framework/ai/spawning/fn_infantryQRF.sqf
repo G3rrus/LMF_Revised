@@ -12,7 +12,7 @@
 		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam", "mgTeam" or number of soldiers.) (default: "TEAM")
 		3) Spawn Tickets [OPTIONAL] (default: 1)
 
-	- EXAMPLE: 0 = [this,"TEAM",1] spawn lmf_ai_fnc_infantryQRF;
+	- EXAMPLE: [this,"TEAM",1] spawn lmf_ai_fnc_infantryQRF;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
