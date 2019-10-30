@@ -54,6 +54,15 @@ if (isServer) then {
 
     //VARIABLE FOR INITPLAYERSAFETY
 	lmf_isSafe = false;
+
+	//UPDATE TOE BRIEFING ENTRY
+	addMissionEventHandler ["PlayerConnected",{
+		["lmf_updateToe",[]] call CBA_fnc_globalEvent;
+	}];
+
+	addMissionEventHandler ["PlayerDisconnected",{
+		[{["lmf_updateToe",[]] call CBA_fnc_globalEvent;}, [], 5] call CBA_fnc_waitAndExecute;
+	}];
 };
 
 
@@ -211,6 +220,11 @@ if (var_jipTP && {CBA_missionTime > 5*60}) then {
 if (!isNil "fpa_jrm_fnc_init" && {var_useJRM}) then {
 	[var_livesJRM] call fpa_jrm_fnc_init;
 };
+
+//UPDATE TOE EVENT
+["lmf_updateToe",{
+	player setDiaryRecordText [["Diary", lmf_toeBriefing], ["  TO/E",[] call lmf_player_fnc_toeBriefing]];
+}] call CBA_fnc_addEventHandler;
 
 //INTRO + WARMUP
 [] execVM "framework\player\init\warmup.sqf";

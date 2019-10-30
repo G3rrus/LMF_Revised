@@ -75,53 +75,14 @@ player createDiaryrecord ["Diary",["  Credits",format ["
 
 
 // TO/E ///////////////////////////////////////////////////////////////////////////////////////////
-//INIT
-private _grp2 = grpNull;
-private _brf_platoon = "";
-
-{
-	//GET INFO
-	private _grp = group _x;
-	private _id = groupID group _x;
-	private _role = roleDescription _x;
-	if (_role find "@" >= 0) then {
-		private _indexToAt = ([_role, "@"] call CBA_fnc_find) - 1;
-		_role = [_role, 0, _indexToAt] call CBA_fnc_substring;
-	};
-
-	//IF NEW GROUP
-	if (_grp != _grp2) then {
-		_brf_platoon = _brf_platoon + "<br/><font face='PuristaBold' color='#A3E0FF'>" + _id + "<br/></font>";
-	};
-
-	//ENTRY FOR SOLDIER
-	_brf_platoon = _brf_platoon + " <font color='#D7DBD5'>- " + _role + ": " +  name _x + "</font><br/>";
-
-	//UPDATE OLD
-	_grp2 = _grp;
-} foreach (playableUnits + switchableUnits);
-
-//APPLY
-player creatediaryrecord ["Diary",["  TO/E",format ["
-<font face='PuristaBold' color='#FFBA26' size='16'>OVERVIEW</font><br/>
-<font color='#D7DBD5'>
-	- This page is only accurate at mission start.<br/>
-	- Unit strength is <font color='#FFBA26'>%1<font color='#D7DBD5'> pax.<br/><br/>
-</font color>
-<font face='PuristaBold' color='#FFBA26' size='16'>ELEMENTS</font>
-%2<br/>
-",count (switchableUnits + playableUnits - entities 'HeadlessClient_F'),_brf_platoon]]];
+lmf_toeBriefing = player creatediaryrecord ["Diary",["  TO/E",[] call lmf_player_fnc_toeBriefing]];
 
 
 // SIGNALS ////////////////////////////////////////////////////////////////////////////////////////
 player createDiaryrecord ["Diary",["  Signals",format ["
 <font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
 <font color='#db4343'>Channel 01:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
-<font color='#db4343'>Channel 02:		</font> <font color='#D7DBD5'>2PLT</font color><br/>
-<font color='#db4343'>Channel 03:		</font> <font color='#D7DBD5'>3PLT</font color><br/>
-<font color='#F0F095'>Channel 04:		</font> <font color='#D7DBD5'>CONVOY</font color><br/>
 <font color='#A3FFA3'>Channel 06:		</font> <font color='#D7DBD5'>AIR</font color><br/>
-<font color='#A3FFA3'>Channel 07:		</font> <font color='#D7DBD5'>CAS</font color><br/>
 <br/>
 
 <font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>

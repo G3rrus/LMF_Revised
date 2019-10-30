@@ -59,6 +59,7 @@ class player {
 		file = "framework\player";
 		class initPlayerGear {};
 		class loadoutBriefing {};
+		class toeBriefing {};
 		class acreChannelPreset {};
 		class initPlayerAir {};
 		class initPlayerVic {};
