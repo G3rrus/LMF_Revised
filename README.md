@@ -8,7 +8,7 @@ In order to use this Framework, you need to run these mods alongside it:
 * CBA_A3
 * ACE3
 * ACEX
-* ACRE2
+* ACRE2 or TFAR
 
 ## Installation:
 Copy over the contents of the "LMF_R.VR" folder into your mpmission folder.\
@@ -33,14 +33,14 @@ about that you can do so in the files found in `framework\ai` and `framework\pla
 
 __AI Spawning:__\
 The Framework also comes with some spawning functions for AI groups performing various tasks. One example would be:\
-`0 = [this,"TEAM",100,1] spawn lmf_ai_fnc_garrison;` which would spawn a team of AI soldiers that garrison a building together,
+`[this,"TEAM",100,1] spawn lmf_ai_fnc_garrison;` which would spawn a team of AI soldiers that garrison a building together,
 somwhere in a 100m radius.\
 There are other spawning functions aswell. To see what they do and how they work, just open them in a text editor of your choice
 and read over the information on top.\
 You can find them in: `framework\ai\spawning`.
 
 __Testing:__\
-It is highly recommended to test your mission extensively while having "show script errors" is enabled.\
+It is highly recommended to test your mission extensively while having "show script errors" enabled.\
 That way it is more likely you will spot any form of mistake you have made while setting up your mission
 and scripts.
 

@@ -79,19 +79,37 @@ lmf_toeBriefing = player creatediaryrecord ["Diary",["  TO/E",[] call lmf_player
 
 
 // SIGNALS ////////////////////////////////////////////////////////////////////////////////////////
-player createDiaryrecord ["Diary",["  Signals",format ["
-<font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
-<font color='#db4343'>Channel 01:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
-<font color='#A3FFA3'>Channel 06:		</font> <font color='#D7DBD5'>AIR</font color><br/>
-<br/>
+if !(var_tfar) then {
+	player createDiaryrecord ["Diary",["  Signals",format ["
+	<font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
+	<font color='#db4343'>Channel 01:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
+	<font color='#A3FFA3'>Channel 06:		</font> <font color='#D7DBD5'>AIR</font color><br/>
+	<br/>
 
-<font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
-<font color='#A3E0FF'>Channel 06:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
-<font color='#A3E0FF'>Channel 01:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
-<font color='#A3E0FF'>Channel 02:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
-<font color='#A3E0FF'>Channel 03:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
-<font color='#A3E0FF'>Channel 04:		</font color> <font color='#D7DBD5'>4th Squad</font color><br/>
-"]]];
+	<font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
+	<font color='#A3E0FF'>Channel 06:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
+	<font color='#A3E0FF'>Channel 01:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
+	<font color='#A3E0FF'>Channel 02:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
+	<font color='#A3E0FF'>Channel 03:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
+	<font color='#A3E0FF'>Channel 04:		</font color> <font color='#D7DBD5'>4th Squad</font color><br/>
+	<font color='#A3E0FF'>Channel 05:		</font color> <font color='#D7DBD5'>5th Squad</font color><br/>
+	"]]];
+} else {
+	player createDiaryrecord ["Diary",["  Signals",format ["
+	<font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
+	<font color='#db4343'>FRQ.31:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
+	<font color='#A3FFA3'>FRQ.32:		</font> <font color='#D7DBD5'>AIR</font color><br/>
+	<br/>
+
+	<font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
+	<font color='#A3E0FF'>FRQ.106:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
+	<font color='#A3E0FF'>FRQ.101:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
+	<font color='#A3E0FF'>FRQ.102:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
+	<font color='#A3E0FF'>FRQ.103:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
+	<font color='#A3E0FF'>FRQ.104:		</font color> <font color='#D7DBD5'>4th Squad</font color><br/>
+	<font color='#A3E0FF'>FRQ.105:		</font color> <font color='#D7DBD5'>5th Squad</font color><br/>
+	"]]];
+};
 
 
 // BRIEFING ///////////////////////////////////////////////////////////////////////////////////////

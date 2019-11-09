@@ -61,6 +61,7 @@ class player {
 		class loadoutBriefing {};
 		class toeBriefing {};
 		class acreChannelPreset {};
+		class tfarsetSr {};
 		class initPlayerAir {};
 		class initPlayerVic {};
 		class initPlayerSupp {};

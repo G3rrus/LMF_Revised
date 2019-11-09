@@ -7511,7 +7511,7 @@ class Mission
 						position[]={403,5,528};
 					};
 					title="GEAR SELECT";
-					description="This box will get ace interactions for the players to choose various loadouts in relation to their roles. Only the upper box is needed for this component to work.";
+					description="This laptop will get ace interactions for the players to choose various loadouts in relation to their roles. Only the laptop is needed for this component to work.";
 					id=294;
 				};
 				class Item1

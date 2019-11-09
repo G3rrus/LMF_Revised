@@ -3,7 +3,6 @@
     - File that presets the SR channel for selected infantry groups.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-if !(isClass (configFile >> "CfgPatches" >> "acre_main")) exitWith {};
 waitUntil {([] call acre_api_fnc_isInitialized)};
 
 private _id = groupID group player;
@@ -31,4 +30,8 @@ if (_id == "CHARLIE") exitWith {
 
 if (_id == "DELTA") exitWith {
 	[_personalRadio, 4] call acre_api_fnc_setRadioChannel;
+};
+
+if (_id == "ECHO") exitWith {
+	[_personalRadio, 5] call acre_api_fnc_setRadioChannel;
 };

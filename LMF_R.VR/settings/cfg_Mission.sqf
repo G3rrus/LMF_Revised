@@ -50,6 +50,7 @@ var_supSpecial = "Box_NATO_WpsSpecial_F"; // Supply Spawnpad special supplies
 var_supExplosives = "Box_NATO_AmmoOrd_F"; // Supply Spawnpad explosives supplies
 
 //PLAYER GEAR (Only relevant if var_playerGear = true;)
+var_tfar = false; // Use TFAR radio system instead of Acre? (default = false)
 var_personalArsenal = false; // Give players access to a limited arsenal during briefing stage. (default: false)
 var_personalRadio = true; // Does everyone get a short range radio (AN/PRC 343)? (default: true)
 var_backpacksAll = false; // Give all players backpacks? (Certain roles will have backpacks regardless) (default: false)

@@ -34,7 +34,7 @@ private _doOnRespawn = {
 		sleep 5;
 		setCurrentChannel 3;
 		[{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;
-		[] spawn lmf_player_fnc_acreChannelPreset;
+		if !(var_tfar) then {[] spawn lmf_player_fnc_acreChannelPreset;};
 		cutText  ["", "BLACK IN", 5, true];
 	};
 };
@@ -44,4 +44,5 @@ if !(var_useJRM) then {
 } else {
 	sleep 2;
 	[{!ace_spectator_isSet},_doOnRespawn, []] call CBA_fnc_waitUntilAndExecute;
+	[_unit, false] call TFAR_fnc_forceSpectator;
 };

@@ -8,9 +8,9 @@
 */
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //RADIOS
-private _ACRE_MMR = "ACRE_PRC117F"; // Backpack Radio
-private _ACRE_ITR = "ACRE_PRC148"; // Long Range Radio
-private _ACRE_PRR = "ACRE_PRC343"; // Short Range Radio
+private _Radio_B = "ACRE_PRC117F"; // Long Range Radio (Used by RTO and FAC if ACRE is used)
+private _Radio_L = "ACRE_PRC148"; // Medium Range Radio (Used by Platoon, SQLs, TLs, etc)
+private _Radio_R = "ACRE_PRC343"; // Short Range Radio (Used by Rifleman, Grenadier, etc)
 
 //INFANTRY UNIFORM
 private _Uniform = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest"]; // Uniform(s)
@@ -41,7 +41,7 @@ private _Crew_Headgear = ["H_HelmetCrew_B"]; // Crew Headgear(s)
 
 //BACKPACKS
 private _Backpack_Leader = ["B_TacticalPack_mcamo"]; // PltLead, PltSgt, Squad Leader Backpack(s)
-private _Backpack_RTO = ["B_Carryall_mcamo"]; // RTO, FAC Backpack(s)
+private _Backpack_RTO = ["B_Carryall_mcamo"]; // RTO and FAC Backpack(s) (Radio Backpack if TFAR is used, otherwise Backpack for _Radio_B)
 private _Backpack_Medic = ["B_Kitbag_mcamo"]; // Medic Backpack(s)
 private _Backpack_MAT = ["B_Carryall_mcamo"]; // MAT, MAT Assistant Backpack(s)
 private _Backpack_AR_MMG = ["B_Carryall_mcamo"]; // AR/MMG, AR/MMG assistant Backpack(s)

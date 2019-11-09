@@ -29,8 +29,10 @@ enableSaving [false,false];
 	}];
 }, false, [], true] call CBA_fnc_addClassEventHandler;
 
-//ACRE CHANNEL LABLES
-[] execVM "framework\shared\init\acreChannelLabels.sqf";
+//RADIO CHANNEL LABLES
+if !(var_tfar) then {
+	[] execVM "framework\shared\init\acreChannelLabels.sqf";
+};
 
 //DISABLE RHS ENGINE STARTUP
 RHS_ENGINE_STARTUP_OFF = false;
@@ -192,8 +194,14 @@ if (var_playerGear) then {
 //BRIEFING
 [] execVM "framework\player\init\briefing.sqf";
 
-//ACRE CHANNEL PRESET
-[] spawn lmf_player_fnc_acreChannelPreset;
+//RADIO CHANNEL PRESET
+if !(var_tfar) then {
+	[] spawn lmf_player_fnc_acreChannelPreset;
+} else {
+	["Set_SwFrq","OnRadiosReceived",{
+		_this call lmf_player_fnc_tfarSetSr;
+	},objNull] call TFAR_fnc_addEventHandler;
+};
 
 //PLAYER CAMOCOEF
 [{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;

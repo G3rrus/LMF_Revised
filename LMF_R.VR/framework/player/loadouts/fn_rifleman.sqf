@@ -30,9 +30,21 @@ if (_Goggles#0 !=  "") then {
 	_unit addGoggles selectRandom _Goggles;
 };
 
+//RADIO SETUP
+if (var_personalRadio) then {
+	if !(var_tfar) then {
+		_unit linkItem "ItemWatch";
+		_unit linkItem "ItemRadioAcreFlagged";
+		_unit addItem _Radio_R;
+	} else {
+		_unit linkItem _Radio_R;
+		_unit linkItem "TFAR_microdagr";
+	};
+} else {
+	_unit linkItem "ItemWatch";
+};
+
 //LINKED ITEMS
-_unit linkItem "ItemWatch";
-_unit linkItem "ItemRadioAcreFlagged";
 if (var_playerMaps == 0) then {
 	_unit linkItem "ItemMap";
 	_unit linkItem "ItemCompass";
@@ -41,7 +53,6 @@ if (var_playerMaps == 0) then {
 if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
 //ITEMS
-if (var_personalRadio) then {_unit addItem _ACRE_PRR};
 for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
 for "_i" from 1 to 5 do {_unit addItem _Rifle_Ammo;};
 for "_i" from 1 to 3 do {_unit addItem _Rifle_Ammo_T;};
