@@ -26,11 +26,12 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		["COMBO","Group Type",[LMF_groupTypes,LMF_groupTypes,0]],
 		["SLIDER","Custom Amount",[1,60,4,0]],
 		["EDIT","Garrison Radius",["100"]],
-		["CHECKBOX","Fill Evenly",false]
+		["CHECKBOX","Fill Evenly",false],
+		["CHECKBOX","Only Use CBA Building Pos",false]
 	],{
 		//PARSE PARAMS
 		params ["_dialog","_pos"];
-		_dialog params ["_type","_amount","_radius","_distrib"];
+		_dialog params ["_type","_amount","_radius","_distrib","_useBP"];
 
 		_pos = ASLToATL _pos;
 		_radius = parseNumber _radius;
@@ -40,7 +41,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		[_pos,_type,_radius,_distrib] remoteExec ["lmf_ai_fnc_garrison"];
+		[_pos,_type,_radius,_distrib,_useBP] remoteExec ["lmf_ai_fnc_garrison"];
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -51,11 +52,12 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		//PARAMS
 		["COMBO","Group Type",[LMF_groupTypes,LMF_groupTypes,0]],
 		["SLIDER","Custom Amount",[1,60,4,0]],
-		["EDIT","Patrol Radius",["100"]]
+		["EDIT","Patrol Radius",["100"]],
+		["CHECKBOX","Is Alerted",true]
 	],{
 		//PARSE PARAMS
 		params ["_dialog","_pos"];
-		_dialog params ["_type","_amount","_radius"];
+		_dialog params ["_type","_amount","_radius","_alerted"];
 
 		_pos = ASLToATL _pos;
 		_radius = parseNumber _radius;
@@ -64,7 +66,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		[_pos,_type,_radius] remoteExec ["lmf_ai_fnc_patrol"];
+		[_pos,_type,_radius,_alerted] remoteExec ["lmf_ai_fnc_patrol"];
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;

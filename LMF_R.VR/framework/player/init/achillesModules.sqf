@@ -2,6 +2,7 @@
 /*
 	- If Ares-Achilles is on this file will create several zeus modules in the spawn sections to
 	  spawn AI performing various tasks.
+	- Ares modules development halted, please use the addon ZEN instead!
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 //GARRISON

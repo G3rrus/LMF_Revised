@@ -10,8 +10,9 @@
 		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam", "mgTeam" or number of soldiers.) (default: "TEAM")
 		3) Garrison Radius. [OPTIONAL] (number) (default: 100)
 		4) Distribution [OPTIONAL] (0 = fill evenly, 1 = building by building) (default: 1)
+		5) Use CBA Building Pos only [Optional] (false = no, true = yes) (default: false)
 
-	- EXAMPLE: [this,"TEAM",100,1] spawn lmf_ai_fnc_garrison;
+	- EXAMPLE: [this,"TEAM",100,1,false] spawn lmf_ai_fnc_garrison;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
@@ -20,9 +21,12 @@ if !(_spawner) exitWith {};
 
 #include "cfg_spawn.sqf"
 
-params [["_spawnPos", [0,0,0]],["_grpType", "TEAM"],["_garrisonRadius", 100],["_distribution", 1]];
+params [["_spawnPos", [0,0,0]],["_grpType", "TEAM"],["_garrisonRadius", 100],["_distribution", 1],["_customPos", false]];
 _spawnPos = _spawnPos call CBA_fnc_getPos;
-
+private _usePos = [];
+if (_customPos) then {
+	_usePos = ["CBA_BuildingPos"];
+};
 
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
 private _type = [_grptype] call _typeMaker;
@@ -32,7 +36,7 @@ _grp deleteGroupWhenEmpty true;
 
 // GARRISON THEM //////////////////////////////////////////////////////////////////////////////////
 //APPLY GARRISON AND SELECT RANDOM STANCE
-[_spawnPos, nil, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], true] call ace_ai_fnc_garrison;
+[_spawnPos, _usePos, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], true] call ace_ai_fnc_garrison;
 {_x setUnitPos selectRandom ["UP","UP","MIDDLE"];} count units _grp;
 
 //WAIT UNTIL THEY ARE IN COMBAT AND THEN CHANGE THEIR STANCE
