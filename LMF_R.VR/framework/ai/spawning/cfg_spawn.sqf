@@ -47,9 +47,9 @@ _sentry =	[
 
 _atTeam =	[
 	[_Squad_Leader,_Grenadier,_MAT_Gunner,_MAT_Gunner],
-	[_Squad_Leader,_Rifleman_AT,_Rifleman_AT,_Rifleman_AT],
-	[_Squad_Leader,_Grenadier,_Rifleman_AT,_Rifleman_AT],
-	[_Squad_Leader,_Grenadier,_Rifleman_AT,_MAT_Gunner]
+	[_Squad_Leader,_Rifleman_AT,_MAT_Gunner,_MAT_Gunner],
+	[_Squad_Leader,_Grenadier,_MAT_Gunner,_Rifleman_AT],
+	[_Squad_Leader,_MAT_Gunner,_MAT_Gunner,_MAT_Gunner]
 ];
 
 _aaTeam =	[
