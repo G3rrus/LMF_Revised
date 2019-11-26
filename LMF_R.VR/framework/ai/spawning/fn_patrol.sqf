@@ -30,7 +30,7 @@ if !(_alerted) then {
 	private _behav = "SAFE";
 	private _cMode = "YELLOW";
 	private _speed = "LIMITED";
-}
+};
 
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
 private _type = [_grptype] call _typeMaker;
