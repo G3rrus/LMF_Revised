@@ -27,9 +27,9 @@ private _behav = "AWARE";
 private _cMode = "RED";
 private _speed = "NORMAL";
 if !(_alerted) then {
-	private _behav = "SAFE";
-	private _cMode = "YELLOW";
-	private _speed = "LIMITED";
+	_behav = "SAFE";
+	_cMode = "YELLOW";
+	_speed = "LIMITED";
 };
 
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
