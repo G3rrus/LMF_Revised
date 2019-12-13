@@ -14,48 +14,48 @@ private _persRadioCount = ({_x in (toLower (call TFAR_fnc_activeSwRadio))} count
 //APPLY FREQUENCY
 if (_id == "PLT HQ") exitWith {
     if (_persRadioCount < 1) then {
-        [_swRadio,[6,9,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
     } else {
-        [_swRadio,[6,9,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
     };
 };
 
 if (_id == "ALPHA") exitWith {
     if (_persRadioCount < 1) then {
-        [_swRadio,[1,9,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
     } else {
-        [_swRadio,[1,9,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
     };
 };
 
 if (_id == "BRAVO") exitWith {
     if (_persRadioCount < 1) then {
-        [_swRadio,[2,9,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
     } else {
-        [_swRadio,[2,9,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
     };
 };
 
 if (_id == "CHARLIE") exitWith {
     if (_persRadioCount < 1) then {
-        [_swRadio,[3,9,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
     } else {
-        [_swRadio,[3,9,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
     };
 };
 
 if (_id == "DELTA") exitWith {
     if (_persRadioCount < 1) then {
-        [_swRadio,[4,9,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
     } else {
-        [_swRadio,[4,9,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
     };
 };
 
 if (_id == "ECHO") exitWith {
     if (_persRadioCount < 1) then {
-        [_swRadio,[5,9,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],2,"_bluefor",0,1,_uid,false],true] call TFAR_fnc_setSwSettings;
     } else {
-        [_swRadio,[5,9,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
+        [_swRadio,[1,8,["31","101","102","103","104","105","106","107","108"],0,"_bluefor",-1,0,_uid,false],true] call TFAR_fnc_setSwSettings;
     };
 };
