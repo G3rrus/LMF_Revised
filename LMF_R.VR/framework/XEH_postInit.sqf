@@ -72,23 +72,6 @@ if (isServer) then {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // AI /////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//CHANCE FOR AI TO WAKE UP
-["ace_unconscious", {
-	params [["_unit", objNull],["_state", false]];
-	if (ace_medical_enableUnconsciousnessAI == 0 || {!_state || {!(local _unit) || {side _unit != var_enemySide}}}) exitWith {};
-
-	[_unit] spawn {
-		params [["_unit", objNull]];
-		while {alive _unit && {_unit getVariable ["ACE_isUnconscious", false]}} do {
-			sleep 5;
-			if (12.5 > random 100) then {
-				[_unit, false] call ace_medical_fnc_setUnconscious;
-			};
-			sleep 15;
-		};
-	};
-}] call CBA_fnc_addEventHandler;
-
 //'APPLY EVENTHANDLERS' EVENT (To avoid problems with locality change. (thanks Diwako))
 ["lmf_ai_listener", {
 	//PARAMS INITIALLY PASSED FROM LOCAL EVENT IN INITMAN.SQF

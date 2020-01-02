@@ -57,11 +57,14 @@ for "_i" from 1 to 3 do {_unit addItem _Carbine_Ammo_T;};
 for "_i" from 1 to 2 do {_unit addItem _Grenade;};
 for "_i" from 1 to 6 do {_unit addItem _Grenade_Smoke;};
 _unit addItem "ACE_personalAidKit";
-for "_i" from 1 to 25 do {_unit addItem "ACE_packingBandage";};
-for "_i" from 1 to 25 do {_unit addItem "ACE_elasticBandage";};
+for "_i" from 1 to 20 do {_unit addItem "ACE_packingBandage";};
+for "_i" from 1 to 20 do {_unit addItem "ACE_elasticBandage";};
+for "_i" from 1 to 20 do {_unit addItemToBackpack "ACE_fieldDressing";};
+for "_i" from 1 to 20 do {_unit addItemToBackpack "ACE_quikclot";};
 for "_i" from 1 to 10 do {_unit addItem "ACE_morphine";};
 for "_i" from 1 to 10 do {_unit addItem "ACE_epinephrine";};
-for "_i" from 1 to 6 do {_unit addItem "ACE_tourniquet";};
+for "_i" from 1 to 8 do {_unit addItem "ACE_tourniquet";};
+for "_i" from 1 to 10 do {_unit addItemToBackpack "ACE_splint";};
 for "_i" from 1 to 5 do {_unit addItem "ACE_salineIV";};
 
 //WEAPONS

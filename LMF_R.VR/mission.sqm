@@ -8046,7 +8046,7 @@ class Mission
 					{
 						name="LAMBS_Hospital";
 						condition="ace_player in thisList";
-						onActivation="ace_player setDamage 0;" \n "[ace_player,ace_player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;";
+						onActivation="ace_player setDamage 0;" \n "[ace_player] call ace_medical_treatment_fnc_fullHealLocal;";
 						sizeA=5;
 						sizeB=4;
 						sizeC=3;

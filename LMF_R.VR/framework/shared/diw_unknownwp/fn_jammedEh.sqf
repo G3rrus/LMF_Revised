@@ -75,7 +75,7 @@ if (_unit == ace_player) then {
       addCamShake[20,2,2];
       ["Weapon has been destroyed"] call ace_common_fnc_displayTextStructured;
 
-      // hurt the player
+/*      // hurt the player
       if !(isNil "ace_medical_fnc_addDamageToUnit") then {
         // Ace medical is enabled
         private _dam = 1;
@@ -90,6 +90,6 @@ if (_unit == ace_player) then {
         // Ace medical is not enabled
         ace_player setDamage (damage ace_player + 0.1);
       };
-    };
+*/    };
   };
 };
