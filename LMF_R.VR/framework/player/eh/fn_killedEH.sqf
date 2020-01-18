@@ -38,7 +38,7 @@ sleep 6;
 //ACE SPECTATOR INTERFACE
 if !(var_useJRM) then {
 	[true] call ace_spectator_fnc_setSpectator;
-	[_unit, true] call TFAR_fnc_forceSpectator;
+	if (var_tfar) then {[_unit, true] call TFAR_fnc_forceSpectator;};
 };
 
 // SPECTATOR SETTINGS /////////////////////////////////////////////////////////////////////////////

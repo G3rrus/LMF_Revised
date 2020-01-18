@@ -44,5 +44,5 @@ if !(var_useJRM) then {
 } else {
 	sleep 2;
 	[{!ace_spectator_isSet},_doOnRespawn, []] call CBA_fnc_waitUntilAndExecute;
-	[_unit, false] call TFAR_fnc_forceSpectator;
+	if (var_tfar) then {[_unit, false] call TFAR_fnc_forceSpectator;};
 };
