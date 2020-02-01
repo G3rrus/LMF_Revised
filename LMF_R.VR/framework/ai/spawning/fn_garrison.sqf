@@ -43,9 +43,9 @@ _grp setFormation "DIAMOND";
 //UNGARRISON SINGLE UNIT BASED ON NEARBY ENEMY FIRE, ITS OWN FIRE, OR NEARBY FRIENDLY FIRE
 {
 	_x addEventHandler ["FiredNear", {
-	_this call lmf_ai_fnc_ungarrisonEH;
+		_this call lmf_ai_fnc_ungarrisonEH;
 
-	//REMOVE EH AFTER IT FIRED
-	_unit removeEventHandler ["FiredNear", _thisEventHandler];
+		//REMOVE EH AFTER IT FIRED
+		_unit removeEventHandler ["FiredNear", _thisEventHandler];
 	}];
 } forEach (units _grp);
