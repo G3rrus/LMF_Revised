@@ -28,52 +28,24 @@ if (_customPos) then {
 	_usePos = ["CBA_BuildingPos"];
 };
 
+
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
 private _type = [_grptype] call _typeMaker;
 private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
+_grp setFormation "DIAMOND";
 
 
 // GARRISON THEM //////////////////////////////////////////////////////////////////////////////////
-//APPLY GARRISON AND SELECT RANDOM STANCE
+//APPLY GARRISON
 [_spawnPos, _usePos, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], true] call ace_ai_fnc_garrison;
-{_x setUnitPos selectRandom ["UP","UP","MIDDLE"];} count units _grp;
 
-//WAIT UNTIL THEY ARE IN COMBAT AND THEN CHANGE THEIR STANCE
-waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
-if ({alive _x} count units _grp < 1) exitWith {};
-
-{_x setUnitPos "UP";} count units _grp;
-
-sleep 5 + random 10;
-
+//UNGARRISON SINGLE UNIT BASED ON NEARBY ENEMY FIRE, ITS OWN FIRE, OR NEARBY FRIENDLY FIRE
 {
-	if (typeOf _x == _Autorifleman || {typeOf _x == _MMG_Gunner}) then {
-		_x setUnitPos "UP";
-	} else {
-	_x setUnitPos "AUTO";
-	};
-} count units _grp;
+	_x addEventHandler ["FiredNear", {
+	_this call lmf_ai_fnc_ungarrisonEH;
 
-//MAKE THEM UNGARRISON AND REGARRISON DEPENDING ON PLAYER DISTANCE
-while {count units _grp > 1} do {
-	waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
-	if ({alive _x} count units _grp < 1) exitWith {};
-	private _nearEnemy = (leader _grp) findNearestEnemy (leader _grp);
-	private _range = 25 + random 25;
-
-	sleep 30;
-
-	if (!isNull _nearEnemy && {_nearEnemy distance (leader _grp) < _range}) then {
-		{_x disableAI "AUTOCOMBAT";} count units _grp;
-		_grp setBehaviour "AWARE";
-		[units _grp] call ace_ai_fnc_unGarrison;
-		sleep 5;
-		if ({alive _x} count units _grp > 1) then {
-			[_spawnPos, nil, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], false] call ace_ai_fnc_garrison;
-			sleep 55;
-			{_x enableAI "AUTOCOMBAT";} count units _grp;
-			_grp setBehaviour "AWARE";
-		};
-	};
-};
+	//REMOVE EH AFTER IT FIRED
+	_unit removeEventHandler ["FiredNear", _thisEventHandler];
+	}];
+} forEach (units _grp);

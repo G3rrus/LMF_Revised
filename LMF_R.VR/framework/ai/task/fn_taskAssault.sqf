@@ -7,7 +7,8 @@
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params [["_grp",grpNull,[grpNull]],["_range",500,[0]]];
 private _cycle = 30;
-
+_grp enableIRLasers false;
+_grp enableGunLights "ForceOff";
 
 // START THE HUNT SCRIPT //////////////////////////////////////////////////////////////////////////
 while {count units _grp > 0} do {
@@ -28,29 +29,25 @@ while {count units _grp > 0} do {
 
 	// ORDERS ///////////////////////////////////////////////////////////////////////////////////////
 	if !(isNull _nearest) then {
-		if (_nearestdist < 200) then {
-			//DISMOUNT VEHICLES
-			if !(isNull objectParent leader _grp) then {
-				{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
-				private _wp1 =_grp addWaypoint [getPos leader _grp, 0];
-				_wp1 setWaypointType "GETOUT";
-				private _wp2 =_grp addWaypoint [getPos leader _grp, 0];
-				_wp2 setWaypointType "GUARD";
-			};
-			//CROUCH SOMETIMES
-			if (50 > random 100) then {
-				{_x setUnitPos "MIDDLE";} count units _grp;
-			} else {
-				{_x setUnitPos "AUTO";} count units _grp;
-			};
 
+		//DISMOUNT VEHICLES
+		if !(isNull objectParent leader _grp) then {
+			{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
+			private _wp1 =_grp addWaypoint [getPos leader _grp, 0];
+			_wp1 setWaypointType "GETOUT";
+			private _wp2 =_grp addWaypoint [getPos leader _grp, 0];
+			_wp2 setWaypointType "GUARD";
 			sleep 10;
+		};
 
-			//MOVE IN
+		//MOVE IN
+		if (_nearestdist < 150) then {
 			if (_tracker knowsAbout _nearest > 1) then {
 				{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 				{_x doMove (getposATL _nearest);} count units _grp;
 				{_x enableAttack false;} count units _grp;
+				_grp enableIRLasers true;
+				if (20 > (random 100)) then {_grp enableGunLights "ForceOn"};
 			};
 		};
 
@@ -60,20 +57,22 @@ while {count units _grp > 0} do {
 			{_x doMove (getposATL _nearest);} count units _grp;
 			{_x disableAI "AUTOCOMBAT";} count units _grp;
 			_grp setBehaviour "AWARE";
-			{_x setUnitPos "AUTO";} count units _grp;
 			{_x enableAttack false;} count units _grp;
+			_grp enableIRLasers true;
+			_grp enableGunLights "ForceOn";
 		};
 
 		//REGULAR WHEN FURTHER OUT
-		if (_nearestdist > 200) then {
+		if (_nearestdist > 150) then {
 			{_x enableAI "AUTOCOMBAT";} count units _grp;
 			_grp setBehaviour "AWARE";
-			{_x setUnitPos "AUTO";} count units _grp;
 			{_x enableAttack true;} count units _grp;
 			if (waypoints _grp isEqualTo []) then {
 				private _wp =_grp addWaypoint [getPos leader _grp, 0];
 				_wp setWaypointType "GUARD";
 			};
+			if (20 > (random 100)) then {_grp enableIRLasers true};
+			_grp enableGunLights "ForceOff";
 		};
 
 		_cycle = _nearestdist/8;
@@ -88,7 +87,8 @@ while {count units _grp > 0} do {
 		};
 		{_x enableAI "AUTOCOMBAT";} count units _grp;
 		_grp setBehaviour "AWARE";
-		{_x setUnitPos "AUTO";} count units _grp;
+		_grp enableIRLasers false;
+		_grp enableGunLights "ForceOff";
 	};
 
   	//WAIT

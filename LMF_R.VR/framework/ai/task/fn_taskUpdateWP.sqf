@@ -14,5 +14,10 @@ while {count units _grp > 0} do {
 	private _wp =_grp addWaypoint [getpos leader _grp, 0];
 	_wp setWaypointType "GUARD";
 
+	//SET WAYPOINT ON ENEMY IF POSSIBLE (SOMETIMES WAYPOINT IS 0 SOMETIMES 1)
+	if ( !isNull ((leader _grp) findNearestEnemy (leader _grp)) ) then {
+		{[_grp, _x] setWaypointPosition [getPosATL ((leader _grp) findNearestEnemy (leader _grp)), 25]} forEach [0,1];
+	};
+
 	sleep 180;
 };

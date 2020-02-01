@@ -21,6 +21,7 @@ class ai {
 		class killedEH {};
 		class suppressEH {};
 		class firedNearEH {};
+		class ungarrisonEH {};
 	};
 	class aitasks {
 		file = "framework\ai\task";

@@ -44,15 +44,10 @@ while {_initTickets > 0} do {
 
 	private _wp = _grp addWaypoint [_spawnPos,0];
 	_wp setWaypointType "GUARD";
-	_grp setFormation "DIAMOND";
+	_grp setFormation "STAG COLUMN";
 	_grp allowFleeing 0.1;
 
-	waitUntil {sleep 1; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
-
-	_grp setCombatMode "GREEN";
-	_grp setFormation "LINE";
-	sleep 5 + random 10;
-	_grp setCombatMode "YELLOW";
+	waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
 
 	0 = [_grp] spawn lmf_ai_fnc_taskAssault;
 

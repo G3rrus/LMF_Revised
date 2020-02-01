@@ -46,8 +46,8 @@ while {_initTickets > 0} do {
 	0 = [_grp,_radius] spawn lmf_ai_fnc_taskHunt;
 
 	{_x disableAI "AUTOCOMBAT";} count units _grp;
-	{_x allowFleeing 0;} count units _grp;
-	{_x enableAttack false;} count units _grp;
+	_grp enableAttack false;
+	_grp allowFleeing 0;
 
 	//IF THE INITAL TICKETS WERE HIGHER THAN ONE
 	if (_tickets > 1) then {

@@ -9,6 +9,11 @@
 params [["_grp",grpNull,[grpNull]],["_radius",500,[0]]];
 private _cycle = 30;
 _grp setBehaviour "SAFE";
+private _assaultRange = 50 + (random 250);
+_grp enableIRLasers false;
+_grp enableGunLights "ForceOff";
+_grp allowFleeing 0;
+_grp enableAttack false;
 
 //DO THE HUNTING
 while {count units _grp > 0} do {
@@ -39,6 +44,11 @@ while {count units _grp > 0} do {
 
 		_grp setBehaviour "AWARE";
 		_grp setSpeedMode "FULL";
+
+		if (_nearestdist < _assaultRange) then {
+			_grp enableIRLasers true;
+			_grp enableGunLights "ForceOn";
+		};
 
 		_cycle = _nearestdist/8;
 
