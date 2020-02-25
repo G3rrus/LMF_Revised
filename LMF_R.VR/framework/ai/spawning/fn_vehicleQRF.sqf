@@ -25,7 +25,13 @@ if !(_spawner) exitWith {};
 params [["_spawnPos", [0,0,0]],["_vicType", "TRUCK"],["_tickets", 1],["_respawnTime", 300]];
 private _range = 1000;
 private _dir = random 360;
-if !(_spawnPos isEqualType []) then {_dir = getDir _spawnPos;};
+if !(_spawnPos isEqualType []) then {
+    if (_spawnPos isEqualType "") then {
+        _dir = markerDir _spawnPos;
+    } else {
+        _dir = getDir _spawnPos;
+    };
+};
 _spawnPos = _spawnPos call CBA_fnc_getPos;
 toUpper _vicType;
 
