@@ -43,8 +43,10 @@ private _Crew_Headgear = ["H_HelmetCrew_B"]; // Crew Headgear(s)
 private _Backpack_Leader = ["B_TacticalPack_mcamo"]; // PltLead, PltSgt, Squad Leader Backpack(s)
 private _Backpack_RTO = ["B_Carryall_mcamo"]; // RTO and FAC Backpack(s) (Radio Backpack if TFAR is used, otherwise Backpack for _Radio_B)
 private _Backpack_Medic = ["B_Kitbag_mcamo"]; // Medic Backpack(s)
+private _Backpack_Engineer = [""]; // Engineers Backpack(s)
 private _Backpack_MAT = ["B_Carryall_mcamo"]; // MAT, MAT Assistant Backpack(s)
 private _Backpack_AR_MMG = ["B_Carryall_mcamo"]; // AR/MMG, AR/MMG assistant Backpack(s)
+private _Backpack_Bearer = ["B_Carryall_mcamo"]; // Ammo Bearer Backpack(s)
 private _Backpack_Crew = ["B_AssaultPack_mcamo"]; // Vehicle crew Backpack(s)
 private _Backpack_Pilot = ["B_AssaultPack_mcamo"]; // Pilots Backpack(s)
 private _Backpack_Light = ["B_AssaultPack_mcamo"]; // Everyone else if given Backpack(s)
@@ -67,7 +69,7 @@ private _SMG_Attach1 = ""; // SMG Attachement #1
 private _SMG_Attach2 = "muzzle_snds_l"; // SMG Attachement #2
 private _SMG_Bipod = ""; // SMG Bipod
 
-//CARBINE (Used by: RTO, Medic, MMG Assistant, MAT Gunner & Assistant)
+//CARBINE (Used by: RTO, Medic, Engineer, MMG Assistant, MAT Gunner & Assistant)
 private _Carbine = "arifle_MXC_F"; // Carbine
 private _Carbine_Ammo = "30Rnd_65x39_caseless_mag"; // Carbine Ammo
 private _Carbine_Ammo_T = "30Rnd_65x39_caseless_mag_Tracer"; // Carbine Tracer Ammo
@@ -76,7 +78,7 @@ private _Carbine_Attach1 = "acc_pointer_ir"; // Carbine Attachement #1
 private _Carbine_Attach2 = "muzzle_snds_h"; // Carbine Attachement #2
 private _Carbine_Bipod = ""; // Carbine Bipod
 
-//RIFLE (Used by: Plt.Lead, Plt.Sgt, Rifleman)
+//RIFLE (Used by: Plt.Lead, Plt.Sgt, Rifleman, Ammo Bearer)
 private _Rifle = "arifle_MX_F"; // Rifle
 private _Rifle_Ammo = "30Rnd_65x39_caseless_mag"; // Rifle Ammo
 private _Rifle_Ammo_T = "30Rnd_65x39_caseless_mag_Tracer"; // Rifle Tracer Ammo
@@ -132,10 +134,12 @@ private _MAT = "launch_MRAWS_green_F"; // MAT
 private _MAT_Ammo = "MRAWS_HEAT_F"; // MAT Ammo
 private _MAT_Optic = ""; // MAT Optic
 
-//GRENADES
+//GRENADES & EXPLOSIVES
 private _Grenade = "MiniGrenade"; // HE Grenade
 private _Grenade_Smoke = "SmokeShell"; // Smoke Grenade
-private _Grenade_Smoke_Grn = "SmokeShellGreen";
+private _Grenade_Smoke_Grn = "SmokeShellGreen"; // Smoke Grenade Green
+private _Explosive_Large = "DemoCharge_Remote_Mag"; // Heavy Explosive
+private _Explosive_Small = "SLAMDirectionalMine_Wire_Mag"; // Light Explosive
 
 //MISC
 private _Binocular = "Binocular"; // Binocular Item
@@ -147,7 +151,7 @@ private _NVG_Pilot = "NVGoggles"; // NVG Item for Pilots
 //PLATOON
 private _PlatoonLeader = "B_officer_F"; // Platoon Leader
 private _PlatoonSgt = "B_Soldier_F"; // Platoon Sergeant
-private _RTO = "B_Soldier_A_F"; // RTO
+private _RTO = "B_Competitor_F"; // RTO
 private _FAC = "B_Soldier_unarmed_F"; // FAC
 
 //SQUAD
@@ -158,10 +162,12 @@ private _Grenadier = "B_Soldier_GL_F"; // Grenadier
 private _Autorifleman = "B_soldier_AR_F"; // Autorifleman
 private _Marksman = "B_soldier_M_F"; // Marksman
 private _Medic = "B_medic_F"; // Medic
+private _Engineer = "B_engineer_F"; // Engineer
 private _MachineGunner = "B_HeavyGunner_F"; // Machine Gunner
 private _MgAssistant = "B_soldier_AAR_F"; // Machine Gunner Assistant
 private _AntiTankGunner = "B_soldier_AT_F"; // Anti Tank Gunner
 private _AtAssistant = "B_soldier_AAT_F"; // Anti Tank Gunner Assistant
+private _AmmoBearer = "B_Soldier_A_F"; // Ammo Bearer
 
 //VEHICLE
 private _Crew = "B_crew_F"; // Vehicle Crew

@@ -120,10 +120,12 @@ class loadouts {
 		class autorifleman {};
 		class marksman {};
 		class medic {};
+		class engineer {};
 		class machineGunner {};
 		class machineGunnerAssistant {};
 		class atGunner {};
 		class atAssistant {};
+		class ammoBearer {};
 		class crew {};
 		class heloPilot {};
 		class heloCrew {};
