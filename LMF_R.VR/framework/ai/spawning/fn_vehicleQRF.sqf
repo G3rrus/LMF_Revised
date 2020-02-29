@@ -65,7 +65,7 @@ while {_initTickets > 0} do {
 
         //TASK
         0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
-        waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1 || {!alive _veh}}};
+        waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh}}};
         0 = [_grp] spawn lmf_ai_fnc_taskAssault;
     };
 
@@ -99,7 +99,7 @@ while {_initTickets > 0} do {
 
         //TASK
         0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
-        waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1 || {!alive _veh}}};
+        waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh}}};
         0 = [_grp] spawn lmf_ai_fnc_taskAssault;
     };
 
@@ -122,7 +122,7 @@ while {_initTickets > 0} do {
 
         //TASK
         0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
-        waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+        waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         waitUntil {sleep 3; !(position _veh isFlatEmpty [-1, -1, -1, -1, 0, false] isEqualTo []);};
         doStop driver _veh;
         doGetOut units _grp2;
@@ -170,7 +170,7 @@ while {_initTickets > 0} do {
 
         //TASK
         0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
-        waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
+        waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         doGetOut units _grp2;
         _grp2 leaveVehicle _veh;
         waitUntil {sleep 1; isTouchingGround _veh || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};

@@ -47,7 +47,7 @@ while {_initTickets > 0} do {
 	_grp setFormation "STAG COLUMN";
 	_grp allowFleeing 0.1;
 
-	waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
+	waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1}};
 
 	0 = [_grp] spawn lmf_ai_fnc_taskAssault;
 
