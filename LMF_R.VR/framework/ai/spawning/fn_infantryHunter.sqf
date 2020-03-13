@@ -13,12 +13,10 @@
 		3) Hunting Radius [OPTIONAL] (default: 500)
 		4) Spawn Tickets [OPTIONAL] (default: 1)
 
-	- EXAMPLE: [this,"TEAM",500,1] spawn lmf_ai_fnc_infantryHunter;
+	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["hunter",position,"TEAM",500,1]]] call CBA_fnc_ServerEvent;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
-private _spawner = [] call lmf_ai_fnc_returnSpawner;
-if !(_spawner) exitWith {};
 
 #include "cfg_spawn.sqf"
 

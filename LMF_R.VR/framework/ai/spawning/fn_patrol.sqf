@@ -11,12 +11,10 @@
 		3) Patrol Radius. [OPTIONAL] (default: 200)
 		4) Alert Mode [OPTIONAL] (true = patrol is wary and jogging, false = patrol feels safe and walks) (default: true)
 
-	- EXAMPLE: [this,"TEAM",200,true] spawn lmf_ai_fnc_patrol;
+	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["patrol",position,"TEAM",200,true]]] call CBA_fnc_ServerEvent;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
-private _spawner = [] call lmf_ai_fnc_returnSpawner;
-if !(_spawner) exitWith {};
 
 #include "cfg_spawn.sqf"
 

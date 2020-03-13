@@ -12,12 +12,10 @@
 		4) Distribution [OPTIONAL] (0 = fill evenly, 1 = building by building) (default: 1)
 		5) Use CBA Building Pos only [Optional] (false = no, true = yes) (default: false)
 
-	- EXAMPLE: [this,"TEAM",100,1,false] spawn lmf_ai_fnc_garrison;
+	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["garrison",position,"TEAM",100,1,false]]] call CBA_fnc_ServerEvent;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
-private _spawner = [] call lmf_ai_fnc_returnSpawner;
-if !(_spawner) exitWith {};
 
 #include "cfg_spawn.sqf"
 

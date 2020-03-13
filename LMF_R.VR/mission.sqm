@@ -8,15 +8,15 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=406;
+		nextID=419;
 	};
 	class MarkerIDProvider
 	{
-		nextID=3;
+		nextID=4;
 	};
 	class LayerIndexProvider
 	{
-		nextID=95;
+		nextID=103;
 	};
 	class Camera
 	{
@@ -37,13 +37,17 @@ addons[]=
 	"A3_Structures_F_EPC_Items_Electronics",
 	"A3_Structures_F_Civ_Camping",
 	"A3_Structures_F_Mil_Helipads",
-	"A3_Structures_F_Orange_Humanitarian_Camps"
+	"A3_Structures_F_Orange_Humanitarian_Camps",
+	"A3_Structures_F_Households_House_Big02",
+	"A3_Structures_F_Households_House_Big01",
+	"A3_Structures_F_Households_House_Shop01",
+	"A3_Modules_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=9;
+		items=11;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -107,6 +111,20 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item9
+		{
+			className="A3_Structures_F_Households";
+			name="Arma 3 - Houses";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item10
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=2960882;
@@ -136,7 +154,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=42;
+		items=43;
 		class Item0
 		{
 			dataType="Group";
@@ -8550,6 +8568,168 @@ class Mission
 			title="PUT YOUR CURSOR ON ME";
 			description="Welcome to the LMF revised. If you do not know how to use this framework yet, don't worry as it is pretty self-explanatory. To get started just unhide the various components this framework has to offer by selecting their folders in the Entities list on the left and clicking on the Toggle Layer Visiblity icon on the bottom left (looks like a folder with an eye). Alternatively you can also double click a folder and toggle it there. Some more hints will become available explaining the basics of most framework components if you hover your cursor over them. If you encounter problems and you don't know what you're doing, it is best consult someone that already has experience with this framework.";
 			id=308;
+		};
+		class Item42
+		{
+			dataType="Layer";
+			name="Spawn Enemies Example";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1369.5,7.6556168,2420.5};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=406;
+					type="Land_u_House_Big_02_V1_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1387,8.0663748,2399};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=407;
+					type="Land_i_House_Big_01_V3_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1364,8.0661001,2395};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=408;
+					type="Land_i_Shop_01_V1_F";
+				};
+				class Item3
+				{
+					dataType="Logic";
+					class PositionInfo
+					{
+						position[]={1373.739,5,2403.1011};
+					};
+					name="g_0";
+					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""garrison"",this,""TEAM"",100,1,false]]] call CBA_fnc_ServerEvent; " \n "    [""lmf_spawnAI"",[[""patrol"",this,""TEAM"",200,false]]] call CBA_fnc_ServerEvent; " \n "};";
+					id=409;
+					type="Logic";
+				};
+				class Item4
+				{
+					dataType="Logic";
+					class PositionInfo
+					{
+						position[]={1344.7371,5,2404.189};
+						angles[]={0,3.4774811,0};
+					};
+					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""vicQRF"",this,""CARARMED"",1,300]]] call CBA_fnc_ServerEvent; " \n "};";
+					id=410;
+					type="Logic";
+				};
+				class Item5
+				{
+					dataType="Logic";
+					class PositionInfo
+					{
+						position[]={1346,5,2492};
+						angles[]={0,3.204983,0};
+					};
+					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""para"",this]]] call CBA_fnc_ServerEvent; " \n "};";
+					id=411;
+					type="Logic";
+				};
+				class Item6
+				{
+					dataType="Logic";
+					class PositionInfo
+					{
+						position[]={1363.5959,5,2376.0911};
+					};
+					name="g_1";
+					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""hunter"",this,""TEAM"",500,1]]] call CBA_fnc_ServerEvent; " \n "};";
+					id=412;
+					type="Logic";
+				};
+				class Item7
+				{
+					dataType="Logic";
+					class PositionInfo
+					{
+						position[]={1386,5,2375.5};
+					};
+					name="g_2";
+					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""QRF"",this,""TEAM"",1]]] call CBA_fnc_ServerEvent; " \n "};";
+					id=413;
+					type="Logic";
+				};
+				class Item8
+				{
+					dataType="Comment";
+					class PositionInfo
+					{
+						position[]={1374.4,5,2396.0061};
+					};
+					title="LOGIC SPAWN MISSION START";
+					description="These logics function as an example how spawning could be done on mission start.";
+					id=414;
+				};
+				class Item9
+				{
+					dataType="Trigger";
+					position[]={1372.5,5,2339.5};
+					class Attributes
+					{
+						condition="!lmf_warmup";
+						onActivation="[""lmf_spawnAI"",[[""garrison"",g_0,""TEAM"",100,1,false]]] call CBA_fnc_ServerEvent; " \n "[""lmf_spawnAI"",[[""patrol"",g_0,""TEAM"",200,false]]] call CBA_fnc_ServerEvent;" \n "[""lmf_spawnAI"",[[""QRF"",g_2,""TEAM"",1]]] call CBA_fnc_ServerEvent;" \n "[""lmf_spawnAI"",[[""hunter"",g_1,""TEAM"",500,1]]] call CBA_fnc_ServerEvent;";
+						sizeA=0;
+						sizeB=0;
+						isServerOnly=1;
+					};
+					id=415;
+					type="EmptyDetector";
+				};
+				class Item10
+				{
+					dataType="Comment";
+					class PositionInfo
+					{
+						position[]={1371.222,5,2338.937};
+					};
+					title="TRIGGER SPAWN";
+					description="This trigger functions as an example on how spawning could be done at a later point during the mission.";
+					id=416;
+				};
+				class Item11
+				{
+					dataType="Marker";
+					position[]={1373.549,5,2398.313};
+					name="marker_3";
+					text="Enemy Example";
+					type="mil_objective";
+					colorName="ColorEAST";
+					id=418;
+				};
+			};
+			id=417;
 		};
 	};
 };

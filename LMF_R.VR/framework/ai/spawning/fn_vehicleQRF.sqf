@@ -9,16 +9,14 @@
 
 	- USAGE:
 		1) Spawn Position.
-		2) Vehicle Type [OPTIONAL] ("CAR", "CARARMED", "TURCK","APC","TANK", "HELITRANSPORT" or "HELIATTACK") (default: "TURCK")
+		2) Vehicle Type [OPTIONAL] ("CAR", "CARARMED", "TRUCK","APC","TANK", "HELITRANSPORT" or "HELIATTACK") (default: "TRUCK")
 		3) Spawn Tickets [OPTIONAL] (default: 1)
         4) Respawn Timer [OPTIONAL] (default: 300)
 
-	- EXAMPLE: [this,"TRUCK",1,300] spawn lmf_ai_fnc_vehicleQRF;
+    - EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["vicQRF",position,"TRUCK",1,300]]] call CBA_fnc_ServerEvent;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
-private _spawner = [] call lmf_ai_fnc_returnSpawner;
-if !(_spawner) exitWith {};
 
 #include "cfg_spawn.sqf"
 

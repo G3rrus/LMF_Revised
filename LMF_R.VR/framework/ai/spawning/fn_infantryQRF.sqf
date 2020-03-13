@@ -12,12 +12,10 @@
 		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam", "mgTeam" or number of soldiers.) (default: "TEAM")
 		3) Spawn Tickets [OPTIONAL] (default: 1)
 
-	- EXAMPLE: [this,"TEAM",1] spawn lmf_ai_fnc_infantryQRF;
+	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["QRF",position,"TEAM",1]]] call CBA_fnc_ServerEvent;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
-private _spawner = [] call lmf_ai_fnc_returnSpawner;
-if !(_spawner) exitWith {};
 
 #include "cfg_spawn.sqf"
 

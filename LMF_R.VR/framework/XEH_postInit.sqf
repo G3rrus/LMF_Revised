@@ -37,6 +37,8 @@ if !(var_tfar) then {
 //DISABLE RHS ENGINE STARTUP
 RHS_ENGINE_STARTUP_OFF = false;
 
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // SERVER /////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -223,10 +225,6 @@ if (!isNil "fpa_jrm_fnc_init" && {var_useJRM}) then {
 //ZEUS MODULES
 if !(isNil "zen_custom_modules_fnc_register") then {
 	[] execVM "framework\player\init\zenModules.sqf";
-} else {
-	if !(isnil "Ares_fnc_RegisterCustomModule") then {
-		[] execVM "framework\player\init\achillesModules.sqf";
-	};
 };
 
 //CHANNEL SETUP

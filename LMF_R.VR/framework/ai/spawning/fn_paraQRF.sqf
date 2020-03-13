@@ -7,12 +7,10 @@
 	- USAGE:
 		1) Spawn Position.
 
-	- EXAMPLE: [this] spawn lmf_ai_fnc_paraQRF;
+	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["para",position]]] call CBA_fnc_ServerEvent;
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {CBA_missionTime > 0};
-private _spawner = [] call lmf_ai_fnc_returnSpawner;
-if !(_spawner) exitWith {};
 
 #include "cfg_spawn.sqf"
 

@@ -41,7 +41,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		[_pos,_type,_radius,_distrib,_useBP] remoteExec ["lmf_ai_fnc_garrison"];
+		["lmf_spawnAI",[["garrison",_pos,_type,_radius,_distrib,_useBP]]] call CBA_fnc_ServerEvent;
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -66,7 +66,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		[_pos,_type,_radius,_alerted] remoteExec ["lmf_ai_fnc_patrol"];
+		["lmf_spawnAI",[["patrol",_pos,_type,_radius,_alerted]]] call CBA_fnc_ServerEvent;
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -88,7 +88,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		[_pos,_type] remoteExec ["lmf_ai_fnc_infantryQRF"];
+		["lmf_spawnAI",[["qrf",_pos,_type]]] call CBA_fnc_ServerEvent;
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -112,7 +112,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		[_pos,_type,_radius] remoteExec ["lmf_ai_fnc_infantryHunter"];
+		["lmf_spawnAI",[["hunter",_pos,_type,_radius]]] call CBA_fnc_ServerEvent;
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -131,7 +131,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		_pos = ASLToATL _pos;
 
 		// CALL FUNCTION
-		[_pos,_type] remoteExec ["lmf_ai_fnc_vehicleQRF"];
+		["lmf_spawnAI",[["vicqrf",_pos,_type]]] call CBA_fnc_ServerEvent;
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -142,7 +142,8 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 	private _pos = ASLToATL (_this#0);
 
 	//CALL FUNCTION
-	[_pos] remoteExec ["lmf_ai_fnc_paraQRF"];
+	["lmf_spawnAI",[["para",_pos]]] call CBA_fnc_ServerEvent;
+	
 }] call zen_custom_modules_fnc_register;
 
 //AI MORTAR ATTACK

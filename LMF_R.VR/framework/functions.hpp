@@ -34,7 +34,7 @@ class ai {
 	};
 	class spawning {
 		file = "framework\ai\spawning";
-		class returnSpawner {};
+		class doSpawn {};
 		class patrol {};
 		class garrison {};
 		class infantryQRF {};
