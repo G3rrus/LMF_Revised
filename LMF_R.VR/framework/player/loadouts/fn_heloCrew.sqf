@@ -50,22 +50,18 @@ if (var_playerMaps == 0) then {
 };
 if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
+//PRIMARY
+[_unit,_Gun_HC] call lmf_player_fnc_givePrimary;
+
 //ITEMS
 for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
-for "_i" from 1 to 5 do {_unit addItem _Carbine_Ammo;};
 
-//WEAPONS
-_unit addWeapon _Carbine;
-_unit addPrimaryWeaponItem _Carbine_Attach1;
-_unit addPrimaryWeaponItem _Carbine_Attach2;
-_unit addPrimaryWeaponItem _Carbine_Optic;
-_unit addPrimaryWeaponItem _Carbine_Bipod;
-
+//SIDEARM
 if (var_pistolAll) then {
-	for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
-	_unit addWeapon _Pistol;
-	_unit addHandgunItem _Pistol_Attach1;
-	_unit addHandgunItem _Pistol_Attach2;
+	if (_Pistol_Ammo select 0 == "") then {_Pistol_Ammo = 0;} else {_Pistol_Ammo = selectRandom _Pistol_Ammo};
+	[_unit, selectRandom _Pistol, 3, _Pistol_Ammo] call BIS_fnc_addWeapon;
+	_unit addHandgunItem (selectRandom _Pistol_Attach1);
+	_unit addHandgunItem (selectRandom _Pistol_Attach2);
 };
 
 //TRAITS

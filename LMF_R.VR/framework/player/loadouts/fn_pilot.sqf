@@ -50,13 +50,14 @@ if (var_playerNVG != 2) then {_unit linkItem _NVG_Pilot};
 for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
 _unit addItem "ACE_Flashlight_XL50";
 for "_i" from 1 to 4 do {_unit addItem _FlareGun_Ammo;};
-for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
 
-//WEAPONS
-_unit addWeapon _Pistol;
-_unit addHandgunItem _Pistol_Attach1;
-_unit addHandgunItem _Pistol_Attach2;
+//SIDEARM
+if (_Pistol_Ammo select 0 == "") then {_Pistol_Ammo = 0;} else {_Pistol_Ammo = selectRandom _Pistol_Ammo};
+[_unit, selectRandom _Pistol, 3, _Pistol_Ammo] call BIS_fnc_addWeapon;
+_unit addHandgunItem (selectRandom _Pistol_Attach1);
+_unit addHandgunItem (selectRandom _Pistol_Attach2);
 
+//FLAREGUN
 _unit addItemToBackpack _FlareGun;
 
 //TRAITS

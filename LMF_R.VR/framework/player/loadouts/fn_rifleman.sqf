@@ -52,35 +52,31 @@ if (var_playerMaps == 0) then {
 };
 if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
+//PRIMARY
+[_unit,_Gun_Rif] call lmf_player_fnc_givePrimary;
+
 //ITEMS
 for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
-for "_i" from 1 to 5 do {_unit addItem _Rifle_Ammo;};
-for "_i" from 1 to 3 do {_unit addItem _Rifle_Ammo_T;};
-for "_i" from 1 to 2 do {_unit addItem _Grenade;};
-_unit addItem _Grenade_Smoke;
+for "_i" from 1 to 2 do {_unit addItem (selectRandom _Grenade);};
+_unit addItem (selectRandom _Grenade_Smoke);
 
-//WEAPONS
-_unit addWeapon _Rifle;
-_unit addPrimaryWeaponItem _Rifle_Attach1;
-_unit addPrimaryWeaponItem _Rifle_Attach2;
-_unit addPrimaryWeaponItem _Rifle_Optic;
-_unit addPrimaryWeaponItem _Rifle_Bipod;
-
+//SIDEARM
 if (var_pistolAll) then {
-	for "_i" from 1 to 3 do {_unit addItem _Pistol_Ammo};
-	_unit addWeapon _Pistol;
-	_unit addHandgunItem _Pistol_Attach1;
-	_unit addHandgunItem _Pistol_Attach2;
+	if (_Pistol_Ammo select 0 == "") then {_Pistol_Ammo = 0;} else {_Pistol_Ammo = selectRandom _Pistol_Ammo};
+	[_unit, selectRandom _Pistol, 3, _Pistol_Ammo] call BIS_fnc_addWeapon;
+	_unit addHandgunItem (selectRandom _Pistol_Attach1);
+	_unit addHandgunItem (selectRandom _Pistol_Attach2);
 };
 
+//BACKPACK AND/OR LAUNCHER
 if !(var_backpacksAll) then {
 	_unit addBackpack "B_AssaultPack_blk";
-	_unit addItem _LAT_Ammo;
-	_unit addWeapon _LAT;
+	if (_LAT_Ammo select 0 == "") then {_LAT_Ammo = 0;} else {_LAT_Ammo = selectRandom _LAT_Ammo};
+	[_unit, selectRandom _LAT, 1, _LAT_Ammo] call BIS_fnc_addWeapon;
 	removeBackpack _unit;
 } else {
-	_unit addItem _LAT_Ammo;
-	_unit addWeapon _LAT;
+	if (_LAT_Ammo select 0 == "") then {_LAT_Ammo = 0;} else {_LAT_Ammo = selectRandom _LAT_Ammo};
+	[_unit, selectRandom _LAT, 1, _LAT_Ammo] call BIS_fnc_addWeapon;
 };
 
 //TRAITS
