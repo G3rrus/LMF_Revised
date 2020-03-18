@@ -192,9 +192,11 @@ if !(var_tfar) then {
 [{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;
 
 //PLAYER VIEWDISTANCE
-["vehicle",{
-	[] call lmf_player_fnc_viewDistanceEH;
-}] call CBA_fnc_addPlayerEventHandler;
+if (var_viewEnabled) then {
+	["vehicle",{
+		[] call lmf_player_fnc_viewDistanceEH;
+	}] call CBA_fnc_addPlayerEventHandler;
+};
 
 //ACE ACTIONS
 [] execVM "framework\player\init\aceActions.sqf";

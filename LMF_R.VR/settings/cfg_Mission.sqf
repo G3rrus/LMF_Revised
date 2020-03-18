@@ -26,7 +26,9 @@ var_livesJRM = 0; // Amount of JRM respawn lives (default: 0)
 var_playerGear = true; // Should players get custom gear? (default: true)
 var_camoCoef = 1; // How easy should players be spotted by AI? Higher number = easier spotted (default: 1)
 
-//VIEW DISTANCE (Available in CBA Settings --> LMF Viewdistance Cap)
+//VIEW DISTANCE (if enabled available in CBA Settings --> LMF Viewdistance Cap)
+var_viewEnabled = false; //Should view distance overwrite be enabled
+
 var_onFootMax = 2500; // Max Viewdistance on foot
 var_onFootMaxObj = 2500; // Max object Viewdistance on foot
 
