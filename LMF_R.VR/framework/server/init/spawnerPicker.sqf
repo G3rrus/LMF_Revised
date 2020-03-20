@@ -15,12 +15,14 @@ if (isServer || {!hasInterface}) then {
 //AI SPAWNING DELEGATION SERVER EVENT
 if (isServer) then {
 	["lmf_spawnAI", {
-		params ["_args"];
-		private _hcs = entities "HeadlessClient_F";
-		if ((count _hcs) > 0) then {
-			["lmf_doSpawn", [_args], selectRandom _hcs] call CBA_fnc_targetEvent;
-		} else {
-			["lmf_doSpawn", [_args]] call CBA_fnc_localEvent;
-		};
+		[{CBA_missionTime > 1},{
+			params ["_args"];
+			private _hcs = entities "HeadlessClient_F";
+			if ((count _hcs) > 0) then {
+				["lmf_doSpawn", [_args], selectRandom _hcs] call CBA_fnc_targetEvent;
+			} else {
+				["lmf_doSpawn", [_args]] call CBA_fnc_localEvent;
+			};
+		},_this] call CBA_fnc_waitUntilAndExecute;
 	}] call CBA_fnc_addEventHandler;
 };
