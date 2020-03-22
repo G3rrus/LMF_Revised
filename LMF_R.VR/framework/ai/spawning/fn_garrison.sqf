@@ -44,6 +44,6 @@ _grp setFormation "DIAMOND";
 		_this call lmf_ai_fnc_ungarrisonEH;
 
 		//REMOVE EH AFTER IT FIRED
-		_unit removeEventHandler ["FiredNear", _thisEventHandler];
+		(_this select 0) removeEventHandler ["FiredNear", _thisEventHandler];
 	}];
 } forEach (units _grp);
