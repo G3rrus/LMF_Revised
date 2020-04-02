@@ -26,6 +26,8 @@ private _Uniform = ["U_O_CombatUniform_oucamo"]; // Uniform(s)
 private _Vest = ["V_HarnessOGL_gry", "V_HarnessO_gry"]; // Vest(s)
 private _Backpack_Light = ["B_FieldPack_oucamo"]; // Backpack(s)
 private _Backpack_Heavy = ["B_Carryall_oucamo"]; // Backpack(s) used for MMG, MAT and AA
+private _Backpack_Static = ["O_HMG_01_weapon_F"]; // Backpack(s) used by the Static Gunner
+private _Backpack_Static_Pod = ["O_HMG_01_support_F"]; // Backpack(s) used by the Static Gunner Assistant 
 private _Headgear = ["H_HelmetLeaderO_oucamo", "H_HelmetO_oucamo"]; // Headgear(s)
 private _Goggles = ["G_Balaclava_blk"]; // Facewear(s)
 
@@ -116,6 +118,8 @@ private _Pilot = "B_Helipilot_F";
 private _Rifleman = "B_Soldier_F";
 private _Rifleman_AT = "B_Soldier_LAT_F";
 private _Squad_Leader = "B_Soldier_SL_F";
+private _Static_Gunner = "B_support_MG_F";
+private _Static_Assistant = "B_support_AMG_F";
 
 //OPFOR (configure if var_enemySide = EAST;)
 if (var_enemySide == EAST) then {
@@ -131,6 +135,8 @@ if (var_enemySide == EAST) then {
 	_Rifleman = "O_Soldier_F";
 	_Rifleman_AT = "O_Soldier_LAT_F";
 	_Squad_Leader = "O_Soldier_SL_F";
+	_Static_Gunner = "O_support_MG_F";
+	_Static_Assistant = "O_support_AMG_F";
 };
 
 //INDEPENDENT (configure if var_enemySide = INDEPENDENT;)
@@ -147,4 +153,6 @@ if (var_enemySide == INDEPENDENT) then {
 	_Rifleman = "I_soldier_F";
 	_Rifleman_AT = "I_Soldier_LAT_F";
 	_Squad_Leader = "I_Soldier_SL_F";
+	_Static_Gunner = "I_support_MG_F";
+	_Static_Assistant = "I_support_AMG_F";
 };

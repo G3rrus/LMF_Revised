@@ -38,6 +38,7 @@ class ai {
 		class patrol {};
 		class garrison {};
 		class infantryQRF {};
+		class staticQRF {};
 		class infantryHunter {};
 		class vehicleQRF {};
 		class paraQRF {};

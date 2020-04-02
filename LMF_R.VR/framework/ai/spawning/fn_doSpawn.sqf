@@ -13,6 +13,7 @@ switch (_typeOfSpawn) do {
 	case "garrison": {_parArray spawn lmf_ai_fnc_garrison;};
 	case "hunter": {_parArray spawn lmf_ai_fnc_infantryHunter;};
 	case "qrf": {_parArray spawn lmf_ai_fnc_infantryQRF;};
+	case "statqrf": {_parArray spawn lmf_ai_fnc_staticQRF;};
 	case "patrol": {_parArray spawn lmf_ai_fnc_patrol;};
 	case "para": {_parArray spawn lmf_ai_fnc_paraQRF;};
 	case "vicqrf": {_parArray spawn lmf_ai_fnc_vehicleQRF;};

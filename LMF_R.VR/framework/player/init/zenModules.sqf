@@ -93,6 +93,15 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
 
+//AI STATIC QRF
+["LMF", "AI Static QRF",{
+	//PARAMS
+	private _pos = ASLToATL (_this#0);
+
+	//CALL FUNCTION
+	["lmf_spawnAI",[["statqrf",_pos]]] call CBA_fnc_ServerEvent;
+}] call zen_custom_modules_fnc_register;
+
 //AI HUNTER
 ["LMF", "AI Hunter",{
 	["Hunter",[

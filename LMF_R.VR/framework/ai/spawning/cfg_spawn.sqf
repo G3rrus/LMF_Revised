@@ -67,6 +67,7 @@ _mgTeam =	[
 
 _vehicleCrew = [_Crew,_Crew,_Crew];
 _heliCrew = [_Pilot,_Pilot];
+_staticCrew = [_Static_Gunner,_Static_Assistant];
 
 
 // FUNCTIONS ///////////////////////////////////////////////////////////////////////////////////////

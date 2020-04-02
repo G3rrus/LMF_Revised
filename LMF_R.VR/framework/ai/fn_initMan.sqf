@@ -11,7 +11,7 @@ if (isNull _unit) exitWith {};
 
 // CHECK WHO GETS WHAT GEAR ///////////////////////////////////////////////////////////////////////
 private _type = typeOf _unit;
-private _allTypesAA = [_Autorifleman, _Crew, _Grenadier, _MMG_Gunner, _Marksman, _AA_Gunner, _MAT_Gunner, _Officer, _Pilot, _Rifleman, _Rifleman_AT, _Squad_Leader];
+private _allTypesAA = [_Autorifleman, _Crew, _Grenadier, _MMG_Gunner, _Marksman, _AA_Gunner, _MAT_Gunner, _Officer, _Pilot, _Rifleman, _Rifleman_AT, _Squad_Leader, _Static_Gunner, _Static_Assistant];
 private _someTypes = [_Marksman, _Rifleman_AT, _Autorifleman, _Squad_Leader, _MMG_Gunner];
 
 if (_allTypesAA findif {_type == _x} == -1) then {
@@ -82,6 +82,14 @@ if (_type == _Crew) then {
 	_s_Headgear = selectRandom _Crew_Headgear;
 };
 
+if (_type == _Static_Gunner) then {
+	_s_Backpack = selectRandom _Backpack_Static;
+};
+
+if (_type == _Static_Assistant) then {
+	_s_Backpack = selectRandom _Backpack_Static_Pod;
+};
+
 //ADD CLOTHING
 _unit forceAddUniform _s_Uniform;
 _unit addVest _s_Vest;
@@ -92,7 +100,7 @@ if (10 > random 100) then {_unit addGoggles _s_Goggles};
 
 // WEAPONS ////////////////////////////////////////////////////////////////////////////////////////
 //RIFL
-if (_type == _Rifleman) then {
+if (_type == _Rifleman || {_type == _Static_Gunner || {_type == _Static_Assistant}}) then {
 	if (_Rifle_Ammo select 0 == "") then {_Rifle_Ammo = 0;} else {_Rifle_Ammo = selectRandom _Rifle_Ammo};
 	[_unit, selectRandom _Rifle, 12, _Rifle_Ammo] call BIS_fnc_addWeapon;
 };
