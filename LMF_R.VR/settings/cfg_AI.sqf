@@ -141,10 +141,10 @@ if (var_enemySide == EAST) then {
 
 //INDEPENDENT (configure if var_enemySide = INDEPENDENT;)
 if (var_enemySide == INDEPENDENT) then {
-	_Autorifleman = "I_Soldier_AR_F";
+	_Autorifleman = "I_Soldier_A_F";
 	_Crew = "I_crew_F";
 	_Grenadier = "I_Soldier_GL_F";
-	_MMG_Gunner = "I_support_MG_F";
+	_MMG_Gunner = "I_Soldier_AR_F";
 	_Marksman = "I_Soldier_M_F";
 	_AA_Gunner = "I_Soldier_AA_F";
 	_MAT_Gunner = "I_Soldier_AT_F";
