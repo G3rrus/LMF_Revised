@@ -1,7 +1,6 @@
 // JIP TELEPORT FOR JIPING PLAYERS ////////////////////////////////////////////////////////////////
 /*
-	- File that adds an ace action to the player for JIP-teleport. Ace condition requires respawn marker
-	  to work.
+	- File that adds an ace action to the player for JIP-teleport.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 waitUntil {speed player > 1};
