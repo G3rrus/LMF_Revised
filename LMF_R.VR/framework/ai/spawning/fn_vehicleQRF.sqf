@@ -62,9 +62,9 @@ while {_initTickets > 0} do {
         {_x moveInAny _veh;} forEach units _grp;
 
         //TASK
-        0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+        [_grp] spawn lmf_ai_fnc_taskUpdateWP;
         waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh}}};
-        0 = [_grp] spawn lmf_ai_fnc_taskAssault;
+        [_grp] spawn lmf_ai_fnc_taskAssault;
     };
 
     //IF CARARMED
@@ -81,7 +81,7 @@ while {_initTickets > 0} do {
 
         //TASK
         _grp setBehaviour "AWARE";
-        0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+        [_grp] spawn lmf_ai_fnc_taskUpdateWP;
     };
 
     //IF TRUCK
@@ -96,9 +96,9 @@ while {_initTickets > 0} do {
         {_x moveInAny _veh;} forEach units _grp;
 
         //TASK
-        0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+        [_grp] spawn lmf_ai_fnc_taskUpdateWP;
         waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh}}};
-        0 = [_grp] spawn lmf_ai_fnc_taskAssault;
+        [_grp] spawn lmf_ai_fnc_taskAssault;
     };
 
     //IF APC
@@ -119,7 +119,7 @@ while {_initTickets > 0} do {
         {_x moveInCargo _veh;} forEach units _grp2;
 
         //TASK
-        0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+        [_grp] spawn lmf_ai_fnc_taskUpdateWP;
         waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         waitUntil {sleep 3; !(position _veh isFlatEmpty [-1, -1, -1, -1, 0, false] isEqualTo []);};
         doStop driver _veh;
@@ -128,7 +128,7 @@ while {_initTickets > 0} do {
         waitUntil {sleep 2; speed _veh > 0 || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         private _wp = _grp2 addWaypoint [getPos _veh,0];
         _wp setWaypointType "GUARD";
-        0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
+        [_grp2] spawn lmf_ai_fnc_taskAssault;
         sleep 15;
         driver _veh doFollow leader _grp;
     };
@@ -146,7 +146,7 @@ while {_initTickets > 0} do {
 
         //TASK
         _grp setBehaviour "AWARE";
-        0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+        [_grp] spawn lmf_ai_fnc_taskUpdateWP;
     };
 
     //IF HELICOPTER TRANSPORT
@@ -167,14 +167,14 @@ while {_initTickets > 0} do {
         {_x moveInCargo _veh;} forEach units _grp2;
 
         //TASK
-        0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+        [_grp] spawn lmf_ai_fnc_taskUpdateWP;
         waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         doGetOut units _grp2;
         _grp2 leaveVehicle _veh;
         waitUntil {sleep 1; isTouchingGround _veh || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         private _wp = _grp2 addWaypoint [getPos _veh,0];
         _wp setWaypointType "GUARD";
-        0 = [_grp2] spawn lmf_ai_fnc_taskAssault;
+        [_grp2] spawn lmf_ai_fnc_taskAssault;
     };
 
     //IF ATTACK HELICOPTER
@@ -189,7 +189,7 @@ while {_initTickets > 0} do {
 
         //TASK
         _grp setBehaviour "AWARE";
-        0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+        [_grp] spawn lmf_ai_fnc_taskUpdateWP;
     };
 
     //IF THE INITAL TICKETS WERE HIGHER THAN ONE

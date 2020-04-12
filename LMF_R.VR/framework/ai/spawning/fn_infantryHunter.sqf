@@ -41,7 +41,7 @@ while {_initTickets > 0} do {
 	private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 	_grp deleteGroupWhenEmpty true;
 
-	0 = [_grp,_radius] spawn lmf_ai_fnc_taskHunt;
+	[_grp,_radius] spawn lmf_ai_fnc_taskHunt;
 
 	{_x disableAI "AUTOCOMBAT";} count units _grp;
 	_grp enableAttack false;

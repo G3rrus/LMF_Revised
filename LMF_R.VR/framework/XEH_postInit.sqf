@@ -59,6 +59,12 @@ if (isServer) then {
     //VARIABLE FOR INITPLAYERSAFETY
 	lmf_isSafe = false;
 
+	//CREATE A RADIO CHANNEL FOR CHAT COMMANDS
+	if (isNil "fpa_main") then {
+		lmf_chatChannel = radioChannelCreate [[0.9,0.1,0.1,1], "Chat", "Chat", [], true];
+    	publicVariable "lmf_chatChannel";
+	};
+
 	//UPDATE TOE BRIEFING ENTRY
 	addMissionEventHandler ["PlayerConnected",{
 		["lmf_updateToe",[]] call CBA_fnc_globalEvent;
@@ -227,6 +233,11 @@ if (!isNil "fpa_jrm_fnc_init" && {var_useJRM}) then {
 //ZEUS MODULES
 if !(isNil "zen_custom_modules_fnc_register") then {
 	[] execVM "framework\player\init\zenModules.sqf";
+};
+
+//CHAT COMMANDS
+if (isNil "fpa_main") then {
+	[] execVM "framework\player\init\chatCommands.sqf";
 };
 
 //CHANNEL SETUP

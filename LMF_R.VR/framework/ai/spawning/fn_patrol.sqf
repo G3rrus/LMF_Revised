@@ -42,6 +42,6 @@ _grp deleteGroupWhenEmpty true;
 waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units _grp < 1}};
 
 if ({alive _x} count units _grp < 1) exitWith {};
-0 = [_grp] spawn lmf_ai_fnc_taskUpdateWP;
+[_grp] spawn lmf_ai_fnc_taskUpdateWP;
 sleep 5;
-0 = [_grp] spawn lmf_ai_fnc_taskAssault;
+[_grp] spawn lmf_ai_fnc_taskAssault;
