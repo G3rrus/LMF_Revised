@@ -41,6 +41,14 @@
 	systemChat format ["Fully healed %1.", name _unit];
 }, "admin"] call CBA_fnc_registerChatCommand;
 
+["heal.all", {
+    {
+	    [_x] call ace_medical_treatment_fnc_fullHealLocal;
+	    _x setDamage 0;
+    } forEach ([] call CBA_fnc_players);
+	systemChat "Fully healed everyone.";
+}, "admin"] call CBA_fnc_registerChatCommand;
+
 ["goto", {
 	params [["_name", ""]];
 	private _unit = _name call lmf_chat_fnc_getPlayer;
