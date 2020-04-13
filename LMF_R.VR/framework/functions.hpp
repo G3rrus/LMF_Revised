@@ -69,11 +69,11 @@ class player {
 		class loadoutBriefing {};
 		class toeBriefing {};
 	};
-    class player_chat {
-        file = "framework\player\chat";
-        class getPlayer {};
-        class sendChatMessage {};
-    };
+	class player_chat {
+		file = "framework\player\chat";
+		class getPlayer {};
+		class sendChatMessage {};
+	};
 	class player_eventhandlers {
 		file = "framework\player\eh";
 		class explosionEH {};
