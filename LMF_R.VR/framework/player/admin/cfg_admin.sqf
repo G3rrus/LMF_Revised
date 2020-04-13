@@ -13,6 +13,8 @@ private _adminList =  [
 "76561198009543420", // Croguy
 "76561198023751916", // Exabit
 "76561197997590271", // G4rrus
+"76561198000443724", // Anog
+"76561198090259557", // Castiel
 var_creatorUID,
 "_SP_PLAYER_"
 ];
