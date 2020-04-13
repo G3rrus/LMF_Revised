@@ -187,10 +187,10 @@ if (var_playerGear) then {
 
 //RADIO CHANNEL PRESET
 if !(var_tfar) then {
-	[] spawn lmf_player_fnc_acreChannelPreset;
+	[] spawn lmf_loadout_fnc_acreChannelPreset;
 } else {
 	["Set_SwFrq","OnRadiosReceived",{
-		_this call lmf_player_fnc_tfarSetSr;
+		_this call lmf_loadout_fnc_tfarSetSr;
 	},objNull] call TFAR_fnc_addEventHandler;
 };
 

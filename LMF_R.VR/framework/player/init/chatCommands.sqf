@@ -33,7 +33,7 @@
 //ADMIN COMMANDS
 ["heal", {
 	params [["_name", ""]];
-	private _unit = _name call lmf_chat_fnc_getPlayer;
+	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
 
 	[_unit] call ace_medical_treatment_fnc_fullHealLocal;
@@ -51,7 +51,7 @@
 
 ["goto", {
 	params [["_name", ""]];
-	private _unit = _name call lmf_chat_fnc_getPlayer;
+	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
 
 	moveOut ACE_player;
@@ -61,7 +61,7 @@
 
 ["bring", {
 	params [["_name", ""]];
-	private _unit = _name call lmf_chat_fnc_getPlayer;
+	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
 
 	moveOut _unit;
@@ -79,14 +79,14 @@
     private _msg = _split joinString " ";
     if (_to isEqualTo "" || _msg isEqualTo "") exitWith {systemChat "Invalid arguments"};
 
-    private _receiver = [_to] call lmf_chat_fnc_getPlayer;
+    private _receiver = [_to] call lmf_player_fnc_getPlayer;
     if (isNull _receiver) exitWith {systemChat "Could not find receiver"};
-    [_msg, "whisper", name _receiver] call lmf_chat_fnc_sendChatMessage;
+    [_msg, "whisper", name _receiver] call lmf_player_fnc_sendChatMessage;
 }, "all",false] call CBA_fnc_registerChatCommand;
 
 ["zeus", {
     params [["_msg", ""]];
     _msg = [_msg] call CBA_fnc_trim;
     if (_msg isEqualTo "") exitWith {};
-    [_msg, "zeus"] call lmf_chat_fnc_sendChatMessage;
+    [_msg, "zeus"] call lmf_player_fnc_sendChatMessage;
 }, "all",false] call CBA_fnc_registerChatCommand;

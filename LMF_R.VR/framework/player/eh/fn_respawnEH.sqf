@@ -34,7 +34,7 @@ private _doOnRespawn = {
 		sleep 5;
 		setCurrentChannel 3;
 		[{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;
-		if !(var_tfar) then {[] spawn lmf_player_fnc_acreChannelPreset;};
+		if !(var_tfar) then {[] spawn lmf_loadout_fnc_acreChannelPreset;};
 		cutText  ["", "BLACK IN", 5, true];
 	};
 };

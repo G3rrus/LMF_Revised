@@ -6,7 +6,7 @@
 params [["_unit",objNull],["_weapon",3]];
 if !(local _unit) exitWith {};
 
-#include "..\..\settings\cfg_Player.sqf"
+#include "..\..\..\settings\cfg_Player.sqf"
 
 // APPLY CORRECT WEAPON ///////////////////////////////////////////////////////////////////////////
 private _amount = 5;

@@ -50,7 +50,7 @@ if (var_playerMaps != 2) then {
 if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
 //PRIMARY
-[_unit,_Gun_Crew] call lmf_player_fnc_givePrimary;
+[_unit,_Gun_Crew] call lmf_loadout_fnc_givePrimary;
 
 //ITEMS
 for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};

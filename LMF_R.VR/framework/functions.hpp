@@ -1,29 +1,40 @@
 class common {
-	tag = "lmf_common";
-	class functions {
+	class common_init {
+		tag = "lmf_common";
 		file = "framework";
-		class sortUnits {};
-		class sortGroundVics {};
 		class sortAirVics {};
+		class sortGroundVics {};
 		class sortSupplies {};
+		class sortUnits {};
 	};
 };
 class ai {
 	tag = "lmf_ai";
-	class functions {
+	class ai_init {
 		file = "framework\ai";
+		class initAir {};
 		class initMan {};
 		class initVic {};
-		class initAir {};
 	};
-	class eventhandlers {
+	class ai_eventhandlers {
 		file = "framework\ai\eh";
+		class firedNearEH {};
 		class killedEH {};
 		class suppressEH {};
-		class firedNearEH {};
 		class ungarrisonEH {};
 	};
-	class aitasks {
+	class ai_spawning {
+		file = "framework\ai\spawning";
+		class doSpawn {};
+		class garrison {};
+		class infantryHunter {};
+		class infantryQRF {};
+		class paraQRF {};
+		class patrol {};
+		class staticQRF {};
+		class vehicleQRF {};
+	};
+	class ai_tasks {
 		file = "framework\ai\task";
 		class taskSuppress {};
 		class taskAssault {};
@@ -32,46 +43,38 @@ class ai {
 		class mortarAttack {};
 		class findCover {};
 	};
-	class spawning {
-		file = "framework\ai\spawning";
-		class doSpawn {};
-		class patrol {};
-		class garrison {};
-		class infantryQRF {};
-		class staticQRF {};
-		class infantryHunter {};
-		class vehicleQRF {};
-		class paraQRF {};
-	};
 };
 class ai_civ {
 	tag = "lmf_ai_civ";
-	class functions {
+	class ai_init_civ {
 		file = "framework\ai\civ";
 		class initCiv {};
 	};
-	class eventhandlers {
+	class ai_eventhandlers_civ {
 		file = "framework\ai\civ\eh";
 		class firedNear {};
 	};
 };
 class player {
 	tag = "lmf_player";
-	class functions {
+	class player_init {
 		file = "framework\player";
+		class initPlayerAir {};
 		class initPlayerGear {};
+		class initPlayerSupp {};
+		class initPlayerVic {};
+	};
+	class player_briefing {
+		file = "framework\player\briefing";
 		class loadoutBriefing {};
 		class toeBriefing {};
-		class acreChannelPreset {};
-		class givePrimary {};
-		class tfarsetSr {};
-		class initPlayerAir {};
-		class initPlayerVic {};
-		class initPlayerSupp {};
-		class jipChooseTarget {};
-		class jipEmptySeat {};
 	};
-	class eventhandlers {
+    class player_chat {
+        file = "framework\player\chat";
+        class getPlayer {};
+        class sendChatMessage {};
+    };
+	class player_eventhandlers {
 		file = "framework\player\eh";
 		class explosionEH {};
 		class hitEH {};
@@ -79,65 +82,55 @@ class player {
 		class respawnEH {};
 		class viewDistanceEH {};
 	};
+	class player_jip {
+		file = "framework\player\jip";
+		class jipChooseTarget {};
+		class jipEmptySeat {};
+	};
 };
-class admin {
+class player_admin {
 	tag = "lmf_admin";
-	class functions {
+	class player_admin {
 		file = "framework\player\admin";
-		class endWarmup {};
-		class initPerformance {};
-		class performanceCheck {};
-		class assignZeus {};
-		class respawnWave {};
-		class playerSafety {};
-		class initPlayerSafety {};
-		class endMission {};
 		class adminTP {};
+		class assignZeus {};
+		class endMission {};
+		class endWarmup {};
 		class initAdminTP {};
+		class initPerformance {};
+		class initPlayerSafety {};
+		class performanceCheck {};
+		class playerSafety {};
+		class respawnWave {};
 	};
 };
-class chat {
-    tag = "lmf_chat";
-    class functions {
-        file = "framework\player\chat";
-        class getPlayer {};
-        class sendChatMessage {};
-    };
-};
-class diwako_unknownwp {
-	tag="diwako_unknownwp";
-	class functions {
-		file = "framework\shared\diw_unknownwp";
-		class init {postInit = 1;};
-		class firedEh {};
-		class jammedEh {};
-		class reloadedEh {};
-	};
-};
-class loadouts {
+class player_loadout {
 	tag = "lmf_loadout";
-	class functions {
+	class player_loadout {
 		file = "framework\player\loadouts";
-		class platoonLeader {};
-		class platoonSergeant {};
-		class rto {};
-		class fac {};
-		class squadLeader {};
-		class teamLeader {};
-		class rifleman {};
-		class grenadier {};
+		class acreChannelPreset {};
+		class ammoBearer {};
+		class atAssistant {};
+		class atGunner {};
 		class autorifleman {};
-		class marksman {};
-		class medic {};
+		class crew {};
 		class engineer {};
+		class fac {};
+		class givePrimary {};
+		class grenadier {};
+		class heloCrew {};
+		class heloPilot {};
 		class machineGunner {};
 		class machineGunnerAssistant {};
-		class atGunner {};
-		class atAssistant {};
-		class ammoBearer {};
-		class crew {};
-		class heloPilot {};
-		class heloCrew {};
+		class marksman {};
+		class medic {};
 		class pilot {};
+		class platoonLeader {};
+		class platoonSergeant {};
+		class rifleman {};
+		class rto {};
+		class squadLeader {};
+		class teamLeader {};
+		class tfarsetSr {};
 	};
 };
