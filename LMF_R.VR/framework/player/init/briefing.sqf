@@ -17,6 +17,14 @@ private _collect = {
 	_newline
 };
 
+//FUNCTION TO GET CBA SETTING TEXT RETURNED PROPERLY
+private _getLocalizedString = {
+	params ["_setting"];
+
+	_setting = toUpper (localize (((cba_settings_default getVariable _setting select 3) select 1) select (missionNamespace getVariable _setting)));
+
+	_setting
+};
 
 // ADMIN TOOLS (only added after map screen) //////////////////////////////////////////////////////
 [] spawn {
@@ -68,6 +76,45 @@ player createDiaryrecord ["Diary",["  Credits",format ["
 <font color='#D7DBD5'>%1</font color>
 ",_testers]]];
 };
+
+// CBA MEDICAL ////////////////////////////////////////////////////////////////////////////////////
+private _fatalPlayer = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["ace_medical_statemachine_fatalInjuriesPlayer"] call _getLocalizedString];
+private _fatalAi = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["ace_medical_statemachine_fatalInjuriesAI"] call _getLocalizedString];
+private _unconAi = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["DISABLED","ENABLED"] select ace_medical_statemachine_AIUnconsciousness];
+
+
+private _advBand = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["ace_medical_treatment_advancedBandages"] call _getLocalizedString];
+private _advMedi = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["DISABLED","ENABLED"] select ace_medical_treatment_advancedMedication];
+
+private _bleedCoeff = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",ace_medical_bleedingCoefficient];
+private _sponWake = format ["<font face='PuristaBold' color='#A3E0FF'>%1%2</font><br/>",(ace_medical_spontaneousWakeUpChance*100),"%"];
+private _cprSuccess = format ["<font face='PuristaBold' color='#A3E0FF'>%1%2</font><br/>",(ace_medical_treatment_cprSuccessChance*100),"%"];
+private _cardiTime = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",[ace_medical_statemachine_cardiacArrestTime] call BIS_fnc_secondsToString];
+
+private _whoEpi = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["ace_medical_treatment_medicEpinephrine"] call _getLocalizedString];
+private _whoIv = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["ace_medical_treatment_medicIV"] call _getLocalizedString];
+private _whoPak = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["ace_medical_treatment_medicPAK"] call _getLocalizedString];
+private _conPak = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["DISABLED","ENABLED"] select ace_medical_treatment_consumePAK];
+
+player creatediaryrecord ["Diary",["  Medical",format ["
+<font face='PuristaBold' color='#FFBA26' size='16'>Medical Settings</font><br/><br/>
+<font color='#D7DBD5'>- Fatal Injury Player: </font>%1
+<font color='#D7DBD5'>- Fatal Injury AI: </font>%2
+<font color='#D7DBD5'>- AI Unconsciousness: </font>%3
+<br/>
+<font color='#D7DBD5'>- Advanced Bandages: </font>%4
+<font color='#D7DBD5'>- Advanced Medication: </font>%5
+<br/>
+<font color='#D7DBD5'>- Bleeding Coefficient: </font>%6
+<font color='#D7DBD5'>- Wake Up Chance: </font>%7
+<font color='#D7DBD5'>- CPR Success Chance: </font>%8
+<font color='#D7DBD5'>- Cardiac Arrest Time: </font>%9
+<br/>
+<font color='#D7DBD5'>- Epinephrine: </font>%10
+<font color='#D7DBD5'>- IV Transfusion: </font>%11
+<font color='#D7DBD5'>- PAK: </font>%12
+<font color='#D7DBD5'>- Consume PAK: </font>%13
+",_fatalPlayer,_fatalAi,_unconAi,_advBand,_advMedi,_bleedCoeff,_sponWake,_cprSuccess,_cardiTime,_whoEpi,_whoIv,_whoPak,_conPak]]];
 
 
 // LOADOUT ////////////////////////////////////////////////////////////////////////////////////////
