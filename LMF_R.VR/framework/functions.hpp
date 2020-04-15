@@ -1,6 +1,6 @@
 class common {
+	tag = "lmf_common";
 	class common_init {
-		tag = "lmf_common";
 		file = "framework";
 		class sortAirVics {};
 		class sortGroundVics {};
