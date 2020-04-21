@@ -33,9 +33,8 @@ private _brf_friend = [
 private _brf_remarks = [
 	"These could be remarks about terrain.",
 	"These could be remarks about weather.",
-	"These could be remarks about anything really. "
+	"These could be remarks about anything really."
 ];
-
 
 //MISSION DESCRIPTION
 private _brf_mission = "
