@@ -1,36 +1,47 @@
 // AI VEHICLE QRF /////////////////////////////////////////////////////////////////////////////////
 /*
-    - Originally by nkenny.
-	- Revised by Drgn V4karian.
-	- File to spawn a vehicle that functions as QRF. Some have additional infantry as passengers loaded,
-      others like the tank will move in on players alone.
-	- It is important to note that the player proximity check for spawning will only occur if spawn tickets
-	  are set to a higher number than 1. The same goes for the respawn timer.
-
-	- USAGE:
-		1) Spawn Position.
-		2) Vehicle Type [OPTIONAL] ("CAR", "CARARMED", "TRUCK","APC","TANK", "HELITRANSPORT" or "HELIATTACK") (default: "TRUCK")
-		3) Spawn Tickets [OPTIONAL] (default: 1)
-        4) Respawn Timer [OPTIONAL] (default: 300)
-
-    - EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["vicQRF",position,"TRUCK",1,300]]] call CBA_fnc_ServerEvent;
+	* Author: nkenny, G4rrus, Alex2k
+	* Spawn AI vehicle with crew(s) and make them behave as QRF.
+	* Note: Needs to be called on the Server or a HC.
+	*
+	* Arguments:
+	* 0: Spawn Position <MARKER, OBJECT, LOCATION, GROUP, TASK or POSITION>
+	* 1: Type <STRING> supported types are: "CAR", "CARARMED", "TRUCK", "APC", "TANK", "HELITRANSPORT" and "HELIATTACK"
+	* 2: Tickets <NUMBER> values higher than 1 enable spawn proximity check
+	* 3: Respawn delay after death <NUMBER>
+	*
+	* Example:
+	* [player, "CAR", 1, 300] spawn lmf_ai_fnc_vehicleQRF;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
+if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
 #include "cfg_spawn.sqf"
 
-params [["_spawnPos", [0,0,0]],["_vicType", "TRUCK"],["_tickets", 1],["_respawnTime", 300]];
+params [
+    ["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]],
+    ["_vicType","TRUCK",[""]],
+    ["_tickets",1,[123]],
+    ["_respawnTime",300,[123]]
+];
+
 private _range = 1000;
+
 private _dir = random 360;
-if !(_spawnPos isEqualType []) then {
-    if (_spawnPos isEqualType "") then {
-        _dir = markerDir _spawnPos;
-    } else {
-        _dir = getDir _spawnPos;
-    };
+if ((typeName _spawnPos) isEqualTo "OBJECT") then {
+	_dir = getDir _spawnPos;
 };
+if ((typeName _spawnPos) isEqualTo "STRING") then {
+	_dir = markerDir _spawnPos;
+};
+
 _spawnPos = _spawnPos call CBA_fnc_getPos;
+if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
+
 toUpper _vicType;
 
 
@@ -202,3 +213,6 @@ while {_initTickets > 0} do {
     //SUBTRACT TICKET
     _initTickets = _initTickets - 1;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

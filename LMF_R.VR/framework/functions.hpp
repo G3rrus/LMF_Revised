@@ -21,10 +21,10 @@ class ai {
 		class firedNearEH {};
 		class killedEH {};
 		class suppressEH {};
-		class ungarrisonEH {};
 	};
 	class ai_spawning {
 		file = "framework\ai\spawning";
+		class barricades {};
 		class doSpawn {};
 		class garrison {};
 		class infantryHunter {};
@@ -88,22 +88,6 @@ class player {
 		class jipEmptySeat {};
 	};
 };
-class player_admin {
-	tag = "lmf_admin";
-	class player_admin {
-		file = "framework\player\admin";
-		class adminTP {};
-		class assignZeus {};
-		class endMission {};
-		class endWarmup {};
-		class initAdminTP {};
-		class initPerformance {};
-		class initPlayerSafety {};
-		class performanceCheck {};
-		class playerSafety {};
-		class respawnWave {};
-	};
-};
 class player_loadout {
 	tag = "lmf_loadout";
 	class player_loadout {
@@ -131,6 +115,5 @@ class player_loadout {
 		class rto {};
 		class squadLeader {};
 		class teamLeader {};
-		class tfarsetSr {};
 	};
 };

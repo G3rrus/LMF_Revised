@@ -1,10 +1,23 @@
 // PLAYER GEAR SCRIPT /////////////////////////////////////////////////////////////////////////////
 /*
-	- This file is a player gear loadout file.
+	* Author: G4rrus
+	* Apply Loadout.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+	*
+	* Example:
+	* [cursorObject] call lmf_loadout_fnc_fac;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied, else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params [["_unit",objNull]];
-if !(local _unit) exitWith {};
+params [["_unit",objNull,[objNull]]];
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _unit || {!local _unit}) exitWith {false};
 
 #include "..\..\..\settings\cfg_Player.sqf"
 
@@ -29,17 +42,12 @@ if (_Goggles#0 !=  "") then {
 };
 
 //RADIO SETUP
-if !(var_tfar) then {
-	_unit linkItem "ItemWatch";
-	_unit linkItem "ItemRadioAcreFlagged";
-	_unit addItem _Radio_L;
-	_unit addItem _Radio_B;
-	if (var_personalRadio) then {
-		_unit addItem _Radio_R;
-	};
-} else {
-	_unit linkItem "ItemWatch";
-	_unit linkItem _Radio_L;
+_unit linkItem "ItemWatch";
+_unit linkItem "ItemRadioAcreFlagged";
+_unit addItem _Radio_L;
+_unit addItem _Radio_B;
+if (var_personalRadio) then {
+	_unit addItem _Radio_R;
 };
 
 //LINKED ITEMS
@@ -76,3 +84,7 @@ _unit setUnitTrait ["engineer",false];
 
 //RANK
 _unit setRank "CORPORAL";
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+true

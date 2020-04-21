@@ -1,16 +1,22 @@
 // FIRED NEAR EVENT HANDLER FUNCTION //////////////////////////////////////////////////////////////
 /*
-  - by diwako.
-	- This function called in the firedNear EH applied to all defined AI handles what happens if
-	  the AI is fired upon.
+	* Author: diwako
+	* EH that handles what happens if someone fires near enemy AI.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+	*
+	* Return Value:
+	* none
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params ["_unit", "", "_distance", "", "", "", "", "_gunner"];
+params ["_unit", "", "", "", "", "", "", "_gunner"];
 private _ownSide = side group _unit;
 private _otherSide = side group _gunner;
 if (_unit getVariable ["usedCover", false] || {(behaviour _unit) isEqualTo "COMBAT" || {_ownSide isEqualTo _otherSide || {(_ownSide getFriend _otherSide) >= 0.6}}}) exitWith {};
 
-//GETTING SHOT
+
+// GETTING SHOT ///////////////////////////////////////////////////////////////////////////////////
 _unit setVariable ["usedCover", true, true];
 private _safePos = [_unit, _gunner] call lmf_ai_fnc_findCover;
 
@@ -19,11 +25,6 @@ if (_safePos isEqualTo []) then {
 	if !(isNil "_pos") then {
 		_safePos = [_pos, selectRandom ["MIDDLE", "DOWN"]];
 	}
-};
-
-//IF NO SAFE POSITION
-if (isNil "_safePos" || {_safePos isEqualTo []}) exitWith {
-	//systemChat ("Can't take cover! " + str _safePos);
 };
 
 //IF SAFE SPACE FOUND
@@ -50,3 +51,6 @@ _unit doMove (_safePos select 0);
 	_unit setUnitPos "AUTO";
 	_unit doFollow leader group _unit;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

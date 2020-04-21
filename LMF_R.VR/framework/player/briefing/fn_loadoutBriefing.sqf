@@ -1,8 +1,18 @@
 // LOADOUT BRIEFING SCRIPT ////////////////////////////////////////////////////////////////////////
 /*
-	- Function that reads out the players gear and makes a fancy briefing entry about it.
-	- originally by BlackHawk (adpated to fit LMF style)
-	- https://github.com/unitedoperations/uo_briefingkit
+	* Author: BlackHawk, G4rrus
+	* URL: https://github.com/unitedoperations/uo_briefingkit
+	* Read out the players gear and make a fancy briefing entry about it.
+	* Note: Needs to be local to player.
+	*
+	* Arguments:
+	* 0: <NONE>
+	*
+	* Example:
+	* [] call lmf_player_fnc_loadoutBriefing;
+	*
+	* Return Value:
+	* <BOOL> true on success
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 private _textToDisplay = "";
@@ -159,4 +169,10 @@ _textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3FF
 //FINISH IT OFF WITH WARNING ABOUT ACCURACY
 _textToDisplay = _textToDisplay + "<br/><br/></font><font color='#D7DBD5'>This page is only accurate at mission start.</font>";
 
+
+// CREATE DIARY RECORD ////////////////////////////////////////////////////////////////////////////
 player createDiaryRecord ["Diary",["  Starting Kit",_textToDisplay]];
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+true

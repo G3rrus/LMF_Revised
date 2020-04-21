@@ -1,19 +1,28 @@
-// CIV FIRED NEAR EH //////////////////////////////////////////////////////////////////////////////
+// CIV FIRED NEAR EH FUNCTION /////////////////////////////////////////////////////////////////////
 /*
-	- EH code that handles what happens if someone fires near a civ.
-
-	To make selected unit ignore this feature add the variable "lmf_ai_civ_cannotPanic" with value true to them
-	e.g. this setVariable ["lmf_ai_civ_cannotPanic",true] in init field
+	* Author: diwako
+	* EH that handles what happens if someone fires near a civ with panic behavior enabled.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+	*
+	* Return Value:
+	* none
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params ["_civ"];
 if (_civ getVariable ["ACE_isUnconscious",false]) exitWith {};
+
 //REMOVE EH TO PREVENT SPAMMING
 _civ removeEventHandler ["FiredNear", _civ getVariable ["lmf_ai_civ_fired_near_EH", -1]];
 
 //EXIT IF CIV IS DEAD OR A HARDASS IN THE FACE OF DANGER
 if (!(alive _civ) || {(random 100) < 25 || {_civ getVariable ["lmf_ai_civ_cannotPanic",false] || {_civ getVariable ["ace_captives_isSurrendering",false] || {_civ getVariable ["ace_captives_isHandcuffed",false]}}}}) exitWith {};
+
+
+// PANIC //////////////////////////////////////////////////////////////////////////////////////////
 _civ setVariable ["lmf_ai_civ_paniced", true, true];
+
 [_civ] spawn {
 	params ["_civ"];
 	private _radius = 350;
@@ -52,3 +61,6 @@ _civ setVariable ["lmf_ai_civ_paniced", true, true];
 
 	_civ doMove _housePosition;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

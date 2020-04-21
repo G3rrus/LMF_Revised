@@ -41,31 +41,31 @@ private _getLocalizedString = {
 	<font color='#D7DBD5'>This will only work if you are an admin or whitelisted as one.</font color><br/><br/>
 
 	<font color='#A34747'>END BRIEFING STAGE</font><br/>
-	- <execute expression='[player] remoteExec [""lmf_admin_fnc_endWarmup"",2]'>PRESS HERE TO END BRIEFING STAGE</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""endbriefing"",player]] call CBA_fnc_serverEvent'>PRESS HERE TO END BRIEFING STAGE</execute><br/><br/>
 
 	<font color='#A3FFA3'>RESPAWN</font><br/>
-	- <execute expression='[player] remoteExec [""lmf_admin_fnc_respawnWave"",2]'>PRESS HERE TO CREATE RESPAWN WAVE</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""respawn"",player]] call CBA_fnc_serverEvent'>PRESS HERE TO CREATE RESPAWN WAVE</execute><br/><br/>
 
 	<font color='#A3FFA3'>TELEPORT PLAYERS</font><br/>
-	- <execute expression='[player] remoteExec [""lmf_admin_fnc_initAdminTP"",2]'>PRESS HERE TELEPORT PLAYERS TO YOU</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""teleport"",player]] call CBA_fnc_serverEvent'>PRESS HERE TELEPORT PLAYERS TO YOU</execute><br/><br/>
 
 	<font color='#A3FFA3'>ADD ZEUS</font><br/>
-	- <execute expression='[player] remoteExec [""lmf_admin_fnc_assignZeus"",2]'>PRESS HERE TO ADD ZEUS</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""zeus"",player]] call CBA_fnc_serverEvent'>PRESS HERE TO ADD ZEUS</execute><br/><br/>
 
 	<font color='#A3FFA3'>CHECK SERVER/HEADLESS CLIENT PERFORMANCE</font><br/>
-	- <execute expression='[player] remoteExec [""lmf_admin_fnc_initPerformance"",2]'>PRESS HERE TO CHECK PERFORMANCE</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""performance"",player]] call CBA_fnc_serverEvent'>PRESS HERE TO CHECK PERFORMANCE</execute><br/><br/>
 
 	<font color='#A3E0FF'>ENTER SAFEMODE</font><br/>
-	- <execute expression='[player,true] remoteExec [""lmf_admin_fnc_initPlayerSafety"",2]'>PRESS HERE TO ENTER SAFEMODE</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""safe"",player,true]] call CBA_fnc_serverEvent'>PRESS HERE TO ENTER SAFEMODE</execute><br/><br/>
 
 	<font color='#A34747'>EXIT SAFEMODE</font><br/>
-	- <execute expression='[player,false] remoteExec [""lmf_admin_fnc_initPlayerSafety"",2]'>PRESS HERE TO EXIT SAFEMODE</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""safe"",player,false]] call CBA_fnc_serverEvent'>PRESS HERE TO EXIT SAFEMODE</execute><br/><br/>
 
 	<font color='#A3E0FF'>END MISSION COMPLETED</font><br/>
-	- <execute expression='[player,true] remoteExec [""lmf_admin_fnc_endMission"",2]'>PRESS HERE TO END MISSION</execute><br/><br/>
+	- <execute expression='[""lmf_adminEventServer"",[""endmission"",player,true]] call CBA_fnc_serverEvent'>PRESS HERE TO END MISSION</execute><br/><br/>
 
 	<font color='#A34747'>END MISSION FAILED</font><br/>
-	- <execute expression='[player,false] remoteExec [""lmf_admin_fnc_endMission"",2]'>PRESS HERE TO END MISSION</execute>
+	- <execute expression='[""lmf_adminEventServer"",[""endmission"",player,false]] call CBA_fnc_serverEvent'>PRESS HERE TO END MISSION</execute>
 	"]]];
 };
 
@@ -126,37 +126,20 @@ lmf_toeBriefing = player creatediaryrecord ["Diary",["  TO/E",[] call lmf_player
 
 
 // SIGNALS ////////////////////////////////////////////////////////////////////////////////////////
-if !(var_tfar) then {
-	player createDiaryrecord ["Diary",["  Signals",format ["
-	<font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
-	<font color='#db4343'>Channel 01:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
-	<font color='#A3FFA3'>Channel 06:		</font> <font color='#D7DBD5'>AIR</font color><br/>
-	<br/>
+player createDiaryrecord ["Diary",["  Signals",format ["
+<font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
+<font color='#db4343'>FRQ.31:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
+<font color='#A3FFA3'>FRQ.32:		</font> <font color='#D7DBD5'>AIR</font color><br/>
+<br/>
 
-	<font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
-	<font color='#A3E0FF'>Channel 06:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
-	<font color='#A3E0FF'>Channel 01:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
-	<font color='#A3E0FF'>Channel 02:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
-	<font color='#A3E0FF'>Channel 03:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
-	<font color='#A3E0FF'>Channel 04:		</font color> <font color='#D7DBD5'>4th Squad</font color><br/>
-	<font color='#A3E0FF'>Channel 05:		</font color> <font color='#D7DBD5'>5th Squad</font color><br/>
-	"]]];
-} else {
-	player createDiaryrecord ["Diary",["  Signals",format ["
-	<font face='PuristaBold' color='#FFBA26' size='16'>LONG RANGE NETS</font><br/>
-	<font color='#db4343'>FRQ.31:		</font> <font color='#D7DBD5'>1PLT</font color><br/>
-	<font color='#A3FFA3'>FRQ.32:		</font> <font color='#D7DBD5'>AIR</font color><br/>
-	<br/>
-
-	<font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
-	<font color='#A3E0FF'>FRQ.106:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
-	<font color='#A3E0FF'>FRQ.101:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
-	<font color='#A3E0FF'>FRQ.102:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
-	<font color='#A3E0FF'>FRQ.103:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
-	<font color='#A3E0FF'>FRQ.104:		</font color> <font color='#D7DBD5'>4th Squad</font color><br/>
-	<font color='#A3E0FF'>FRQ.105:		</font color> <font color='#D7DBD5'>5th Squad</font color><br/>
-	"]]];
-};
+<font face='PuristaBold' color='#FFBA26' size='16'>1ST PLATOON NET</font><br/>
+<font color='#A3E0FF'>FRQ.106:		</font color> <font color='#D7DBD5'>Platoon HQ</font color><br/>
+<font color='#A3E0FF'>FRQ.101:		</font color> <font color='#D7DBD5'>1st Squad</font color><br/>
+<font color='#A3E0FF'>FRQ.102:		</font color> <font color='#D7DBD5'>2nd Squad</font color><br/>
+<font color='#A3E0FF'>FRQ.103:		</font color> <font color='#D7DBD5'>3rd Squad</font color><br/>
+<font color='#A3E0FF'>FRQ.104:		</font color> <font color='#D7DBD5'>4th Squad</font color><br/>
+<font color='#A3E0FF'>FRQ.105:		</font color> <font color='#D7DBD5'>5th Squad</font color><br/>
+"]]];
 
 
 // BRIEFING ///////////////////////////////////////////////////////////////////////////////////////

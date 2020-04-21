@@ -1,12 +1,26 @@
 // AI TASK HUNT ///////////////////////////////////////////////////////////////////////////////////
 /*
-  - Originally by nkenny (first mangled with by Alex2k).
-	- Revised by Diwako and fine-tuned by Drgn V4karian.
-	- The function is ment to make AI aggressively hunt down players. They know the players
-	  position magically
+	* Author: nkenny, diwako, Alex2k, G4rrus
+	* Makes AI hunt down players once in given radius.
+	* Note: Needs to be local to the group.
+    * Player position is known 'magically'.
+	*
+	* Arguments:
+	* 0: Group <GROUP>
+    * 1: Radius <NUMBER>
+	*
+	* Example:
+	* [group cursorObject, 500] spawn lmf_ai_fnc_taskHunt;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params [["_grp",grpNull,[grpNull]],["_radius",500,[0]]];
+params [["_grp",grpNull,[grpNull]],["_radius",500,[123]]];
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _grp || {!local _grp}) exitWith {};
+
 private _cycle = 30;
 _grp setBehaviour "SAFE";
 private _assaultRange = 50 + (random 250);
@@ -15,7 +29,8 @@ _grp enableGunLights "ForceOff";
 _grp allowFleeing 0;
 _grp enableAttack false;
 
-//DO THE HUNTING
+
+// DO THE HUNTING /////////////////////////////////////////////////////////////////////////////////
 while {count units _grp > 0} do {
 	private _tracker = leader _grp;
 	private _nearestdist = _radius;
@@ -63,3 +78,6 @@ while {count units _grp > 0} do {
 	_cycle = _cycle max 30;
 	sleep _cycle;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

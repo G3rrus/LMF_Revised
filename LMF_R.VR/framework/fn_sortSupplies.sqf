@@ -1,18 +1,31 @@
 // SORTING FUNCTION FOR SUPPLIES //////////////////////////////////////////////////////////////////
 /*
-	- File that handles what happens to created ammo boxes.
+	* Author: G4rrus
+	* Sort between potential Player supply crates and execute their function.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Crate <OBJECT>
+	*
+	* Example:
+	* [cursorObject] call lmf_common_fnc_sortSupplies;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied, else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-private _supp = _this select 0;
+params [["_supp",objNull,[objNull]]];
 
-//EXIT IF NOT LOCAL OR PLAYER HASN'T DEFINED CUSTOM GEAR
-if !(local _supp) exitWith {};
-if !(var_playerGear) exitWith {};
+//EXIT IF NOT LOCAL OR NULL OR PLAYER HASN'T DEFINED CUSTOM GEAR
+if (isNull _supp || {!local _supp || {!var_playerGear}}) exitWith {false};
 
-//WHICH SUPPLIES ARE AFFECTED?
+
+// SORT ///////////////////////////////////////////////////////////////////////////////////////////
 private _type = typeof _supp;
 private _allSupplies = [var_supSmall,var_supLarge,var_supSpecial,var_supExplosives];
-if (_allSupplies findIf {_type == _x} == -1) exitWith {};
+if (_allSupplies findIf {_type == _x} == -1) exitWith {false};
 
-//CALL THE FUNCTION
 [_supp] call lmf_player_fnc_initPlayerSupp;
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

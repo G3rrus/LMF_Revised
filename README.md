@@ -8,7 +8,7 @@ In order to use this Framework, you need to run these mods alongside it:
 * CBA_A3
 * ACE3
 * ACEX
-* ACRE2 or TFAR
+* ACRE2
 
 ## Installation:
 Copy over the contents of the "LMF_R.VR" folder into your mpmission folder.\

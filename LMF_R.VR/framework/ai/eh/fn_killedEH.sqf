@@ -1,11 +1,22 @@
 // KILLED EVENT HANDLER FUNCTION //////////////////////////////////////////////////////////////////
 /*
-	- This function called in the killed EH applied to all defined AI handles what happens on the
-	  AIs death.
+	* Author: G4rrus
+	* EH that handles what happens if enemy AI is killed.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+	*
+	* Return Value:
+	* none
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params ["_unit"];
-if !(local _unit) exitWith {};
+
+
+// REMOVE SOME ITEMS //////////////////////////////////////////////////////////////////////////////
 removeAllPrimaryWeaponItems _unit;
 _unit unlinkItem "NVGoggles_OPFOR";
 _unit removeWeapon "Binocular";
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

@@ -1,11 +1,16 @@
 
 // PLAYER KILLED EH ///////////////////////////////////////////////////////////////////////////////
 /*
-	- This function spawned by the player killed EH handles what happens on a players death.
+	* Author: Alex2k, G4rrus
+	* EH that handles what happens if the player gets killed.
+	*
+	* Arguments:
+	* 0: <NONE>
+	*
+	* Return Value:
+	* none
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params ["_unit"];
-
 //CALCULATE RESPAWNTIME
 if (typename var_respawnType == "STRING") then {
 
@@ -29,7 +34,8 @@ if (playerRespawnTime < 10 || {var_useJRM}) then {
 
 sleep 3;
 
-//BLACK OUT ///////////////////////////////////////////////////////////////////////////////////////
+
+// BLACK OUT //////////////////////////////////////////////////////////////////////////////////////
 cutText ["","BLACK OUT",4,true];
 
 //SLEEP FOR A WHILE
@@ -38,10 +44,9 @@ sleep 6;
 //ACE SPECTATOR INTERFACE
 if !(var_useJRM) then {
 	[true] call ace_spectator_fnc_setSpectator;
-	if (var_tfar) then {[_unit, true] call TFAR_fnc_forceSpectator;};
 };
 
-// SPECTATOR SETTINGS /////////////////////////////////////////////////////////////////////////////
+//SPECTATOR SETTINGS
 0 enableChannel false;
 1 enableChannel false;
 2 enableChannel false;
@@ -51,3 +56,6 @@ if !(var_useJRM) then {
 
 //FADE IN
 cutText ["","BLACK IN",4,true];
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

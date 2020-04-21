@@ -41,9 +41,9 @@ private _Crew_Headgear = ["H_HelmetCrew_B"]; // Crew Headgear(s)
 
 //BACKPACKS
 private _Backpack_Leader = ["B_TacticalPack_mcamo"]; // PltLead, PltSgt, Squad Leader Backpack(s)
-private _Backpack_RTO = ["B_Carryall_mcamo"]; // RTO and FAC Backpack(s) (Radio Backpack if TFAR is used, otherwise Backpack for _Radio_B)
+private _Backpack_RTO = ["B_Carryall_mcamo"]; // RTO and FAC Backpack(s)
 private _Backpack_Medic = ["B_Kitbag_mcamo"]; // Medic Backpack(s)
-private _Backpack_Engineer = [""]; // Engineers Backpack(s)
+private _Backpack_Engineer = ["B_Kitbag_mcamo"]; // Engineers Backpack(s)
 private _Backpack_MAT = ["B_Carryall_mcamo"]; // MAT, MAT Assistant Backpack(s)
 private _Backpack_AR_MMG = ["B_Carryall_mcamo"]; // AR/MMG, AR/MMG assistant Backpack(s)
 private _Backpack_Bearer = ["B_Carryall_mcamo"]; // Ammo Bearer Backpack(s)

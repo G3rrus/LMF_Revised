@@ -1,26 +1,39 @@
 // AI INFANTRY GARRISON  //////////////////////////////////////////////////////////////////////////
 /*
-	- Originally by nkenny.
-	- Revised by Drgn V4karian.
-	- File to spawn a group of infantry that garrisons. The group will ungarrison/regarrison
-	  depending on their combat status and their distance to the closest enemy.
-
-	- USAGE:
-		1) Spawn Position.
-		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam", "mgTeam" or number of soldiers.) (default: "TEAM")
-		3) Garrison Radius. [OPTIONAL] (number) (default: 100)
-		4) Distribution [OPTIONAL] (0 = fill evenly, 1 = building by building) (default: 1)
-		5) Use CBA Building Pos only [Optional] (false = no, true = yes) (default: false)
-
-	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["garrison",position,"TEAM",100,1,false]]] call CBA_fnc_ServerEvent;
+	* Author: G4rrus, nkenny
+	* Spawn AI and garrison them.
+	* Note: Needs to be called on the Server or a HC.
+	*
+	* Arguments:
+	* 0: Spawn Position <MARKER, OBJECT, LOCATION, GROUP, TASK or POSITION>
+	* 1: Type <STRING or NUMBER> supported types are: "SENTRY", "TEAM", "SQUAD", "ATTEAM", "MGTEAM" and "AATEAM"
+	* 2: Radius <NUMBER>
+	* 3: Distribution <NUMBER> possible numbers are: 0 = even filling, 1 = building by building or 2 = random
+	* 4: Use only CBA position <BOOL>
+	*
+	* Example:
+	* [player, "TEAM", 100, 0, false] spawn lmf_ai_fnc_garrison;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
+if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
 #include "cfg_spawn.sqf"
 
-params [["_spawnPos", [0,0,0]],["_grpType", "TEAM"],["_garrisonRadius", 100],["_distribution", 1],["_customPos", false]];
+params [
+	["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]],
+	["_grpType","TEAM",["",123]],
+	["_garrisonRadius",100,[123]],
+	["_distribution",1,[123]],
+	["_customPos",false,[true]]
+];
+
 _spawnPos = _spawnPos call CBA_fnc_getPos;
+if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
+
 private _usePos = [];
 if (_customPos) then {
 	_usePos = ["CBA_BuildingPos"];
@@ -33,17 +46,8 @@ private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
 _grp setFormation "DIAMOND";
 
-
-// GARRISON THEM //////////////////////////////////////////////////////////////////////////////////
-//APPLY GARRISON
+//GARRISON THEM
 [_spawnPos, _usePos, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], true] call ace_ai_fnc_garrison;
 
-//UNGARRISON SINGLE UNIT BASED ON NEARBY ENEMY FIRE, ITS OWN FIRE, OR NEARBY FRIENDLY FIRE
-{
-	_x addEventHandler ["FiredNear", {
-		_this call lmf_ai_fnc_ungarrisonEH;
 
-		//REMOVE EH AFTER IT FIRED
-		(_this select 0) removeEventHandler ["FiredNear", _thisEventHandler];
-	}];
-} forEach (units _grp);
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

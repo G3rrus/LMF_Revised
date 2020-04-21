@@ -1,16 +1,31 @@
 // AI TASK ASSAULT FUNCTION ///////////////////////////////////////////////////////////////////////
 /*
-	- Originally by nkenny with some changes by Alex2k. Revised by Drgn V4karian with some help
-	  from Diwako.
-	- This function assigns the AI with a task to assault targets rather aggressively if in range.
+	* Author: nkenny, Alex2k, G4rrus, diwako
+	* Makes AI assault targets rather aggressively if in range.
+	* Note: Needs to be local to the group.
+    *
+	* Arguments:
+	* 0: Group <GROUP>
+    * 1: Range <NUMBER>
+	*
+	* Example:
+	* [group cursorObject, 500] spawn lmf_ai_fnc_taskAssault;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params [["_grp",grpNull,[grpNull]],["_range",500,[0]]];
+params [["_grp",grpNull,[grpNull]],["_range",500,[123]]];
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _grp || {!local _grp}) exitWith {};
+
 private _cycle = 30;
 _grp enableIRLasers false;
 _grp enableGunLights "ForceOff";
 
-// START THE HUNT SCRIPT //////////////////////////////////////////////////////////////////////////
+
+// START THE ASSAULT SCRIPT ///////////////////////////////////////////////////////////////////////
 while {count units _grp > 0} do {
 	private _tracker = leader _grp;
 	private _nearestdist = _range;
@@ -26,8 +41,7 @@ while {count units _grp > 0} do {
 		};
 	} forEach _availabletargets;
 
-
-	// ORDERS ///////////////////////////////////////////////////////////////////////////////////////
+	//ORDERS
 	if !(isNull _nearest) then {
 
 		//DISMOUNT VEHICLES
@@ -96,3 +110,6 @@ while {count units _grp > 0} do {
   	if (_cycle > 180) then {_cycle = 180};
   	sleep _cycle;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

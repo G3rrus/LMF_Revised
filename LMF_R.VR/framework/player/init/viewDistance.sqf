@@ -1,6 +1,6 @@
 // VIEW DISTANCE CBA SETTINGS /////////////////////////////////////////////////////////////////////
 /*
-	- This file is included in the XEH_preInit.sqf. It adds CBA settings that handle view distance behaviour.
+	- This file is included in the XEH_preInit.sqf. It adds CBA settings that handle view distance behavior.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 if (var_viewEnabled) then {

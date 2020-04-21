@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=103;
+		nextID=111;
 	};
 	class Camera
 	{
@@ -8423,8 +8423,8 @@ class Mission
 					class Attributes
 					{
 						name="LAMBS_Hospital";
-						condition="ace_player in thisList";
-						onActivation="ace_player setDamage 0;" \n "[ace_player] call ace_medical_treatment_fnc_fullHealLocal;";
+						condition="player in thisList";
+						onActivation="player setDamage 0;" \n "[player] call ace_medical_treatment_fnc_fullHealLocal;";
 						sizeA=5;
 						sizeB=4;
 						sizeC=3;
@@ -8629,7 +8629,7 @@ class Mission
 						position[]={1373.739,5,2403.1011};
 					};
 					name="g_0";
-					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""garrison"",this,""TEAM"",100,1,false]]] call CBA_fnc_ServerEvent; " \n "    [""lmf_spawnAI"",[[""patrol"",this,""TEAM"",200,false]]] call CBA_fnc_ServerEvent; " \n "};";
+					init="null = [""garrison"",this,12,100,0] spawn lmf_ai_fnc_doSpawn;" \n "null = [""patrol"",this,""SQUAD"",200] spawn lmf_ai_fnc_doSpawn;";
 					id=409;
 					type="Logic";
 				};
@@ -8641,7 +8641,7 @@ class Mission
 						position[]={1344.7371,5,2404.189};
 						angles[]={0,3.4774811,0};
 					};
-					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""vicQRF"",this,""CARARMED"",1,300]]] call CBA_fnc_ServerEvent; " \n "};";
+					init="null = [""vicqrf"",this,""CAR"",1,300] spawn lmf_ai_fnc_doSpawn;";
 					id=410;
 					type="Logic";
 				};
@@ -8653,7 +8653,7 @@ class Mission
 						position[]={1346,5,2492};
 						angles[]={0,3.204983,0};
 					};
-					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""para"",this]]] call CBA_fnc_ServerEvent; " \n "};";
+					init="null = [""para"",this] spawn lmf_ai_fnc_doSpawn;";
 					id=411;
 					type="Logic";
 				};
@@ -8665,7 +8665,7 @@ class Mission
 						position[]={1363.5959,5,2376.0911};
 					};
 					name="g_1";
-					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""hunter"",this,""TEAM"",500,1]]] call CBA_fnc_ServerEvent; " \n "};";
+					init="null = [""hunter"",this,""TEAM"",500,1] spawn lmf_ai_fnc_doSpawn;";
 					id=412;
 					type="Logic";
 				};
@@ -8677,7 +8677,7 @@ class Mission
 						position[]={1386,5,2375.5};
 					};
 					name="g_2";
-					init="if (isServer) then { " \n "    [""lmf_spawnAI"",[[""QRF"",this,""TEAM"",1]]] call CBA_fnc_ServerEvent; " \n "};";
+					init="null = [""qrf"",this,""MGTEAM"",1] spawn lmf_ai_fnc_doSpawn;";
 					id=413;
 					type="Logic";
 				};
@@ -8699,7 +8699,7 @@ class Mission
 					class Attributes
 					{
 						condition="!lmf_warmup";
-						onActivation="[""lmf_spawnAI"",[[""garrison"",g_0,""TEAM"",100,1,false]]] call CBA_fnc_ServerEvent; " \n "[""lmf_spawnAI"",[[""patrol"",g_0,""TEAM"",200,false]]] call CBA_fnc_ServerEvent;" \n "[""lmf_spawnAI"",[[""QRF"",g_2,""TEAM"",1]]] call CBA_fnc_ServerEvent;" \n "[""lmf_spawnAI"",[[""hunter"",g_1,""TEAM"",500,1]]] call CBA_fnc_ServerEvent;";
+						onActivation="null = [""staticqrf"",g_0,1] spawn lmf_ai_fnc_doSpawn;" \n "null = [""qrf"",g_1,""SQUAD""] spawn lmf_ai_fnc_doSpawn;" \n "null = [""patrol"",g_2,3,200,false] spawn lmf_ai_fnc_doSpawn;";
 						sizeA=0;
 						sizeB=0;
 						isServerOnly=1;

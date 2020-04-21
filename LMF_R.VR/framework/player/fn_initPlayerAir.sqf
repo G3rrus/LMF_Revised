@@ -1,10 +1,23 @@
 // APPLY SETTINGS TO DEFINED AIR VICS /////////////////////////////////////////////////////////////
 /*
-	- This file handles what happens on creation of player defined air vehicles.
+	* Author: G4rrus
+	* Apply vehicle specific code to player air vehicles.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Vehicle <OBJECT>
+	*
+	* Example:
+	* [cursorObject] call lmf_player_fnc_initPlayerAir;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params [["_air",objNull,[objNull]]];
-if (isNull _air) exitWith {};
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _air || {!local _air}) exitWith {false};
 
 #include "..\..\settings\cfg_Player.sqf"
 
@@ -23,3 +36,7 @@ if ((_Grenade_Smoke#0) != "") then {_air addMagazineCargoGlobal [(selectRandom _
 _air addItemCargoGlobal ["Toolkit",1];
 
 if ((_Backpack_Light#0) != "") then {_air addBackpackCargoGlobal [(selectRandom _Backpack_Light),1];};
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+true

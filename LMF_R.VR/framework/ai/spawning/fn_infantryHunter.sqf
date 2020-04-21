@@ -1,27 +1,37 @@
 // AI INFANTRY HUNTER /////////////////////////////////////////////////////////////////////////////
 /*
-	- Originally by nkenny.
-	- Revised by Drgn V4karian.
-	- File to spawn a group of infantry that functions as hunter AI. Once in range of _radius they
-	  will start to move in on the closest target aggressively.
-	- It is important to note that the player proximity check for spawning will only occur if spawn tickets
-	  are set to a higher number than 1.
-
-	- USAGE:
-		1) Spawn Position.
-		2) Group Type [OPTIONAL] ("squad", "team", "sentry","atTeam","aaTeam", "mgTeam" or number of soldiers.) (default: "TEAM")
-		3) Hunting Radius [OPTIONAL] (default: 500)
-		4) Spawn Tickets [OPTIONAL] (default: 1)
-
-	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["hunter",position,"TEAM",500,1]]] call CBA_fnc_ServerEvent;
+	* Author: nkenny, Alex2k, G4rrus
+	* Spawn AI and once player in radius hunt them.
+	* Note: Needs to be called on the Server or a HC.
+	*
+	* Arguments:
+	* 0: Spawn Position <MARKER, OBJECT, LOCATION, GROUP, TASK or POSITION>
+	* 1: Type <STRING or NUMBER> supported types are: "SENTRY", "TEAM", "SQUAD", "ATTEAM", "MGTEAM" and "AATEAM"
+	* 2: Radius <NUMBER>
+	* 3: Spawn Tickets <NUMBER> values higher than 1 enable spawn proximity check
+	*
+	* Example:
+	* [player, "TEAM", 500, 1] spawn lmf_ai_fnc_infantryHunter;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
+if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
 #include "cfg_spawn.sqf"
 
-params [["_spawnPos", [0,0,0]],["_grpType", "TEAM"],["_radius", 500],["_tickets", 1]];
+params [
+	["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]],
+	["_grpType","TEAM",["",123]],
+	["_radius",500,[123]],
+	["_tickets",1,[123]]
+];
+
 _spawnPos = _spawnPos call CBA_fnc_getPos;
+if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
+
 private _range = 500;
 
 
@@ -56,3 +66,6 @@ while {_initTickets > 0} do {
 	//SUBTRACT TICKET
 	_initTickets = _initTickets - 1;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

@@ -1,13 +1,25 @@
 // PLAYER VIEW DISTANCE EH ///////////////////////////////////////////////////////////////////////////
 /*
-	- This function handles view distance depending on if the player is on foot or in an air vehicle.
+	* Author: G4rrus, diwako
+	* EH that sets the viewDistance of the player depending on if he is an air vehicle or not.
+	*
+	* Arguments:
+	* 0: <NONE>
+	*
+	* Return Value:
+	* none
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-private _veh = vehicle ACE_player;
+private _veh = vehicle player;
+
+
+// SET IT /////////////////////////////////////////////////////////////////////////////////////////
 if !(_veh isKindOf "Air") exitWith {
 	setViewDistance var_onFootMax;
 	setObjectViewDistance var_onFootMaxObj;
 };
-
 setViewDistance lmf_overwrite_viewDistanceCap;
 setObjectViewDistance lmf_overwrite_objectViewDistanceCap;
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

@@ -1,7 +1,17 @@
 // TO/E BRIEFING SCRIPT ///////////////////////////////////////////////////////////////////////////
 /*
-	- Function that figures out player team composition and returns it in formated text.
-	- originally by nkenny (adapted by G4rrus)
+	* Author: nkenny, G4rrus
+	* Figure out player team composition and return it in formated text.
+	* Note: Needs to be local to player.
+	*
+	* Arguments:
+	* 0: <NONE>
+	*
+	* Example:
+	* [] call lmf_player_fnc_toeBriefing;
+	*
+	* Return Value:
+	* <STRING> formated text team composition
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 private _grp2 = grpNull;
@@ -29,6 +39,8 @@ private _brf_platoon = "";
 	_grp2 = _grp;
 } foreach (playableUnits + switchableUnits);
 
+
+// FORMAT TEXT ////////////////////////////////////////////////////////////////////////////////////
 private _text = format ["
 <font face='PuristaBold' color='#FFBA26' size='16'>OVERVIEW</font><br/>
 <font color='#D7DBD5'>
@@ -38,4 +50,6 @@ private _text = format ["
 %2<br/>
 ",count (switchableUnits + playableUnits - entities 'HeadlessClient_F'),_brf_platoon];
 
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
 _text

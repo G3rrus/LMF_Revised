@@ -1,15 +1,20 @@
 // PLAYER HIT EFFECT EH ///////////////////////////////////////////////////////////////////////////
 /*
-	- This function applies a ppEffect if the player is hit.
-	- Effect by Drgn V4karian and Alex2k.
+	* Author: Alex2k, G4rrus
+	* EH that handles what happens if the player gets hit.
+	*
+	* Arguments:
+	* 0: <NONE>
+	*
+	* Return Value:
+	* none
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params ["_unit"];
+//EXIT IF NOT ALIVE OR IN VEHICLE
+if (vehicle player != player || {!alive player}) exitWith {};
 
-//EXIT IF NOT ALIVE
-if (vehicle _unit != _unit || {!alive _unit}) exitWith {};
 
-//APPLY EFFECT
+// APPLY EFFECT ///////////////////////////////////////////////////////////////////////////////////
 private _blur = ppEffectCreate ["dynamicBlur", 401];
 _blur ppEffectEnable true;
 _blur ppEffectAdjust [7];
@@ -35,3 +40,6 @@ if (50 > random 100) then {
 	_blink ppEffectAdjust [1,1,0,[0,0,0,0],[1,1,1,1],[0.33,0.33,0.33,0],[0,0,0,0,0,0,4]];
 	_blink ppEffectCommit 0;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

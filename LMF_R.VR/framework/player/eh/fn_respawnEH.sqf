@@ -1,10 +1,15 @@
 // PLAYER RESPAWN EH //////////////////////////////////////////////////////////////////////////////
 /*
-	- This function spawned by the player respawn EH handles what happens on a players respawn.
+	* Author: Alex2k, G4rrus
+	* EH that handles what happens if the player gets respawned.
+	*
+	* Arguments:
+	* 0: <NONE>
+	*
+	* Return Value:
+	* none
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params ["_unit"];
-
 private _doOnRespawn = {
 	//BLACK FADE
 	cutText  ["", "BLACK FADED", 10, true];
@@ -34,15 +39,19 @@ private _doOnRespawn = {
 		sleep 5;
 		setCurrentChannel 3;
 		[{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;
-		if !(var_tfar) then {[] spawn lmf_loadout_fnc_acreChannelPreset;};
+		[] spawn lmf_loadout_fnc_acreChannelPreset;
 		cutText  ["", "BLACK IN", 5, true];
 	};
 };
 
+
+// APPLY //////////////////////////////////////////////////////////////////////////////////////////
 if !(var_useJRM) then {
 	[] spawn _doOnRespawn;
 } else {
 	sleep 2;
 	[{!ace_spectator_isSet},_doOnRespawn, []] call CBA_fnc_waitUntilAndExecute;
-	if (var_tfar) then {[_unit, false] call TFAR_fnc_forceSpectator;};
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

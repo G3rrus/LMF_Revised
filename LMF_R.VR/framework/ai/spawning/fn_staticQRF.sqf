@@ -1,24 +1,33 @@
 // AI STATIC QRF ////////////////////////////////////////////////////////////////////////////////
 /*
-	- By G4rrus
-	- File to spawn a group of infantry that functions as QRF. Will deploy weapon if in
-	  combat mode.
-	- It is important to note that the player proximity check for spawning will only occur if spawn tickets
-	  are set to a higher number than 1.
-
-	- USAGE:
-		1) Spawn Position.
-		2) Spawn Tickets [OPTIONAL] (default: 1)
-
-	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["statQRF",position,1]]] call CBA_fnc_ServerEvent;
+	* Author: G4rrus, Alex2k
+	* Spawn AI sentry with static weapon backpacks, make them deploy on contact.
+	* Note: Needs to be called on the Server or a HC.
+	*
+	* Arguments:
+	* 0: Spawn Position <MARKER, OBJECT, LOCATION, GROUP, TASK or POSITION>
+	* 1: Spawn Tickets <NUMBER> values higher than 1 enable spawn proximity check
+	*
+	* Example:
+	* [player, 1] spawn lmf_ai_fnc_staticQRF;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
+if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
 #include "cfg_spawn.sqf"
 
-params [["_spawnPos", [0,0,0]],["_tickets", 1]];
+params [
+	["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]],
+	["_tickets",1,[123]]
+];
+
 _spawnPos = _spawnPos call CBA_fnc_getPos;
+if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
+
 private _range = 500;
 
 
@@ -84,3 +93,6 @@ while {_initTickets > 0} do {
 	//SUBTRACT TICKET
 	_initTickets = _initTickets - 1;
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

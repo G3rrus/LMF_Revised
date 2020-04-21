@@ -30,12 +30,13 @@ enableSaving [false,false];
 }, false, [], true] call CBA_fnc_addClassEventHandler;
 
 //RADIO CHANNEL LABLES
-if !(var_tfar) then {
-	[] execVM "framework\shared\init\acreChannelLabels.sqf";
-};
+[] execVM "framework\shared\init\acreChannelLabels.sqf";
 
 //DISABLE RHS ENGINE STARTUP
 RHS_ENGINE_STARTUP_OFF = false;
+
+//ADMIN ACTIONS
+[] execVM "framework\shared\init\adminActionsClient.sqf";
 
 
 
@@ -56,9 +57,6 @@ if (isServer) then {
 	//CREATE VARIOUS MARKERS
 	[] execVM "framework\server\init\markers.sqf";
 
-    //VARIABLE FOR INITPLAYERSAFETY
-	lmf_isSafe = false;
-
 	//CREATE A RADIO CHANNEL FOR CHAT COMMANDS
 	if (isNil "fpa_main") then {
 		lmf_chatChannel = radioChannelCreate [[0.9,0.1,0.1,1], "Chat", "Chat", [], true];
@@ -73,6 +71,31 @@ if (isServer) then {
 	addMissionEventHandler ["PlayerDisconnected",{
 		[{["lmf_updateToe",[]] call CBA_fnc_globalEvent;}, [], 5] call CBA_fnc_waitAndExecute;
 	}];
+
+	//ADMIN ACTIONS
+	[] execVM "framework\server\init\adminActionsServer.sqf";
+};
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// HEADLESS ///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+if (!isServer || !hasInterface) then {
+	["lmf_hcSpawn",{
+		params ["_type","_argsArray"];
+
+		switch (_type) do {
+			case "barricades": {_argsArray spawn lmf_ai_fnc_barricades;};
+			case "garrison": {_argsArray spawn lmf_ai_fnc_garrison;};
+			case "hunter": {_argsArray spawn lmf_ai_fnc_infantryHunter;};
+			case "qrf": {_argsArray spawn lmf_ai_fnc_infantryQRF;};
+			case "para": {_argsArray spawn lmf_ai_fnc_paraQRF;};
+			case "patrol": {_argsArray spawn lmf_ai_fnc_patrol;};
+			case "staticqrf": {_argsArray spawn lmf_ai_fnc_staticQRF;};
+			case "vicqrf": {_argsArray spawn lmf_ai_fnc_vehicleQRF;};
+		};
+	}] call CBA_fnc_addEventHandler;
 };
 
 
@@ -186,13 +209,7 @@ if (var_playerGear) then {
 [] execVM "framework\player\init\briefing.sqf";
 
 //RADIO CHANNEL PRESET
-if !(var_tfar) then {
-	[] spawn lmf_loadout_fnc_acreChannelPreset;
-} else {
-	["Set_SwFrq","OnRadiosReceived",{
-		_this call lmf_loadout_fnc_tfarSetSr;
-	},objNull] call TFAR_fnc_addEventHandler;
-};
+[] spawn lmf_loadout_fnc_acreChannelPreset;
 
 //PLAYER CAMOCOEF
 [{player setUnitTrait ["camouflageCoef",var_camoCoef];}, [], 5] call CBA_fnc_waitAndExecute;

@@ -1,10 +1,23 @@
 // APPLY SETTINGS TO DEFINED GROUND VICS //////////////////////////////////////////////////////////
 /*
-	- This file handles what happens on creation of player defined ground vehicles.
+	* Author: G4rrus
+	* Apply vehicle specific code to player ground vehicles.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Vehicle <OBJECT>
+	*
+	* Example:
+	* [cursorObject] call lmf_player_fnc_initPlayerVic;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params [["_vic",objNull,[objNull]]];
-if (isNull _vic) exitWith {};
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _vic || {!local _vic}) exitWith {false};
 
 #include "..\..\settings\cfg_Player.sqf"
 
@@ -31,3 +44,7 @@ if ((_LAT#0) != "") then {_vic addWeaponCargoGlobal [(selectRandom _LAT),2];};
 _vic addItemCargoGlobal ["Toolkit",1];
 
 if ((_Backpack_Light#0) != "") then {_vic addBackpackCargoGlobal [(selectRandom _Backpack_Light),1];};
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+true

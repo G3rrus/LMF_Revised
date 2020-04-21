@@ -7,7 +7,7 @@
 //VARIOUS
 var_author = "Author"; // Your name, which shows up at the end of the warmup.
 var_location = "Virtual Reality"; // Location where scenario takes place, which can be seen in intro.
-var_creatorUID = "76561197997590271"; // Player UID that is being added to cfg_admin list for admin tool access.
+var_creatorUID = "76561197997590271"; // Player UID that is being added to the list for admin tool access.
 var_debug = false; // For mission testing, will turn on some debug options. (default: false)
 var_warmup = true; // Start mission with warmup? (default: true)
 var_jipTP = true; // Allow players that JIP to teleport? (default: false)
@@ -52,7 +52,6 @@ var_supSpecial = "Box_NATO_WpsSpecial_F"; // Supply Spawnpad special supplies
 var_supExplosives = "Box_NATO_AmmoOrd_F"; // Supply Spawnpad explosives supplies
 
 //PLAYER GEAR (Only relevant if var_playerGear = true;)
-var_tfar = false; // Use TFAR radio system instead of Acre? (default = false)
 var_personalArsenal = false; // Give players access to a limited arsenal during briefing stage. (default: false)
 var_personalRadio = true; // Does everyone get a short range radio (AN/PRC 343)? (default: true)
 var_backpacksAll = false; // Give all players backpacks? (Certain roles will have backpacks regardless) (default: false)

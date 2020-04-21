@@ -1,10 +1,23 @@
 // INIT AI MAN ////////////////////////////////////////////////////////////////////////////////////
 /*
-	- File that handles what happens to all defined AI men on creation.
+	* Author: G4rrus
+	* Apply unit specific code to AI soldiers.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+	*
+	* Example:
+	* [cursorObject] call lmf_ai_fnc_initMan;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params [["_unit",objNull,[objNull]]];
-if (isNull _unit) exitWith {};
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _unit || {!local _unit}) exitWith {false};
 
 #include "..\..\settings\cfg_AI.sqf"
 
@@ -41,7 +54,7 @@ if (_var_enemyNVG) then {
 };
 
 //EXIT IF NO CUSTOM GEAR
-if !(_var_enemyGear) exitwith {};
+if !(_var_enemyGear) exitwith {true};
 
 //REMOVE OLD STUFF
 removeAllWeapons _unit;
@@ -193,3 +206,7 @@ if (_var_enemyGoodies && {30 > random 100}) then {
 
 //MISC
 if (_unit == leader group _unit || {_type == _MAT_Gunner || {_type == _Crew}}) then {_unit addWeapon "Binocular"};
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+true

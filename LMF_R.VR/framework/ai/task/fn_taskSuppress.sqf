@@ -1,23 +1,41 @@
 // AI SUPPRESSION FUNCTION ////////////////////////////////////////////////////////////////////////
 /*
-	- Originally by nkenny (Heavily inspired by Big_Wilk).
- 	- Revised by Drgn V4karian with great help from Diwako.
-	- This function called by the Suppression EH function handles the task of suppressing
-	  assigned to AR and MMG type AI.
+	* Author: nkenny, diwako, G4rrus
+	* Makes AI suppress target position.
+    * Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+    * 1: Target <OBJECT>
+	* 2: Times to Fire <NUMBER>
+	* 3: Reset Magazine <BOOL>
+	* 4: Fire mode <STRING>
+	*
+	* Example:
+	* [cursorObject, player, 10, false, "FullAuto"] spawn lmf_ai_fnc_taskSuppress;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params [["_unit",objNull],["_target",objNull],["_timesFired",10],["_resetMagazine",false],["_mode","FullAuto"]];
-if (isNull _unit) exitWith {
+params [
+	["_unit",objNull,[objNull]],
+	["_target",objNull,[objNull]],
+	["_timesFired",10,[123]],
+	["_resetMagazine",false,[true]],
+	["_mode","FullAuto",[""]]
+];
+
+if (isNull _unit || {isNull _target || {!local _unit}}) exitWith {
 	if (var_debug) then {
-		systemChat "No Suppressing Unit!";
+		if (isNull _unit) then {
+			systemChat "DEBUG taskSuppress: No Suppressing Unit!";
+		};
+		if (isNull _target) then {
+			systemChat "DEBUG taskSuppress: No Targets to Suppress!";
+		};
 	};
 };
-if (isNull _target) exitWith {
-	if (var_debug) then {
-		systemChat "No Targets to Suppress!";
-	};
-};
-if !(local _unit) exitWith {};
 
 private _time = _timesFired + time;
 
@@ -53,11 +71,13 @@ while {time < _time && {alive _unit}} do {
 	sleep 0.1;
 };
 
-
-// RESET THE UNIT IF STILL ALIVE //////////////////////////////////////////////////////////////////
+//RESET THE UNIT IF STILL ALIVE
 if !(alive _unit) exitWith {};
 
 _unit setVariable ["var_isSuppressing",false];
 _unit doFollow leader group _unit;
 _unit enableAI "PATH";
-if (var_debug) then {systemchat format ["%1 is ready (%2s)",name _unit,_timesFired]};
+if (var_debug) then {systemChat format ["DEBUG taskSuppress: %1 is ready (%2s)",name _unit,_timesFired]};
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

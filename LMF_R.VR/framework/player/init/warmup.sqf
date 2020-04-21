@@ -6,18 +6,20 @@
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 //DO THE INTRO
 waitUntil {time > 0};
-cutText  ["", "BLACK FADED", 10, true];
-player enableSimulation false;
-private _date = str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0);
-private _time = [daytime,"HH:MM"] call BIS_fnc_timeToString;
-sleep 4;
-private _tile = parseText format ["<t font='PuristaBold' color='#ffffff' size='2' align='Right'>%1</t><br/><t color='#ffffff' size='1' align='Right'>%2</t><br/><t color='#ffffff' size='1' align='Right'>%3</t>",var_location,_date,_time];
-[_tile, true, nil, 6, 0.7, 0] spawn BIS_fnc_textTiles;
-sleep 8;
-waitUntil {!isNil "lmf_warmup"};
-cutText  ["", "BLACK IN", 10, true];
+if !(var_debug) then {
+	cutText  ["", "BLACK FADED", 10, true];
+	player enableSimulation false;
+	private _date = str (date select 2) + "/" + str (date select 1) + "/" + str (date select 0);
+	private _time = [daytime,"HH:MM"] call BIS_fnc_timeToString;
+	sleep 4;
+	private _tile = parseText format ["<t font='PuristaBold' color='#ffffff' size='2' align='Right'>%1</t><br/><t color='#ffffff' size='1' align='Right'>%2</t><br/><t color='#ffffff' size='1' align='Right'>%3</t>",var_location,_date,_time];
+	[_tile, true, nil, 6, 0.7, 0] spawn BIS_fnc_textTiles;
+	sleep 8;
+	waitUntil {!isNil "lmf_warmup"};
+	cutText  ["", "BLACK IN", 10, true];
 
-player enableSimulation true;
+	player enableSimulation true;
+};
 
 //EXIT IF NO WARMUP OR WARMUP HAS ALREADY ENDED (JIP)
 if !(lmf_warmup) exitWith {};
@@ -26,7 +28,7 @@ if !(lmf_warmup) exitWith {};
 // WARMUP /////////////////////////////////////////////////////////////////////////////////////////
 //DISABLE WEAPONS AND DISALLOW DAMMAGE
 waitUntil {simulationEnabled player};
-[true] call lmf_admin_fnc_playerSafety;
+["lmf_adminEventClient", ["safe",objNull,nil,true]] call CBA_fnc_localEvent;
 
 //DISPLAY CONTROL
 //USE PROFILE SETTINGS FROM CFGUIGRIDS.HPP
@@ -103,7 +105,7 @@ for "_i" from 0 to 10 do {
 ctrlDelete _ctrl;
 
 //ENABLE WEAPONS AND ALLOW DAMAGE
-[false] call lmf_admin_fnc_playerSafety;
+["lmf_adminEventClient", ["safe",objNull,nil,false]] call CBA_fnc_localEvent;
 
 //MISSION INTRO
 lmf_randomColor = selectRandom ["#F09595","#F095E4","#BC95F0","#95C7F0","#95EEF0","#95F0CA","#A9F095","#D6F095","#F0F095","#F0C495"];

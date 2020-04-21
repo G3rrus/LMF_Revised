@@ -1,12 +1,27 @@
 // GIVE CORRECT PRIMARY WEAPON TO PLAYER //////////////////////////////////////////////////////////
 /*
-	- This file handles which primary and ammo a player gets.
+	* Author: G4rrus
+	* Give weapon according to number.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+	* 1: Weapon <NUMBER> Which number corresponds with which weapon can be seen in cfg_Player
+	*
+	* Example:
+	* [player, 3] call lmf_loadout_fnc_givePrimary;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params [["_unit",objNull],["_weapon",3]];
-if !(local _unit) exitWith {};
+params [["_unit",objNull,[objNull]],["_weapon",3,[123]]];
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _unit || {!local _unit}) exitWith {false};
 
 #include "..\..\..\settings\cfg_Player.sqf"
+
 
 // APPLY CORRECT WEAPON ///////////////////////////////////////////////////////////////////////////
 private _amount = 5;
@@ -76,4 +91,8 @@ switch (_weapon) do {
 		_unit addPrimaryWeaponItem (selectRandom _MMG_Optic);
 		_unit addPrimaryWeaponItem (selectRandom _MMG_Bipod);
 	};
-}
+};
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+true

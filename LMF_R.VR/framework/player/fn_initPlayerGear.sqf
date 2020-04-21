@@ -1,10 +1,23 @@
 // PLAYER GEAR ASSIGNING //////////////////////////////////////////////////////////////////////////
 /*
-	- This file handles which loadout players get.
+	* Author: G4rrus
+	* Apply "role" specific loadout to a unit.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Unit <OBJECT>
+	*
+	* Example:
+	* [cursorObject] call lmf_player_fnc_initPlayerGear;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-params [["_unit",objNull]];
-if !(local _unit) exitWith {};
+params [["_unit",objNull,[objNull]]];
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _unit || {!local _unit}) exitWith {false};
 
 #include "..\..\settings\cfg_Player.sqf"
 
@@ -33,3 +46,7 @@ if (_role isEqualTo _Crew) exitWith {_unit call lmf_loadout_fnc_crew};
 if (_role isEqualTo _HeloPilot) exitWith {_unit call lmf_loadout_fnc_heloPilot};
 if (_role isEqualTo _HeloCrew) exitWith {_unit call lmf_loadout_fnc_heloCrew};
 if (_role isEqualTo _Pilot) exitWith {_unit call lmf_loadout_fnc_pilot};
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+false

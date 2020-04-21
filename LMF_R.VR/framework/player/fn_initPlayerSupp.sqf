@@ -1,10 +1,23 @@
 // APPLY SETTINGS TO DEFINED SUPPLY CRATES ////////////////////////////////////////////////////////
 /*
-	- This file handles what happens on creation of player defined supply crates.
+	* Author: G4rrus
+	* Apply crate specific code to player supply crates.
+	* Note: Needs to be local to the object.
+	*
+	* Arguments:
+	* 0: Crate <OBJECT>
+	*
+	* Example:
+	* [cursorObject] call lmf_player_fnc_initPlayerSupp;
+	*
+	* Return Value:
+	* <BOOL> true if settings were applied else false
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 params [["_supp",objNull,[objNull]]];
-if (isNull _supp) exitWith {};
+
+//EXIT IF NOT LOCAL OR NULL
+if (isNull _supp || {!local _supp}) exitWith {false};
 
 #include "..\..\settings\cfg_Player.sqf"
 
@@ -84,9 +97,6 @@ if (typeOf _supp == var_supSpecial) exitWith {
 	_supp addItemCargoGlobal ["ACRE_PRC152",10];
 	_supp addItemCargoGlobal ["ACRE_PRC343",20];
 
-	_supp addItemCargoGlobal ["TFAR_anprc152", 10];
-	_supp addItemCargoGlobal ["TFAR_rf7800str", 20];
-	_supp addItemCargoGlobal ["TFAR_microdagr",20];
 	if (_Backpack_RTO#0 != "") then {_supp addBackpackCargoGlobal [_Backpack_RTO,5];};
 
 	_supp addItemCargoGlobal ["acc_pointer_IR",20];
@@ -104,3 +114,7 @@ if (typeOf _supp == var_supExplosives) exitWith {
 
 	if ((_Backpack_Light#0) != "") then {_supp addBackpackCargoGlobal [(selectRandom _Backpack_Light),2];};
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////
+true

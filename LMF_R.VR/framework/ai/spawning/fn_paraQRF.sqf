@@ -1,29 +1,36 @@
 // AI PARA QRF ////////////////////////////////////////////////////////////////////////////////////
 /*
-	- Originally by alex2k.
-	- Revised by Drgn V4karian.
-	- File to spawns a helicopter QRF that paradrops AI units, flies away and despawns.
-
-	- USAGE:
-		1) Spawn Position.
-
-	- EXAMPLE AUTO-SPAWNER: ["lmf_spawnAI",[["para",position]]] call CBA_fnc_ServerEvent;
+	* Author: Alex2k, G4rrus
+	* Spawn AI helicopter (on the ground) that functions as paradrop QRF, after paradrop helo flies away and despawns.
+	* Note: Needs to be called on the Server or a HC.
+	*
+	* Arguments:
+	* 0: Spawn Position <MARKER, OBJECT, LOCATION, GROUP, TASK or POSITION>
+	*
+	* Example:
+	* [player] spawn lmf_ai_fnc_paraQRF;
+	*
+	* Return Value:
+	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
+if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
 #include "cfg_spawn.sqf"
 
-params [["_spawnPos", [0,0,0]]];
+params [["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]]];
+
 private _dir = random 360;
-if !(_spawnPos isEqualType []) then {
-    if (_spawnPos isEqualType "") then {
-        _dir = markerDir _spawnPos;
-    } else {
-        _dir = getDir _spawnPos;
-    };
+if ((typeName _spawnPos) isEqualTo "OBJECT") then {
+	_dir = getDir _spawnPos;
 };
+if ((typeName _spawnPos) isEqualTo "STRING") then {
+	_dir = markerDir _spawnPos;
+};
+
 _spawnPos = _spawnPos call CBA_fnc_getPos;
+if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
 
 
 // PREPARE AND SPAWN //////////////////////////////////////////////////////////////////////////////
@@ -99,3 +106,6 @@ if (alive _veh && {count units _grp2 > 0}) then {
 		deleteVehicle _veh;
 	};
 };
+
+
+// RETURN /////////////////////////////////////////////////////////////////////////////////////////

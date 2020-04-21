@@ -1,7 +1,7 @@
 // PLAYER BRIEFING TEXT ///////////////////////////////////////////////////////////////////////////
 /*
 	- In this file you write the briefing for your mission. Most of it is pretty self-explanatory.
-	  Category specific behaviour is explained at the beginnig of each category. Things such as
+	  Category specific behavior is explained at the beginnig of each category. Things such as
 	  linking markers are supported.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
