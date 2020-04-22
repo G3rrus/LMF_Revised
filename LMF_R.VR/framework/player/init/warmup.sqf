@@ -29,6 +29,7 @@ if !(lmf_warmup) exitWith {};
 //DISABLE WEAPONS AND DISALLOW DAMMAGE
 waitUntil {simulationEnabled player};
 ["lmf_adminEventClient", ["safe",objNull,nil,true]] call CBA_fnc_localEvent;
+systemChat "Type #help to see available chat-commands.";
 
 //DISPLAY CONTROL
 //USE PROFILE SETTINGS FROM CFGUIGRIDS.HPP

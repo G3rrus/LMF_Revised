@@ -71,6 +71,24 @@
 }, "admin"] call CBA_fnc_registerChatCommand;
 
 //CLIENT COMMANDS
+["help",{
+	if (serverCommandAvailable "#kick") then {
+		systemChat "Admin Commands:";
+		systemChat "#heal name (or partial name) - heal player";
+		systemChat "#heal.all - heal all players";
+		systemChat "#bring name (or partial name) - bring player to you";
+		systemChat "#goto name (or partial name) - teleport to player";
+		systemChat "-";
+		systemChat "Client Commands:";
+		systemChat "#w name (or partial name) message - whisper message to player";
+		systemChat "#zeus message - whisper message to all curators";
+	} else {
+		systemChat "Client Commands:";
+		systemChat "#w name (or partial name) message - whisper message to player";
+		systemChat "#zeus message - whisper message to all curators";
+	};
+}, "all",false] call CBA_fnc_registerChatCommand;
+
 ["w", {
 	params [["_str", ""]];
 	private _split = (_str splitString " ");
