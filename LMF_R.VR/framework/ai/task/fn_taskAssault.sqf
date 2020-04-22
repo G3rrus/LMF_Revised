@@ -69,8 +69,12 @@ while {count units _grp > 0} do {
 		if (_nearestdist < 50) then {
 			{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 			{_x doMove (getposATL _nearest);} count units _grp;
-			{_x disableAI "AUTOCOMBAT";} count units _grp;
-			_grp setBehaviour "AWARE";
+			{
+				_x disableAI "FSM";
+				_x disableAI "COVER";
+				_x disableAI "SUPPRESSION";
+			} count units _grp;
+			_grp setbehaviourstrong "AWARE";
 			{_x enableAttack false;} count units _grp;
 			_grp enableIRLasers true;
 			_grp enableGunLights "ForceOn";
@@ -78,7 +82,11 @@ while {count units _grp > 0} do {
 
 		//REGULAR WHEN FURTHER OUT
 		if (_nearestdist > 150) then {
-			{_x enableAI "AUTOCOMBAT";} count units _grp;
+			{
+				_x enableAI "FSM";
+				_x enableAI "COVER";
+				_x enableAI "SUPPRESSION";
+			} count units _grp;
 			_grp setBehaviour "AWARE";
 			{_x enableAttack true;} count units _grp;
 			if (waypoints _grp isEqualTo []) then {
@@ -99,7 +107,11 @@ while {count units _grp > 0} do {
 			private _wp =_grp addWaypoint [getPos leader _grp, 0];
 			_wp setWaypointType "GUARD";
 		};
-		{_x enableAI "AUTOCOMBAT";} count units _grp;
+		{
+			_x enableAI "FSM";
+			_x enableAI "COVER";
+			_x enableAI "SUPPRESSION";
+		} count units _grp;
 		_grp setBehaviour "AWARE";
 		_grp enableIRLasers false;
 		_grp enableGunLights "ForceOff";

@@ -9,9 +9,10 @@
 	* 1: Type <STRING or NUMBER> supported types are: "SENTRY", "TEAM", "SQUAD", "ATTEAM", "MGTEAM" and "AATEAM"
 	* 2: Radius <NUMBER>
 	* 3: Spawn Tickets <NUMBER> values higher than 1 enable spawn proximity check
+	* 4: Slow Hunt <BOOL> only does something if lambs danger AI is enabled
 	*
 	* Example:
-	* [player, "TEAM", 500, 1] spawn lmf_ai_fnc_infantryHunter;
+	* [player, "TEAM", 500, 1, false] spawn lmf_ai_fnc_infantryHunter;
 	*
 	* Return Value:
 	* <NONE>
@@ -26,7 +27,8 @@ params [
 	["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]],
 	["_grpType","TEAM",["",123]],
 	["_radius",500,[123]],
-	["_tickets",1,[123]]
+	["_tickets",1,[123]],
+	["_methodical",false,[true]]
 ];
 
 _spawnPos = _spawnPos call CBA_fnc_getPos;
@@ -51,10 +53,17 @@ while {_initTickets > 0} do {
 	private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 	_grp deleteGroupWhenEmpty true;
 
-	[_grp,_radius] spawn lmf_ai_fnc_taskHunt;
-
-	{_x disableAI "AUTOCOMBAT";} count units _grp;
-	_grp enableAttack false;
+	if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+		if (_methodical) then {
+			[_grp, _radius, 10] spawn lambs_wp_fnc_taskHunt;
+		} else {
+			[_grp, _radius, 10] spawn lambs_wp_fnc_taskRush;
+		};
+	} else {	
+		[_grp,_radius] spawn lmf_ai_fnc_taskHunt;
+		{_x disableAI "AUTOCOMBAT";} count units _grp;
+		_grp enableAttack false;
+	};
 	_grp allowFleeing 0;
 
 	//IF THE INITAL TICKETS WERE HIGHER THAN ONE

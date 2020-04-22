@@ -25,11 +25,6 @@ if (isNull _unit || {!local _unit}) exitWith {false};
 // CHECK WHO GETS WHAT GEAR ///////////////////////////////////////////////////////////////////////
 private _type = typeOf _unit;
 private _allTypesAA = [_Autorifleman, _Crew, _Grenadier, _MMG_Gunner, _Marksman, _AA_Gunner, _MAT_Gunner, _Officer, _Pilot, _Rifleman, _Rifleman_AT, _Squad_Leader, _Static_Gunner, _Static_Assistant];
-private _someTypes = [_Marksman, _Rifleman_AT, _Autorifleman, _Squad_Leader, _MMG_Gunner];
-
-if (_allTypesAA findif {_type == _x} == -1) then {
-	_type = [_Rifleman, selectRandom _someTypes] select (50 > random 100); // select a random Loadout for people that aren't a defined _type
-};
 
 
 // APPLY EVENT HANDLERS ///////////////////////////////////////////////////////////////////////////
@@ -55,6 +50,7 @@ if (_var_enemyNVG) then {
 
 //EXIT IF NO CUSTOM GEAR
 if !(_var_enemyGear) exitwith {true};
+if (_allTypesAA findif {_type == _x} == -1) exitWith {true};
 
 //REMOVE OLD STUFF
 removeAllWeapons _unit;
@@ -192,9 +188,11 @@ for "_i" from 1 to 3 do {_unit addItem "FirstAidKit";};
 
 //WEAPON ATTACH
 removeAllPrimaryWeaponItems _unit;
-if (_type != _Crew && {_type != _Pilot}) then {
+if (_type != _Marksman) then {
 	if (30 > random 100) then {_unit addPrimaryWeaponItem selectRandom _Attach;};
 	if (50 > random 100) then {_unit addPrimaryWeaponItem selectRandom _Optic;};
+} else {
+	_unit addPrimaryWeaponItem selectRandom _Optic_L;
 };
 
 //GIVE GOODIES

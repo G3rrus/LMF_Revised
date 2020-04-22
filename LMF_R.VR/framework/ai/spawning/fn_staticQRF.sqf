@@ -72,14 +72,14 @@ while {_initTickets > 0} do {
 
 		//DEPLOY THE WEAPON
 		{_x disableAI "AUTOCOMBAT";} count units _grp;
-		_grp setBehaviour "SAFE";
+		_grp setbehaviourstrong "SAFE";
 		_grp setCombatMode "BLUE";
 		private _base = unitBackpack _assistant;
 		_gunner action ["Assemble", _base];
 		_assistant playMove "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
 		sleep 2;
 		removeBackpack _assistant;
-		{_x disableAI "AUTOCOMBAT";} count units _grp;
+		{_x enableAI "AUTOCOMBAT";} count units _grp;
 		_grp setBehaviour "AWARE";
 		_grp setCombatMode "YELLOW";
 	};

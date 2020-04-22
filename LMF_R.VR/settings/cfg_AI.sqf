@@ -79,7 +79,8 @@ private _Grenade = ["HandGrenade"]; // HE Grenade(s)
 private _Grenade_Smoke = ["SmokeShellBlue", "SmokeShellOrange", "SmokeShellPurple"]; // Smoke Grenade(s)
 
 private _Attach = ["acc_flashlight"]; // Weapon Attachement(s)
-private _Optic = ["optic_Arco", "optic_ACO_grn"]; // Weapon Optic(s)
+private _Optic = ["optic_ACO_grn"]; // Weapon Optic(s)
+private _Optic_L = ["optic_Arco"]; // Weapon Optic(s) for Marksman class
 
 
 // VEHICLES ///////////////////////////////////////////////////////////////////////////////////////
