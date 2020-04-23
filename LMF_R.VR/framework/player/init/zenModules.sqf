@@ -41,7 +41,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		["lmf_spawnAI",[["garrison",_pos,_type,_radius,_distrib,_useBP]]] call CBA_fnc_ServerEvent;
+		["garrison",_pos,_type,_radius,_distrib,_useBP] remoteExec ["lmf_ai_fnc_doSpawn",2];
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -66,7 +66,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		["lmf_spawnAI",[["patrol",_pos,_type,_radius,_alerted]]] call CBA_fnc_ServerEvent;
+		["patrol",_pos,_type,_radius,_alerted] remoteExec ["lmf_ai_fnc_doSpawn",2];
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -88,7 +88,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		["lmf_spawnAI",[["qrf",_pos,_type]]] call CBA_fnc_ServerEvent;
+		["qrf",_pos,_type] remoteExec ["lmf_ai_fnc_doSpawn",2];
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -99,7 +99,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 	private _pos = ASLToATL (_this#0);
 
 	//CALL FUNCTION
-	["lmf_spawnAI",[["statqrf",_pos]]] call CBA_fnc_ServerEvent;
+	["staticqrf",_pos] remoteExec ["lmf_ai_fnc_doSpawn",2];
 }] call zen_custom_modules_fnc_register;
 
 //AI HUNTER
@@ -108,11 +108,12 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		//PARAMS
 		["COMBO","Group Type",[LMF_groupTypes,LMF_groupTypes,0]],
 		["SLIDER","Custom Amount",[1,60,4,0]],
-		["EDIT","Hunting Radius",["500"]]
+		["EDIT","Hunting Radius",["500"]],
+		["CHECKBOX","Slow (LAMBS DANGER)",false]
 	],{
 		//PARSE PARAMS
 		params ["_dialog","_pos"];
-		_dialog params ["_type","_amount","_radius"];
+		_dialog params ["_type","_amount","_radius","_slow"];
 
 		_pos = ASLToATL _pos;
 		_radius = parseNumber _radius;
@@ -121,7 +122,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		};
 
 		// CALL FUNCTION
-		["lmf_spawnAI",[["hunter",_pos,_type,_radius]]] call CBA_fnc_ServerEvent;
+		["hunter",_pos,_type,_radius,1,_slow] remoteExec ["lmf_ai_fnc_doSpawn",2];
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -140,7 +141,7 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 		_pos = ASLToATL _pos;
 
 		// CALL FUNCTION
-		["lmf_spawnAI",[["vicqrf",_pos,_type]]] call CBA_fnc_ServerEvent;
+		["vicqrf",_pos,_type] remoteExec ["lmf_ai_fnc_doSpawn",2];
 
 	},{},_this#0] call zen_dialog_fnc_create;
 }] call zen_custom_modules_fnc_register;
@@ -151,8 +152,8 @@ LMF_groupTypes = ["TEAM", "SQUAD", "SENTRY","ATTEAM","AATEAM", "MGTEAM","CUSTOM 
 	private _pos = ASLToATL (_this#0);
 
 	//CALL FUNCTION
-	["lmf_spawnAI",[["para",_pos]]] call CBA_fnc_ServerEvent;
-	
+	["para",_pos] remoteExec ["lmf_ai_fnc_doSpawn",2];
+
 }] call zen_custom_modules_fnc_register;
 
 //AI MORTAR ATTACK
