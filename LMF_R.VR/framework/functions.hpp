@@ -117,3 +117,10 @@ class player_loadout {
 		class teamLeader {};
 	};
 };
+class player_tasks {
+	tag = "lmf_task";
+	class player_tasks {
+		file = "framework\player\tasks";
+		class intelAction {};
+	};
+};
