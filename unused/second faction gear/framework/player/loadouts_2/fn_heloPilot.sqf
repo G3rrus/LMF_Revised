@@ -55,7 +55,7 @@ _unit linkItem "ItemCompass";
 if (var_playerNVG != 2) then {_unit linkItem _NVG_Pilot};
 
 //PRIMARY
-[_unit,_Gun_HP] call lmf_loadout_fnc_givePrimary;
+[_unit,_Gun_HP] call lmf_loadout_2_fnc_givePrimary;
 
 //ITEMS
 for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};

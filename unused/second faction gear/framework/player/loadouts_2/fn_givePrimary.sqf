@@ -9,7 +9,7 @@
 	* 1: Weapon <NUMBER> Which number corresponds with which weapon can be seen in cfg_Player_2
 	*
 	* Example:
-	* [player, 3] call lmf_loadout_fnc_givePrimary;
+	* [player, 3] call lmf_loadout_2_fnc_givePrimary;
 	*
 	* Return Value:
 	* <BOOL> true if settings were applied else false

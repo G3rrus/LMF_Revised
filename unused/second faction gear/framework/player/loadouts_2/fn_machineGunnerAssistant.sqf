@@ -59,7 +59,7 @@ if (var_playerMaps == 0) then {
 if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
 //PRIMARY
-[_unit,_Gun_MMGA] call lmf_loadout_fnc_givePrimary;
+[_unit,_Gun_MMGA] call lmf_loadout_2_fnc_givePrimary;
 
 //ITEMS
 for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};

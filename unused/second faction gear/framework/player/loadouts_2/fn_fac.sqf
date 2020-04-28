@@ -59,7 +59,7 @@ if (var_playerMaps != 2) then {
 if (var_playerNVG == 0) then {_unit linkItem _NVG};
 
 //PRIMARY
-[_unit,_Gun_Fac] call lmf_loadout_fnc_givePrimary;
+[_unit,_Gun_Fac] call lmf_loadout_2_fnc_givePrimary;
 
 //ITEMS
 _unit addItem "Laserbatteries";
