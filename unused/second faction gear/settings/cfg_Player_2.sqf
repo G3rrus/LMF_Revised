@@ -14,6 +14,7 @@ private _Radio_R = "ACRE_PRC343"; // Short Range Radio (Used by Rifleman, Grenad
 
 //INFANTRY UNIFORM
 private _Uniform = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest"]; // Uniform(s)
+private _Uniform_L = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest"]; // Uniform(s) (PLT CMD, PLT SGT)
 private _Vest = ["V_PlateCarrier1_rgr"]; // Vest(s)
 private _Vest_G = ["V_PlateCarrierGL_rgr"]; // Vest(s) GL (FAC, SQL, TL, Grenadier)
 private _Vest_M = ["V_PlateCarrierSpec_rgr"]; // Vest(s) CLS (Medic)
