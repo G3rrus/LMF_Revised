@@ -12,7 +12,7 @@ class Header
 
 //MISSION PRESENTATION (set your mission name here, it is also a good idea to add version numbers so you can differentiate between mission versions!)
 author = "Author";
-#define MISSIONNAME "LMF Framework v1"
+#define MISSIONNAME "LMF Framework v1.2"
 #define MISSIONDESCRIPTION "Long mission description text seen in mission load and mission select screen."
 
 

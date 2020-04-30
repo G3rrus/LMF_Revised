@@ -9,4 +9,4 @@
 #include "..\framework\player\init\viewDistance.sqf"
 
 //FRAMEWORK VERSION
-var_version = 1.1;
+var_version = 1.2;
