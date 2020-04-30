@@ -261,6 +261,22 @@ if (isNil "fpa_main") then {
 	[] execVM "framework\player\init\chatCommands.sqf";
 };
 
+//MAKE VEHICLES HOT (thx veteran29 for feedback)
+["visionMode",{
+    params ["_unit", "_newVisionMode"];
+    if (_newVisionMode isEqualTo 2 && {missionNamespace getVariable ["lmf_thermalReady",true]}) then {
+
+		private _maxDistance = 3500 min (getObjectViewDistance select 0);
+		private _vicsToChange = nearestObjects [_unit, ["Car","Tank","StaticWeapon"],_maxDistance];
+		{
+			_x setVehicleTIPars [1, 1, 1];
+		} count _vicsToChange;
+
+		lmf_thermalReady = false;
+		[{lmf_thermalReady = true},[],60] call CBA_fnc_waitAndExecute;
+	};
+}, true] call CBA_fnc_addPlayerEventHandler;
+
 //CHANNEL SETUP
 0 enableChannel false;
 1 enableChannel true;
