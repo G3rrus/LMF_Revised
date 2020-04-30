@@ -9,10 +9,6 @@ if !(hasInterface) exitWith {};
 waitUntil {time > 1};
 setGroupIconsVisible [true,false];
 setGroupIconsSelectable true;
-var_iconColor = [0,0,0,1];
-if (toUpper var_markerSide isEqualTo "COLORWEST") then {var_iconColor = [0,0.3,0.6,1]};
-if (toUpper var_markerSide isEqualTo "COLOREAST") then {var_iconColor = [0.5,0,0,1]};
-if (toUpper var_markerSide isEqualTo "COLORGUER") then {var_iconColor = [0,0.5,0,1]};
 
 
 // FUNCTION CREATE THE GROUP ICON /////////////////////////////////////////////////////////////////
@@ -20,10 +16,27 @@ if (toUpper var_markerSide isEqualTo "COLORGUER") then {var_iconColor = [0,0.5,0
 	private _lmf_fnc_createIcon = {
 		params [["_grp",grpNull],["_type","b_inf"],["_txt",""]];
 
+		private _color = [0,0.3,0.6,1];
+		switch (side _grp) do {
+			case EAST: {
+				_type = "o" + (_type select [1,(count _type - 1)]);
+				_color = [0.5,0,0,1];
+			};
+			case INDEPENDENT: {
+				_type = "n" + (_type select [1,(count _type - 1)]);
+				_color = [0,0.5,0,1];
+			};
+			case CIVILIAN: {
+				_type = "n" + (_type select [1,(count _type - 1)]);
+				_color = [0.4,0,0.5,1];
+			};
+			default {};
+		};
+
 		_grp setVariable ["lmf_bft", true];
 		clearGroupIcons _grp;
 		_grp addGroupIcon [_type,[0,0]];
-		_grp setgroupIconParams [var_iconColor,_txt,1,true];
+		_grp setgroupIconParams [_color,_txt,1,true];
 	};
 
 	//SPECIAL GROUPS
@@ -65,12 +78,14 @@ if (toUpper var_markerSide isEqualTo "COLORGUER") then {var_iconColor = [0,0.5,0
 	if !(isNil "Grp_EGL4") then {[Grp_EGL4,"b_plane","EAGLE1"] call _lmf_fnc_createIcon};
 
 	while {true} do {
+		private _allGroupsWithPlayers = [];
+		{_allGroupsWithPlayers pushBackUnique group _x} forEach ([] call CBA_fnc_players);
 		{
 			if !(_x getVariable ["lmf_bft",false]) then {
 				[_x,"b_inf",toUpper (groupid _x)] call _lmf_fnc_createIcon;
 			};
-		} forEach (allGroups select {side _x == side player});
-		sleep 300;
+		} forEach _allGroupsWithPlayers;
+		sleep 120;
 	};
 };
 
@@ -81,7 +96,8 @@ private _hoverEH = addMissionEventHandler ["GroupIconOverEnter",{
 	params ["_is3D","_group"];
 
 	//ICON PARAMETERS
-	_group setGroupIconParams [var_iconColor,groupID _group,1.3,true];
+	private _color = (getGroupIconParams _group) select 0;
+	_group setGroupIconParams [_color,groupID _group,1.3,true];
 }];
 
 //MOUSE HOVER LEAVE ICON EH
@@ -89,7 +105,8 @@ private _hoverLeaveEH = addMissionEventHandler ["GroupIconOverLeave",{
 	params ["_is3D","_group"];
 
 	//ICON PARAMETERS
-	_group setGroupIconParams [var_iconColor,groupID _group,1,true];
+	private _color = (getGroupIconParams _group) select 0;
+	_group setGroupIconParams [_color,groupID _group,1,true];
 
 	//FADE TEXT
 	"lmf_layer2" cutFadeOut 0;
