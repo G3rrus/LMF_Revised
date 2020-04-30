@@ -32,7 +32,7 @@ removeBackpack _unit;
 removeHeadgear _unit;
 
 //CLOTHING
-_unit forceAddUniform selectRandom _Uniform;
+_unit forceAddUniform selectRandom _Uniform_L;
 _unit addVest selectRandom _Vest;
 _unit addBackpack selectRandom _Backpack_Leader;
 _unit addHeadgear selectRandom _Headgear_L;
