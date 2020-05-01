@@ -23,8 +23,6 @@ if (isNull _grp || {!local _grp}) exitWith {};
 
 private _cycle = 30;
 _grp setBehaviour "SAFE";
-private _assaultRange = 50 + (random 250);
-_grp enableIRLasers false;
 _grp enableGunLights "ForceOff";
 _grp allowFleeing 0;
 _grp enableAttack false;
@@ -57,13 +55,9 @@ while {count units _grp > 0} do {
 			_x disableAI "AUTOCOMBAT";
 		} count _units;
 
-		_grp setBehaviour "AWARE";
+		_grp setbehaviourstrong "AWARE";
 		_grp setSpeedMode "FULL";
-
-		if (_nearestdist < _assaultRange) then {
-			_grp enableIRLasers true;
-			_grp enableGunLights "ForceOn";
-		};
+		_grp enableGunLights "ForceOn";
 
 		_cycle = _nearestdist/8;
 

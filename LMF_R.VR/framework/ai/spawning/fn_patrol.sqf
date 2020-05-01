@@ -56,7 +56,11 @@ waitUntil {sleep 5; behaviour leader _grp == "COMBAT" || {{alive _x} count units
 if ({alive _x} count units _grp < 1) exitWith {};
 [_grp] spawn lmf_ai_fnc_taskUpdateWP;
 sleep 5;
-[_grp] spawn lmf_ai_fnc_taskAssault;
+if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+	[_grp,150,30] spawn lambs_wp_fnc_taskRush;
+} else {
+	[_grp] spawn lmf_ai_fnc_taskAssault;
+};
 
 
 // RETURN /////////////////////////////////////////////////////////////////////////////////////////

@@ -21,8 +21,6 @@ params [["_grp",grpNull,[grpNull]],["_range",500,[123]]];
 if (isNull _grp || {!local _grp}) exitWith {};
 
 private _cycle = 30;
-_grp enableIRLasers false;
-_grp enableGunLights "ForceOff";
 
 
 // START THE ASSAULT SCRIPT ///////////////////////////////////////////////////////////////////////
@@ -59,41 +57,35 @@ while {count units _grp > 0} do {
 			if (_tracker knowsAbout _nearest > 1) then {
 				{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 				{_x doMove (getposATL _nearest);} count units _grp;
-				{_x enableAttack false;} count units _grp;
-				_grp enableIRLasers true;
-				if (20 > (random 100)) then {_grp enableGunLights "ForceOn"};
+				_grp enableAttack false;
 			};
+			_grp enableGunLights "ForceOn";
 		};
 
 		//AGGRESSIVE WHEN CLOSE
 		if (_nearestdist < 50) then {
 			{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
-			{_x doMove (getposATL _nearest);} count units _grp;
 			{
-				_x disableAI "FSM";
+				_x doMove (getposATL _nearest);
 				_x disableAI "COVER";
 				_x disableAI "SUPPRESSION";
 			} count units _grp;
 			_grp setbehaviourstrong "AWARE";
-			{_x enableAttack false;} count units _grp;
-			_grp enableIRLasers true;
-			_grp enableGunLights "ForceOn";
+			_grp enableAttack false;
 		};
 
 		//REGULAR WHEN FURTHER OUT
 		if (_nearestdist > 150) then {
 			{
-				_x enableAI "FSM";
 				_x enableAI "COVER";
 				_x enableAI "SUPPRESSION";
 			} count units _grp;
 			_grp setBehaviour "AWARE";
-			{_x enableAttack true;} count units _grp;
+			_grp enableAttack true;
 			if (waypoints _grp isEqualTo []) then {
 				private _wp =_grp addWaypoint [getPos leader _grp, 0];
 				_wp setWaypointType "GUARD";
 			};
-			if (20 > (random 100)) then {_grp enableIRLasers true};
 			_grp enableGunLights "ForceOff";
 		};
 
@@ -108,18 +100,16 @@ while {count units _grp > 0} do {
 			_wp setWaypointType "GUARD";
 		};
 		{
-			_x enableAI "FSM";
 			_x enableAI "COVER";
 			_x enableAI "SUPPRESSION";
 		} count units _grp;
 		_grp setBehaviour "AWARE";
-		_grp enableIRLasers false;
 		_grp enableGunLights "ForceOff";
 	};
 
   	//WAIT
-  	if (_cycle < 30) then {_cycle = 30};
-  	if (_cycle > 180) then {_cycle = 180};
+	_cycle = _cycle min 180;
+	_cycle = _cycle max 30;
   	sleep _cycle;
 };
 

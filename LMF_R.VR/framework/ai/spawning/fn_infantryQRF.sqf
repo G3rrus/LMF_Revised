@@ -56,7 +56,11 @@ while {_initTickets > 0} do {
 
 	waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1}};
 
-	[_grp] spawn lmf_ai_fnc_taskAssault;
+	if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+		[_grp,150,30] spawn lambs_wp_fnc_taskRush;
+	} else {
+		[_grp] spawn lmf_ai_fnc_taskAssault;
+	};
 
 	//IF THE INITAL TICKETS WERE HIGHER THAN ONE
 	if (_tickets > 1) then {

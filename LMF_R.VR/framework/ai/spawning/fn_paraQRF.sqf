@@ -88,7 +88,11 @@ if (alive _veh && {count units _grp2 > 0}) then {
 			private _wp2 = _grp2 addWaypoint [[_pos#0,_pos#1,0],0];
 			_wp2 setWaypointType "GUARD";
 			{_x disableAI "AUTOCOMBAT"} count units _grp2;
-			[_grp2] spawn lmf_ai_fnc_taskAssault;
+			if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+				[_grp2,150,30] spawn lambs_wp_fnc_taskRush;
+			} else {
+				[_grp2] spawn lmf_ai_fnc_taskAssault;
+			};
 		}, [_grp2], 300, {}
 	] call CBA_fnc_waitUntilAndExecute;
 	_grp2 leaveVehicle _veh;

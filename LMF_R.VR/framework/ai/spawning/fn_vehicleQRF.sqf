@@ -75,7 +75,18 @@ while {_initTickets > 0} do {
         //TASK
         [_grp] spawn lmf_ai_fnc_taskUpdateWP;
         waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh}}};
-        [_grp] spawn lmf_ai_fnc_taskAssault;
+        if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+            if !(isNull objectParent leader _grp) then {
+                {deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
+                private _wp1 =_grp addWaypoint [getPos leader _grp, 0];
+                _wp1 setWaypointType "GETOUT";
+                private _wp2 =_grp addWaypoint [getPos leader _grp, 0];
+                _wp2 setWaypointType "GUARD";
+            };
+            [_grp,150,30] spawn lambs_wp_fnc_taskRush;
+        } else {
+            [_grp] spawn lmf_ai_fnc_taskAssault;
+        };
     };
 
     //IF CARARMED
@@ -109,7 +120,18 @@ while {_initTickets > 0} do {
         //TASK
         [_grp] spawn lmf_ai_fnc_taskUpdateWP;
         waitUntil {sleep 5; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1 || {!alive _veh}}};
-        [_grp] spawn lmf_ai_fnc_taskAssault;
+        if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+            if !(isNull objectParent leader _grp) then {
+                {deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
+                private _wp1 =_grp addWaypoint [getPos leader _grp, 0];
+                _wp1 setWaypointType "GETOUT";
+                private _wp2 =_grp addWaypoint [getPos leader _grp, 0];
+                _wp2 setWaypointType "GUARD";
+            };
+            [_grp,150,30] spawn lambs_wp_fnc_taskRush;
+        } else {
+            [_grp] spawn lmf_ai_fnc_taskAssault;
+        };
     };
 
     //IF APC
@@ -139,7 +161,11 @@ while {_initTickets > 0} do {
         waitUntil {sleep 2; speed _veh > 0 || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         private _wp = _grp2 addWaypoint [getPos _veh,0];
         _wp setWaypointType "GUARD";
-        [_grp2] spawn lmf_ai_fnc_taskAssault;
+        if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+            [_grp2,150,30] spawn lambs_wp_fnc_taskRush;
+        } else {
+            [_grp2] spawn lmf_ai_fnc_taskAssault;
+        };
         sleep 15;
         driver _veh doFollow leader _grp;
     };
@@ -185,7 +211,11 @@ while {_initTickets > 0} do {
         waitUntil {sleep 1; isTouchingGround _veh || {{alive _x} count units _grp < 1 || {!alive _veh || {{alive _x} count units _grp2 < 1}}}};
         private _wp = _grp2 addWaypoint [getPos _veh,0];
         _wp setWaypointType "GUARD";
-        [_grp2] spawn lmf_ai_fnc_taskAssault;
+        if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
+            [_grp2,150,30] spawn lambs_wp_fnc_taskRush;
+        } else {
+            [_grp2] spawn lmf_ai_fnc_taskAssault;
+        };
     };
 
     //IF ATTACK HELICOPTER

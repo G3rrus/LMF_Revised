@@ -55,9 +55,9 @@ while {_initTickets > 0} do {
 
 	if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
 		if (_methodical) then {
-			[_grp, _radius, 10] spawn lambs_wp_fnc_taskHunt;
+			[_grp, _radius, 30] spawn lambs_wp_fnc_taskHunt;
 		} else {
-			[_grp, _radius, 10] spawn lambs_wp_fnc_taskRush;
+			[_grp, _radius] spawn lambs_wp_fnc_taskRush;
 		};
 	} else {	
 		[_grp,_radius] spawn lmf_ai_fnc_taskHunt;
