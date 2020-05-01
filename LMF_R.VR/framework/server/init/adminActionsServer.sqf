@@ -50,7 +50,7 @@
 		//ASSIGN ZEUS TO CALLER
 		case "zeus": {
 			if (isNull (getAssignedCuratorLogic _unit)) exitWith {
-				private _grp = createGroup [sideLogic, true];
+				private _grp = createGroup [sideLogic,true];
 				private _curator = _grp createUnit ["ModuleCurator_F",[0,0,0],[],0,"NONE"];
 				_curator setVariable ["Addons",3,true];
 

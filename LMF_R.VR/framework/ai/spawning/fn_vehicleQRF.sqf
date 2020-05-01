@@ -194,9 +194,8 @@ while {_initTickets > 0} do {
         _veh setDir _dir;
 
         //CREW
-        _grp = createGroup var_enemySide;
+        _grp = createGroup [var_enemySide,true];
         [_veh, _grp, false, "",_Pilot] call BIS_fnc_spawnCrew;
-        _grp deleteGroupWhenEmpty true;
 
         //TASK
         _grp setBehaviour "AWARE";

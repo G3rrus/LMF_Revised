@@ -75,7 +75,7 @@ for "_i" from 0 to (_amount -1 ) do {
 	// BURNING WHEELS
 	if (random 1 < 0.1 && {_car != "Land_Razorwire_F"}) then {
 		private _center = createCenter sideLogic;
-		private _grp = createGroup _center;
+		private _grp = createGroup [_center,true];
 		private _veh3 = createVehicle ["Land_Tyres_F",_veh,[],150,"NONE"];
 		private _smoke = _grp createUnit ["ModuleEffectsSmoke_F",getposATL _veh3,[],0,"CAN_COLLIDE"];
 		_veh3 setVectorUp surfaceNormal position _veh3;
