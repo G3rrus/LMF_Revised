@@ -32,7 +32,7 @@ if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
 
 
 // PREPARE AND SPAWN //////////////////////////////////////////////////////////////////////////////
-private _type = ["TRANSPORT"] call lmf_ai_fnc_makeType;
+private _type = ["HELITRANSPORT"] call lmf_ai_fnc_makeType;
 private _veh = createVehicle [_type, _spawnPos, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
 
