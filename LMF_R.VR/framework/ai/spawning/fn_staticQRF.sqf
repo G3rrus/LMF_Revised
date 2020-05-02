@@ -61,6 +61,7 @@ while {_initTickets > 0} do {
 		private _enemyPos = getPosATL (_gunner findNearestEnemy _gunner);
 
 		if (isClass (configfile >> "CfgPatches" >> "lambs_danger")) exitWith {
+			sleep 2;
 			[_grp, _enemyPos] call lambs_danger_fnc_leaderStaticDeploy;
 		};
 
