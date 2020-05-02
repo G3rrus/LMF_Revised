@@ -71,28 +71,6 @@ _staticCrew = [_Static_Gunner,_Static_Assistant];
 
 
 // FUNCTIONS ///////////////////////////////////////////////////////////////////////////////////////
-//PASS SELECTION OF TYPE OF GROUP
-private _typeMaker = {
-	params ["_type"];
-	private _selection = [];
-	if (_type isEqualType 0) then {
-		for "_i" from 1 to (floor (_type)) do {
-			_selection pushback (selectRandom _soldier);
-		};
-	}
-	else {
-		toUpper _type;
-		_selection = selectRandom _team;
-
-		if (_type == "SQUAD") then {_selection = selectRandom _squad};
-		if (_type == "SENTRY") then {_selection = selectRandom _sentry};
-		if (_type == "ATTEAM") then {_selection = selectRandom _atteam};;
-		if (_type == "AATEAM") then {_selection = selectRandom _aateam};
-		if (_type == "MGTEAM") then {_selection = selectRandom _mgteam};
-	};
-	_selection
-};
-
 //CHECK IF PLAYERS FAR ENOUGH AWAY
 private _proximityChecker = {
 	params ["_pos",["_range",500]];

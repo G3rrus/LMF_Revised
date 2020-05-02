@@ -25,19 +25,7 @@ private _cycle = 30;
 
 // START THE ASSAULT SCRIPT ///////////////////////////////////////////////////////////////////////
 while {count units _grp > 0} do {
-	private _tracker = leader _grp;
-	private _nearestdist = _range;
-	private _availabletargets = (switchableUnits + playableUnits - entities "HeadlessClient_F");
-	private _nearest = objNull;
-
-	//CHOOSE CLOSEST TARGET
-	{
-		private _dist = vehicle _x distance2D _tracker;
-		if ((_dist < _nearestdist) && {(side _x != civilian) && {((getposATL _x) select 2 < 25) && {isPlayer _x}}}) then {
-			_nearest = _x;
-			_nearestdist = _dist;
-		};
-	} forEach _availabletargets;
+	private _nearest = [_grp,_range] call lmf_ai_fnc_getClosest;
 
 	//ORDERS
 	if !(isNull _nearest) then {

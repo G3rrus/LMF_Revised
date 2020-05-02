@@ -27,8 +27,10 @@ class ai {
 		class barricades {};
 		class doSpawn {};
 		class garrison {};
+		class getClosest {};
 		class infantryHunter {};
 		class infantryQRF {};
+		class makeType {};
 		class paraQRF {};
 		class patrol {};
 		class staticQRF {};

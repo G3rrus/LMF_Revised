@@ -44,7 +44,7 @@ if !(_alerted) then {
 
 
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
-private _type = [_grptype] call _typeMaker;
+private _type = [_grptype] call lmf_ai_fnc_makeType;
 private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
 
