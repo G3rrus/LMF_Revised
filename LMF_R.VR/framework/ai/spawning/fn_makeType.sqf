@@ -27,12 +27,26 @@ if (_type isEqualType 0) then {
 }
 else {
 	toUpper _type;
-	if (_type == "SQUAD") exitWith {_selection = selectRandom _squad};
-	if (_type == "SENTRY") exitWith {_selection = selectRandom _sentry};
-	if (_type == "ATTEAM") exitWith {_selection = selectRandom _atteam};;
-	if (_type == "AATEAM") exitWith {_selection = selectRandom _aateam};
-	if (_type == "MGTEAM") exitWith {_selection = selectRandom _mgteam};
-	_selection = selectRandom _team;
+	switch (toUpper _type) do {
+		case "SQUAD": {_selection = selectRandom _squad};
+		case "SENTRY": {_selection = selectRandom _sentry};
+		case "ATTEAM": {_selection = selectRandom _atteam};
+		case "AATEAM": {_selection = selectRandom _aateam};
+		case "MGTEAM": {_selection = selectRandom _mgteam};
+		case "CREW": {_selection = _vehicleCrew};
+		case "HCREW": {_selection = _heliCrew};
+		case "STATIC": {_selection = _staticCrew};
+
+		case "CAR": {_selection = selectRandom _car};
+		case "CARARMED": {_selection = selectRandom _carArmed};
+		case "TRUCK": {_selection = selectRandom _truck};
+		case "APC": {_selection = selectRandom _apc};
+		case "TANK": {_selection = selectRandom _tank};
+		case "HELITRANSPORT": {_selection = selectRandom _heli_Transport};
+		case "HELIATTACK": {_selection = selectRandom _heli_Attack};
+
+		default {_selection = selectRandom _team};
+	}
 };
 
 

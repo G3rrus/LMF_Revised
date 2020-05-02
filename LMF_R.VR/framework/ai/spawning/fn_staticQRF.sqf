@@ -18,8 +18,6 @@
 if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
-#include "cfg_spawn.sqf"
-
 params [
 	["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]],
 	["_tickets",1,[123]]
@@ -29,34 +27,42 @@ _spawnPos = _spawnPos call CBA_fnc_getPos;
 if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
 
 private _range = 500;
+private _initTickets = _tickets;
+private _doSpawn = 0;
 
 
 // PREPARE AND SPAWN THE GROUP ////////////////////////////////////////////////////////////////////
-private _initTickets = _tickets;
-
 while {_initTickets > 0} do {
 
 	//IF THE INITAL TICKETS WERE HIGHER THAN ONE
 	if (_tickets > 1) then {
-		//WAIT UNTIL PROXIMTY IS FINE
-		waitUntil {sleep 5; [_spawnPos,_range] call _proximityChecker isEqualTo false};
+		//WAIT UNTIL PROXIMTY IS FINE OR HAS BEEN BREACHED BY GROUND
+		waitUntil {sleep 5; _doSpawn = [_spawnPos,_range] call lmf_ai_fnc_proxyCheck; !(_doSpawn isEqualTo 1)};
 	};
+	if (_doSpawn isEqualTo 2) exitWith {};
 
 	//ONCE THE PROXIMITY IS FINE
-	_grp = [_spawnPos,var_enemySide,_staticCrew] call BIS_fnc_spawnGroup;
+	private _type = ["STATIC"] call lmf_ai_fnc_makeType;
+	private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;	
 	_grp deleteGroupWhenEmpty true;
 
 	private _wp = _grp addWaypoint [_spawnPos,0];
 	_wp setWaypointType "GUARD";
 	_grp setFormation "STAG COLUMN";
-	_grp allowFleeing 0.1;
+	_grp allowFleeing 0;
 
 	waitUntil {sleep 3; (leader _grp) call BIS_fnc_enemyDetected || {{alive _x} count units _grp < 1}};
 
 	//IF BOTH ARE STILL ALIVE
 	if ({alive _x} count units _grp > 1) then {
+
 		private _gunner = (units _grp) select 0;
 		private _assistant = (units _grp) select 1;
+		private _enemyPos = getPosATL (_gunner findNearestEnemy _gunner);
+
+		if (isClass (configfile >> "CfgPatches" >> "lambs_danger")) exitWith {
+			[_grp, _enemyPos] call lambs_danger_fnc_leaderStaticDeploy;
+		};
 
 		//ADD EH THAT MAKES SURE THE GUY GETS IN AN THE WEAPON IS ROTATED RIGHT
 		_gunner addEventHandler ["WeaponAssembled",{
@@ -84,14 +90,14 @@ while {_initTickets > 0} do {
 		_grp setCombatMode "YELLOW";
 	};
 
-	//IF THE INITAL TICKETS WERE HIGHER THAN ONE
-	if (_tickets > 1) then {
-		//WAIT UNTIL EVERYONE DEAD
-		waitUntil {sleep 5; {alive _x} count units _grp < 1};
-	};
-
 	//SUBTRACT TICKET
 	_initTickets = _initTickets - 1;
+
+	//IF THE INITAL TICKETS WERE HIGHER THAN ONE AND ITS NOT THE LAST CYCLE
+	if (_tickets > 1 && {_initTickets > 0}) then {
+		//WAIT UNTIL EVERYONE DEAD OR GROUND PROXIMITY BREACH
+		waitUntil {sleep 15; [_spawnPos,_range] call lmf_ai_fnc_proxyCheck isEqualTo 2 || {{alive _x} count units _grp < 1}};
+	};
 };
 
 

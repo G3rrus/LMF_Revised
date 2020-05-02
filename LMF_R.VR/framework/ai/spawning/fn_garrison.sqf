@@ -21,8 +21,6 @@
 if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
-#include "cfg_spawn.sqf"
-
 params [
 	["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]],
 	["_grpType","TEAM",["",123]],

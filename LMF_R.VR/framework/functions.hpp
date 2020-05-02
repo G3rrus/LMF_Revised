@@ -33,6 +33,7 @@ class ai {
 		class makeType {};
 		class paraQRF {};
 		class patrol {};
+		class proxyCheck {};
 		class staticQRF {};
 		class vehicleQRF {};
 	};

@@ -17,8 +17,6 @@
 if (hasInterface && {!isServer}) exitWith {};
 waitUntil {CBA_missionTime > 0};
 
-#include "cfg_spawn.sqf"
-
 params [["_spawnPos",objNull,[objNull,grpNull,"",locationNull,taskNull,[],123]]];
 
 private _dir = random 360;
@@ -34,18 +32,20 @@ if (_spawnPos isEqualTo  [0,0,0]) exitWith {};
 
 
 // PREPARE AND SPAWN //////////////////////////////////////////////////////////////////////////////
-private _veh = createVehicle [selectRandom _heli_Transport, _spawnPos, [], 0, "CAN_COLLIDE"];
+private _type = ["TRANSPORT"] call lmf_ai_fnc_makeType;
+private _veh = createVehicle [_type, _spawnPos, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
 
 //CREW
-private _grp = [_spawnPos,var_enemySide,_heliCrew] call BIS_fnc_spawnGroup;
+private _type = ["HCREW"] call lmf_ai_fnc_makeType;
+private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
 _grp addVehicle _veh;
 {_x moveInAny _veh} forEach units _grp;
 {_x disableAI "AUTOCOMBAT"} count units _grp;
 
 //PASSENGERS
-private _type = selectRandom _squad;
+private _type = ["SQUAD"] call lmf_ai_fnc_makeType;
 private _grp2 = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp2 deleteGroupWhenEmpty true;
 {_x moveInCargo _veh} count units _grp2;

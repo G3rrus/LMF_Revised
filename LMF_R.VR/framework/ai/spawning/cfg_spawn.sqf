@@ -8,7 +8,7 @@
 
 
 // MEN FOR SCALAR SPAWNING ////////////////////////////////////////////////////////////////////////
-_soldier = [
+private _soldier = [
 	_Rifleman,
 	_Rifleman,
 	_Rifleman,
@@ -23,14 +23,14 @@ _soldier = [
 
 
 // GROUPS //////////////////////////////////////////////////////////////////////////////////////////
-_squad = [
+private _squad = [
 	[_Squad_Leader,_Autorifleman,_MMG_Gunner,_Rifleman,_Grenadier,_Marksman,_Rifleman,_Rifleman_AT],
 	[_Squad_Leader,_Marksman,_Rifleman,_Rifleman,_Rifleman_AT,_Grenadier,_Autorifleman,_Rifleman_AT],
 	[_Squad_Leader,_Rifleman,_Rifleman_AT,_Marksman,_Grenadier,_Autorifleman,_Rifleman,_Rifleman],
 	[_Squad_Leader,_Autorifleman,_Grenadier,_Marksman,_Rifleman_AT,_Rifleman_AT,_Rifleman,_Autorifleman]
 	];
 
-_team =	[
+private _team =	[
 	[_Squad_Leader,_Rifleman,_Rifleman,_Rifleman_AT],
 	[_Squad_Leader,_Rifleman,_Rifleman,_Marksman],
 	[_Squad_Leader,_Rifleman,_Rifleman,_Autorifleman],
@@ -38,47 +38,33 @@ _team =	[
 	[_Squad_Leader,_Autorifleman,_Marksman,_Rifleman_AT]
 ];
 
-_sentry =	[
+private _sentry =	[
 	[_Rifleman,_Rifleman_AT],
 	[_Rifleman,_Autorifleman],
 	[_Rifleman,_Grenadier],
 	[_Rifleman,_Marksman]
 ];
 
-_atTeam =	[
+private _atTeam =	[
 	[_Squad_Leader,_Grenadier,_MAT_Gunner,_MAT_Gunner],
 	[_Squad_Leader,_Rifleman_AT,_MAT_Gunner,_MAT_Gunner],
 	[_Squad_Leader,_Grenadier,_MAT_Gunner,_Rifleman_AT],
 	[_Squad_Leader,_MAT_Gunner,_MAT_Gunner,_MAT_Gunner]
 ];
 
-_aaTeam =	[
+private _aaTeam =	[
 	[_Squad_Leader,_Autorifleman,_AA_Gunner,_AA_Gunner],
 	[_Squad_Leader,_Rifleman_AT,_AA_Gunner,_AA_Gunner],
 	[_Squad_Leader,_AA_Gunner,_AA_Gunner,_AA_Gunner],
 	[_Squad_Leader,_Grenadier,_AA_Gunner,_AA_Gunner]
 ];
 
-_mgTeam =	[
+private _mgTeam =	[
 	[_Squad_Leader,_Grenadier,_MMG_Gunner,_MMG_Gunner],
 	[_Squad_Leader,_Autorifleman,_Autorifleman,_Autorifleman],
 	[_Squad_Leader,_MMG_Gunner,_MMG_Gunner,_MMG_Gunner]
 ];
 
-_vehicleCrew = [_Crew,_Crew,_Crew];
-_heliCrew = [_Pilot,_Pilot];
-_staticCrew = [_Static_Gunner,_Static_Assistant];
-
-
-// FUNCTIONS ///////////////////////////////////////////////////////////////////////////////////////
-//CHECK IF PLAYERS FAR ENOUGH AWAY
-private _proximityChecker = {
-	params ["_pos",["_range",500]];
-	private _targetsToCheck = (switchableUnits + playableUnits - entities "HeadlessClient_F");
-	private _close = false;
-	{
-		private _dist = vehicle _x distance _pos;
-		if (isPlayer _x && {_dist < _range}) then {_close = true};
-	} forEach _targetsToCheck;
-	_close
-};
+private _vehicleCrew = [_Crew,_Crew,_Crew];
+private _heliCrew = [_Pilot,_Pilot];
+private _staticCrew = [_Static_Gunner,_Static_Assistant];

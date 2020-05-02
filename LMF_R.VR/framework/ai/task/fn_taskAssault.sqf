@@ -24,8 +24,9 @@ private _cycle = 30;
 
 
 // START THE ASSAULT SCRIPT ///////////////////////////////////////////////////////////////////////
-while {count units _grp > 0} do {
+while {{alive _x} count units _grp > 0} do {
 	private _nearest = [_grp,_range] call lmf_ai_fnc_getClosest;
+	private _nearestdist = (leader _grp) distance2D _nearest;
 
 	//ORDERS
 	if !(isNull _nearest) then {
@@ -42,7 +43,7 @@ while {count units _grp > 0} do {
 
 		//MOVE IN
 		if (_nearestdist < 150) then {
-			if (_tracker knowsAbout _nearest > 1) then {
+			if (_grp knowsAbout _nearest > 1) then {
 				{deleteWaypoint ((wayPoints _grp) select 0);} count wayPoints _grp;
 				{_x doMove (getposATL _nearest);} count units _grp;
 				_grp enableAttack false;

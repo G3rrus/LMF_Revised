@@ -29,8 +29,9 @@ _grp enableAttack false;
 
 
 // DO THE HUNTING /////////////////////////////////////////////////////////////////////////////////
-while {count units _grp > 0} do {
+while {{alive _x} count units _grp > 0} do {
 	private _nearest = [_grp,_radius] call lmf_ai_fnc_getClosest;
+	private _nearestdist = (leader _grp) distance2D _nearest;
 
 	//ORDERS
 	if !(isNull _nearest) then {
