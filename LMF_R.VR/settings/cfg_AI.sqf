@@ -37,9 +37,9 @@ private _Heli_Vest = ["V_Rangemaster_belt"]; // Same as Vest(s) but for Pilots
 private _Heli_Headgear = ["H_PilotHelmetHeli_O"]; // Same as Headgear(s) but for Pilots
 
 //VEHICLE CREW
-private _Crew_Uniform = ["U_O_CombatUniform_oucamo"]; // Same as Uniform(s) but for Pilots
-private _Crew_Vest = ["V_HarnessO_gry"]; // Same as Vest(s) but for Pilots
-private _Crew_Headgear = ["H_HelmetSpecO_blk"]; // Same as Headgear(s) but for Pilots
+private _Crew_Uniform = ["U_O_CombatUniform_oucamo"]; // Same as Uniform(s) but for Crew
+private _Crew_Vest = ["V_HarnessO_gry"]; // Same as Vest(s) but for Crew
+private _Crew_Headgear = ["H_HelmetSpecO_blk"]; // Same as Headgear(s) but for Crew
 
 
 // WEAPONS ////////////////////////////////////////////////////////////////////////////////////////
