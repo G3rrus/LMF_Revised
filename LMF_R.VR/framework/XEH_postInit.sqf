@@ -58,7 +58,7 @@ if (isServer) then {
 	[] execVM "framework\server\init\markers.sqf";
 
 	//CREATE A RADIO CHANNEL FOR CHAT COMMANDS
-	if (isNil "fpa_main") then {
+	if !(isClass (configfile >> "CfgPatches" >> "fpa_main")) then {
 		lmf_chatChannel = radioChannelCreate [[0.9,0.1,0.1,1], "Chat", "Chat", [], true];
     	publicVariable "lmf_chatChannel";
 	};
@@ -256,9 +256,12 @@ if !(isNil "zen_custom_modules_fnc_register") then {
 	[] execVM "framework\player\init\zenModules.sqf";
 };
 
-//CHAT COMMANDS
-if (isNil "fpa_main") then {
+//CHAT COMMANDS AND HELPER MESSAGES
+if !(isClass (configfile >> "CfgPatches" >> "fpa_main")) then {
 	[] execVM "framework\player\init\chatCommands.sqf";
+	if (var_helpMessages) then {
+		[] execVM "framework\player\init\medicalHelpMessages.sqf";
+	};
 };
 
 //MAKE VEHICLES HOT (thx veteran29 for feedback)

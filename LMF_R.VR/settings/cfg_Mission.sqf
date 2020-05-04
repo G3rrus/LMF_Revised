@@ -59,6 +59,7 @@ var_pistolAll = false; // Give all players sidearms? (default: false)
 var_playerNVG = 2; // Who gets NVGs? (0=ALL, 1=PILOTS, 2=NONE) (default: 2)
 var_playerMaps = 0; // Who gets Maps? (0=ALL, 1=LEADERS, 2=NONE) (default: 0)
 var_keepRole = true; // Should players keep their role upon respawn? (default: true)
+var_helpMessages = true; // Should players receive notification when they're being helped while unconscious? (default: true)
 
 
 // MARKERS ////////////////////////////////////////////////////////////////////////////////////////
