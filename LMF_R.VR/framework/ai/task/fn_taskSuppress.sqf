@@ -12,7 +12,7 @@
 	* 4: Fire mode <STRING>
 	*
 	* Example:
-	* [cursorObject, player, 10, false, "FullAuto"] spawn lmf_ai_fnc_taskSuppress;
+	* [cursorObject, player, 10, false, "manual"] spawn lmf_ai_fnc_taskSuppress;
 	*
 	* Return Value:
 	* <NONE>
@@ -22,8 +22,8 @@ params [
 	["_unit",objNull,[objNull]],
 	["_target",objNull,[objNull]],
 	["_timesFired",10,[123]],
-	["_resetMagazine",false,[true]],
-	["_mode","FullAuto",[""]]
+	["_resetMagazine",true,[true]],
+	["_mode","manual",[""]]
 ];
 
 if (isNull _unit || {isNull _target || {!local _unit}}) exitWith {
