@@ -33,7 +33,7 @@ if (var_debug && {count _roadlist < 2}) exitWith {
 	systemChat format ["DEBUG Barricades: No roads found! (%1)",count _roadlist];
 };
 
-private _wrecklist = ["Land_Barricade_01_10m_F","Land_Barricade_01_10m_F","Land_Barricade_01_10m_F","Land_Barricade_01_4m_F","Land_Razorwire_F"];
+private _wrecklist = ["Land_Barricade_01_10m_F","Land_Barricade_01_10m_F","Land_Barricade_01_10m_F","Land_Barricade_01_4m_F"];
 
 // SHUFFLE ROADS
 _roadlist = _roadlist call BIS_fnc_arrayShuffle;
@@ -59,21 +59,15 @@ for "_i" from 0 to (_amount -1 ) do {
 	_veh setpos _rel_pos;
 	addToRemainsCollector [_veh];
 
-	if (_car == "Land_Razorwire_F") then {
-		private _veh = createVehicle ["Land_Razorwire_F",_currentRoad,[],0,"NONE"];
-		_veh setdir _direction;
-		addToRemainsCollector [_veh];
-	};
-
 	// BURNING BARREL
-	if (random 1 < 0.1 && {_car != "Land_Razorwire_F"}) then {
+	if (random 1 < 0.1) then {
 		private _veh2 = createVehicle ["MetalBarrel_burning_F",_veh,[],0,"NONE"];
 		_veh2 setVectorUp surfaceNormal position _veh2;
 		addToRemainsCollector [_veh2];
 	};
 
 	// BURNING WHEELS
-	if (random 1 < 0.1 && {_car != "Land_Razorwire_F"}) then {
+	if (random 1 < 0.1) then {
 		private _center = createCenter sideLogic;
 		private _grp = createGroup [_center,true];
 		private _veh3 = createVehicle ["Land_Tyres_F",_veh,[],150,"NONE"];
