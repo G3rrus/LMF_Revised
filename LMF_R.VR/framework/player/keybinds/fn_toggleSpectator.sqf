@@ -17,12 +17,14 @@ if (time < 1 || {isNull (getAssignedCuratorLogic player)}) exitWith {};
 
 
 // SET SPECTATOR //////////////////////////////////////////////////////////////////////////////////
+if (!alive player) exitWith {systemChat "LMF: Must be alive to toggle ACRE Spectator!"};
+
 if (missionNamespace getVariable ["lmf_myToggle",true]) then {
 	[true] call acre_api_fnc_setSpectator;
-	systemChat "LMF: Entered ACRE Spectator";
+	systemChat "LMF: Entered ACRE Spectator!";
 } else {
 	[false] call acre_api_fnc_setSpectator;
-	systemChat "LMF: Exited ACRE Spectator";
+	systemChat "LMF: Exited ACRE Spectator!";
 };
 lmf_myToggle = !lmf_myToggle;
 
