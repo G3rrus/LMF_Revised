@@ -90,6 +90,10 @@ class player {
 		class jipChooseTarget {};
 		class jipEmptySeat {};
 	};
+	class player_keybinds {
+		file = "framework\player\keybinds";
+		class toggleSpectator {};
+	};	
 };
 class player_loadout {
 	tag = "lmf_loadout";
