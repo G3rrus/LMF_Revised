@@ -3,6 +3,7 @@
 	- File gets included in pre-init. Adds keybinds to addon controls that do a bunch of useful stuff.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
+lmf_acreToggle = true;
 [
 	"LMF Revised",
 	"toggle_spec_key",
