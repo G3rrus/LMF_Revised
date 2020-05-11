@@ -78,12 +78,12 @@
 			if (_positive) then {
 				if !(missionNamespace getVariable ["lmf_isSafe",false]) then {
 					["lmf_adminEventClient", ["safe",_unit,nil,true]] call CBA_fnc_globalEvent;
-					missionNamespace setVariable ["lmf_isSafe",true];
+					lmf_isSafe = true;
 				};
 			} else {
 				if (missionNamespace getVariable ["lmf_isSafe",false]) then {
 					["lmf_adminEventClient", ["safe",_unit,nil,false]] call CBA_fnc_globalEvent;
-					missionNamespace setVariable ["lmf_isSafe",false];
+					lmf_isSafe = false;
 				};
 			};
 		};
