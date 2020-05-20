@@ -71,6 +71,7 @@
 },"admin"] call CBA_fnc_registerChatCommand;
 
 ["grant.remote",{
+	if !(ace_spectator_enableAI) exitWith {systemChat "AI Spectating not enabled"};
 	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
 	if !(_unit in ([] call ace_spectator_fnc_players)) exitWith {systemChat "Could not find unit"};

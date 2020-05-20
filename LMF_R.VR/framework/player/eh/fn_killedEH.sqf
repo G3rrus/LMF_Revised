@@ -46,7 +46,7 @@ if !(var_useJRM) then {
 };
 
 //REMOTE CONTROL DISPLAY EVENT
-if !(isNull (getAssignedCuratorLogic player)) then {
+if (!isNull (getAssignedCuratorLogic player) && {ace_spectator_enableAI}) then {
 	[{!isNull findDisplay 60000},{
 		private _lmf_spec_remote_control = (findDisplay 60000) displayAddEventHandler ["KeyUp",{
 			_this call lmf_player_fnc_remoteControl;
