@@ -29,11 +29,11 @@ if !(lmf_warmup) exitWith {};
 //DISABLE WEAPONS AND DISALLOW DAMMAGE
 waitUntil {simulationEnabled player};
 ["lmf_adminEventClient", ["safe",objNull,nil,true]] call CBA_fnc_localEvent;
-systemChat "Type #help to see available chat-commands.";
+if !(isClass (configfile >> "CfgPatches" >> "fpa_main")) then {
+	systemChat "Type #help to see available chat-commands.";
+};
 if !(isNull (getAssignedCuratorLogic player)) then {
-	private _acreSpecToggleKey = ((["LMF Revised", "toggle_spec_key"] call cba_fnc_getKeybind) select 5) select 0;
-	private _acreSpecKeyAdditional = ((["LMF Revised", "toggle_spec_key"] call cba_fnc_getKeybind) select 5) select 1;
-	systemChat format ["Press %1 to toggle Spectator Chat.",[_acreSpecToggleKey,_acreSpecKeyAdditional] call CBA_fnc_localizeKey];
+	systemChat "LMF Keybinds: Addon Keybinds > LMF Revised";
 };
 
 //DISPLAY CONTROL

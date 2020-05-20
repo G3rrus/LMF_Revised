@@ -1,6 +1,6 @@
 // PLAYER KILLED EH ///////////////////////////////////////////////////////////////////////////////
 /*
-	* Author: Alex2k, G4rrus
+	* Author: G4rrus, Alex2k
 	* EH that handles what happens if the player gets killed.
 	*
 	* Arguments:
@@ -43,6 +43,15 @@ sleep 6;
 //ACE SPECTATOR INTERFACE
 if !(var_useJRM) then {
 	[true] call ace_spectator_fnc_setSpectator;
+};
+
+//REMOTE CONTROL DISPLAY EVENT
+if !(isNull (getAssignedCuratorLogic player)) then {
+	[{!isNull findDisplay 60000},{
+		lmf_spec_remote_control = (findDisplay 60000) displayAddEventHandler ["KeyUp",{
+			_this call lmf_player_fnc_remoteControl;
+		}];
+	},[],120] call CBA_fnc_waitUntilAndExecute;
 };
 
 //SPECTATOR SETTINGS

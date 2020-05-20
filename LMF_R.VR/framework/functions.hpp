@@ -92,6 +92,7 @@ class player {
 	};
 	class player_keybinds {
 		file = "framework\player\keybinds";
+		class remoteControl {};
 		class toggleSpectator {};
 	};
 };

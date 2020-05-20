@@ -12,3 +12,12 @@ lmf_acreToggle = true;
 	{},
 	[0x1A,[true,false,false]] // SHIFT + DIK_LBRACKET
 ] call CBA_fnc_addKeybind;
+
+[
+	"LMF Revised",
+	"enter_spec_remote",
+	["Spectator Take Control","Remote control the spectated unit."],
+	{},
+	{},
+	[0x1B,[true,false,false]] // SHIFT + DIK_RBRACKET
+] call CBA_fnc_addKeybind;

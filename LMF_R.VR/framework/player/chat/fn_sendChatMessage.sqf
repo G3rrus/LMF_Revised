@@ -1,6 +1,6 @@
 // SEND CHAT MESSAGE //////////////////////////////////////////////////////////////////////////////
 /*
-	* Author: cuel, G4rrus
+	* Author: cuel
 	* URL: https://github.com/fparma/fparma-mods/blob/master/addons/common/functions/fnc_sendChatMessage.sqf
 	* Sends chat message to target.
 	* Note: Needs to be local to player.

@@ -1,6 +1,6 @@
 // GET PLAYER FUNCTION ////////////////////////////////////////////////////////////////////////////
 /*
-	* Author: cuel, G4rrus
+	* Author: cuel
 	* URL: https://github.com/fparma/fparma-mods/blob/master/addons/common/functions/fnc_getPlayer.sqf
 	* Takes string (player name, full or partial) and see if it matches any players.
 	*
