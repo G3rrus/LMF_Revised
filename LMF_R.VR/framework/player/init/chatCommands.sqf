@@ -5,7 +5,7 @@
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 //CHAT MESSAGE CHANNEL EVENT HANDLER
-["lmf_chatMessage", {
+["lmf_chatMessage",{
 	params ["_sender","_msg","_type","_receiver",["_ping",true]];
 
 	private _args = switch (toLower _type) do {
@@ -31,44 +31,53 @@
 }] call CBA_fnc_addEventHandler;
 
 //ADMIN COMMANDS
-["heal", {
-	params [["_name", ""]];
+["heal",{
+	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
 
 	[_unit] call ace_medical_treatment_fnc_fullHealLocal;
 	_unit setDamage 0;
-	systemChat format ["Fully healed %1.", name _unit];
-}, "admin"] call CBA_fnc_registerChatCommand;
+	systemChat format ["Fully healed %1.",name _unit];
+},"admin"] call CBA_fnc_registerChatCommand;
 
-["heal.all", {
+["heal.all",{
 	{
 		[_x] call ace_medical_treatment_fnc_fullHealLocal;
 		_x setDamage 0;
 	} forEach ([] call CBA_fnc_players);
 	systemChat "Fully healed everyone.";
-}, "admin"] call CBA_fnc_registerChatCommand;
+},"admin"] call CBA_fnc_registerChatCommand;
 
-["goto", {
-	params [["_name", ""]];
+["goto",{
+	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
 
 	moveOut player;
-	player setPos (_unit modelToWorld [0, -2, 0]);
-	systemChat format ["Teleported to %1.", name _unit];
-}, "admin"] call CBA_fnc_registerChatCommand;
+	player setPos (_unit modelToWorld [0,-2,0]);
+	systemChat format ["Teleported to %1.",name _unit];
+},"admin"] call CBA_fnc_registerChatCommand;
 
-["bring", {
-	params [["_name", ""]];
+["bring",{
+	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
 
 	moveOut _unit;
 	_unit setVelocity [0,0,0];
-	_unit setPos (player modelToWorld [0, 1, 0]);
-	systemChat format ["Teleported %1 to you.", name _unit];
-}, "admin"] call CBA_fnc_registerChatCommand;
+	_unit setPos (player modelToWorld [0,1,0]);
+	systemChat format ["Teleported %1 to you.",name _unit];
+},"admin"] call CBA_fnc_registerChatCommand;
+
+["grant.remote",{
+	params [["_name",""]];
+	private _unit = _name call lmf_player_fnc_getPlayer;
+	if !(_unit in ([] call ace_spectator_fnc_players)) exitWith {systemChat "Could not find unit"};
+
+	["lmf_grantRemote", [], _unit] call CBA_fnc_targetEvent;
+	systemChat format ["Granted RC to %1.",name _unit];
+},"admin"] call CBA_fnc_registerChatCommand;
 
 //CLIENT COMMANDS
 ["help",{
@@ -78,33 +87,30 @@
 		systemChat "#heal.all - heal all players";
 		systemChat "#bring name (or partial name) - bring player to you";
 		systemChat "#goto name (or partial name) - teleport to player";
+		systemChat "#grant.remote name (or partial name) - grants a single RC-token to spectators";
 		systemChat "-";
-		systemChat "Client Commands:";
-		systemChat "#w name (or partial name) message - whisper message to player";
-		systemChat "#zeus message - whisper message to all curators";
-	} else {
-		systemChat "Client Commands:";
-		systemChat "#w name (or partial name) message - whisper message to player";
-		systemChat "#zeus message - whisper message to all curators";
 	};
-}, "all",false] call CBA_fnc_registerChatCommand;
+	systemChat "Client Commands:";
+	systemChat "#w name (or partial name) message - whisper message to player";
+	systemChat "#zeus message - whisper message to all curators";
+},"all",false] call CBA_fnc_registerChatCommand;
 
-["w", {
-	params [["_str", ""]];
+["w",{
+	params [["_str",""]];
 	private _split = (_str splitString " ");
-	private _to = _split param [0, ""];
+	private _to = _split param [0,""];
 	_split deleteAt 0;
 	private _msg = _split joinString " ";
 	if (_to isEqualTo "" || {_msg isEqualTo ""}) exitWith {systemChat "Invalid arguments"};
 
 	private _receiver = [_to] call lmf_player_fnc_getPlayer;
 	if (isNull _receiver) exitWith {systemChat "Could not find receiver"};
-	[_msg, "whisper", name _receiver] call lmf_player_fnc_sendChatMessage;
-}, "all",false] call CBA_fnc_registerChatCommand;
+	[_msg,"whisper",name _receiver] call lmf_player_fnc_sendChatMessage;
+},"all",false] call CBA_fnc_registerChatCommand;
 
-["zeus", {
-	params [["_msg", ""]];
+["zeus",{
+	params [["_msg",""]];
 	_msg = [_msg] call CBA_fnc_trim;
 	if (_msg isEqualTo "") exitWith {};
 	[_msg, "zeus"] call lmf_player_fnc_sendChatMessage;
-}, "all",false] call CBA_fnc_registerChatCommand;
+},"all",false] call CBA_fnc_registerChatCommand;

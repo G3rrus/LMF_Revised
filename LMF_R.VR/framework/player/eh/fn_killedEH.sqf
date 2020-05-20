@@ -48,7 +48,7 @@ if !(var_useJRM) then {
 //REMOTE CONTROL DISPLAY EVENT
 if !(isNull (getAssignedCuratorLogic player)) then {
 	[{!isNull findDisplay 60000},{
-		lmf_spec_remote_control = (findDisplay 60000) displayAddEventHandler ["KeyUp",{
+		private _lmf_spec_remote_control = (findDisplay 60000) displayAddEventHandler ["KeyUp",{
 			_this call lmf_player_fnc_remoteControl;
 		}];
 	},[],120] call CBA_fnc_waitUntilAndExecute;

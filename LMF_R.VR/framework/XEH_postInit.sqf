@@ -280,6 +280,15 @@ if !(isClass (configfile >> "CfgPatches" >> "fpa_main")) then {
 	};
 }, true] call CBA_fnc_addPlayerEventHandler;
 
+//GRANT RC TOKEN EVENT
+["lmf_grantRemote",{
+	if !(isNull (getAssignedCuratorLogic player)) exitWith {};
+	private _lmf_spec_remote_control = (findDisplay 60000) displayAddEventHandler ["KeyUp",{
+		_this call lmf_player_fnc_remoteControl;
+	}];
+	titleText ["<t color='#FFBA26' size='2'>RC Token Granted!</t>","PLAIN DOWN",1,true,true];
+}] call CBA_fnc_addEventHandler;
+
 //CHANNEL SETUP
 0 enableChannel false;
 1 enableChannel true;
