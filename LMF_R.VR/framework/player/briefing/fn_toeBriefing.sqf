@@ -21,7 +21,9 @@ private _brf_platoon = "";
 	//GET INFO
 	private _grp = group _x;
 	private _id = groupID group _x;
+	private _rank = toLower rank _x;
 	private _role = roleDescription _x;
+	private _name = name _x;
 	if (_role find "@" >= 0) then {
 		private _indexToAt = ([_role, "@"] call CBA_fnc_find) - 1;
 		_role = [_role, 0, _indexToAt] call CBA_fnc_substring;
@@ -33,21 +35,22 @@ private _brf_platoon = "";
 	};
 
 	//ENTRY FOR SOLDIER
-	_brf_platoon = _brf_platoon + " <font color='#D7DBD5'>- " + _role + ": " +  name _x + "</font><br/>";
+	_brf_platoon = _brf_platoon + format ["<img image='\A3\Ui_f\data\GUI\Cfg\Ranks\%1_gs.paa' width='16' height='16'/><font color='#D7DBD5'> %2: %3</font><br/>",_rank,_role,_name];
 
 	//UPDATE OLD
 	_grp2 = _grp;
 } foreach (playableUnits + switchableUnits);
 
+//REMOVE LAST LINEBREAK
+_brf_platoon = _brf_platoon select [0,count _brf_platoon - 5];
 
 // FORMAT TEXT ////////////////////////////////////////////////////////////////////////////////////
 private _text = format ["
-<font face='PuristaBold' color='#FFBA26' size='16'>OVERVIEW</font><br/>
+<br/><font face='PuristaBold' color='#FFBA26' size='16'>OVERVIEW</font><br/>
 <font color='#D7DBD5'>
-	- Unit strength is <font color='#FFBA26'>%1<font color='#D7DBD5'> pax.<br/><br/>
+- Unit strength is <font color='#FFBA26'>%1<font color='#D7DBD5'> pax.<br/>
 </font color>
-<font face='PuristaBold' color='#FFBA26' size='16'>ELEMENTS</font>
-%2<br/>
+%2
 ",count (switchableUnits + playableUnits - entities 'HeadlessClient_F'),_brf_platoon];
 
 

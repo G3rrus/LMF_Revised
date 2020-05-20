@@ -245,7 +245,7 @@ if (!isNil "fpa_jrm_fnc_init" && {var_useJRM}) then {
 
 //UPDATE TOE EVENT
 ["lmf_updateToe",{
-	player setDiaryRecordText [["Diary", lmf_toeBriefing], ["  TO/E",[] call lmf_player_fnc_toeBriefing]];
+	player setDiaryRecordText [["Briefing",lmf_toeBriefing], ["TO/E",[] call lmf_player_fnc_toeBriefing]];
 }] call CBA_fnc_addEventHandler;
 
 //INTRO + WARMUP

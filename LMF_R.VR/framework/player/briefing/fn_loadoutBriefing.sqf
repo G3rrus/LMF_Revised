@@ -15,7 +15,7 @@
 	* <BOOL> true on success
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-private _textToDisplay = "";
+private _textToDisplay = "<br/>";
 
 //GET PICTURE FUNCTION
 private _getPicture = {
@@ -34,7 +34,7 @@ if (_lobbyName isEqualto "") then {_lobbyName = getText (configFile >> "CfgVehic
 
 //START ADDING TO THE BRIEFING TEXT (FIRST INFO LINE)
 _textToDisplay = _textToDisplay +
-	format ["<img image='\A3\Ui_f\data\GUI\Cfg\Ranks\%4_gs.paa' width='16' height='16'/> <font face='PuristaBold' color='#FFBA26' size='14'>%1 - %2</font><font color='#D7DBD5'> - %3kg</font><br/>",
+	format ["<img image='\A3\Ui_f\data\GUI\Cfg\Ranks\%4_gs.paa' width='16' height='16'/> <font face='PuristaBold' color='#FFBA26' size='16'>%1 - %2</font><font color='#D7DBD5'> - %3kg</font><br/>",
 		name player,
 		_lobbyName,
 		round ((loadAbs player) *0.1 * 0.45359237 * 10) / 10,
@@ -109,7 +109,7 @@ private _weaponName = primaryWeapon player;
 //PRIMARY WEAPON
 if !(_weaponName isEqualto "") then {
 	private _name = getText(configFile >> "CfgWeapons" >> _weaponName >> "displayName");
-	_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3FFA3'>Primary: </font><font color='#D7DBD5'>%1</font><br/>", _name] + ([_weaponName, primaryWeaponItems player] call _getWeaponPicture);
+	_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3E0FF'>Primary: </font><font color='#D7DBD5'>%1</font><br/>", _name] + ([_weaponName, primaryWeaponItems player] call _getWeaponPicture);
 };
 
 private _allMags = magazines player;
@@ -122,7 +122,7 @@ _primaryMags call _displayMags;
 private _secondaryMags = [];
 if !(_sWeaponName isEqualto "") then {
 	private _name = getText(configFile >> "CfgWeapons" >> _sWeaponName >> "displayName");
-	_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3FFA3'>Launcher: </font><font color='#D7DBD5'>%1</font><br/>", _name];
+	_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3E0FF'>Launcher: </font><font color='#D7DBD5'>%1</font><br/>", _name];
 	_textToDisplay = _textToDisplay + ([_sWeaponName, secondaryWeaponItems player] call _getWeaponPicture);
 	_secondaryMags = _allMags arrayIntersect (_sWeaponName call _getMuzzleMags);
 	_secondaryMags call _displayMags;
@@ -132,7 +132,7 @@ if !(_sWeaponName isEqualto "") then {
 private _handgunMags = [];
 if !(_hWeaponName isEqualto "") then {
 	private _name = getText(configFile >> "CfgWeapons" >> _hWeaponName >> "displayName");
-	_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3FFA3'>Sidearm: </font><font color='#D7DBD5'>%1</font><br/>", _name];
+	_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3E0FF'>Sidearm: </font><font color='#D7DBD5'>%1</font><br/>", _name];
 	_textToDisplay = _textToDisplay + ([_hWeaponName, handgunItems player] call _getWeaponPicture);
 	_handgunMags = _allMags arrayIntersect (_hWeaponName call _getMuzzleMags);
 	_handgunMags call _displayMags;
@@ -152,7 +152,7 @@ private _allItems = items player;
 } forEach _allItems;
 _allItems = _allItems - _radios;
 
-_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3FFA3'>Magazines and items: </font><font color='#D7DBD5'>(Click count for info.)</font><br/>"];
+_textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3E0FF'>Magazines and items: </font><font color='#D7DBD5'>(Click count for info.)</font><br/>"];
 
 //DISPLAY RADIOS THEN MAGAZINES AND LAST INVENTORY AND ASSSIGNED ITEMS
 {
@@ -171,7 +171,7 @@ _textToDisplay = _textToDisplay + "<br/><br/></font><font color='#D7DBD5'>This p
 
 
 // CREATE DIARY RECORD ////////////////////////////////////////////////////////////////////////////
-player createDiaryRecord ["Diary",["  Starting Kit",_textToDisplay]];
+player createDiaryRecord ["Briefing",["Starting Kit",_textToDisplay],taskNull,"",false];
 
 
 // RETURN /////////////////////////////////////////////////////////////////////////////////////////
