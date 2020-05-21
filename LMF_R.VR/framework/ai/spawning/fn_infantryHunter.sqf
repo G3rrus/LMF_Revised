@@ -51,6 +51,7 @@ while {_initTickets > 0} do {
 	private _type = [_grptype] call lmf_ai_fnc_makeType;
 	private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 	_grp deleteGroupWhenEmpty true;
+	_grp setGroupIDGlobal [format ["Hunter: %1", groupId _grp]];
 
 	if (isClass (configfile >> "CfgPatches" >> "lambs_wp")) then {
 		if (_methodical) then {

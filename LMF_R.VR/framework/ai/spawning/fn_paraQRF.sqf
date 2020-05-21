@@ -40,6 +40,7 @@ _veh setDir _dir;
 private _type = ["HCREW"] call lmf_ai_fnc_makeType;
 private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
+_grp setGroupIDGlobal [format ["Para QRF: %1", groupId _grp]];
 _grp addVehicle _veh;
 {_x moveInAny _veh} forEach units _grp;
 {_x disableAI "AUTOCOMBAT"} count units _grp;
@@ -48,6 +49,7 @@ _grp addVehicle _veh;
 private _type = ["SQUAD"] call lmf_ai_fnc_makeType;
 private _grp2 = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp2 deleteGroupWhenEmpty true;
+_grp2 setGroupIDGlobal [format ["Para QRF: %1", groupId _grp2]];
 {_x moveInCargo _veh} count units _grp2;
 
 //ORDERS

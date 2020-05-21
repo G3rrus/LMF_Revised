@@ -47,6 +47,7 @@ while {_initTickets > 0} do {
 	private _type = [_grptype] call lmf_ai_fnc_makeType;
 	private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 	_grp deleteGroupWhenEmpty true;
+	_grp setGroupIDGlobal [format ["QRF: %1", groupId _grp]];
 
 	private _wp = _grp addWaypoint [_spawnPos,0];
 	_wp setWaypointType "GUARD";

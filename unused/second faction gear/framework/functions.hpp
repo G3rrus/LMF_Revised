@@ -35,6 +35,7 @@ class ai {
 		class patrol {};
 		class proxyCheck {};		
 		class staticQRF {};
+		class supplyDrop {};
 		class vehicleQRF {};
 	};
 	class ai_tasks {

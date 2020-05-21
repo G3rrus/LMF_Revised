@@ -43,6 +43,7 @@ private _type = [_grptype] call lmf_ai_fnc_makeType;
 private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
 _grp setFormation "DIAMOND";
+_grp setGroupIDGlobal [format ["Garrison: %1", groupId _grp]];
 
 //GARRISON THEM
 [_spawnPos, _usePos, units _grp, _garrisonRadius, _distribution, selectRandom [true,false], true] call ace_ai_fnc_garrison;

@@ -45,6 +45,7 @@ if !(_alerted) then {
 private _type = [_grptype] call lmf_ai_fnc_makeType;
 private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
 _grp deleteGroupWhenEmpty true;
+_grp setGroupIDGlobal [format ["Patrol: %1", groupId _grp]];
 
 //GIVE THEM ORDERS
 [_grp, _patrolTarget, _patrolRadius, 4, "MOVE", _behav, _cMode, _speed, "STAG COLUMN", "", [10,20,30]] call CBA_fnc_taskPatrol;

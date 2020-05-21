@@ -72,6 +72,7 @@ while {_initTickets > 0} do {
     _type = [_type] call lmf_ai_fnc_makeType;
     private _grp = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
     _grp deleteGroupWhenEmpty true;
+    _grp setGroupIDGlobal [format ["Vehicle QRF: %1", groupId _grp]];
     _grp addVehicle _veh;
     {_x moveInAny _veh} forEach units _grp;
 
@@ -81,6 +82,7 @@ while {_initTickets > 0} do {
         private _type = ["SQUAD"] call lmf_ai_fnc_makeType;
         _grp2 = [_spawnPos,var_enemySide,_type] call BIS_fnc_spawnGroup;
         _grp2 deleteGroupWhenEmpty true;
+        _grp2 setGroupIDGlobal [format ["Vehicle QRF: %1", groupId _grp2]];
         {_x moveInCargo _veh} forEach units _grp2;
     };
 

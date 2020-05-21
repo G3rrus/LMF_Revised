@@ -12,3 +12,6 @@
 // RECOMMENDED ////////////////////////////////////////////////////////////////////////////////////
 // ACE Mk6 Mortar
 force force ace_mk6mortar_useAmmoHandling = false; // Keep this if you want fn_mortarAttack.sqf to work
+
+// ACE Spectator
+force force ace_spectator_enableAI = true; // Keep this if you want the spectator remote control component to work

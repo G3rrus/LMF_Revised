@@ -1,6 +1,6 @@
 // PLAYER BRIEFING ////////////////////////////////////////////////////////////////////////////////
 /*
-	- Minimally rewritten by Drgn V4karian, most code originally by nkenny.
+	- Rewritten by G4rrus and or Alex2k, code originally by nkenny.
 	- File that handles player briefing. Collects data from cfg_Briefing.sqf.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////

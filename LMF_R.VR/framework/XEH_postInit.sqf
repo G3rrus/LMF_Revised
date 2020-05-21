@@ -291,6 +291,11 @@ if (missionNamespace getVariable ["ace_spectator_enableAI",false]) then {
 	}] call CBA_fnc_addEventHandler;
 };
 
+//SUPPLY DROP
+if !(var_supplyDropLimit isEqualTo 0) then {
+	[] execVM "framework\player\init\supplyDrop.sqf";
+};
+
 //CHANNEL SETUP
 0 enableChannel false;
 1 enableChannel true;
