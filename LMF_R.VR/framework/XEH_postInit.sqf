@@ -4,43 +4,6 @@
 	- File that handles what happens post init.
 */
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// EVERYONE ///////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//DISABLE VARIOUS
-enableSentences false;
-enableEnvironment [false, true];
-enableSaving [false,false];
-
-//ZEUS PINGED EH
-["ModuleCurator_F", "initPost", {
-	params ["_module"];
-	_module addEventHandler ["CuratorPinged", {
-		params ["_curator", "_unit"];
-		private _zeus = getAssignedCuratorUnit _curator;
-		if (isNull _zeus) then {
-			unassignCurator _curator;
-			deleteVehicle _curator;
-		} else {
-			if (_zeus == player) then {
-				systemChat format ["%1 just pinged", name _unit];
-				format ["Ping received by %1!",name player] remoteExec ["systemChat", _unit];
-			};
-		};
-	}];
-}, false, [], true] call CBA_fnc_addClassEventHandler;
-
-//RADIO CHANNEL LABLES
-[] execVM "framework\shared\init\acreChannelLabels.sqf";
-
-//DISABLE RHS ENGINE STARTUP
-RHS_ENGINE_STARTUP_OFF = false;
-
-//ADMIN ACTIONS
-[] execVM "framework\shared\init\adminActionsClient.sqf";
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // SERVER /////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 if (isServer) then {
@@ -96,6 +59,53 @@ if (!isServer || !hasInterface) then {
 			case "vicqrf": {_argsArray spawn lmf_ai_fnc_vehicleQRF;};
 		};
 	}] call CBA_fnc_addEventHandler;
+};
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// EVERYONE ///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//DISABLE VARIOUS
+enableSentences false;
+enableEnvironment [false, true];
+enableSaving [false,false];
+
+//ZEUS PINGED EH
+["ModuleCurator_F", "initPost", {
+	params ["_module"];
+	_module addEventHandler ["CuratorPinged", {
+		params ["_curator", "_unit"];
+		private _zeus = getAssignedCuratorUnit _curator;
+		if (isNull _zeus) then {
+			unassignCurator _curator;
+			deleteVehicle _curator;
+		} else {
+			if (_zeus == player) then {
+				systemChat format ["%1 just pinged", name _unit];
+				format ["Ping received by %1!",name player] remoteExec ["systemChat", _unit];
+			};
+		};
+	}];
+}, false, [], true] call CBA_fnc_addClassEventHandler;
+
+//RADIO CHANNEL LABLES
+[] execVM "framework\shared\init\acreChannelLabels.sqf";
+
+//DISABLE RHS ENGINE STARTUP
+RHS_ENGINE_STARTUP_OFF = false;
+
+//ADMIN ACTIONS
+[] execVM "framework\shared\init\adminActionsClient.sqf";
+
+//SUPPLY DROP
+if !(var_supplyDropLimit isEqualTo 0) then {
+	[] execVM "framework\shared\init\supplyDrop.sqf";
+};
+
+//SUPPLY DROP
+if (var_forwardDeploy) then {
+	[] execVM "framework\shared\init\forwardDeploy.sqf";
 };
 
 
@@ -289,11 +299,6 @@ if (missionNamespace getVariable ["ace_spectator_enableAI",false]) then {
 		}];
 		titleText ["<t color='#FFBA26' size='2'>RC Token Granted!</t>","PLAIN DOWN",1,true,true];
 	}] call CBA_fnc_addEventHandler;
-};
-
-//SUPPLY DROP
-if !(var_supplyDropLimit isEqualTo 0) then {
-	[] execVM "framework\player\init\supplyDrop.sqf";
 };
 
 //CHANNEL SETUP

@@ -55,6 +55,10 @@ var_supExplosives = "Box_NATO_AmmoOrd_F"; // Supply Spawnpad explosives supplies
 var_supplyDropLimit = 0; // How many supply drops should team leaders be able to call in?
 var_suppDropPlane = "C_Plane_Civil_01_F"; // What plane should do the supply drop?
 
+//FORWARD DEPLOY (not yet implemented)
+var_forwardDeploy = false; // Should group leaders be able to register for a forward deployment during warmup?
+var_deployHeight = 250; // At what height should players forward deploy? 0 = ground (everything higher than 0 but lower than 200 will become 200)
+
 //PLAYER GEAR (Only relevant if var_playerGear = true;)
 var_personalArsenal = false; // Give players access to a limited arsenal during briefing stage. (default: false)
 var_personalRadio = true; // Does everyone get a short range radio (AN/PRC 343)? (default: true)

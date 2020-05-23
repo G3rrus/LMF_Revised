@@ -86,6 +86,10 @@ class player {
 		class respawnEH {};
 		class viewDistanceEH {};
 	};
+	class player_deploy {
+		file = "framework\player\forwardDeploy";
+		class deployCleanUp {};
+	};
 	class player_jip {
 		file = "framework\player\jip";
 		class jipChooseTarget {};

@@ -5,22 +5,17 @@
 	  supply drop at a specified clicked location. Works together with supply crate system.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
-if (markerColor "respawn" isEqualTo "") exitWith {
-	systemChat "LMF Supply Drop: 'respawn' marker required!";
-};
-
+//SERVER
 if (isServer) then {
+	if (markerColor "respawn" isEqualTo "") then {
+		systemChat "LMF Supply Drop: 'respawn' marker required!";
+	};
+
 	lmf_remainingSuppDrops = var_supplyDropLimit;
 	publicVariable "lmf_remainingSuppDrops";
-};
 
-//JIP
-waitUntil {!isNil "lmf_remainingSuppDrops"};
-if (lmf_remainingSuppDrops isEqualTo 0) exitWith {};
-
-//SERVER EVENT
-if (isServer) then {
 	["lmf_supplyDropEventServer", {
+		if (lmf_SupplyDropActive) exitWith {};
 		params ["_dropPos","_crate"];
 
 		private _plane = var_suppDropPlane;
@@ -35,6 +30,8 @@ if (isServer) then {
 
 		[_spawnPos,_dropPos,_plane,_crate] spawn lmf_ai_fnc_supplyDrop;
 
+		lmf_SupplyDropActive = true;
+		publicVariable "lmf_SupplyDropActive";
 		lmf_remainingSuppDrops = lmf_remainingSuppDrops - 1;
 		publicVariable "lmf_remainingSuppDrops";
 
@@ -47,11 +44,20 @@ if (isServer) then {
 	}] call CBA_fnc_addEventHandler;
 };
 
-//PLAYER EVENT
+//PLAYER
 if !(hasInterface) exitWith {};
 
+//JIP
+waitUntil {!isNil "lmf_remainingSuppDrops"};
+if (lmf_remainingSuppDrops isEqualTo 0) exitWith {};
+
 ["lmf_supplyDropEventClient", {
-	[player, 1,["ACE_SelfActions","parentSupplyDrop"]] call ace_interact_menu_fnc_removeActionFromObject;
+	if !(var_supLarge isEqualTo "") then {[player,1,["ACE_SelfActions","parentSupplyDrop","lmf_supp_ammoLarge"]] call ace_interact_menu_fnc_removeActionFromObject;};
+	if !(var_supSmall isEqualTo "") then {[player,1,["ACE_SelfActions","parentSupplyDrop","lmf_supp_ammoSmall"]] call ace_interact_menu_fnc_removeActionFromObject;};
+	if !(var_supSpecial isEqualTo "") then {[player,1,["ACE_SelfActions","parentSupplyDrop","lmf_supp_ammoSpecial"]] call ace_interact_menu_fnc_removeActionFromObject;};
+	if !(var_supExplosives isEqualTo "") then {[player,1,["ACE_SelfActions","parentSupplyDrop","lmf_supp_ammoExplosive"]] call ace_interact_menu_fnc_removeActionFromObject;};
+	[player,1,["ACE_SelfActions","parentSupplyDrop","lmf_supp_ammoMedic"]] call ace_interact_menu_fnc_removeActionFromObject;	
+	[player,1,["ACE_SelfActions","parentSupplyDrop"]] call ace_interact_menu_fnc_removeActionFromObject;
 }] call CBA_fnc_addEventHandler;
 
 
@@ -114,8 +120,6 @@ private _statement = {
 					openMap false;
 				};
 
-				lmf_SupplyDropActive = true;
-				publicVariable "lmf_SupplyDropActive";
 				removeMissionEventHandler ["MapSingleClick",_thisEventHandler];
 
 				["lmf_supplyDropEventServer",[_pos,lmf_chosenSuppDrop]] call CBA_fnc_serverEvent;
@@ -140,14 +144,14 @@ private _statement = {
 	]] call CBA_fnc_waitUntilAndExecute;
 };
 
-private _parentSupplyDrop = ["parentSupplyDrop","Call Supply Drop","",{true},{player isEqualTo (leader group player)}] call ace_interact_menu_fnc_createAction;
+private _parentSupplyDrop = ["parentSupplyDrop","Call Supply Drop","",{true},{!visibleMap && {player isEqualTo (leader group player)}}] call ace_interact_menu_fnc_createAction;
 [player,1,["ACE_SelfActions"],_parentSupplyDrop] call ace_interact_menu_fnc_addActionToObject;
 
-private _dropLarge = ["ammoLarge","Crate Large","\A3\ui_f\data\map\vehicleicons\iconCrateAmmo_ca.paa",_statement,{true},{},[var_supLarge]] call ace_interact_menu_fnc_createAction;
-private _dropSmall = ["ammoSmall","Crate Small","\A3\ui_f\data\map\vehicleicons\iconCrate_ca.paa",_statement,{true},{},[var_supSmall]] call ace_interact_menu_fnc_createAction;
-private _dropSpec = ["ammoSpecial","Crate Special","\A3\modules_f\data\portraitModule_ca.paa",_statement,{true},{},[var_supSpecial]] call ace_interact_menu_fnc_createAction;
-private _dropExplo = ["ammoExplosive","Crate Explosives","\A3\ui_f\data\map\vehicleicons\pictureExplosive_ca.paa",_statement,{true},{},[var_supExplosives]] call ace_interact_menu_fnc_createAction;
-private _dropMed = ["ammoMedic","Crate Medical","\A3\ui_f\data\map\vehicleicons\pictureHeal_ca.paa",_statement,{true},{},["ACE_medicalSupplyCrate_advanced"]] call ace_interact_menu_fnc_createAction;
+private _dropLarge = ["lmf_supp_ammoLarge","Crate Large","\A3\ui_f\data\map\vehicleicons\iconCrateAmmo_ca.paa",_statement,{true},{},[var_supLarge]] call ace_interact_menu_fnc_createAction;
+private _dropSmall = ["lmf_supp_ammoSmall","Crate Small","\A3\ui_f\data\map\vehicleicons\iconCrate_ca.paa",_statement,{true},{},[var_supSmall]] call ace_interact_menu_fnc_createAction;
+private _dropSpec = ["lmf_supp_ammoSpecial","Crate Special","\A3\modules_f\data\portraitModule_ca.paa",_statement,{true},{},[var_supSpecial]] call ace_interact_menu_fnc_createAction;
+private _dropExplo = ["lmf_supp_ammoExplosive","Crate Explosives","\A3\ui_f\data\map\vehicleicons\pictureExplosive_ca.paa",_statement,{true},{},[var_supExplosives]] call ace_interact_menu_fnc_createAction;
+private _dropMed = ["lmf_supp_ammoMedic","Crate Medical","\A3\ui_f\data\map\vehicleicons\pictureHeal_ca.paa",_statement,{true},{},["ACE_medicalSupplyCrate_advanced"]] call ace_interact_menu_fnc_createAction;
 
 if !(var_supLarge isEqualTo "") then {[player,1,["ACE_SelfActions","parentSupplyDrop"],_dropLarge] call ace_interact_menu_fnc_addActionToObject;};
 if !(var_supSmall isEqualTo "") then {[player,1,["ACE_SelfActions","parentSupplyDrop"],_dropSmall] call ace_interact_menu_fnc_addActionToObject;};
