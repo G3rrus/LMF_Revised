@@ -15,7 +15,7 @@ if (isServer) then {
 	publicVariable "lmf_remainingSuppDrops";
 
 	["lmf_supplyDropEventServer", {
-		if (lmf_SupplyDropActive) exitWith {};
+		if (missionNamespace getVariable ["lmf_SupplyDropActive",false]) exitWith {};
 		params ["_dropPos","_crate"];
 
 		private _plane = var_suppDropPlane;
@@ -125,7 +125,7 @@ private _statement = {
 				["lmf_supplyDropEventServer",[_pos,lmf_chosenSuppDrop]] call CBA_fnc_serverEvent;
 				"lmf_suppLayer_1" cutText ["","PLAIN",0.01,true];
 
-				[{!lmf_SupplyDropActive},{deleteMarkerLocal "lmf_marker_suppDrop"},[],600] call CBA_fnc_waitUntilAndExecute;
+				[{deleteMarkerLocal "lmf_marker_suppDrop"},[],60] call CBA_fnc_waitAndExecute;
 			};
 
 			//DELETE MARKER OTHERWISE
