@@ -29,7 +29,7 @@ if !(lmf_warmup) exitWith {};
 //DISABLE WEAPONS AND DISALLOW DAMMAGE
 waitUntil {simulationEnabled player};
 ["lmf_adminEventClient", ["safe",objNull,nil,true]] call CBA_fnc_localEvent;
-if !(isClass (configfile >> "CfgPatches" >> "fpa_main")) then {
+if !(isClass (configfile >> "CfgPatches" >> "fpa_common")) then {
 	systemChat "Type #help to see available chat-commands.";
 };
 if !(isNull (getAssignedCuratorLogic player)) then {
