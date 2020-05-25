@@ -10,29 +10,32 @@
 	*
 	* Arguments:
 	* 0: Array <ARRAY> In the format [paramArray1,paramArray2,paramArrayN]
+	* 1: Height <NUMBER>
 	*
 	* Example:
-	* [[[player,[[100,100,0],0,[]]]]] call lmf_player_fnc_forwardDeployTroops;
+	* [[[player,[[100,100,0],0,[]]]],200] call lmf_player_fnc_forwardDeployTroops;
 	*
 	* Return Value:
 	* <NONE>
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 if !(isServer) exitWith {};
-if (var_deployHeight > 0 && {var_deployHeight < 200}) then {
-	var_deployHeight = 200;
-};
 
 params [
-	["_paramArrays",[],[[]]]
+	["_paramArrays",[],[[]]],
+	["_height",200,[123]]
 ];
+
+if (_height > 0 && {_height < 200}) then {
+	_height = 200;
+};
 
 if (_paramArrays isEqualTo []) exitWith {};
 
 
 // DEPLOY /////////////////////////////////////////////////////////////////////////////////////////
 //GROUND
-if (var_deployHeight isEqualTo 0) exitWith {
+if (_height isEqualTo 0) exitWith {
 	{
 		//PARAMS
 		_x params [
@@ -131,7 +134,7 @@ if (var_deployHeight isEqualTo 0) exitWith {
 			};
 
 			private _randomOffset = [random 10, random -10] select (random 100 < 50);
-			private _finalPos = (_startPos getPos [_randomOffset,_dirRel]) vectorAdd [0,0,var_deployHeight + (random 15)];
+			private _finalPos = (_startPos getPos [_randomOffset,_dirRel]) vectorAdd [0,0,_height + (random 15)];
 
 			_x setPos _finalPos;
 			[_x,_finalPos,_dir,""] call lmf_player_fnc_attachChute;
@@ -145,7 +148,7 @@ if (var_deployHeight isEqualTo 0) exitWith {
 		if !(_vics isEqualTo []) then {
 			{
 				private _randomOffset = [random 10, random -10] select (random 100 < 50);
-				private _finalPos = (_startPos getPos [_randomOffset,_dirRel]) vectorAdd [0,0,var_deployHeight + (random 15)];
+				private _finalPos = (_startPos getPos [_randomOffset,_dirRel]) vectorAdd [0,0,_height + (random 15)];
 
 				_x setPos _finalPos;
 				[_x,_finalPos,_dir,""] call lmf_player_fnc_attachChute;

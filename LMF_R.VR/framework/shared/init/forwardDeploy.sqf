@@ -86,7 +86,7 @@ if (isServer) then {
 			_paraParams pushBack _info;
 		} forEach _hashgroups;
 		[{
-			[_this select 0] call lmf_player_fnc_forwardDeployTroops;
+			[_this select 0,var_deployHeight] call lmf_player_fnc_forwardDeployTroops;
 		},[_paraParams], 8] call CBA_fnc_waitAndExecute;
 	}] call CBA_fnc_addEventHandler;
 };
