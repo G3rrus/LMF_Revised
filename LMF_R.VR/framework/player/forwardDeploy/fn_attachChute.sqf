@@ -9,10 +9,12 @@
 	*
 	* Arguments:
 	* 0: Object <OBJECT>
-	* 1: Item <STRING>
+	* 1: Position <ARRAY>
+	* 2: Direction <NUMBER>
+	* 3: Item <STRING>
 	*
 	* Example:
-	* [cursorObject, "SmokeshellYellow"] call lmf_player_fnc_attachChute;
+	* [cursorObject,[0,0,0],0,"SmokeshellYellow"] call lmf_player_fnc_attachChute;
 	*
 	* Return Value:
 	* <NONE>
