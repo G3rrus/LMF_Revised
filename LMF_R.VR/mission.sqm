@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=419;
+		nextID=423;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=111;
+		nextID=120;
 	};
 	class Camera
 	{
@@ -41,13 +41,14 @@ addons[]=
 	"A3_Structures_F_Households_House_Big02",
 	"A3_Structures_F_Households_House_Big01",
 	"A3_Structures_F_Households_House_Shop01",
-	"A3_Modules_F"
+	"A3_Modules_F",
+	"A3_Soft_F_MRAP_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=11;
+		items=12;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -125,6 +126,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item11
+		{
+			className="A3_Soft_F";
+			name="Arma 3 Alpha - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=2960882;
@@ -154,7 +162,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=43;
+		items=44;
 		class Item0
 		{
 			dataType="Group";
@@ -173,6 +181,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="PLTHQ_PLTL_WHITE";
 						description="Platoon Leader@PLT HQ";
 						isPlayer=1;
@@ -233,6 +242,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="PLTHQ_PLTSGT_WHITE";
 						description="Platoon 2iC";
 						isPlayable=1;
@@ -293,6 +303,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="PLTHQ_RTO_WHITE";
 						description="RTO";
 						isPlayable=1;
@@ -353,6 +364,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="PLTHQ_FAC_WHITE";
 						description="FAC";
 						isPlayable=1;
@@ -668,6 +680,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="ALPHA_TL_GREEN";
 						description="Team Leader";
 						isPlayable=1;
@@ -848,6 +861,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="ALPHA_CLS_GREEN";
 						description="Combat Life Saver";
 						isPlayable=1;
@@ -1163,6 +1177,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="BRAVO_TL_GREEN";
 						description="Team Leader";
 						isPlayable=1;
@@ -1343,6 +1358,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="BRAVO_CLS_GREEN";
 						description="Combat Life Saver";
 						isPlayable=1;
@@ -1658,6 +1674,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="CHARLIE_TL_GREEN";
 						description="Team Leader";
 						isPlayable=1;
@@ -1838,6 +1855,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="CHARLIE_CLS_GREEN";
 						description="Combat Life Saver";
 						isPlayable=1;
@@ -2153,6 +2171,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="DELTA_TL_GREEN";
 						description="Team Leader";
 						isPlayable=1;
@@ -2333,6 +2352,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="DELTA_CLS_GREEN";
 						description="Combat Life Saver";
 						isPlayable=1;
@@ -2648,6 +2668,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="ECHO_TL_GREEN";
 						description="Team Leader";
 						isPlayable=1;
@@ -2828,6 +2849,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						name="ECHO_CLS_GREEN";
 						description="Combat Life Saver";
 						isPlayable=1;
@@ -2903,6 +2925,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR1_VC_YELLOW";
 						description="Vehicle Commander@DAGGER1";
 						isPlayable=1;
@@ -2963,6 +2986,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR1_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -3023,6 +3047,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR1_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -3098,6 +3123,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR2_VC_YELLOW";
 						description="Vehicle Commander@DAGGER2";
 						isPlayable=1;
@@ -3158,6 +3184,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR2_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -3218,6 +3245,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR2_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -3293,6 +3321,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR3_VC_YELLOW";
 						description="Vehicle Commander@DAGGER3";
 						isPlayable=1;
@@ -3353,6 +3382,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR3_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -3413,6 +3443,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR3_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -3488,6 +3519,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR4_VC_YELLOW";
 						description="Vehicle Commander@DAGGER4";
 						isPlayable=1;
@@ -3548,6 +3580,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR4_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -3608,6 +3641,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="DGR4_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -3683,6 +3717,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD1_VC_YELLOW";
 						description="Vehicle Commander@SWORD1";
 						isPlayable=1;
@@ -3743,6 +3778,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD1_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -3803,6 +3839,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD1_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -3878,6 +3915,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD2_VC_YELLOW";
 						description="Vehicle Commander@SWORD2";
 						isPlayable=1;
@@ -3938,6 +3976,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD2_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -3998,6 +4037,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD2_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -4073,6 +4113,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD3_VC_YELLOW";
 						description="Vehicle Commander@SWORD3";
 						isPlayable=1;
@@ -4133,6 +4174,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD3_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -4193,6 +4235,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD3_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -4268,6 +4311,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD4_VC_YELLOW";
 						description="Vehicle Commander@SWORD4";
 						isPlayable=1;
@@ -4328,6 +4372,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD4_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -4388,6 +4433,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="SWD4_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -4463,6 +4509,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR1_VC_YELLOW";
 						description="Vehicle Commander@HAMMER1";
 						isPlayable=1;
@@ -4523,6 +4570,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR1_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -4583,6 +4631,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR1_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -4658,6 +4707,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR2_VC_YELLOW";
 						description="Vehicle Commander@HAMMER2";
 						isPlayable=1;
@@ -4718,6 +4768,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR2_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -4778,6 +4829,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR2_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -4853,6 +4905,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR3_VC_YELLOW";
 						description="Vehicle Commander@HAMMER3";
 						isPlayable=1;
@@ -4913,6 +4966,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR3_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -4973,6 +5027,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR3_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -5048,6 +5103,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR4_VC_YELLOW";
 						description="Vehicle Commander@HAMMER4";
 						isPlayable=1;
@@ -5108,6 +5164,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR4_VD_YELLOW";
 						description="Vehicle Driver";
 						isPlayable=1;
@@ -5168,6 +5225,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="HMR4_VG_YELLOW";
 						description="Vehicle Gunner";
 						isPlayable=1;
@@ -5243,6 +5301,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR1_HP_GREEN";
 						description="Helicopter Pilot@CONDOR1";
 						isPlayable=1;
@@ -5303,6 +5362,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR1_HCP_GREEN";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -5363,6 +5423,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR1_HC1_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -5423,6 +5484,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR1_HC2_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -5498,6 +5560,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR2_HP_GREEN";
 						description="Helicopter Pilot@CONDOR2";
 						isPlayable=1;
@@ -5558,6 +5621,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR2_HCP_GREEN";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -5618,6 +5682,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR2_HC1_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -5678,6 +5743,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR2_HC2_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -5753,6 +5819,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR3_HP_GREEN";
 						description="Helicopter Pilot@CONDOR3";
 						isPlayable=1;
@@ -5813,6 +5880,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR3_HCP_GREEN";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -5873,6 +5941,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR3_HC1_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -5933,6 +6002,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR3_HC2_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -6008,6 +6078,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR4_HP_GREEN";
 						description="Helicopter Pilot@CONDOR4";
 						isPlayable=1;
@@ -6068,6 +6139,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="CDR4_HCP_GREEN";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -6128,6 +6200,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR4_HC1_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -6188,6 +6261,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						name="CDR4_HC2_RED";
 						description="Helicopter Crew";
 						isPlayable=1;
@@ -6263,6 +6337,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC1_HP_YELLOW";
 						description="Helicopter Pilot@FALCON1";
 						isPlayable=1;
@@ -6323,6 +6398,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC1_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -6398,6 +6474,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC2_HP_YELLOW";
 						description="Helicopter Pilot@FALCON2";
 						isPlayable=1;
@@ -6458,6 +6535,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC2_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -6533,6 +6611,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC3_HP_YELLOW";
 						description="Helicopter Pilot@FALCON3";
 						isPlayable=1;
@@ -6593,6 +6672,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC3_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -6668,6 +6748,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC4_HP_YELLOW";
 						description="Helicopter Pilot@FALCON4";
 						isPlayable=1;
@@ -6728,6 +6809,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="FLC4_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -6803,6 +6885,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK1_HP_YELLOW";
 						description="Helicopter Pilot@HAWK1";
 						isPlayable=1;
@@ -6863,6 +6946,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK1_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -6938,6 +7022,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK2_HP_YELLOW";
 						description="Helicopter Pilot@HAWK2";
 						isPlayable=1;
@@ -6998,6 +7083,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK2_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -7073,6 +7159,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK3_HP_YELLOW";
 						description="Helicopter Pilot@HAWK3";
 						isPlayable=1;
@@ -7133,6 +7220,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK3_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -7208,6 +7296,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK4_HP_YELLOW";
 						description="Helicopter Pilot@HAWK4";
 						isPlayable=1;
@@ -7268,6 +7357,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="LIEUTENANT";
 						name="HWK4_HCP_YELLOW";
 						description="Helicopter Co-Pilot";
 						isPlayable=1;
@@ -7343,6 +7433,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="CAPTAIN";
 						name="EAG1_P_YELLOW";
 						description="Fighter Pilot@EAGLE1";
 						isPlayable=1;
@@ -7418,6 +7509,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="CAPTAIN";
 						name="EAG2_P_YELLOW";
 						description="Fighter Pilot@EAGLE2";
 						isPlayable=1;
@@ -7493,6 +7585,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="CAPTAIN";
 						name="EAG3_P_YELLOW";
 						description="Fighter Pilot@EAGLE3";
 						isPlayable=1;
@@ -7568,6 +7661,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						rank="CAPTAIN";
 						name="EAG4_P_YELLOW";
 						description="Fighter Pilot@EAGLE4";
 						isPlayable=1;
@@ -8730,6 +8824,43 @@ class Mission
 				};
 			};
 			id=417;
+		};
+		class Item43
+		{
+			dataType="Layer";
+			name="Forward Deploy";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Comment";
+					class PositionInfo
+					{
+						position[]={404,5,476};
+					};
+					title="Forward Deploy";
+					description="Look into this vehicles  init to see an example of how you could register them to be claimable assets for the forward deploy component.";
+					id=419;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={404,7.2059455,472.49844};
+					};
+					side="Empty";
+					flags=4;
+					class Attributes
+					{
+						init="this setVariable [""lmf_deploy_unowned"",true];";
+					};
+					id=421;
+					type="B_MRAP_01_F";
+				};
+			};
+			id=422;
 		};
 	};
 };

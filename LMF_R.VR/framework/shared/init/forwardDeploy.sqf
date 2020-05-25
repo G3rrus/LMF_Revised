@@ -1,23 +1,13 @@
-// SUPPLY DROP ////////////////////////////////////////////////////////////////////////////////////
+// FORWARD DEPLOY /////////////////////////////////////////////////////////////////////////////////
 /*
-my_fnc_func = { 
- params ["_initPos","_dir","_vics"]; 
- 
- private _pos = _initPos; 
- private _dirRel = _dir + 90; 
- 
- { 
-  private _minDist = (boundingBoxReal _x) select 2; 
-  while {(nearestObject _pos) distance2D _pos < _minDist} do { 
-   _pos = _pos getPos [1,_dirRel]; 
-  };
-_x enableSimulation false; 
-  _x setPos _pos; 
-  _x setDir _dir; 
-  _x setVectorUp (surfaceNormal position _x); 
-_x enableSimulation true;
- } forEach _vics; 
-};
+	- Originally by Alex2k, rewritten by G4rrus
+	- Creates events and ace actions around being able to forward deploy troops and their marked assets.
+	- Forward deploy will commence (with a slight delay) at the end of the warmup/briefing stage.
+	- var_deployHeight determines if it is a ground forward deploy or an airdrop.
+	- Assets that shall be claimable must be marked before this script executes (it executes post init)
+	- You can mark assets to be claimable by for example putting 'this setVariable ["lmf_deploy_unowned",true];'
+	  in their init in the editor.
+	- This requires the briefing stage component.
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 if !(var_forwardDeploy) exitWith {};
@@ -86,9 +76,18 @@ if (isServer) then {
 
 	["lmf_deploy_initiateDeploy", {
 		["lmf_deploy_removeActions",[]] call CBA_fnc_globalEvent;
+
 		//WORK OUT THE HASH DATA AND PASS IT TO FUNCTION
-		//
-		//
+		private _hashgroups = [lmf_fD_hash] call CBA_fnc_hashKeys;
+		private _paraParams = [];
+		{
+			private _key = [lmf_fD_hash,_x] call CBA_fnc_hashGet;
+			private _info = [_x,_key];
+			_paraParams pushBack _info;
+		} forEach _hashgroups;
+		[{
+			[_this select 0] call lmf_player_fnc_forwardDeployTroops;
+		},[_paraParams], 8] call CBA_fnc_waitAndExecute;
 	}] call CBA_fnc_addEventHandler;
 };
 
@@ -101,13 +100,30 @@ if !(lmf_warmup) exitWith {};
 
 //EVENTS
 ["lmf_deploy_removeActions", {
+	cutText ["","BLACK OUT",4,true];
+
 	[player,1,["ACE_SelfActions","lmf_deploy_register"]] call ace_interact_menu_fnc_removeActionFromObject;
 	[player,1,["ACE_SelfActions","lmf_deploy_unregister"]] call ace_interact_menu_fnc_removeActionFromObject;
 	{
 		[_x,0,["ACE_MainActions","lmf_deploy_register_vic"]] call ace_interact_menu_fnc_removeActionFromObject;
 		[_x,0,["ACE_MainActions","lmf_deploy_unregister_vic"]] call ace_interact_menu_fnc_removeActionFromObject;
 	} forEach lmf_drop_vehiclesToRegister;
+
+	[{
+		cutText ["","BLACK IN",4,true];
+		["vehicle",lmf_deploy_vehicleExitEH] call CBA_fnc_removePlayerEventHandler;
+	}, [], 12] call CBA_fnc_waitAndExecute;
 }] call CBA_fnc_addEventHandler;
+
+//GET OUT OF CLAIMED VEHICLE
+lmf_deploy_vehicleExitEH = ["vehicle",{
+    params ["_unit", "_newVehicle", "_oldVehicle"];
+    private _variable = _newVehicle getVariable "lmf_deploy_unowned";
+	if !(isNil "_variable") exitWith {
+		moveOut player;
+		titleText ["<t font='PuristaBold' shadow='2' color='#FFBA26' size='1.6'>Cannot enter deployable vehicle yet!</t>","PLAIN",0.3,false,true];
+	};
+},false] call CBA_fnc_addPlayerEventHandler;
 
 //STATEMENTS PLAYER
 private _statement_register = {

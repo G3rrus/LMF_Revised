@@ -6,7 +6,6 @@
 waitUntil {speed player > 1};
 
 //EXIT IF TOO CLOSE FOR JIP TP OR IF UNIT IS ALONE OR IF ALL HIS GROUP MEMBERS ARE DEAD
-if ((([] call CBA_fnc_players) - [player]) findIf {_x distance2D player < 200} != -1) exitWith {};
 if !(count units group player > 1) exitWith {};
 if !({alive _x} count units group player > 1) exitWith {};
 

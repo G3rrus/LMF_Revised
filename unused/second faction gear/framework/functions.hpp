@@ -88,8 +88,10 @@ class player {
 	};
 	class player_deploy {
 		file = "framework\player\forwardDeploy";
+		class attachChute {};
 		class deployCleanUp {};
-	};	
+		class forwardDeployTroops {};
+	};
 	class player_jip {
 		file = "framework\player\jip";
 		class jipChooseTarget {};

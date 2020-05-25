@@ -12,4 +12,4 @@
 #include "..\framework\player\init\keybinds.sqf"
 
 //FRAMEWORK VERSION
-var_version = 1.2;
+var_version = 1.3;

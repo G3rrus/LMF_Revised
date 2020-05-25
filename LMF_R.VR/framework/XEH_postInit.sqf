@@ -244,7 +244,7 @@ if (var_personalArsenal) then {
 };
 
 //JIP
-if (var_jipTP && {CBA_missionTime > 5*60}) then {
+if (var_jipTP && {didJIP}) then {
 	[] execVM "framework\player\init\jipTeleport.sqf";
 };
 

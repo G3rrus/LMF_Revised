@@ -80,7 +80,7 @@ _unit setUnitTrait ["medic",false];
 _unit setUnitTrait ["engineer",false];
 
 //RANK
-_unit setRank "PRIVATE";
+_unit setRank "CORPORAL";
 
 
 // RETURN /////////////////////////////////////////////////////////////////////////////////////////
