@@ -267,7 +267,7 @@ if !(isNil "zen_custom_modules_fnc_register") then {
 };
 
 //CHAT COMMANDS AND HELPER MESSAGES
-if !(isClass (configfile >> "CfgPatches" >> "fpa_main")) then {
+if !(isClass (configfile >> "CfgPatches" >> "fpa_common")) then {
 	[] execVM "framework\player\init\chatCommands.sqf";
 	if (var_helpMessages) then {
 		[] execVM "framework\player\init\medicalHelpMessages.sqf";
