@@ -21,7 +21,7 @@ if (isServer) then {
 	[] execVM "framework\server\init\markers.sqf";
 
 	//CREATE A RADIO CHANNEL FOR CHAT COMMANDS
-	if !(isClass (configfile >> "CfgPatches" >> "fpa_main")) then {
+	if !(isClass (configfile >> "CfgPatches" >> "fpa_common")) then {
 		lmf_chatChannel = radioChannelCreate [[0.9,0.1,0.1,1], "Chat", "Chat", [], true];
     	publicVariable "lmf_chatChannel";
 	};

@@ -44,7 +44,6 @@ if (_Goggles#0 !=  "") then {
 //RADIO SETUP
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadioAcreFlagged";
-_unit addItem _Radio_L;
 if (var_personalRadio) then {
 	_unit addItem _Radio_R;
 };
