@@ -84,7 +84,6 @@ class player {
 		class hitEH {};
 		class killedEH {};
 		class respawnEH {};
-		class viewDistanceEH {};
 	};
 	class player_deploy {
 		file = "framework\player\forwardDeploy";

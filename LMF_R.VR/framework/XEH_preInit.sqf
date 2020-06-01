@@ -5,9 +5,6 @@
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 #include "..\settings\cfg_Mission.sqf"
 
-//VIEW DISTANCE CBA SETTINGS
-#include "..\framework\player\init\viewDistance.sqf"
-
 //KEYBINDS
 #include "..\framework\player\init\keybinds.sqf"
 
