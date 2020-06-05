@@ -148,6 +148,7 @@ while {_initTickets > 0} do {
 	if (_tickets > 1 && {_initTickets > 0}) then {
 		//WAIT UNTIL EVERYONE DEAD OR GROUND PROXIMITY BREACH
 		waitUntil {sleep 15; [_spawnPos,_range] call lmf_ai_fnc_proxyCheck isEqualTo 2 || {!alive _veh || {{alive _x} count units _grp < 1}}};
+        sleep _respawnTime;
 	};
 };
 
