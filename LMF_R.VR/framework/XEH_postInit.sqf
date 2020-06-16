@@ -284,7 +284,7 @@ if !(isClass (configfile >> "CfgPatches" >> "fpa_common")) then {
 }, true] call CBA_fnc_addPlayerEventHandler;
 
 //GRANT RC TOKEN EVENT
-if (missionNamespace getVariable ["ace_spectator_enableAI",false]) then {
+if (missionNamespace getVariable ["ace_spectator_enableAI",true]) then {
 	["lmf_grantRemote",{
 		if !(isNull (getAssignedCuratorLogic player)) exitWith {};
 		private _lmf_spec_remote_control = (findDisplay 60000) displayAddEventHandler ["KeyUp",{
