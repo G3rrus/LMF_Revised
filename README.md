@@ -49,4 +49,5 @@ This Framework uses global variables starting with prefix var_ and prefix lmf_.
 
 ## Additional
 If you are unsure of what you are doing and this is your first time using this Framework to make a mission, it is recommended to get help from
-someone that is more experienced with it.
+someone that is more experienced with it or watch this basic video tutorial:
+https://youtu.be/Dk1Xd9ny9Cc
