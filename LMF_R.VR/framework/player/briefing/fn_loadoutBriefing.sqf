@@ -168,7 +168,7 @@ _textToDisplay = _textToDisplay + format ["<font face='PuristaBold' color='#A3E0
 
 //FINISH IT OFF WITH WARNING ABOUT ACCURACY
 _textToDisplay = _textToDisplay + "<br/><br/></font><font color='#D7DBD5'>This page is only accurate at mission start.</font>";
-
+_textToDisplay = [_textToDisplay,"&"," and "] call CBA_fnc_replace;
 
 // CREATE DIARY RECORD ////////////////////////////////////////////////////////////////////////////
 player createDiaryRecord ["Briefing",["Starting Kit",_textToDisplay],taskNull,"",false];

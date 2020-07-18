@@ -107,7 +107,7 @@ private _whoIv = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/
 private _whoPak = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font><br/>",["ace_medical_treatment_medicPAK"] call _getLocalizedString];
 private _conPak = format ["<font face='PuristaBold' color='#A3E0FF'>%1</font>",["DISABLED","ENABLED"] select ace_medical_treatment_consumePAK];
 
-player creatediaryrecord ["Briefing",["Medical",format ["
+private _text = format ["
 <br/><font face='PuristaBold' color='#FFBA26' size='16'>MEDICAL SETTINGS</font><br/>
 <font color='#D7DBD5'>- Fatal Injury Player: </font>%1
 <font color='#D7DBD5'>- Fatal Injury AI: </font>%2
@@ -125,7 +125,10 @@ player creatediaryrecord ["Briefing",["Medical",format ["
 <font color='#D7DBD5'>- IV Transfusion: </font>%11
 <font color='#D7DBD5'>- PAK: </font>%12
 <font color='#D7DBD5'>- Consume PAK: </font>%13
-",_fatalPlayer,_fatalAi,_unconAi,_advBand,_advMedi,_bleedCoeff,_sponWake,_cprSuccess,_cardiTime,_whoEpi,_whoIv,_whoPak,_conPak]],taskNull,"",false];
+",_fatalPlayer,_fatalAi,_unconAi,_advBand,_advMedi,_bleedCoeff,_sponWake,_cprSuccess,_cardiTime,_whoEpi,_whoIv,_whoPak,_conPak];
+_text = [_text,"&","AND"] call CBA_fnc_replace;
+
+player creatediaryrecord ["Briefing",["Medical",_text],taskNull,"",false];
 
 
 // LOADOUT ////////////////////////////////////////////////////////////////////////////////////////
