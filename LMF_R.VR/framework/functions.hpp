@@ -138,3 +138,10 @@ class player_tasks {
 		class intelAction {};
 	};
 };
+class server {
+	tag = "lmf_server";
+	class server {
+		file = "framework\server";
+		class isAdmin {};
+	};
+};

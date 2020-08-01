@@ -32,6 +32,10 @@
 
 //ADMIN COMMANDS
 ["heal",{
+	if !([player] call lmf_server_fnc_isAdmin) exitWith {
+		["lmf_adminEventClient", ["message",nil,false], player] call CBA_fnc_targetEvent;
+	};
+
 	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
@@ -39,17 +43,25 @@
 	[_unit] call ace_medical_treatment_fnc_fullHealLocal;
 	_unit setDamage 0;
 	systemChat format ["Fully healed %1.",name _unit];
-},"admin"] call CBA_fnc_registerChatCommand;
+},"all",false] call CBA_fnc_registerChatCommand;
 
 ["heal.all",{
+	if !([player] call lmf_server_fnc_isAdmin) exitWith {
+		["lmf_adminEventClient", ["message",nil,false], player] call CBA_fnc_targetEvent;
+	};
+
 	{
 		[_x] call ace_medical_treatment_fnc_fullHealLocal;
 		_x setDamage 0;
 	} forEach ([] call CBA_fnc_players);
 	systemChat "Fully healed everyone.";
-},"admin"] call CBA_fnc_registerChatCommand;
+},"all",false] call CBA_fnc_registerChatCommand;
 
 ["goto",{
+	if !([player] call lmf_server_fnc_isAdmin) exitWith {
+		["lmf_adminEventClient", ["message",nil,false], player] call CBA_fnc_targetEvent;
+	};
+
 	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
@@ -57,9 +69,13 @@
 	moveOut player;
 	player setPos (_unit modelToWorld [0,-2,0]);
 	systemChat format ["Teleported to %1.",name _unit];
-},"admin"] call CBA_fnc_registerChatCommand;
+},"all",false] call CBA_fnc_registerChatCommand;
 
 ["bring",{
+	if !([player] call lmf_server_fnc_isAdmin) exitWith {
+		["lmf_adminEventClient", ["message",nil,false], player] call CBA_fnc_targetEvent;
+	};
+
 	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
 	if (isNull _unit) exitWith {systemChat "Could not find unit"};
@@ -68,9 +84,13 @@
 	_unit setVelocity [0,0,0];
 	_unit setPos (player modelToWorld [0,1,0]);
 	systemChat format ["Teleported %1 to you.",name _unit];
-},"admin"] call CBA_fnc_registerChatCommand;
+},"all",false] call CBA_fnc_registerChatCommand;
 
 ["grant.remote",{
+	if !([player] call lmf_server_fnc_isAdmin) exitWith {
+		["lmf_adminEventClient", ["message",nil,false], player] call CBA_fnc_targetEvent;
+	};
+
 	if !(ace_spectator_enableAI) exitWith {systemChat "AI Spectating not enabled"};
 	params [["_name",""]];
 	private _unit = _name call lmf_player_fnc_getPlayer;
@@ -78,11 +98,11 @@
 
 	["lmf_grantRemote", [], _unit] call CBA_fnc_targetEvent;
 	systemChat format ["Granted RC to %1.",name _unit];
-},"admin"] call CBA_fnc_registerChatCommand;
+},"all",false] call CBA_fnc_registerChatCommand;
 
 //CLIENT COMMANDS
 ["help",{
-	if (serverCommandAvailable "#kick") then {
+	if ([player] call lmf_server_fnc_isAdmin) then {
 		systemChat "Admin Commands:";
 		systemChat "#heal name (or partial name) - heal player";
 		systemChat "#heal.all - heal all players";
