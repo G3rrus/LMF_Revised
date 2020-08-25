@@ -37,7 +37,7 @@ private _adminList =  [
 
 
 //CHECK IF ADMIN AND RETURN BOOL
-if (serverCommandAvailable "#kick" || {_adminList findIf {_x == _uid} != -1}) then {_admin = true};
+if (admin (owner _unit) > 0 || {_adminList findIf {_x == _uid} != -1 || {hasInterface}}) then {_admin = true};
 
 
 // RETURN /////////////////////////////////////////////////////////////////////////////////////////
