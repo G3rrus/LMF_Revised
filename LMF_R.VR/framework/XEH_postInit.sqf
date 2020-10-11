@@ -99,11 +99,13 @@ RHS_ENGINE_STARTUP_OFF = false;
 [] execVM "framework\shared\init\adminActionsClient.sqf";
 
 //SUPPLY DROP
+var_supplyDropLimit = "supplyDropLimit" call BIS_fnc_getParamValue;
 if !(var_supplyDropLimit isEqualTo 0) then {
 	[] execVM "framework\shared\init\supplyDrop.sqf";
 };
 
 //SUPPLY DROP
+var_forwardDeploy = [false, true] select ("enableForwardDeploy" call BIS_fnc_getParamValue);
 if (var_forwardDeploy) then {
 	[] execVM "framework\shared\init\forwardDeploy.sqf";
 };
@@ -180,11 +182,13 @@ if !(hasinterface) exitWith {};
 waitUntil {!isNull player};
 
 //GROUP MARKERS
+var_groupTracker = [false, true] select ("enableGroupTracker" call BIS_fnc_getParamValue);
 if (var_groupTracker && !(missionNamespace getVariable ["ace_map_BFT_Enabled",false])) then {
 	[] execVM "framework\player\init\groupTracker.sqf";
 };
 
 //UNIT TRACKER
+var_unitTracker = [false, true] select ("enableUnitTracker" call BIS_fnc_getParamValue);
 if (var_unitTracker) then {[] execVM "framework\player\init\unitTracker.sqf";};
 
 //TEAM COLORS

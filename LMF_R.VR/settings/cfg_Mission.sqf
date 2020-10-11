@@ -43,11 +43,11 @@ var_supSpecial = "Box_NATO_WpsSpecial_F"; // Supply Spawnpad special supplies
 var_supExplosives = "Box_NATO_AmmoOrd_F"; // Supply Spawnpad explosives supplies
 
 //SUPPLY DROP
-var_supplyDropLimit = 0; // How many supply drops should team leaders be able to call in?
+//var_supplyDropLimit = 0; // How many supply drops should team leaders be able to call in?
 var_suppDropPlane = "C_Plane_Civil_01_F"; // What plane should do the supply drop?
 
 //FORWARD DEPLOY (check framework\shared\init\forwardDeploy.sqf for info)
-var_forwardDeploy = false; // Should group leaders be able to register for a forward deployment during warmup?
+//var_forwardDeploy = false; // Should group leaders be able to register for a forward deployment during warmup?
 var_deployHeight = 200; // At what height should players forward deploy? 0 = ground (everything higher than 0 but lower than 200 will become 200)
 
 //PLAYER GEAR (Only relevant if var_playerGear = true;)
@@ -63,5 +63,5 @@ var_helpMessages = true; // Should players receive notification when they're bei
 
 // MARKERS ////////////////////////////////////////////////////////////////////////////////////////
 var_markerSide = "ColorWEST"; // What colorsheme should markers on playerside use? ("ColorWEST", "ColorEAST", "ColorGUER") (default: "ColorWEST")
-var_groupTracker = true; // Use group-icons on map. (default: true)
-var_unitTracker = true; // Use unit-icons on map. (default: false)
+//var_groupTracker = true; // Use group-icons on map. (default: true)
+//var_unitTracker = true; // Use unit-icons on map. (default: false)

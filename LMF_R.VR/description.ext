@@ -91,3 +91,40 @@ class CfgDebriefingSections {
 		variable = "acex_killTracker_outputText";
 	};
 };
+
+//LOBBY PARAMS
+class Params
+{
+	class supplyDropLimit
+	{
+		title = "Supply Drop Limit"; // Param name visible in the list
+		values[] = {0,1,2,3,4,5,6,7,8,9,10}; // Values; must be integers; has to have the same number of elements as 'texts'
+		texts[] = {"1","2","3","4","5","6","7","8","9","10"}; // Description of each selectable item
+		default = 0; // Default value; must be listed in 'values' array, otherwise 0 is used
+		// Default values that are not whole numbers do not work. Param will default to 0 (or 1 if defined)
+	};
+	class enableForwardDeploy
+	{
+		title = "Forward Deploy"; // Param name visible in the list
+		values[] = {0,1}; // Values; must be integers; has to have the same number of elements as 'texts'
+		texts[] = {"Disabled","Enabled"}; // Description of each selectable item
+		default = 0; // Default value; must be listed in 'values' array, otherwise 0 is used
+		// Default values that are not whole numbers do not work. Param will default to 0 (or 1 if defined)
+	};
+	class enableGroupTracker
+	{
+		title = "Group Tracker"; // Param name visible in the list
+		values[] = {0,1}; // Values; must be integers; has to have the same number of elements as 'texts'
+		texts[] = {"Disabled","Enabled"}; // Description of each selectable item
+		default = 1; // Default value; must be listed in 'values' array, otherwise 0 is used
+		// Default values that are not whole numbers do not work. Param will default to 0 (or 1 if defined)
+	};
+	class enableUnitTracker
+	{
+		title = "Unit Tracker"; // Param name visible in the list
+		values[] = {0,1}; // Values; must be integers; has to have the same number of elements as 'texts'
+		texts[] = {"Disabled","Enabled"}; // Description of each selectable item
+		default = 1; // Default value; must be listed in 'values' array, otherwise 0 is used
+		// Default values that are not whole numbers do not work. Param will default to 0 (or 1 if defined)
+	};
+};
